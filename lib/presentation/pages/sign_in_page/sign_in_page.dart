@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
+import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/widgets/main_button/main_button.dart';
 import 'package:first_pancake_com/presentation/widgets/textfields/app_text_field.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
@@ -20,25 +22,16 @@ class SignInPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 60.h.heightBox,
-                Text(
-                  'Добро пожаловать снова!',
-                  style: AppTextStyles.title
-                ),
+                Text('Добро пожаловать снова!', style: AppTextStyles.title),
                 35.h.heightBox,
-                Text(
-                  'Email',
-                  style: AppTextStyles.label
-                ),
+                Text('Email', style: AppTextStyles.label),
                 10.h.heightBox,
                 AppTextField(
                   hint: 'Введите свою почту',
                   onChanged: (p0) {},
                 ),
                 25.h.heightBox,
-                Text(
-                  'Пароль',
-                  style: AppTextStyles.label
-                ),
+                Text('Пароль', style: AppTextStyles.label),
                 10.h.heightBox,
                 AppTextField(
                   hint: 'Введите свой пароль',
@@ -50,7 +43,9 @@ class SignInPage extends StatelessWidget {
                   text: 'Войти',
                   backgroundColor: AppColors.pancake5,
                   textColor: AppColors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(MainRoute());
+                  },
                 ),
               ],
             ).paddingSymmetric(horizontal: 30.w),

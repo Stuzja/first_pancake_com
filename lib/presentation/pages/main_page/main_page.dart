@@ -1,3 +1,4 @@
+import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -5,6 +6,13 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: Text(
+          'Я ХУЕЮ',
+          style: AppTextStyles.title,
+        ),
+      ),
+    );
   }
 }

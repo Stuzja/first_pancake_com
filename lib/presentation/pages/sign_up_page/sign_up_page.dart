@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
+import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/widgets/main_button/main_button.dart';
 import 'package:first_pancake_com/presentation/widgets/textfields/app_text_field.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
@@ -70,7 +72,9 @@ class SignUpPage extends StatelessWidget {
                   text: 'Зарегистрироваться',
                   backgroundColor: AppColors.pancake5,
                   textColor: AppColors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(MainRoute());
+                  },
                 ),
               ],
             ).paddingSymmetric(horizontal: 30.w),
