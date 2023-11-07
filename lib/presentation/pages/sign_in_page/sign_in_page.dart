@@ -22,16 +22,25 @@ class SignInPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 60.h.heightBox,
-                Text('Добро пожаловать снова!', style: AppTextStyles.title),
+                Text(
+                  'Добро пожаловать снова!',
+                  style: AppTextStyles.title,
+                ),
                 35.h.heightBox,
-                Text('Email', style: AppTextStyles.label),
+                Text(
+                  'Email',
+                  style: AppTextStyles.label,
+                ),
                 10.h.heightBox,
                 AppTextField(
                   hint: 'Введите свою почту',
                   onChanged: (p0) {},
                 ),
                 25.h.heightBox,
-                Text('Пароль', style: AppTextStyles.label),
+                Text(
+                  'Пароль',
+                  style: AppTextStyles.label,
+                ),
                 10.h.heightBox,
                 AppTextField(
                   hint: 'Введите свой пароль',

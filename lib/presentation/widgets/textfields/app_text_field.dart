@@ -27,6 +27,7 @@ class AppTextField extends StatefulWidget {
   final bool showBorder;
   final bool autofocus;
   final bool hidePassword;
+  final bool expand;
 
   final EdgeInsetsGeometry contentPadding;
 
@@ -53,6 +54,7 @@ class AppTextField extends StatefulWidget {
     this.showBorder = true,
     this.autofocus = false,
     this.hidePassword = false,
+    this.expand = false,
   })  : contentPadding = EdgeInsets.fromLTRB(
           leading == null ? 16.w : 0,
           16.h,
@@ -103,7 +105,6 @@ class _AppTextFieldState extends State<AppTextField> {
       ...widget.inputFormatters ?? []
     ];
   }
-
 
   @override
   void initState() {
@@ -179,7 +180,11 @@ class _AppTextFieldState extends State<AppTextField> {
                       widget.onlyNumbers ? TextInputType.number : null,
                   autofocus: widget.autofocus,
                   inputFormatters: _textFormatters,
-                  maxLines: widget.hidePassword ? 1 : null,
+                  maxLines: widget.hidePassword
+                      ? 1
+                      : widget.expand
+                          ? 10
+                          : null,
                   controller: _currentTextController,
                   style: _currentFilledStyle,
                   decoration: InputDecoration(

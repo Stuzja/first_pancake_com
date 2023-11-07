@@ -9,6 +9,7 @@ class MainButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Color? backgroundColor;
   final Color? textColor;
+  final bool gradient;
 
   const MainButton({
     Key? key,
@@ -16,6 +17,7 @@ class MainButton extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor,
     this.textColor,
+    this.gradient = false,
   }) : super(key: key);
 
   @override
@@ -31,10 +33,22 @@ class MainButton extends StatelessWidget {
           width: double.infinity,
           height: 60.h,
           padding: EdgeInsets.symmetric(vertical: 16.h),
-          decoration: BoxDecoration(
-            color: backgroundColor ?? AppColors.white,
-            borderRadius: BorderRadius.circular(16.r),
-          ),
+          decoration: gradient
+              ? BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color.fromARGB(255, 255, 200, 138),
+                      AppColors.pancake2,
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(12.r),
+                )
+              : BoxDecoration(
+                  color: backgroundColor ?? AppColors.white,
+                  borderRadius: BorderRadius.circular(16.r),
+                ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
