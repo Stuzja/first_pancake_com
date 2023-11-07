@@ -1,16 +1,16 @@
-# first_pancake_com
+# Первый блин.ком
 
-A new Flutter project.
+***О чем наш проект?***
+Нет сомнений в том, что правильное питание идет на пользу организму. Ведь мы – это то, что мы едим. Как сделать свой рацион разнообразным, вкусным и полезным? Хочется попробовать новый интересный деликатес? Необходима идея, что приготовить на ужин? 
+## Наше мобильное приложение – Первый блин.ком - сборник кулинарных рецептов на все случаи жизни. 
+Легкий и удобный поиск, возможность добавлять свои собственные рецепты, помечать понравившиеся в избранные, следить за новинками любимых поваров и многое другое!
 
-## Getting Started
+***Подробная схема работы приложения:***
+![alt text](https://drive.google.com/uc?export=view&id=1xaE3QYhWVrUusZqFyeQwZ-yuxfytbgh2)
 
-This project is a starting point for a Flutter application.
+[Ссылка на репозиторий frontend](https://github.com/Stuzja/first_pancake_com) 
 
-A few resources to get you started if this is your first Flutter project:
+[Ссылка на репозиторий backend](https://github.com/Amyfiz/first_pancake_com) 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Проект создан в рамках дисциплины “CS212. Парадигмы и технологии программирования” студентами 3 курса ЮФУ, факультета ИММиКН:
+Шишкиной Анной, Солонухиной Анастасией, Овчаровым Иваном, Гнатенко Сергеем, Бобровским Демьяном, Бобровским Платоном, Пустовым Маратом.
