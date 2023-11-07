@@ -42,3 +42,27 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# iOS:
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+Podfile.lock
+.symlinks/
+Pods/
+Runner.xcworkspace/
+.ios/Flutter/
+.ios/Flutter/flutter_export_environment.sh
+.ios/Flutter/AppFrameworkInfo.plist
+.ios/Flutter/Flutter.podspec
+
+# Android:
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+.gradle/
+.idea/
+.android/Flutter/
+.android/Flutter/flutter_export_environment.sh
+.android/Flutter/app.properties
