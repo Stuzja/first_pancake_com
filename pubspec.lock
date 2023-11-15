@@ -675,11 +675,10 @@ packages:
   side_effect_bloc:
     dependency: "direct main"
     description:
-      name: side_effect_bloc
-      sha256: "99fb8daabe483195cdff531afc69773ebb06a2df9866999ef0aac77b274e4bda"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
+      path: side_effect_bloc
+      relative: true
+    source: path
+    version: "0.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
