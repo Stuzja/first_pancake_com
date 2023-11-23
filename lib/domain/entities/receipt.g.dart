@@ -6,8 +6,7 @@ part of 'receipt.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReceiptImpl _$$ReceiptImplFromJson(Map<String, dynamic> json) =>
-    _$ReceiptImpl(
+_$_Receipt _$$_ReceiptFromJson(Map<String, dynamic> json) => _$_Receipt(
       title: json['title'] as String,
       description: json['description'] as String?,
       user: json['user'] == null
@@ -15,7 +14,7 @@ _$ReceiptImpl _$$ReceiptImplFromJson(Map<String, dynamic> json) =>
           : User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$ReceiptImplToJson(_$ReceiptImpl instance) =>
+Map<String, dynamic> _$$_ReceiptToJson(_$_Receipt instance) =>
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,
