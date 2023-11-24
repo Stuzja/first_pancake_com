@@ -11,9 +11,18 @@ part 'enter_code_bloc.freezed.dart';
 @injectable
 class EnterCodeBloc extends Bloc<EnterCodeEvent, EnterCodeState>
     with SideEffectBlocMixin<EnterCodeState, EnterCodeCommand> {
-  EnterCodeBloc() : super(_Initial()) {
-    on<EnterCodeEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  EnterCodeBloc() : super(const _Initial()) {
+    on<ConfirmEmail>(_onConfirmEmail);
+  }
+
+  Future<void> _onConfirmEmail(
+    ConfirmEmail event,
+    Emitter<EnterCodeState> emit,
+  ) async {
+    try {
+      // implement
+    } catch (e) {
+      produceSideEffect(const EnterCodeCommand.error());
+    }
   }
 }

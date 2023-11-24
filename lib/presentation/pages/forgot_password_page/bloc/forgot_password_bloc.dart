@@ -11,9 +11,18 @@ part 'forgot_password_bloc.freezed.dart';
 @injectable
 class ForgotPasswordBloc extends Bloc<ForgotPasswordEvent, ForgotPasswordState>
     with SideEffectBlocMixin<ForgotPasswordState, ForgotPasswordCommand> {
-  ForgotPasswordBloc() : super(_Initial()) {
-    on<ForgotPasswordEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  ForgotPasswordBloc() : super(const _Initial()) {
+    on<SendCode>(_onSendCode);
+  }
+
+  Future<void> _onSendCode(
+    SendCode event,
+    Emitter<ForgotPasswordState> emit,
+  ) async {
+    try {
+      // implement
+    } catch (e) {
+      produceSideEffect(const ForgotPasswordCommand.error());
+    }
   }
 }

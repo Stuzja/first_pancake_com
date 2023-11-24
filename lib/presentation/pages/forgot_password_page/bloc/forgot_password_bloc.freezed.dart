@@ -16,37 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ForgotPasswordEvent {
+  String get email => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String email) sendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String email)? sendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String email)? sendCode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(SendCode value) sendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(SendCode value)? sendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(SendCode value)? sendCode,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ForgotPasswordEventCopyWith<ForgotPasswordEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +60,8 @@ abstract class $ForgotPasswordEventCopyWith<$Res> {
   factory $ForgotPasswordEventCopyWith(
           ForgotPasswordEvent value, $Res Function(ForgotPasswordEvent) then) =
       _$ForgotPasswordEventCopyWithImpl<$Res, ForgotPasswordEvent>;
+  @useResult
+  $Res call({String email});
 }
 
 /// @nodoc
@@ -66,67 +73,108 @@ class _$ForgotPasswordEventCopyWithImpl<$Res, $Val extends ForgotPasswordEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+  }) {
+    return _then(_value.copyWith(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$SendCodeImplCopyWith<$Res>
+    implements $ForgotPasswordEventCopyWith<$Res> {
+  factory _$$SendCodeImplCopyWith(
+          _$SendCodeImpl value, $Res Function(_$SendCodeImpl) then) =
+      __$$SendCodeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String email});
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$ForgotPasswordEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$SendCodeImplCopyWithImpl<$Res>
+    extends _$ForgotPasswordEventCopyWithImpl<$Res, _$SendCodeImpl>
+    implements _$$SendCodeImplCopyWith<$Res> {
+  __$$SendCodeImplCopyWithImpl(
+      _$SendCodeImpl _value, $Res Function(_$SendCodeImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+  }) {
+    return _then(_$SendCodeImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$SendCodeImpl implements SendCode {
+  const _$SendCodeImpl({required this.email});
+
+  @override
+  final String email;
 
   @override
   String toString() {
-    return 'ForgotPasswordEvent.started()';
+    return 'ForgotPasswordEvent.sendCode(email: $email)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SendCodeImpl &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, email);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
+      __$$SendCodeImplCopyWithImpl<_$SendCodeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String email) sendCode,
   }) {
-    return started();
+    return sendCode(email);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String email)? sendCode,
   }) {
-    return started?.call();
+    return sendCode?.call(email);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String email)? sendCode,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (sendCode != null) {
+      return sendCode(email);
     }
     return orElse();
   }
@@ -134,34 +182,41 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(SendCode value) sendCode,
   }) {
-    return started(this);
+    return sendCode(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(SendCode value)? sendCode,
   }) {
-    return started?.call(this);
+    return sendCode?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(SendCode value)? sendCode,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (sendCode != null) {
+      return sendCode(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements ForgotPasswordEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class SendCode implements ForgotPasswordEvent {
+  const factory SendCode({required final String email}) = _$SendCodeImpl;
+
+  @override
+  String get email;
+  @override
+  @JsonKey(ignore: true)
+  _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -319,32 +374,38 @@ mixin _$ForgotPasswordCommand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() navToEnterCode,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? navToEnterCode,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? navToEnterCode,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NavToEnterCode value) navToEnterCode,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavToEnterCode value)? navToEnterCode,
+    TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavToEnterCode value)? navToEnterCode,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -408,6 +469,7 @@ class _$NavToEnterCodeImpl implements NavToEnterCode {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() navToEnterCode,
+    required TResult Function() error,
   }) {
     return navToEnterCode();
   }
@@ -416,6 +478,7 @@ class _$NavToEnterCodeImpl implements NavToEnterCode {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? navToEnterCode,
+    TResult? Function()? error,
   }) {
     return navToEnterCode?.call();
   }
@@ -424,6 +487,7 @@ class _$NavToEnterCodeImpl implements NavToEnterCode {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? navToEnterCode,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (navToEnterCode != null) {
@@ -436,6 +500,7 @@ class _$NavToEnterCodeImpl implements NavToEnterCode {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NavToEnterCode value) navToEnterCode,
+    required TResult Function(Error value) error,
   }) {
     return navToEnterCode(this);
   }
@@ -444,6 +509,7 @@ class _$NavToEnterCodeImpl implements NavToEnterCode {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavToEnterCode value)? navToEnterCode,
+    TResult? Function(Error value)? error,
   }) {
     return navToEnterCode?.call(this);
   }
@@ -452,6 +518,7 @@ class _$NavToEnterCodeImpl implements NavToEnterCode {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavToEnterCode value)? navToEnterCode,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (navToEnterCode != null) {
@@ -463,4 +530,106 @@ class _$NavToEnterCodeImpl implements NavToEnterCode {
 
 abstract class NavToEnterCode implements ForgotPasswordCommand {
   const factory NavToEnterCode() = _$NavToEnterCodeImpl;
+}
+
+/// @nodoc
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$ForgotPasswordCommandCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl();
+
+  @override
+  String toString() {
+    return 'ForgotPasswordCommand.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() navToEnterCode,
+    required TResult Function() error,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? navToEnterCode,
+    TResult? Function()? error,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? navToEnterCode,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavToEnterCode value) navToEnterCode,
+    required TResult Function(Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavToEnterCode value)? navToEnterCode,
+    TResult? Function(Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavToEnterCode value)? navToEnterCode,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Error implements ForgotPasswordCommand {
+  const factory Error() = _$ErrorImpl;
 }

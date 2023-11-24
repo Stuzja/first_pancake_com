@@ -12,8 +12,13 @@ part 'profile_bloc.freezed.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     with SideEffectBlocMixin<ProfileState, ProfileCommand> {
   ProfileBloc() : super(_Initial()) {
-    on<ProfileEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<Started>(_onStarted);
+  }
+
+  void _onStarted(
+    Started event,
+    Emitter<ProfileState> emit,
+  ) {
+    // заебался чутка
   }
 }

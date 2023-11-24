@@ -12,8 +12,17 @@ part 'create_recipe_bloc.freezed.dart';
 class CreateRecipeBloc extends Bloc<CreateRecipeEvent, CreateRecipeState>
     with SideEffectBlocMixin<CreateRecipeState, CreateRecipeCommand> {
   CreateRecipeBloc() : super(_Initial()) {
-    on<CreateRecipeEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<CreateRecipe>(_onCreateRecipe);
+  }
+
+  Future<void> _onCreateRecipe(
+    CreateRecipe event,
+    Emitter<CreateRecipeState> emit,
+  ) async {
+    try {
+      // implement
+    } catch (e) {
+      produceSideEffect(const CreateRecipeCommand.error());
+    }
   }
 }

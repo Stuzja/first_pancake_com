@@ -6,4 +6,5 @@ class ProfileCommand with _$ProfileCommand {
   const factory ProfileCommand.navToSubscriptions() = NavToSubscriptions;
   const factory ProfileCommand.navToEditProfile() = NavToEditProfile;
   const factory ProfileCommand.navToFavourites() = NavToFavourites;
+  const factory ProfileCommand.error() = Error;
 }

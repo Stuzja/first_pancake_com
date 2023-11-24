@@ -34,17 +34,17 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,7 +86,7 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
+class _$StartedImpl implements Started {
   const _$StartedImpl();
 
   @override
@@ -134,7 +134,7 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
   }) {
     return started(this);
   }
@@ -142,7 +142,7 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
   }) {
     return started?.call(this);
   }
@@ -150,7 +150,7 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -160,8 +160,8 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements ProfileEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class Started implements ProfileEvent {
+  const factory Started() = _$StartedImpl;
 }
 
 /// @nodoc
@@ -322,6 +322,7 @@ mixin _$ProfileCommand {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -330,6 +331,7 @@ mixin _$ProfileCommand {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -338,6 +340,7 @@ mixin _$ProfileCommand {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -347,6 +350,7 @@ mixin _$ProfileCommand {
     required TResult Function(NavToSubscriptions value) navToSubscriptions,
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -355,6 +359,7 @@ mixin _$ProfileCommand {
     TResult? Function(NavToSubscriptions value)? navToSubscriptions,
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -363,6 +368,7 @@ mixin _$ProfileCommand {
     TResult Function(NavToSubscriptions value)? navToSubscriptions,
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -428,6 +434,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
+    required TResult Function() error,
   }) {
     return navToSubscribers();
   }
@@ -439,6 +446,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
+    TResult? Function()? error,
   }) {
     return navToSubscribers?.call();
   }
@@ -450,6 +458,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (navToSubscribers != null) {
@@ -465,6 +474,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     required TResult Function(NavToSubscriptions value) navToSubscriptions,
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
   }) {
     return navToSubscribers(this);
   }
@@ -476,6 +486,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult? Function(NavToSubscriptions value)? navToSubscriptions,
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
   }) {
     return navToSubscribers?.call(this);
   }
@@ -487,6 +498,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult Function(NavToSubscriptions value)? navToSubscriptions,
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (navToSubscribers != null) {
@@ -542,6 +554,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
+    required TResult Function() error,
   }) {
     return navToSubscriptions();
   }
@@ -553,6 +566,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
+    TResult? Function()? error,
   }) {
     return navToSubscriptions?.call();
   }
@@ -564,6 +578,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (navToSubscriptions != null) {
@@ -579,6 +594,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     required TResult Function(NavToSubscriptions value) navToSubscriptions,
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
   }) {
     return navToSubscriptions(this);
   }
@@ -590,6 +606,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult? Function(NavToSubscriptions value)? navToSubscriptions,
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
   }) {
     return navToSubscriptions?.call(this);
   }
@@ -601,6 +618,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult Function(NavToSubscriptions value)? navToSubscriptions,
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (navToSubscriptions != null) {
@@ -656,6 +674,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
+    required TResult Function() error,
   }) {
     return navToEditProfile();
   }
@@ -667,6 +686,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
+    TResult? Function()? error,
   }) {
     return navToEditProfile?.call();
   }
@@ -678,6 +698,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (navToEditProfile != null) {
@@ -693,6 +714,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     required TResult Function(NavToSubscriptions value) navToSubscriptions,
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
   }) {
     return navToEditProfile(this);
   }
@@ -704,6 +726,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult? Function(NavToSubscriptions value)? navToSubscriptions,
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
   }) {
     return navToEditProfile?.call(this);
   }
@@ -715,6 +738,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult Function(NavToSubscriptions value)? navToSubscriptions,
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (navToEditProfile != null) {
@@ -770,6 +794,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
+    required TResult Function() error,
   }) {
     return navToFavourites();
   }
@@ -781,6 +806,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
+    TResult? Function()? error,
   }) {
     return navToFavourites?.call();
   }
@@ -792,6 +818,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (navToFavourites != null) {
@@ -807,6 +834,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     required TResult Function(NavToSubscriptions value) navToSubscriptions,
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
   }) {
     return navToFavourites(this);
   }
@@ -818,6 +846,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult? Function(NavToSubscriptions value)? navToSubscriptions,
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
   }) {
     return navToFavourites?.call(this);
   }
@@ -829,6 +858,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult Function(NavToSubscriptions value)? navToSubscriptions,
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (navToFavourites != null) {
@@ -840,4 +870,124 @@ class _$NavToFavouritesImpl implements NavToFavourites {
 
 abstract class NavToFavourites implements ProfileCommand {
   const factory NavToFavourites() = _$NavToFavouritesImpl;
+}
+
+/// @nodoc
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl();
+
+  @override
+  String toString() {
+    return 'ProfileCommand.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() navToSubscribers,
+    required TResult Function() navToSubscriptions,
+    required TResult Function() navToEditProfile,
+    required TResult Function() navToFavourites,
+    required TResult Function() error,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? navToSubscribers,
+    TResult? Function()? navToSubscriptions,
+    TResult? Function()? navToEditProfile,
+    TResult? Function()? navToFavourites,
+    TResult? Function()? error,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? navToSubscribers,
+    TResult Function()? navToSubscriptions,
+    TResult Function()? navToEditProfile,
+    TResult Function()? navToFavourites,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavToSubscribers value) navToSubscribers,
+    required TResult Function(NavToSubscriptions value) navToSubscriptions,
+    required TResult Function(NavToEditProfile value) navToEditProfile,
+    required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavToSubscribers value)? navToSubscribers,
+    TResult? Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult? Function(NavToEditProfile value)? navToEditProfile,
+    TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavToSubscribers value)? navToSubscribers,
+    TResult Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult Function(NavToEditProfile value)? navToEditProfile,
+    TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Error implements ProfileCommand {
+  const factory Error() = _$ErrorImpl;
 }

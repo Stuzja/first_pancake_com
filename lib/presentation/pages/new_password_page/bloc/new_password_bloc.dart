@@ -11,9 +11,18 @@ part 'new_password_bloc.freezed.dart';
 @injectable
 class NewPasswordBloc extends Bloc<NewPasswordEvent, NewPasswordState>
     with SideEffectBlocMixin<NewPasswordState, NewPasswordCommand> {
-  NewPasswordBloc() : super(_Initial()) {
-    on<NewPasswordEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  NewPasswordBloc() : super(const _Initial()) {
+    on<Register>(_onRegister);
+  }
+
+  Future<void> _onRegister(
+    Register event,
+    Emitter<NewPasswordState> emit,
+  ) async {
+    try {
+      // implement
+    } catch (e) {
+      produceSideEffect(const NewPasswordCommand.error());
+    }
   }
 }

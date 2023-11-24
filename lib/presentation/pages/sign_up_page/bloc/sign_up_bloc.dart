@@ -11,9 +11,30 @@ part 'sign_up_bloc.freezed.dart';
 @injectable
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState>
     with SideEffectBlocMixin<SignUpState, SignUpCommand> {
-  SignUpBloc() : super(_Initial()) {
-    on<SignUpEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  SignUpBloc() : super(const SignUpState.initial()) {
+    on<Started>(_onStarted);
+    on<SignUpClicked>(_onSignUpClicked);
+  }
+
+  Future<void> _onStarted(
+    Started event,
+    Emitter<SignUpState> emit,
+  ) async {
+    try {
+      // implement
+    } catch (e) {
+      produceSideEffect(const SignUpCommand.error());
+    }
+  }
+
+  Future<void> _onSignUpClicked(
+    SignUpClicked event,
+    Emitter<SignUpState> emit,
+  ) async {
+    try {
+      // implement
+    } catch (e) {
+      produceSideEffect(const SignUpCommand.error());
+    }
   }
 }

@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateRecipeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() createRecipe,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? createRecipe,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? createRecipe,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(CreateRecipe value) createRecipe,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(CreateRecipe value)? createRecipe,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(CreateRecipe value)? createRecipe,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,35 +69,35 @@ class _$CreateRecipeEventCopyWithImpl<$Res, $Val extends CreateRecipeEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$CreateRecipeImplCopyWith<$Res> {
+  factory _$$CreateRecipeImplCopyWith(
+          _$CreateRecipeImpl value, $Res Function(_$CreateRecipeImpl) then) =
+      __$$CreateRecipeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CreateRecipeEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$CreateRecipeImplCopyWithImpl<$Res>
+    extends _$CreateRecipeEventCopyWithImpl<$Res, _$CreateRecipeImpl>
+    implements _$$CreateRecipeImplCopyWith<$Res> {
+  __$$CreateRecipeImplCopyWithImpl(
+      _$CreateRecipeImpl _value, $Res Function(_$CreateRecipeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$CreateRecipeImpl implements CreateRecipe {
+  const _$CreateRecipeImpl();
 
   @override
   String toString() {
-    return 'CreateRecipeEvent.started()';
+    return 'CreateRecipeEvent.createRecipe()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$CreateRecipeImpl);
   }
 
   @override
@@ -106,27 +106,27 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() createRecipe,
   }) {
-    return started();
+    return createRecipe();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? createRecipe,
   }) {
-    return started?.call();
+    return createRecipe?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? createRecipe,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (createRecipe != null) {
+      return createRecipe();
     }
     return orElse();
   }
@@ -134,34 +134,34 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(CreateRecipe value) createRecipe,
   }) {
-    return started(this);
+    return createRecipe(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(CreateRecipe value)? createRecipe,
   }) {
-    return started?.call(this);
+    return createRecipe?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(CreateRecipe value)? createRecipe,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (createRecipe != null) {
+      return createRecipe(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CreateRecipeEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class CreateRecipe implements CreateRecipeEvent {
+  const factory CreateRecipe() = _$CreateRecipeImpl;
 }
 
 /// @nodoc
@@ -319,32 +319,38 @@ mixin _$CreateRecipeCommand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() navToHomePage,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? navToHomePage,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? navToHomePage,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NavToHomePage value) navToHomePage,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavToHomePage value)? navToHomePage,
+    TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavToHomePage value)? navToHomePage,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -407,6 +413,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() navToHomePage,
+    required TResult Function() error,
   }) {
     return navToHomePage();
   }
@@ -415,6 +422,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? navToHomePage,
+    TResult? Function()? error,
   }) {
     return navToHomePage?.call();
   }
@@ -423,6 +431,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? navToHomePage,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (navToHomePage != null) {
@@ -435,6 +444,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NavToHomePage value) navToHomePage,
+    required TResult Function(Error value) error,
   }) {
     return navToHomePage(this);
   }
@@ -443,6 +453,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavToHomePage value)? navToHomePage,
+    TResult? Function(Error value)? error,
   }) {
     return navToHomePage?.call(this);
   }
@@ -451,6 +462,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavToHomePage value)? navToHomePage,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (navToHomePage != null) {
@@ -462,4 +474,106 @@ class _$NavToHomePageImpl implements NavToHomePage {
 
 abstract class NavToHomePage implements CreateRecipeCommand {
   const factory NavToHomePage() = _$NavToHomePageImpl;
+}
+
+/// @nodoc
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$CreateRecipeCommandCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl();
+
+  @override
+  String toString() {
+    return 'CreateRecipeCommand.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() navToHomePage,
+    required TResult Function() error,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? navToHomePage,
+    TResult? Function()? error,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? navToHomePage,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavToHomePage value) navToHomePage,
+    required TResult Function(Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavToHomePage value)? navToHomePage,
+    TResult? Function(Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavToHomePage value)? navToHomePage,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Error implements CreateRecipeCommand {
+  const factory Error() = _$ErrorImpl;
 }
