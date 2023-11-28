@@ -7,12 +7,23 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initDependencies();
   runApp(MyApp());
-} 
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   MyApp({super.key});
 
+  @override
+  State<StatefulWidget> createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
   final autoRouter = AutoRouter();
+
+  @override
+  void initState() {
+    getIt.registerSingleton<AutoRouter>(autoRouter);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +41,6 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               fontFamily: "Montserrat",
-              
             ),
             routerDelegate: autoRouter.delegate(),
             routeInformationParser: autoRouter.defaultRouteParser(),
