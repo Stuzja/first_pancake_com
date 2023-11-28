@@ -1,8 +1,13 @@
+import 'package:first_pancake_com/di/locator.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initDependencies();
+  runApp(MyApp());
+} 
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
