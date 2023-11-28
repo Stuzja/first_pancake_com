@@ -45,7 +45,6 @@ dependencies:
   flutter_bloc: ^8.0.1
   freezed: ^2.0.3+1
   fraction: ^4.1.4
-  json_annotation: ^4.8.1
   freezed_annotation: ^2.0.3
 
   get_it: ^7.2.0
@@ -55,6 +54,13 @@ dependencies:
   pin_code_fields: ^8.0.1
   image_picker: ^1.0.4
   flutter_svg: ^1.1.5
+
+  shared_preferences: ^2.2.0
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.1.1
+  retrofit: ^3.0.1+1
+  json_annotation: ^4.8.1
+  flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +75,9 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   auto_route_generator: ^5.0.1
   injectable_generator: ^1.5.3
+  retrofit_generator: ^4.0.1
   json_serializable: ^6.2.0
+  connectivity_plus: ^4.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

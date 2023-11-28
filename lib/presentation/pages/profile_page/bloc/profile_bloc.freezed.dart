@@ -69,25 +69,23 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$StartedCopyWith<$Res> {
+  factory _$$StartedCopyWith(_$Started value, $Res Function(_$Started) then) =
+      __$$StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$StartedCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$Started>
+    implements _$$StartedCopyWith<$Res> {
+  __$$StartedCopyWithImpl(_$Started _value, $Res Function(_$Started) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements Started {
-  const _$StartedImpl();
+class _$Started implements Started {
+  const _$Started();
 
   @override
   String toString() {
@@ -97,7 +95,7 @@ class _$StartedImpl implements Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$Started);
   }
 
   @override
@@ -161,7 +159,7 @@ class _$StartedImpl implements Started {
 }
 
 abstract class Started implements ProfileEvent {
-  const factory Started() = _$StartedImpl;
+  const factory Started() = _$Started;
 }
 
 /// @nodoc
@@ -219,25 +217,24 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
@@ -247,7 +244,7 @@ class _$InitialImpl implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -311,7 +308,7 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements ProfileState {
-  const factory _Initial() = _$InitialImpl;
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -393,25 +390,25 @@ class _$ProfileCommandCopyWithImpl<$Res, $Val extends ProfileCommand>
 }
 
 /// @nodoc
-abstract class _$$NavToSubscribersImplCopyWith<$Res> {
-  factory _$$NavToSubscribersImplCopyWith(_$NavToSubscribersImpl value,
-          $Res Function(_$NavToSubscribersImpl) then) =
-      __$$NavToSubscribersImplCopyWithImpl<$Res>;
+abstract class _$$NavToSubscribersCopyWith<$Res> {
+  factory _$$NavToSubscribersCopyWith(
+          _$NavToSubscribers value, $Res Function(_$NavToSubscribers) then) =
+      __$$NavToSubscribersCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToSubscribersImplCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscribersImpl>
-    implements _$$NavToSubscribersImplCopyWith<$Res> {
-  __$$NavToSubscribersImplCopyWithImpl(_$NavToSubscribersImpl _value,
-      $Res Function(_$NavToSubscribersImpl) _then)
+class __$$NavToSubscribersCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscribers>
+    implements _$$NavToSubscribersCopyWith<$Res> {
+  __$$NavToSubscribersCopyWithImpl(
+      _$NavToSubscribers _value, $Res Function(_$NavToSubscribers) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToSubscribersImpl implements NavToSubscribers {
-  const _$NavToSubscribersImpl();
+class _$NavToSubscribers implements NavToSubscribers {
+  const _$NavToSubscribers();
 
   @override
   String toString() {
@@ -421,7 +418,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToSubscribersImpl);
+        (other.runtimeType == runtimeType && other is _$NavToSubscribers);
   }
 
   @override
@@ -509,29 +506,29 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
 }
 
 abstract class NavToSubscribers implements ProfileCommand {
-  const factory NavToSubscribers() = _$NavToSubscribersImpl;
+  const factory NavToSubscribers() = _$NavToSubscribers;
 }
 
 /// @nodoc
-abstract class _$$NavToSubscriptionsImplCopyWith<$Res> {
-  factory _$$NavToSubscriptionsImplCopyWith(_$NavToSubscriptionsImpl value,
-          $Res Function(_$NavToSubscriptionsImpl) then) =
-      __$$NavToSubscriptionsImplCopyWithImpl<$Res>;
+abstract class _$$NavToSubscriptionsCopyWith<$Res> {
+  factory _$$NavToSubscriptionsCopyWith(_$NavToSubscriptions value,
+          $Res Function(_$NavToSubscriptions) then) =
+      __$$NavToSubscriptionsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToSubscriptionsImplCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscriptionsImpl>
-    implements _$$NavToSubscriptionsImplCopyWith<$Res> {
-  __$$NavToSubscriptionsImplCopyWithImpl(_$NavToSubscriptionsImpl _value,
-      $Res Function(_$NavToSubscriptionsImpl) _then)
+class __$$NavToSubscriptionsCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscriptions>
+    implements _$$NavToSubscriptionsCopyWith<$Res> {
+  __$$NavToSubscriptionsCopyWithImpl(
+      _$NavToSubscriptions _value, $Res Function(_$NavToSubscriptions) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToSubscriptionsImpl implements NavToSubscriptions {
-  const _$NavToSubscriptionsImpl();
+class _$NavToSubscriptions implements NavToSubscriptions {
+  const _$NavToSubscriptions();
 
   @override
   String toString() {
@@ -541,7 +538,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToSubscriptionsImpl);
+        (other.runtimeType == runtimeType && other is _$NavToSubscriptions);
   }
 
   @override
@@ -629,29 +626,29 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
 }
 
 abstract class NavToSubscriptions implements ProfileCommand {
-  const factory NavToSubscriptions() = _$NavToSubscriptionsImpl;
+  const factory NavToSubscriptions() = _$NavToSubscriptions;
 }
 
 /// @nodoc
-abstract class _$$NavToEditProfileImplCopyWith<$Res> {
-  factory _$$NavToEditProfileImplCopyWith(_$NavToEditProfileImpl value,
-          $Res Function(_$NavToEditProfileImpl) then) =
-      __$$NavToEditProfileImplCopyWithImpl<$Res>;
+abstract class _$$NavToEditProfileCopyWith<$Res> {
+  factory _$$NavToEditProfileCopyWith(
+          _$NavToEditProfile value, $Res Function(_$NavToEditProfile) then) =
+      __$$NavToEditProfileCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToEditProfileImplCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToEditProfileImpl>
-    implements _$$NavToEditProfileImplCopyWith<$Res> {
-  __$$NavToEditProfileImplCopyWithImpl(_$NavToEditProfileImpl _value,
-      $Res Function(_$NavToEditProfileImpl) _then)
+class __$$NavToEditProfileCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToEditProfile>
+    implements _$$NavToEditProfileCopyWith<$Res> {
+  __$$NavToEditProfileCopyWithImpl(
+      _$NavToEditProfile _value, $Res Function(_$NavToEditProfile) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToEditProfileImpl implements NavToEditProfile {
-  const _$NavToEditProfileImpl();
+class _$NavToEditProfile implements NavToEditProfile {
+  const _$NavToEditProfile();
 
   @override
   String toString() {
@@ -661,7 +658,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToEditProfileImpl);
+        (other.runtimeType == runtimeType && other is _$NavToEditProfile);
   }
 
   @override
@@ -749,29 +746,29 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
 }
 
 abstract class NavToEditProfile implements ProfileCommand {
-  const factory NavToEditProfile() = _$NavToEditProfileImpl;
+  const factory NavToEditProfile() = _$NavToEditProfile;
 }
 
 /// @nodoc
-abstract class _$$NavToFavouritesImplCopyWith<$Res> {
-  factory _$$NavToFavouritesImplCopyWith(_$NavToFavouritesImpl value,
-          $Res Function(_$NavToFavouritesImpl) then) =
-      __$$NavToFavouritesImplCopyWithImpl<$Res>;
+abstract class _$$NavToFavouritesCopyWith<$Res> {
+  factory _$$NavToFavouritesCopyWith(
+          _$NavToFavourites value, $Res Function(_$NavToFavourites) then) =
+      __$$NavToFavouritesCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToFavouritesImplCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToFavouritesImpl>
-    implements _$$NavToFavouritesImplCopyWith<$Res> {
-  __$$NavToFavouritesImplCopyWithImpl(
-      _$NavToFavouritesImpl _value, $Res Function(_$NavToFavouritesImpl) _then)
+class __$$NavToFavouritesCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToFavourites>
+    implements _$$NavToFavouritesCopyWith<$Res> {
+  __$$NavToFavouritesCopyWithImpl(
+      _$NavToFavourites _value, $Res Function(_$NavToFavourites) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToFavouritesImpl implements NavToFavourites {
-  const _$NavToFavouritesImpl();
+class _$NavToFavourites implements NavToFavourites {
+  const _$NavToFavourites();
 
   @override
   String toString() {
@@ -781,7 +778,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToFavouritesImpl);
+        (other.runtimeType == runtimeType && other is _$NavToFavourites);
   }
 
   @override
@@ -869,29 +866,27 @@ class _$NavToFavouritesImpl implements NavToFavourites {
 }
 
 abstract class NavToFavourites implements ProfileCommand {
-  const factory NavToFavourites() = _$NavToFavouritesImpl;
+  const factory NavToFavourites() = _$NavToFavourites;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$ErrorCopyWith<$Res> {
+  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
+      __$$ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$ErrorCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$Error>
+    implements _$$ErrorCopyWith<$Res> {
+  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ErrorImpl implements Error {
-  const _$ErrorImpl();
+class _$Error implements Error {
+  const _$Error();
 
   @override
   String toString() {
@@ -901,7 +896,7 @@ class _$ErrorImpl implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+        (other.runtimeType == runtimeType && other is _$Error);
   }
 
   @override
@@ -989,5 +984,5 @@ class _$ErrorImpl implements Error {
 }
 
 abstract class Error implements ProfileCommand {
-  const factory Error() = _$ErrorImpl;
+  const factory Error() = _$Error;
 }

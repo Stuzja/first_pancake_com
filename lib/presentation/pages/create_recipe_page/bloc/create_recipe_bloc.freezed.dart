@@ -69,25 +69,25 @@ class _$CreateRecipeEventCopyWithImpl<$Res, $Val extends CreateRecipeEvent>
 }
 
 /// @nodoc
-abstract class _$$CreateRecipeImplCopyWith<$Res> {
-  factory _$$CreateRecipeImplCopyWith(
-          _$CreateRecipeImpl value, $Res Function(_$CreateRecipeImpl) then) =
-      __$$CreateRecipeImplCopyWithImpl<$Res>;
+abstract class _$$CreateRecipeCopyWith<$Res> {
+  factory _$$CreateRecipeCopyWith(
+          _$CreateRecipe value, $Res Function(_$CreateRecipe) then) =
+      __$$CreateRecipeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CreateRecipeImplCopyWithImpl<$Res>
-    extends _$CreateRecipeEventCopyWithImpl<$Res, _$CreateRecipeImpl>
-    implements _$$CreateRecipeImplCopyWith<$Res> {
-  __$$CreateRecipeImplCopyWithImpl(
-      _$CreateRecipeImpl _value, $Res Function(_$CreateRecipeImpl) _then)
+class __$$CreateRecipeCopyWithImpl<$Res>
+    extends _$CreateRecipeEventCopyWithImpl<$Res, _$CreateRecipe>
+    implements _$$CreateRecipeCopyWith<$Res> {
+  __$$CreateRecipeCopyWithImpl(
+      _$CreateRecipe _value, $Res Function(_$CreateRecipe) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CreateRecipeImpl implements CreateRecipe {
-  const _$CreateRecipeImpl();
+class _$CreateRecipe implements CreateRecipe {
+  const _$CreateRecipe();
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class _$CreateRecipeImpl implements CreateRecipe {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CreateRecipeImpl);
+        (other.runtimeType == runtimeType && other is _$CreateRecipe);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$CreateRecipeImpl implements CreateRecipe {
 }
 
 abstract class CreateRecipe implements CreateRecipeEvent {
-  const factory CreateRecipe() = _$CreateRecipeImpl;
+  const factory CreateRecipe() = _$CreateRecipe;
 }
 
 /// @nodoc
@@ -219,25 +219,24 @@ class _$CreateRecipeStateCopyWithImpl<$Res, $Val extends CreateRecipeState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CreateRecipeStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$CreateRecipeStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
@@ -247,7 +246,7 @@ class _$InitialImpl implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -311,7 +310,7 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements CreateRecipeState {
-  const factory _Initial() = _$InitialImpl;
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -375,25 +374,25 @@ class _$CreateRecipeCommandCopyWithImpl<$Res, $Val extends CreateRecipeCommand>
 }
 
 /// @nodoc
-abstract class _$$NavToHomePageImplCopyWith<$Res> {
-  factory _$$NavToHomePageImplCopyWith(
-          _$NavToHomePageImpl value, $Res Function(_$NavToHomePageImpl) then) =
-      __$$NavToHomePageImplCopyWithImpl<$Res>;
+abstract class _$$NavToHomePageCopyWith<$Res> {
+  factory _$$NavToHomePageCopyWith(
+          _$NavToHomePage value, $Res Function(_$NavToHomePage) then) =
+      __$$NavToHomePageCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToHomePageImplCopyWithImpl<$Res>
-    extends _$CreateRecipeCommandCopyWithImpl<$Res, _$NavToHomePageImpl>
-    implements _$$NavToHomePageImplCopyWith<$Res> {
-  __$$NavToHomePageImplCopyWithImpl(
-      _$NavToHomePageImpl _value, $Res Function(_$NavToHomePageImpl) _then)
+class __$$NavToHomePageCopyWithImpl<$Res>
+    extends _$CreateRecipeCommandCopyWithImpl<$Res, _$NavToHomePage>
+    implements _$$NavToHomePageCopyWith<$Res> {
+  __$$NavToHomePageCopyWithImpl(
+      _$NavToHomePage _value, $Res Function(_$NavToHomePage) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToHomePageImpl implements NavToHomePage {
-  const _$NavToHomePageImpl();
+class _$NavToHomePage implements NavToHomePage {
+  const _$NavToHomePage();
 
   @override
   String toString() {
@@ -403,7 +402,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToHomePageImpl);
+        (other.runtimeType == runtimeType && other is _$NavToHomePage);
   }
 
   @override
@@ -473,29 +472,27 @@ class _$NavToHomePageImpl implements NavToHomePage {
 }
 
 abstract class NavToHomePage implements CreateRecipeCommand {
-  const factory NavToHomePage() = _$NavToHomePageImpl;
+  const factory NavToHomePage() = _$NavToHomePage;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$ErrorCopyWith<$Res> {
+  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
+      __$$ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$CreateRecipeCommandCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$ErrorCopyWithImpl<$Res>
+    extends _$CreateRecipeCommandCopyWithImpl<$Res, _$Error>
+    implements _$$ErrorCopyWith<$Res> {
+  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ErrorImpl implements Error {
-  const _$ErrorImpl();
+class _$Error implements Error {
+  const _$Error();
 
   @override
   String toString() {
@@ -505,7 +502,7 @@ class _$ErrorImpl implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+        (other.runtimeType == runtimeType && other is _$Error);
   }
 
   @override
@@ -575,5 +572,5 @@ class _$ErrorImpl implements Error {
 }
 
 abstract class Error implements CreateRecipeCommand {
-  const factory Error() = _$ErrorImpl;
+  const factory Error() = _$Error;
 }

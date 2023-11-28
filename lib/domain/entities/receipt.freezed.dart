@@ -87,10 +87,10 @@ class _$ReceiptCopyWithImpl<$Res, $Val extends Receipt>
 }
 
 /// @nodoc
-abstract class _$$ReceiptImplCopyWith<$Res> implements $ReceiptCopyWith<$Res> {
-  factory _$$ReceiptImplCopyWith(
-          _$ReceiptImpl value, $Res Function(_$ReceiptImpl) then) =
-      __$$ReceiptImplCopyWithImpl<$Res>;
+abstract class _$$_ReceiptCopyWith<$Res> implements $ReceiptCopyWith<$Res> {
+  factory _$$_ReceiptCopyWith(
+          _$_Receipt value, $Res Function(_$_Receipt) then) =
+      __$$_ReceiptCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String title, String? description, User? user});
@@ -100,11 +100,10 @@ abstract class _$$ReceiptImplCopyWith<$Res> implements $ReceiptCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ReceiptImplCopyWithImpl<$Res>
-    extends _$ReceiptCopyWithImpl<$Res, _$ReceiptImpl>
-    implements _$$ReceiptImplCopyWith<$Res> {
-  __$$ReceiptImplCopyWithImpl(
-      _$ReceiptImpl _value, $Res Function(_$ReceiptImpl) _then)
+class __$$_ReceiptCopyWithImpl<$Res>
+    extends _$ReceiptCopyWithImpl<$Res, _$_Receipt>
+    implements _$$_ReceiptCopyWith<$Res> {
+  __$$_ReceiptCopyWithImpl(_$_Receipt _value, $Res Function(_$_Receipt) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +113,7 @@ class __$$ReceiptImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? user = freezed,
   }) {
-    return _then(_$ReceiptImpl(
+    return _then(_$_Receipt(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -133,11 +132,11 @@ class __$$ReceiptImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ReceiptImpl implements _Receipt {
-  const _$ReceiptImpl({required this.title, this.description, this.user});
+class _$_Receipt implements _Receipt {
+  const _$_Receipt({required this.title, this.description, this.user});
 
-  factory _$ReceiptImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReceiptImplFromJson(json);
+  factory _$_Receipt.fromJson(Map<String, dynamic> json) =>
+      _$$_ReceiptFromJson(json);
 
   @override
   final String title;
@@ -156,7 +155,7 @@ class _$ReceiptImpl implements _Receipt {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReceiptImpl &&
+            other is _$_Receipt &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -170,12 +169,12 @@ class _$ReceiptImpl implements _Receipt {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ReceiptImplCopyWith<_$ReceiptImpl> get copyWith =>
-      __$$ReceiptImplCopyWithImpl<_$ReceiptImpl>(this, _$identity);
+  _$$_ReceiptCopyWith<_$_Receipt> get copyWith =>
+      __$$_ReceiptCopyWithImpl<_$_Receipt>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ReceiptImplToJson(
+    return _$$_ReceiptToJson(
       this,
     );
   }
@@ -185,9 +184,9 @@ abstract class _Receipt implements Receipt {
   const factory _Receipt(
       {required final String title,
       final String? description,
-      final User? user}) = _$ReceiptImpl;
+      final User? user}) = _$_Receipt;
 
-  factory _Receipt.fromJson(Map<String, dynamic> json) = _$ReceiptImpl.fromJson;
+  factory _Receipt.fromJson(Map<String, dynamic> json) = _$_Receipt.fromJson;
 
   @override
   String get title;
@@ -197,6 +196,6 @@ abstract class _Receipt implements Receipt {
   User? get user;
   @override
   @JsonKey(ignore: true)
-  _$$ReceiptImplCopyWith<_$ReceiptImpl> get copyWith =>
+  _$$_ReceiptCopyWith<_$_Receipt> get copyWith =>
       throw _privateConstructorUsedError;
 }

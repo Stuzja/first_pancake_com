@@ -62,22 +62,22 @@ class _$AccessLevelCopyWithImpl<$Res, $Val extends AccessLevel>
 }
 
 /// @nodoc
-abstract class _$$AccessLevelImplCopyWith<$Res>
+abstract class _$$_AccessLevelCopyWith<$Res>
     implements $AccessLevelCopyWith<$Res> {
-  factory _$$AccessLevelImplCopyWith(
-          _$AccessLevelImpl value, $Res Function(_$AccessLevelImpl) then) =
-      __$$AccessLevelImplCopyWithImpl<$Res>;
+  factory _$$_AccessLevelCopyWith(
+          _$_AccessLevel value, $Res Function(_$_AccessLevel) then) =
+      __$$_AccessLevelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int level});
 }
 
 /// @nodoc
-class __$$AccessLevelImplCopyWithImpl<$Res>
-    extends _$AccessLevelCopyWithImpl<$Res, _$AccessLevelImpl>
-    implements _$$AccessLevelImplCopyWith<$Res> {
-  __$$AccessLevelImplCopyWithImpl(
-      _$AccessLevelImpl _value, $Res Function(_$AccessLevelImpl) _then)
+class __$$_AccessLevelCopyWithImpl<$Res>
+    extends _$AccessLevelCopyWithImpl<$Res, _$_AccessLevel>
+    implements _$$_AccessLevelCopyWith<$Res> {
+  __$$_AccessLevelCopyWithImpl(
+      _$_AccessLevel _value, $Res Function(_$_AccessLevel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$AccessLevelImplCopyWithImpl<$Res>
   $Res call({
     Object? level = null,
   }) {
-    return _then(_$AccessLevelImpl(
+    return _then(_$_AccessLevel(
       level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$AccessLevelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AccessLevelImpl implements _AccessLevel {
-  const _$AccessLevelImpl({required this.level});
+class _$_AccessLevel implements _AccessLevel {
+  const _$_AccessLevel({required this.level});
 
-  factory _$AccessLevelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AccessLevelImplFromJson(json);
+  factory _$_AccessLevel.fromJson(Map<String, dynamic> json) =>
+      _$$_AccessLevelFromJson(json);
 
   @override
   final int level;
@@ -114,7 +114,7 @@ class _$AccessLevelImpl implements _AccessLevel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AccessLevelImpl &&
+            other is _$_AccessLevel &&
             (identical(other.level, level) || other.level == level));
   }
 
@@ -125,27 +125,27 @@ class _$AccessLevelImpl implements _AccessLevel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AccessLevelImplCopyWith<_$AccessLevelImpl> get copyWith =>
-      __$$AccessLevelImplCopyWithImpl<_$AccessLevelImpl>(this, _$identity);
+  _$$_AccessLevelCopyWith<_$_AccessLevel> get copyWith =>
+      __$$_AccessLevelCopyWithImpl<_$_AccessLevel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AccessLevelImplToJson(
+    return _$$_AccessLevelToJson(
       this,
     );
   }
 }
 
 abstract class _AccessLevel implements AccessLevel {
-  const factory _AccessLevel({required final int level}) = _$AccessLevelImpl;
+  const factory _AccessLevel({required final int level}) = _$_AccessLevel;
 
   factory _AccessLevel.fromJson(Map<String, dynamic> json) =
-      _$AccessLevelImpl.fromJson;
+      _$_AccessLevel.fromJson;
 
   @override
   int get level;
   @override
   @JsonKey(ignore: true)
-  _$$AccessLevelImplCopyWith<_$AccessLevelImpl> get copyWith =>
+  _$$_AccessLevelCopyWith<_$_AccessLevel> get copyWith =>
       throw _privateConstructorUsedError;
 }

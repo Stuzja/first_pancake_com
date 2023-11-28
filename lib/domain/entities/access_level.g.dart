@@ -6,12 +6,12 @@ part of 'access_level.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AccessLevelImpl _$$AccessLevelImplFromJson(Map<String, dynamic> json) =>
-    _$AccessLevelImpl(
+_$_AccessLevel _$$_AccessLevelFromJson(Map<String, dynamic> json) =>
+    _$_AccessLevel(
       level: json['level'] as int,
     );
 
-Map<String, dynamic> _$$AccessLevelImplToJson(_$AccessLevelImpl instance) =>
+Map<String, dynamic> _$$_AccessLevelToJson(_$_AccessLevel instance) =>
     <String, dynamic>{
       'level': instance.level,
     };

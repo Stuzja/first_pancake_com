@@ -89,22 +89,21 @@ class _$NewPasswordEventCopyWithImpl<$Res, $Val extends NewPasswordEvent>
 }
 
 /// @nodoc
-abstract class _$$RegisterImplCopyWith<$Res>
+abstract class _$$RegisterCopyWith<$Res>
     implements $NewPasswordEventCopyWith<$Res> {
-  factory _$$RegisterImplCopyWith(
-          _$RegisterImpl value, $Res Function(_$RegisterImpl) then) =
-      __$$RegisterImplCopyWithImpl<$Res>;
+  factory _$$RegisterCopyWith(
+          _$Register value, $Res Function(_$Register) then) =
+      __$$RegisterCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class __$$RegisterImplCopyWithImpl<$Res>
-    extends _$NewPasswordEventCopyWithImpl<$Res, _$RegisterImpl>
-    implements _$$RegisterImplCopyWith<$Res> {
-  __$$RegisterImplCopyWithImpl(
-      _$RegisterImpl _value, $Res Function(_$RegisterImpl) _then)
+class __$$RegisterCopyWithImpl<$Res>
+    extends _$NewPasswordEventCopyWithImpl<$Res, _$Register>
+    implements _$$RegisterCopyWith<$Res> {
+  __$$RegisterCopyWithImpl(_$Register _value, $Res Function(_$Register) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +111,7 @@ class __$$RegisterImplCopyWithImpl<$Res>
   $Res call({
     Object? email = null,
   }) {
-    return _then(_$RegisterImpl(
+    return _then(_$Register(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -123,8 +122,8 @@ class __$$RegisterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RegisterImpl implements Register {
-  const _$RegisterImpl({required this.email});
+class _$Register implements Register {
+  const _$Register({required this.email});
 
   @override
   final String email;
@@ -138,7 +137,7 @@ class _$RegisterImpl implements Register {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegisterImpl &&
+            other is _$Register &&
             (identical(other.email, email) || other.email == email));
   }
 
@@ -148,8 +147,8 @@ class _$RegisterImpl implements Register {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegisterImplCopyWith<_$RegisterImpl> get copyWith =>
-      __$$RegisterImplCopyWithImpl<_$RegisterImpl>(this, _$identity);
+  _$$RegisterCopyWith<_$Register> get copyWith =>
+      __$$RegisterCopyWithImpl<_$Register>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,13 +208,13 @@ class _$RegisterImpl implements Register {
 }
 
 abstract class Register implements NewPasswordEvent {
-  const factory Register({required final String email}) = _$RegisterImpl;
+  const factory Register({required final String email}) = _$Register;
 
   @override
   String get email;
   @override
   @JsonKey(ignore: true)
-  _$$RegisterImplCopyWith<_$RegisterImpl> get copyWith =>
+  _$$RegisterCopyWith<_$Register> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -274,25 +273,24 @@ class _$NewPasswordStateCopyWithImpl<$Res, $Val extends NewPasswordState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$NewPasswordStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$NewPasswordStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
@@ -302,7 +300,7 @@ class _$InitialImpl implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -366,7 +364,7 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements NewPasswordState {
-  const factory _Initial() = _$InitialImpl;
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -430,25 +428,25 @@ class _$NewPasswordCommandCopyWithImpl<$Res, $Val extends NewPasswordCommand>
 }
 
 /// @nodoc
-abstract class _$$NavToSignInImplCopyWith<$Res> {
-  factory _$$NavToSignInImplCopyWith(
-          _$NavToSignInImpl value, $Res Function(_$NavToSignInImpl) then) =
-      __$$NavToSignInImplCopyWithImpl<$Res>;
+abstract class _$$NavToSignInCopyWith<$Res> {
+  factory _$$NavToSignInCopyWith(
+          _$NavToSignIn value, $Res Function(_$NavToSignIn) then) =
+      __$$NavToSignInCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToSignInImplCopyWithImpl<$Res>
-    extends _$NewPasswordCommandCopyWithImpl<$Res, _$NavToSignInImpl>
-    implements _$$NavToSignInImplCopyWith<$Res> {
-  __$$NavToSignInImplCopyWithImpl(
-      _$NavToSignInImpl _value, $Res Function(_$NavToSignInImpl) _then)
+class __$$NavToSignInCopyWithImpl<$Res>
+    extends _$NewPasswordCommandCopyWithImpl<$Res, _$NavToSignIn>
+    implements _$$NavToSignInCopyWith<$Res> {
+  __$$NavToSignInCopyWithImpl(
+      _$NavToSignIn _value, $Res Function(_$NavToSignIn) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToSignInImpl implements NavToSignIn {
-  const _$NavToSignInImpl();
+class _$NavToSignIn implements NavToSignIn {
+  const _$NavToSignIn();
 
   @override
   String toString() {
@@ -458,7 +456,7 @@ class _$NavToSignInImpl implements NavToSignIn {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToSignInImpl);
+        (other.runtimeType == runtimeType && other is _$NavToSignIn);
   }
 
   @override
@@ -528,29 +526,27 @@ class _$NavToSignInImpl implements NavToSignIn {
 }
 
 abstract class NavToSignIn implements NewPasswordCommand {
-  const factory NavToSignIn() = _$NavToSignInImpl;
+  const factory NavToSignIn() = _$NavToSignIn;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$ErrorCopyWith<$Res> {
+  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
+      __$$ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$NewPasswordCommandCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$ErrorCopyWithImpl<$Res>
+    extends _$NewPasswordCommandCopyWithImpl<$Res, _$Error>
+    implements _$$ErrorCopyWith<$Res> {
+  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ErrorImpl implements Error {
-  const _$ErrorImpl();
+class _$Error implements Error {
+  const _$Error();
 
   @override
   String toString() {
@@ -560,7 +556,7 @@ class _$ErrorImpl implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+        (other.runtimeType == runtimeType && other is _$Error);
   }
 
   @override
@@ -630,5 +626,5 @@ class _$ErrorImpl implements Error {
 }
 
 abstract class Error implements NewPasswordCommand {
-  const factory Error() = _$ErrorImpl;
+  const factory Error() = _$Error;
 }
