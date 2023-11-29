@@ -1,5 +1,5 @@
-import 'package:first_pancake_com/domain/entities/access_level.dart';
-import 'package:first_pancake_com/domain/entities/receipt.dart';
+import 'package:first_pancake_com/domain/entities/access_level/access_level.dart';
+import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';
