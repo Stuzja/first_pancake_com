@@ -39,49 +39,53 @@ class _SignInPageState extends State<SignInPage> {
         builder: (context, state) {
           return Scaffold(
             body: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Stack(
                 children: [
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      60.h.heightBox,
-                      Text(
-                        'Добро пожаловать снова!',
-                        style: AppTextStyles.title,
-                      ),
-                      35.h.heightBox,
-                      Text(
-                        'Email',
-                        style: AppTextStyles.label,
-                      ),
-                      10.h.heightBox,
-                      AppTextField(
-                        hint: 'Введите свою почту',
-                        onChanged: (p0) {},
-                      ),
-                      25.h.heightBox,
-                      Text(
-                        'Пароль',
-                        style: AppTextStyles.label,
-                      ),
-                      10.h.heightBox,
-                      AppTextField(
-                        hint: 'Введите свой пароль',
-                        hidePassword: true,
-                        onChanged: (p0) {},
-                      ),
-                      330.h.heightBox,
-                      MainButton(
-                        text: 'Войти',
-                        backgroundColor: AppColors.pancake5,
-                        textColor: AppColors.white,
-                        onPressed: () {
-                          context.router.push(const MainRoute());
-                        },
-                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          60.h.heightBox,
+                          Text(
+                            'Добро пожаловать снова!',
+                            style: AppTextStyles.title,
+                          ),
+                          35.h.heightBox,
+                          Text(
+                            'Email',
+                            style: AppTextStyles.label,
+                          ),
+                          10.h.heightBox,
+                          AppTextField(
+                            hint: 'Введите свою почту',
+                            onChanged: (p0) {},
+                          ),
+                          25.h.heightBox,
+                          Text(
+                            'Пароль',
+                            style: AppTextStyles.label,
+                          ),
+                          10.h.heightBox,
+                          AppTextField(
+                            hint: 'Введите свой пароль',
+                            hidePassword: true,
+                            onChanged: (p0) {},
+                          ),
+                          35.h.heightBox,
+                          MainButton(
+                            text: 'Войти',
+                            backgroundColor: AppColors.pancake5,
+                            textColor: AppColors.white,
+                            onPressed: () {
+                              context.router.push(const MainRoute());
+                            },
+                          ),
+                        ],
+                      ).paddingSymmetric(horizontal: 30.w),
                     ],
-                  ).paddingSymmetric(horizontal: 30.w),
+                  ),
                 ],
               ),
             ),
