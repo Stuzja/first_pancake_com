@@ -25,7 +25,7 @@ abstract class DataModule {
   @lazySingleton
   Dio get dio => Dio(
         BaseOptions(
-          baseUrl: "postgres://first_pancake_com_user:FN84sZMw2SXVeq6ZTohAwa1xwcNjkrZF@dpg-clj33cpll56s73fcunig-a/first_pancake_com",
+          baseUrl: "https://first-pancake-com.onrender.com/",
           connectTimeout: timeOutInSec * _millisecondsInSec,
           receiveTimeout: timeOutInSec * _millisecondsInSec,
         ),
