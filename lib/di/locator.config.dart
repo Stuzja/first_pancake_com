@@ -26,10 +26,10 @@ import '../data/interceptors/dio_connectivity_request_retrier.dart' as _i6;
 import '../data/interceptors/dio_interceptors_manager.dart' as _i29;
 import '../data/repositories/auth/auth_repository_impl.dart' as _i26;
 import '../data/repositories/snackbar_manager/snackbar_manager_impl.dart'
-    as _i17;
+    as _i16;
 import '../data/repositories/user/user_repository_impl.dart' as _i24;
 import '../domain/repositories/auth/auth_repository.dart' as _i25;
-import '../domain/repositories/snackbar_manager/snackbar_manager.dart' as _i16;
+import '../domain/repositories/snackbar_manager/snackbar_manager.dart' as _i15;
 import '../domain/repositories/user/user_repository.dart' as _i23;
 import '../presentation/pages/create_recipe_page/bloc/create_recipe_bloc.dart'
     as _i4;
@@ -40,9 +40,9 @@ import '../presentation/pages/new_password_page/bloc/new_password_bloc.dart'
     as _i10;
 import '../presentation/pages/profile_page/bloc/profile_bloc.dart' as _i12;
 import '../presentation/pages/sign_in_page/bloc/sign_in_bloc.dart' as _i14;
-import '../presentation/pages/sign_up_page/bloc/sign_up_bloc.dart' as _i15;
+import '../presentation/pages/sign_up_page/bloc/sign_up_bloc.dart' as _i27;
 import '../presentation/pages/splash_page/bloc/splash_bloc.dart'
-    as _i27; // ignore_for_file: unnecessary_lambdas
+    as _i17; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -76,8 +76,8 @@ Future<_i1.GetIt> $initGetIt(
     preResolve: true,
   );
   gh.factory<_i14.SignInBloc>(() => _i14.SignInBloc());
-  gh.factory<_i15.SignUpBloc>(() => _i15.SignUpBloc());
-  gh.singleton<_i16.SnackBarManager>(_i17.SnackBarManagerImpl());
+  gh.singleton<_i15.SnackBarManager>(_i16.SnackBarManagerImpl());
+  gh.factory<_i17.SplashBloc>(() => _i17.SplashBloc());
   gh.singleton<_i18.UserRemoteDataSource>(
       _i19.UserRemoteDataSourceImpl(get<_i5.Dio>()));
   gh.factory<_i20.AuthLocalDataSource>(() => _i20.AuthLocalDataSource(
@@ -95,12 +95,12 @@ Future<_i1.GetIt> $initGetIt(
     get<_i20.AuthLocalDataSource>(),
     get<_i23.UserRepository>(),
   ));
-  gh.factory<_i27.SplashBloc>(
-      () => _i27.SplashBloc(get<_i25.AuthRepository>()));
+  gh.factory<_i27.SignUpBloc>(
+      () => _i27.SignUpBloc(get<_i25.AuthRepository>()));
   gh.factory<_i28.AuthInterceptor>(() => _i28.AuthInterceptor(
         get<_i5.Dio>(),
         get<_i25.AuthRepository>(),
-        get<_i16.SnackBarManager>(),
+        get<_i15.SnackBarManager>(),
         get<_i6.DioConnectivityRequestRetrier>(),
       ));
   gh.singleton<_i29.DioInterceptorsManager>(_i29.DioInterceptorsManager(
