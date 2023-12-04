@@ -25,7 +25,7 @@ abstract class DataModule {
   @lazySingleton
   Dio get dio => Dio(
         BaseOptions(
-          baseUrl: "https://first-pancake-com.onrender.com/",
+          baseUrl: "http://127.0.0.1:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
           connectTimeout: timeOutInSec * _millisecondsInSec,
           receiveTimeout: timeOutInSec * _millisecondsInSec,
         ),

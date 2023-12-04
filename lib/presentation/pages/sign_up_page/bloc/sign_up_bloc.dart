@@ -78,7 +78,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState>
         Validators.validateEmail(state.email) == null &&
         state.email != '') {
       try {
-        await authRepository.registration(
+        await authRepository.signUp(
           RegistrationModel(
             email: state.email,
             username: state.username,

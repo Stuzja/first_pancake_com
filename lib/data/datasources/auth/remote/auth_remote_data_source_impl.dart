@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:first_pancake_com/data/datasources/auth/remote/auth_remote_data_source.dart';
+import 'package:first_pancake_com/data/models/auth/login_dto.dart';
 import 'package:first_pancake_com/data/models/auth/registration_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
@@ -17,5 +18,11 @@ abstract class AuthDataSourceImpl implements AuthRemoteDataSource {
   @POST('/registration')
   Future<RegistrationDto> registration(
     @Body() RegistrationDto regDto,
+  );
+
+  @override
+  @GET('/login')
+  Future<LoginDto> login(
+    @Body() LoginDto loginDto,
   );
 }
