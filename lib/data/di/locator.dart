@@ -18,18 +18,24 @@ abstract class DataModule {
         requestHeader: true,
         requestBody: true,
         responseBody: true,
-        responseHeader: false,
+        responseHeader: true,
         compact: false,
       );
 
   @lazySingleton
   Dio get dio => Dio(
         BaseOptions(
-          baseUrl: "http://127.0.0.1:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
+          baseUrl: "http://192.168.31.12:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
           connectTimeout: timeOutInSec * _millisecondsInSec,
           receiveTimeout: timeOutInSec * _millisecondsInSec,
         ),
-      );
+      )..interceptors.add(PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          responseHeader: false,
+          compact: false,
+        ));
 
   @lazySingleton
   Connectivity get connectivity => Connectivity();

@@ -1,4 +1,5 @@
 import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/domain/repositories/snackbar_manager/snackbar_manager.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +23,14 @@ class MyAppState extends State<MyApp> {
   @override
   void initState() {
     getIt.registerSingleton<AutoRouter>(autoRouter);
+    // getIt<SnackBarManager>().controller.stream.listen((event) {
+    //   snackbarKey.currentState?.removeCurrentSnackBar();
+    //   snackbarKey.currentState?.showSnackBar(
+    //     SnackBars().snackBar(
+    //       title: event.title,
+    //     ),
+    //   );
+    // });
     super.initState();
   }
 

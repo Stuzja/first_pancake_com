@@ -1,11 +1,12 @@
 import 'package:first_pancake_com/data/models/auth/login_dto.dart';
 import 'package:first_pancake_com/data/models/auth/registration_dto.dart';
+import 'package:first_pancake_com/data/models/auth/token_dto.dart';
 
 abstract class AuthRemoteDataSource {
-  Future<RegistrationDto> registration(
+  Future<TokenDto> registration(
     final RegistrationDto regDto,
   );
-  Future<LoginDto> login(
+  Future<TokenDto> login(
     final LoginDto loginDto,
   );
 }

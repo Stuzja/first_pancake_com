@@ -19,13 +19,13 @@ class _AuthDataSourceImpl implements AuthDataSourceImpl {
   String? baseUrl;
 
   @override
-  Future<RegistrationDto> registration(regDto) async {
+  Future<TokenDto> registration(regDto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = regDto;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<RegistrationDto>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<TokenDto>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -37,18 +37,18 @@ class _AuthDataSourceImpl implements AuthDataSourceImpl {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = RegistrationDto.fromJson(_result.data!);
+    final value = TokenDto.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<LoginDto> login(loginDto) async {
+  Future<TokenDto> login(loginDto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = loginDto;
     final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<LoginDto>(Options(
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<TokenDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -60,7 +60,7 @@ class _AuthDataSourceImpl implements AuthDataSourceImpl {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = LoginDto.fromJson(_result.data!);
+    final value = TokenDto.fromJson(_result.data!);
     return value;
   }
 

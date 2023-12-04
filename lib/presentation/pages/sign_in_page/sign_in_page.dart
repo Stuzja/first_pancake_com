@@ -34,7 +34,7 @@ class _SignInPageState extends State<SignInPage> {
             navToHomePage: () => context.router.push(const MainRoute()),
             error: () {
               const snackBar = SnackBar(
-                content: Text('Ошибка! Не получилось создать аккаунт.'),
+                content: Text('Ошибка! Неверные данные.'),
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
