@@ -19,13 +19,13 @@ class _AuthDataSourceImpl implements AuthDataSourceImpl {
   String? baseUrl;
 
   @override
-  Future<TokenDto> registration(regDto) async {
+  Future<ReceiptTokenDto> registration(regDto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = regDto;
-    final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<TokenDto>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ReceiptTokenDto>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -37,21 +37,26 @@ class _AuthDataSourceImpl implements AuthDataSourceImpl {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = TokenDto.fromJson(_result.data!);
+    final value = ReceiptTokenDto.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<TokenDto> login(loginDto) async {
+  Future<ReceiptTokenDto> login(
+    content_type,
+    loginDto,
+  ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Content-Type': content_type};
+    _headers.removeWhere((k, v) => v == null);
     final _data = loginDto;
-    final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<TokenDto>(Options(
-      method: 'GET',
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ReceiptTokenDto>(Options(
+      method: 'POST',
       headers: _headers,
       extra: _extra,
+      contentType: content_type,
     )
             .compose(
               _dio.options,
@@ -60,7 +65,7 @@ class _AuthDataSourceImpl implements AuthDataSourceImpl {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = TokenDto.fromJson(_result.data!);
+    final value = ReceiptTokenDto.fromJson(_result.data!);
     return value;
   }
 

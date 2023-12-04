@@ -1,16 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'token.dart';
+part of 'receipt_token.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TokenImpl _$$TokenImplFromJson(Map<String, dynamic> json) => _$TokenImpl(
+_$ReceiptTokenImpl _$$ReceiptTokenImplFromJson(Map<String, dynamic> json) =>
+    _$ReceiptTokenImpl(
       token: json['token'] as String,
+      user_id: json['user_id'] as int,
     );
 
-Map<String, dynamic> _$$TokenImplToJson(_$TokenImpl instance) =>
+Map<String, dynamic> _$$ReceiptTokenImplToJson(_$ReceiptTokenImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
+      'user_id': instance.user_id,
     };

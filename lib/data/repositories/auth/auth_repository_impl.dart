@@ -21,16 +21,15 @@ class AuthRepositoryImpl extends AuthRepository {
   );
 
   @override
-  String? getAccessToken() {
-    return _authLocalDataSource.getAccessToken();
+  String? getToken() {
+    return _authLocalDataSource.getToken();
   }
 
   @override
   Future<bool> get isLoggedIn async {
-    if (_authLocalDataSource.getAccessToken() == null) {
+    if (_authLocalDataSource.getToken() == null) {
       return false;
     }
-
     return true;
   }
 
@@ -44,12 +43,13 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<void> signIn(LoginModel model) async {
-     await _authRemoteDataSource.login(LoginMapper.fromModel(model));
+    await _authRemoteDataSource.login(
+        "application/json", LoginMapper.fromModel(model));
   }
 
   @override
   Future<void> signOut({bool signOutOnServer = true}) async {}
-  
+
   @override
   Future<void> refresh() {
     // TODO: implement refresh

@@ -4,7 +4,7 @@ import 'package:first_pancake_com/domain/entities/auth/registration_model.dart';
 abstract class AuthRepository {
   Future<bool> get isLoggedIn;
   int get userId;
-  String? getAccessToken();
+  String? getToken();
   Future<void> refresh();
   Future<void> signUp(RegistrationModel reg);
   Future<void> signIn(LoginModel model);

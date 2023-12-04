@@ -25,7 +25,7 @@ class AuthInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    final token = _authRepository.getAccessToken();
+    final token = _authRepository.getToken();
     if (token != null) {
       options.headers["Authorization"] = "Bearer $token ";
     }

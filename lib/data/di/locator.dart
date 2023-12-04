@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
@@ -18,14 +17,15 @@ abstract class DataModule {
         requestHeader: true,
         requestBody: true,
         responseBody: true,
-        responseHeader: true,
+        responseHeader: false,
         compact: false,
       );
 
   @lazySingleton
   Dio get dio => Dio(
         BaseOptions(
-          baseUrl: "http://192.168.31.12:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
+          baseUrl:
+              "http://192.168.31.12:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
           connectTimeout: timeOutInSec * _millisecondsInSec,
           receiveTimeout: timeOutInSec * _millisecondsInSec,
         ),
@@ -35,6 +35,7 @@ abstract class DataModule {
           responseBody: true,
           responseHeader: false,
           compact: false,
+          maxWidth: 100,
         ));
 
   @lazySingleton
