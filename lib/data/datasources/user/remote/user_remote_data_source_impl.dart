@@ -10,4 +10,6 @@ part 'user_remote_data_source_impl.g.dart';
 abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @factoryMethod
   factory UserRemoteDataSourceImpl(Dio dio) = _UserRemoteDataSourceImpl;
+
+  
 }

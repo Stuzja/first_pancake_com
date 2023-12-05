@@ -11,9 +11,6 @@ _$ReceiptDtoImpl _$$ReceiptDtoImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       photo: json['photo'] as String?,
       description: json['description'] as String?,
-      user: json['user'] == null
-          ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ReceiptDtoImplToJson(_$ReceiptDtoImpl instance) =>
@@ -21,5 +18,4 @@ Map<String, dynamic> _$$ReceiptDtoImplToJson(_$ReceiptDtoImpl instance) =>
       'title': instance.title,
       'photo': instance.photo,
       'description': instance.description,
-      'user': instance.user,
     };

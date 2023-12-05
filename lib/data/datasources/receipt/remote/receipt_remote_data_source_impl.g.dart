@@ -31,7 +31,7 @@ class _ReceiptDataSourceImpl implements ReceiptDataSourceImpl {
     )
         .compose(
           _dio.options,
-          '/add_receipe',
+          '/receipt',
           queryParameters: queryParameters,
           data: _data,
         )

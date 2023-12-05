@@ -13,6 +13,8 @@ abstract class ReceiptDataSourceImpl implements ReceiptRemoteDataSource {
   factory ReceiptDataSourceImpl(Dio dio) = _ReceiptDataSourceImpl;
 
   @override
-  @POST('/add_receipe')
-  Future<void> addReceipt(@Body() ReceiptDto receiptDto);
+  @POST('/receipt')
+  Future<void> addReceipt(
+    @Body() ReceiptDto receiptDto,
+  );
 }

@@ -4,6 +4,7 @@ import 'package:first_pancake_com/domain/repositories/auth/auth_repository.dart'
 import 'package:first_pancake_com/utils/validators.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:side_effect_bloc/side_effect_bloc.dart';
 
 part 'sign_in_event.dart';
@@ -15,6 +16,7 @@ part 'sign_in_bloc.freezed.dart';
 class SignInBloc extends Bloc<SignInEvent, SignInState>
     with SideEffectBlocMixin<SignInState, SignInCommand> {
   final AuthRepository authRepository;
+  
   SignInBloc(this.authRepository)
       : super(const SignInState.initial(
           email: '',

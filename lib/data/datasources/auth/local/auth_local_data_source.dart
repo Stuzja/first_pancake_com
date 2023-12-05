@@ -26,12 +26,11 @@ class AuthLocalDataSource {
     return _prefs.getInt(userKey) ?? -1;
   }
 
-  Future<void> setUserInfo(
-      {required String userRefreshToken,
-      required String userAccessToken,
-      required int userID,
-      required String userType}) async {
-    await _prefs.setString(tokenKey, userAccessToken);
+  Future<void> setUserInfo({
+    required String userToken,
+    required int userID,
+  }) async {
+    await _prefs.setString(tokenKey, userToken);
     await _prefs.setInt(userKey, userID);
   }
 }

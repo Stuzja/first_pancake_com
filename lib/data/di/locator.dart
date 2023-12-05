@@ -25,7 +25,7 @@ abstract class DataModule {
   Dio get dio => Dio(
         BaseOptions(
           baseUrl:
-              "http://192.168.31.12:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
+              "http://192.168.1.229:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
           connectTimeout: timeOutInSec * _millisecondsInSec,
           receiveTimeout: timeOutInSec * _millisecondsInSec,
         ),
