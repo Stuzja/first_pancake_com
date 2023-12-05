@@ -23,7 +23,7 @@ class AuthLocalDataSource {
   }
 
   int getUserId() {
-    return _prefs.getInt(userKey)??-1;
+    return _prefs.getInt(userKey) ?? -1;
   }
 
   Future<void> setUserInfo(
@@ -34,5 +34,4 @@ class AuthLocalDataSource {
     await _prefs.setString(tokenKey, userAccessToken);
     await _prefs.setInt(userKey, userID);
   }
-
 }

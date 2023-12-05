@@ -9,12 +9,9 @@ part 'receipt.g.dart';
 class Receipt with _$Receipt {
   const factory Receipt({
     required String title,
-    // required Photo photo,
+    String? photo,
     String? description,
     User? user,
-    // List<Category>? categories,
-    // @Default(false) bool marked,
-    // subscriptions
   }) = _Receipt;
 
   factory Receipt.fromJson(Map<String, dynamic> json) =>

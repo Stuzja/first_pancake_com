@@ -10,6 +10,8 @@ class MainButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final bool gradient;
+  final bool indicator;
+  final Color indicatorColor;
 
   const MainButton({
     Key? key,
@@ -18,6 +20,8 @@ class MainButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.gradient = false,
+    this.indicator = false,
+    this.indicatorColor = Colors.white,
   }) : super(key: key);
 
   @override
@@ -27,7 +31,7 @@ class MainButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(16.r),
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        onTap: onPressed,
+        onTap: indicator ? null : onPressed,
         borderRadius: BorderRadius.circular(16.r),
         child: Ink(
           width: double.infinity,
@@ -52,12 +56,20 @@ class MainButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                text,
-                style: AppTextStyles.semiBold18.copyWith(
-                  color: textColor ?? AppColors.black,
-                ),
-              ),
+              indicator
+                  ? SizedBox(
+                      width: 20.w,
+                      height: 20.h,
+                      child: CircularProgressIndicator(
+                        color: indicatorColor,
+                      ),
+                    )
+                  : Text(
+                      text,
+                      style: AppTextStyles.semiBold18.copyWith(
+                        color: textColor ?? AppColors.black,
+                      ),
+                    ),
             ],
           ),
         ),

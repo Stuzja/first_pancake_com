@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/create_recipe_page/bloc/create_recipe_bloc.dart';
 import 'package:first_pancake_com/presentation/widgets/main_button/main_button.dart';
@@ -24,6 +25,8 @@ class CreateRecipePage extends StatefulWidget {
 }
 
 class _CreateRecipePageState extends State<CreateRecipePage> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
   File? image;
 
   Future<void> pickImage() async {
@@ -53,9 +56,18 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
           CreateRecipeState, CreateRecipeCommand>(
         listener: (context, sideEffect) {
           sideEffect.when(
-            navToHomePage: () => context.router.push(const MainRoute()),
+            navToHomePage: () {
+              const snackBar = SnackBar(
+                content: Text('Рецепт добавлен!'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              context.router.push(const MainRoute());
+            },
             error: () {
-              log('Create recipe bloc error');
+              const snackBar = SnackBar(
+                content: Text('Ошибка! Рецепт не был добавлен.'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
           );
         },
@@ -78,7 +90,9 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
                   10.h.heightBox,
                   AppTextField(
                     hint: 'Введите название вашего рецепта',
-                    onChanged: (p0) {},
+                    onChanged: (p0) {
+                      titleController.text = p0;
+                    },
                   ),
                   25.h.heightBox,
                   Text(
@@ -90,7 +104,9 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
                     hint:
                         'Введите, если хотите добавить описание вашего рецепта',
                     expand: true,
-                    onChanged: (p0) {},
+                    onChanged: (p0) {
+                      descriptionController.text = p0;
+                    },
                   ),
                   25.h.heightBox,
                   Text(
@@ -138,14 +154,22 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
                   MainButton(
                     text: 'Добавить рецепт',
                     gradient: true,
+                    indicator: state is Loading,
+                    indicatorColor: Colors.black,
                     onPressed: () {
-                      context.router.push(const MainRoute());
+                      final receipt = Receipt(
+                        title: titleController.text,
+                        description: descriptionController.text,
+                        photo: image != null ? image!.path : 'empty photo',
+                      );
+                      context
+                          .read<CreateRecipeBloc>()
+                          .add(CreateRecipe(receipt: receipt));
                     },
                   ),
                   15.heightBox,
                 ],
               ).paddingSymmetric(horizontal: 30.w),
-              
             ),
           );
         },

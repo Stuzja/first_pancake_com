@@ -2,7 +2,7 @@ import 'dart:collection';
 
 import 'package:first_pancake_com/data/datasources/auth/local/auth_local_data_source.dart';
 import 'package:first_pancake_com/data/datasources/user/remote/user_remote_data_source.dart';
-import 'package:first_pancake_com/domain/entities/user.dart';
+import 'package:first_pancake_com/domain/entities/user/user.dart';
 import 'package:first_pancake_com/domain/repositories/user/user_repository.dart';
 import 'package:injectable/injectable.dart';
 

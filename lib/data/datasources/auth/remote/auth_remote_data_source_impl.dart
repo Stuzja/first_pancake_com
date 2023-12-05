@@ -13,7 +13,6 @@ part 'auth_remote_data_source_impl.g.dart';
 abstract class AuthDataSourceImpl implements AuthRemoteDataSource {
   @factoryMethod
   factory AuthDataSourceImpl(Dio dio) = _AuthDataSourceImpl;
-
   
   @override
   @POST('/registration')

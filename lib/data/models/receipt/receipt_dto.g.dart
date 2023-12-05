@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'receipt.dart';
+part of 'receipt_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReceiptImpl _$$ReceiptImplFromJson(Map<String, dynamic> json) =>
-    _$ReceiptImpl(
+_$ReceiptDtoImpl _$$ReceiptDtoImplFromJson(Map<String, dynamic> json) =>
+    _$ReceiptDtoImpl(
       title: json['title'] as String,
       photo: json['photo'] as String?,
       description: json['description'] as String?,
@@ -16,7 +16,7 @@ _$ReceiptImpl _$$ReceiptImplFromJson(Map<String, dynamic> json) =>
           : User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$ReceiptImplToJson(_$ReceiptImpl instance) =>
+Map<String, dynamic> _$$ReceiptDtoImplToJson(_$ReceiptDtoImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'photo': instance.photo,

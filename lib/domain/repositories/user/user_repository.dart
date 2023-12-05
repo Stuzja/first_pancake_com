@@ -1,5 +1,4 @@
-
-import 'package:first_pancake_com/domain/entities/user.dart';
+import 'package:first_pancake_com/domain/entities/user/user.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class UserRepository {

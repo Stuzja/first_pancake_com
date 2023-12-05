@@ -16,19 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreateRecipeEvent {
+  Receipt get receipt => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() createRecipe,
+    required TResult Function(Receipt receipt) createRecipe,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? createRecipe,
+    TResult? Function(Receipt receipt)? createRecipe,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? createRecipe,
+    TResult Function(Receipt receipt)? createRecipe,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +49,10 @@ mixin _$CreateRecipeEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CreateRecipeEventCopyWith<CreateRecipeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +60,10 @@ abstract class $CreateRecipeEventCopyWith<$Res> {
   factory $CreateRecipeEventCopyWith(
           CreateRecipeEvent value, $Res Function(CreateRecipeEvent) then) =
       _$CreateRecipeEventCopyWithImpl<$Res, CreateRecipeEvent>;
+  @useResult
+  $Res call({Receipt receipt});
+
+  $ReceiptCopyWith<$Res> get receipt;
 }
 
 /// @nodoc
@@ -66,13 +75,41 @@ class _$CreateRecipeEventCopyWithImpl<$Res, $Val extends CreateRecipeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? receipt = null,
+  }) {
+    return _then(_value.copyWith(
+      receipt: null == receipt
+          ? _value.receipt
+          : receipt // ignore: cast_nullable_to_non_nullable
+              as Receipt,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReceiptCopyWith<$Res> get receipt {
+    return $ReceiptCopyWith<$Res>(_value.receipt, (value) {
+      return _then(_value.copyWith(receipt: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$CreateRecipeImplCopyWith<$Res> {
+abstract class _$$CreateRecipeImplCopyWith<$Res>
+    implements $CreateRecipeEventCopyWith<$Res> {
   factory _$$CreateRecipeImplCopyWith(
           _$CreateRecipeImpl value, $Res Function(_$CreateRecipeImpl) then) =
       __$$CreateRecipeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Receipt receipt});
+
+  @override
+  $ReceiptCopyWith<$Res> get receipt;
 }
 
 /// @nodoc
@@ -82,51 +119,75 @@ class __$$CreateRecipeImplCopyWithImpl<$Res>
   __$$CreateRecipeImplCopyWithImpl(
       _$CreateRecipeImpl _value, $Res Function(_$CreateRecipeImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? receipt = null,
+  }) {
+    return _then(_$CreateRecipeImpl(
+      receipt: null == receipt
+          ? _value.receipt
+          : receipt // ignore: cast_nullable_to_non_nullable
+              as Receipt,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$CreateRecipeImpl implements CreateRecipe {
-  const _$CreateRecipeImpl();
+  const _$CreateRecipeImpl({required this.receipt});
+
+  @override
+  final Receipt receipt;
 
   @override
   String toString() {
-    return 'CreateRecipeEvent.createRecipe()';
+    return 'CreateRecipeEvent.createRecipe(receipt: $receipt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CreateRecipeImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$CreateRecipeImpl &&
+            (identical(other.receipt, receipt) || other.receipt == receipt));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, receipt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateRecipeImplCopyWith<_$CreateRecipeImpl> get copyWith =>
+      __$$CreateRecipeImplCopyWithImpl<_$CreateRecipeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() createRecipe,
+    required TResult Function(Receipt receipt) createRecipe,
   }) {
-    return createRecipe();
+    return createRecipe(receipt);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? createRecipe,
+    TResult? Function(Receipt receipt)? createRecipe,
   }) {
-    return createRecipe?.call();
+    return createRecipe?.call(receipt);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? createRecipe,
+    TResult Function(Receipt receipt)? createRecipe,
     required TResult orElse(),
   }) {
     if (createRecipe != null) {
-      return createRecipe();
+      return createRecipe(receipt);
     }
     return orElse();
   }
@@ -161,7 +222,15 @@ class _$CreateRecipeImpl implements CreateRecipe {
 }
 
 abstract class CreateRecipe implements CreateRecipeEvent {
-  const factory CreateRecipe() = _$CreateRecipeImpl;
+  const factory CreateRecipe({required final Receipt receipt}) =
+      _$CreateRecipeImpl;
+
+  @override
+  Receipt get receipt;
+  @override
+  @JsonKey(ignore: true)
+  _$$CreateRecipeImplCopyWith<_$CreateRecipeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -169,32 +238,44 @@ mixin _$CreateRecipeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -236,7 +317,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl implements Initial {
   const _$InitialImpl();
 
   @override
@@ -257,6 +338,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
   }) {
     return initial();
   }
@@ -265,6 +348,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
   }) {
     return initial?.call();
   }
@@ -273,6 +358,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -284,7 +371,9 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
   }) {
     return initial(this);
   }
@@ -292,7 +381,9 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -300,7 +391,9 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -310,8 +403,224 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements CreateRecipeState {
-  const factory _Initial() = _$InitialImpl;
+abstract class Initial implements CreateRecipeState {
+  const factory Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$CreateRecipeStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingImpl implements Loading {
+  const _$LoadingImpl();
+
+  @override
+  String toString() {
+    return 'CreateRecipeState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading implements CreateRecipeState {
+  const factory Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$CreateRecipeStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadedImpl implements Loaded {
+  const _$LoadedImpl();
+
+  @override
+  String toString() {
+    return 'CreateRecipeState.loaded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+  }) {
+    return loaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+  }) {
+    return loaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loaded implements CreateRecipeState {
+  const factory Loaded() = _$LoadedImpl;
 }
 
 /// @nodoc
