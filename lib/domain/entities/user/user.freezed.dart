@@ -20,12 +20,12 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String get username => throw _privateConstructorUsedError; // photo,
+  int? get id => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  AccessLevel? get accessLevel => throw _privateConstructorUsedError;
-  List<Receipt>? get ownRecipes => throw _privateConstructorUsedError;
-  List<Receipt>? get favourites => throw _privateConstructorUsedError;
+  int? get subscribersCount => throw _privateConstructorUsedError;
+  int? get receiptsCount => throw _privateConstructorUsedError;
+  int? get favouritesCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,14 +38,12 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {String username,
+      {int? id,
+      String username,
       String email,
-      String password,
-      AccessLevel? accessLevel,
-      List<Receipt>? ownRecipes,
-      List<Receipt>? favourites});
-
-  $AccessLevelCopyWith<$Res>? get accessLevel;
+      int? subscribersCount,
+      int? receiptsCount,
+      int? favouritesCount});
 }
 
 /// @nodoc
@@ -61,14 +59,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? username = null,
     Object? email = null,
-    Object? password = null,
-    Object? accessLevel = freezed,
-    Object? ownRecipes = freezed,
-    Object? favourites = freezed,
+    Object? subscribersCount = freezed,
+    Object? receiptsCount = freezed,
+    Object? favouritesCount = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -77,35 +79,19 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessLevel: freezed == accessLevel
-          ? _value.accessLevel
-          : accessLevel // ignore: cast_nullable_to_non_nullable
-              as AccessLevel?,
-      ownRecipes: freezed == ownRecipes
-          ? _value.ownRecipes
-          : ownRecipes // ignore: cast_nullable_to_non_nullable
-              as List<Receipt>?,
-      favourites: freezed == favourites
-          ? _value.favourites
-          : favourites // ignore: cast_nullable_to_non_nullable
-              as List<Receipt>?,
+      subscribersCount: freezed == subscribersCount
+          ? _value.subscribersCount
+          : subscribersCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      receiptsCount: freezed == receiptsCount
+          ? _value.receiptsCount
+          : receiptsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      favouritesCount: freezed == favouritesCount
+          ? _value.favouritesCount
+          : favouritesCount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AccessLevelCopyWith<$Res>? get accessLevel {
-    if (_value.accessLevel == null) {
-      return null;
-    }
-
-    return $AccessLevelCopyWith<$Res>(_value.accessLevel!, (value) {
-      return _then(_value.copyWith(accessLevel: value) as $Val);
-    });
   }
 }
 
@@ -117,15 +103,12 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String username,
+      {int? id,
+      String username,
       String email,
-      String password,
-      AccessLevel? accessLevel,
-      List<Receipt>? ownRecipes,
-      List<Receipt>? favourites});
-
-  @override
-  $AccessLevelCopyWith<$Res>? get accessLevel;
+      int? subscribersCount,
+      int? receiptsCount,
+      int? favouritesCount});
 }
 
 /// @nodoc
@@ -138,14 +121,18 @@ class __$$UserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? username = null,
     Object? email = null,
-    Object? password = null,
-    Object? accessLevel = freezed,
-    Object? ownRecipes = freezed,
-    Object? favourites = freezed,
+    Object? subscribersCount = freezed,
+    Object? receiptsCount = freezed,
+    Object? favouritesCount = freezed,
   }) {
     return _then(_$UserImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -154,22 +141,18 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessLevel: freezed == accessLevel
-          ? _value.accessLevel
-          : accessLevel // ignore: cast_nullable_to_non_nullable
-              as AccessLevel?,
-      ownRecipes: freezed == ownRecipes
-          ? _value._ownRecipes
-          : ownRecipes // ignore: cast_nullable_to_non_nullable
-              as List<Receipt>?,
-      favourites: freezed == favourites
-          ? _value._favourites
-          : favourites // ignore: cast_nullable_to_non_nullable
-              as List<Receipt>?,
+      subscribersCount: freezed == subscribersCount
+          ? _value.subscribersCount
+          : subscribersCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      receiptsCount: freezed == receiptsCount
+          ? _value.receiptsCount
+          : receiptsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      favouritesCount: freezed == favouritesCount
+          ? _value.favouritesCount
+          : favouritesCount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -178,50 +161,32 @@ class __$$UserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserImpl implements _User {
   const _$UserImpl(
-      {required this.username,
+      {this.id,
+      required this.username,
       required this.email,
-      required this.password,
-      this.accessLevel,
-      final List<Receipt>? ownRecipes,
-      final List<Receipt>? favourites})
-      : _ownRecipes = ownRecipes,
-        _favourites = favourites;
+      this.subscribersCount,
+      this.receiptsCount,
+      this.favouritesCount});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
 
   @override
+  final int? id;
+  @override
   final String username;
-// photo,
   @override
   final String email;
   @override
-  final String password;
+  final int? subscribersCount;
   @override
-  final AccessLevel? accessLevel;
-  final List<Receipt>? _ownRecipes;
+  final int? receiptsCount;
   @override
-  List<Receipt>? get ownRecipes {
-    final value = _ownRecipes;
-    if (value == null) return null;
-    if (_ownRecipes is EqualUnmodifiableListView) return _ownRecipes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Receipt>? _favourites;
-  @override
-  List<Receipt>? get favourites {
-    final value = _favourites;
-    if (value == null) return null;
-    if (_favourites is EqualUnmodifiableListView) return _favourites;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final int? favouritesCount;
 
   @override
   String toString() {
-    return 'User(username: $username, email: $email, password: $password, accessLevel: $accessLevel, ownRecipes: $ownRecipes, favourites: $favourites)';
+    return 'User(id: $id, username: $username, email: $email, subscribersCount: $subscribersCount, receiptsCount: $receiptsCount, favouritesCount: $favouritesCount)';
   }
 
   @override
@@ -229,29 +194,22 @@ class _$UserImpl implements _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.accessLevel, accessLevel) ||
-                other.accessLevel == accessLevel) &&
-            const DeepCollectionEquality()
-                .equals(other._ownRecipes, _ownRecipes) &&
-            const DeepCollectionEquality()
-                .equals(other._favourites, _favourites));
+            (identical(other.subscribersCount, subscribersCount) ||
+                other.subscribersCount == subscribersCount) &&
+            (identical(other.receiptsCount, receiptsCount) ||
+                other.receiptsCount == receiptsCount) &&
+            (identical(other.favouritesCount, favouritesCount) ||
+                other.favouritesCount == favouritesCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      username,
-      email,
-      password,
-      accessLevel,
-      const DeepCollectionEquality().hash(_ownRecipes),
-      const DeepCollectionEquality().hash(_favourites));
+  int get hashCode => Object.hash(runtimeType, id, username, email,
+      subscribersCount, receiptsCount, favouritesCount);
 
   @JsonKey(ignore: true)
   @override
@@ -269,27 +227,27 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String username,
+      {final int? id,
+      required final String username,
       required final String email,
-      required final String password,
-      final AccessLevel? accessLevel,
-      final List<Receipt>? ownRecipes,
-      final List<Receipt>? favourites}) = _$UserImpl;
+      final int? subscribersCount,
+      final int? receiptsCount,
+      final int? favouritesCount}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
+  int? get id;
+  @override
   String get username;
-  @override // photo,
+  @override
   String get email;
   @override
-  String get password;
+  int? get subscribersCount;
   @override
-  AccessLevel? get accessLevel;
+  int? get receiptsCount;
   @override
-  List<Receipt>? get ownRecipes;
-  @override
-  List<Receipt>? get favourites;
+  int? get favouritesCount;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

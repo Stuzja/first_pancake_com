@@ -43,4 +43,10 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.black,
   );
+
+  static final number = AppTextStyles.underTitle.copyWith(
+    fontSize: 25.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.pancake5,
+  );
 }
