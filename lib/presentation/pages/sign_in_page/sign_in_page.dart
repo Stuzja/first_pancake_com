@@ -49,8 +49,7 @@ class _SignInPageState extends State<SignInPage> {
         builder: (context, state) {
           return Scaffold(
             body: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Stack(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
