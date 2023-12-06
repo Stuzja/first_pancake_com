@@ -20,6 +20,21 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   @override
   Future<void> addReceipt(Receipt receipt) async {
     await _receiptRemoteDataSource.addReceipt(ReceiptMapper.fromModel(receipt));
-    log('from repo: receipt is added');
+  }
+
+  @override
+  Future<List<Receipt>> getCurrentUserReceipts() async {
+    final List<Receipt> models = [];
+    final dtoList = await _receiptRemoteDataSource.getCurrentUserReceipts();
+    dtoList.map((dto) {
+      models.add(dto.toModel());
+    });
+    return models;
+  }
+
+  @override
+  Future<Receipt> getReceiptById() {
+    // TODO: implement getReceiptById
+    throw UnimplementedError();
   }
 }

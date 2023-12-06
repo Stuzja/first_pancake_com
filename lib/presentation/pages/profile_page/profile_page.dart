@@ -105,19 +105,17 @@ class ProfilePage extends StatelessWidget {
                           style: AppTextStyles.label.copyWith(fontSize: 22.sp),
                         ),
                         10.h.heightBox,
-                        const ReceiptCards(
-                          title: 'sdfsd',
-                          description: 'asssssssssssssssss',
-                        ),
-                        10.h.heightBox,
-                        const ReceiptCards(
-                          title: 'rece',
-                          description: 'sdfsdskdfjksdjfk skdfj asdk sdofsd asldal dfgjdkf sdfsjdhfjer dkshdkf sdfkjksd dflgkldkfg skdfskd fguydjfgn sdfjhj',
-                        ),
-                        10.h.heightBox,
-                        const ReceiptCards(
-                          title: 'NIGSSSSSSSSSSSSSSSSSSSSSSS',
-                          description: 'SSSS',
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: state.receipts.length,
+                          itemBuilder: (context, index) {
+                            final receipt = state.receipts[index];
+                            log(receipt.toString());
+                            return ReceiptCards(
+                              title: receipt.title,
+                              description: receipt.description!,
+                            );
+                          },
                         ),
                       ],
                     ).paddingSymmetric(horizontal: 30.w),

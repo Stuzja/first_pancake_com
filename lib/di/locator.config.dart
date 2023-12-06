@@ -113,8 +113,10 @@ Future<_i1.GetIt> $initGetIt(
         get<_i27.AuthRepository>(),
         get<_i16.SharedPreferences>(),
       ));
-  gh.factory<_i30.ProfileBloc>(
-      () => _i30.ProfileBloc(get<_i25.UserRepository>()));
+  gh.factory<_i30.ProfileBloc>(() => _i30.ProfileBloc(
+        get<_i25.UserRepository>(),
+        get<_i14.ReceiptRepository>(),
+      ));
   gh.factory<_i31.SignInBloc>(
       () => _i31.SignInBloc(get<_i27.AuthRepository>()));
   gh.factory<_i32.SignUpBloc>(

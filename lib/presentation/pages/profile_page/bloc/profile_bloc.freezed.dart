@@ -170,21 +170,21 @@ mixin _$ProfileState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser) loaded,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser)? loaded,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser)? loaded,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -270,7 +270,7 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser) loaded,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
   }) {
     return initial();
   }
@@ -280,7 +280,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser)? loaded,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
   }) {
     return initial?.call();
   }
@@ -290,7 +290,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser)? loaded,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -378,7 +378,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser) loaded,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
   }) {
     return loading();
   }
@@ -388,7 +388,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser)? loaded,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
   }) {
     return loading?.call();
   }
@@ -398,7 +398,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser)? loaded,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -452,7 +452,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({User currentUser});
+  $Res call({User currentUser, List<Receipt> receipts});
 
   $UserCopyWith<$Res> get currentUser;
 }
@@ -469,12 +469,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentUser = null,
+    Object? receipts = null,
   }) {
     return _then(_$LoadedImpl(
       null == currentUser
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as User,
+      null == receipts
+          ? _value._receipts
+          : receipts // ignore: cast_nullable_to_non_nullable
+              as List<Receipt>,
     ));
   }
 
@@ -490,14 +495,22 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl(this.currentUser);
+  const _$LoadedImpl(this.currentUser, final List<Receipt> receipts)
+      : _receipts = receipts;
 
   @override
   final User currentUser;
+  final List<Receipt> _receipts;
+  @override
+  List<Receipt> get receipts {
+    if (_receipts is EqualUnmodifiableListView) return _receipts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_receipts);
+  }
 
   @override
   String toString() {
-    return 'ProfileState.loaded(currentUser: $currentUser)';
+    return 'ProfileState.loaded(currentUser: $currentUser, receipts: $receipts)';
   }
 
   @override
@@ -506,11 +519,13 @@ class _$LoadedImpl implements Loaded {
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
             (identical(other.currentUser, currentUser) ||
-                other.currentUser == currentUser));
+                other.currentUser == currentUser) &&
+            const DeepCollectionEquality().equals(other._receipts, _receipts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentUser);
+  int get hashCode => Object.hash(
+      runtimeType, currentUser, const DeepCollectionEquality().hash(_receipts));
 
   @JsonKey(ignore: true)
   @override
@@ -523,9 +538,9 @@ class _$LoadedImpl implements Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser) loaded,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
   }) {
-    return loaded(currentUser);
+    return loaded(currentUser, receipts);
   }
 
   @override
@@ -533,9 +548,9 @@ class _$LoadedImpl implements Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser)? loaded,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
   }) {
-    return loaded?.call(currentUser);
+    return loaded?.call(currentUser, receipts);
   }
 
   @override
@@ -543,11 +558,11 @@ class _$LoadedImpl implements Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser)? loaded,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(currentUser);
+      return loaded(currentUser, receipts);
     }
     return orElse();
   }
@@ -588,9 +603,11 @@ class _$LoadedImpl implements Loaded {
 }
 
 abstract class Loaded implements ProfileState {
-  const factory Loaded(final User currentUser) = _$LoadedImpl;
+  const factory Loaded(final User currentUser, final List<Receipt> receipts) =
+      _$LoadedImpl;
 
   User get currentUser;
+  List<Receipt> get receipts;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;

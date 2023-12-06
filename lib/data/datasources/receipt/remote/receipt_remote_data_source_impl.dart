@@ -17,4 +17,8 @@ abstract class ReceiptDataSourceImpl implements ReceiptRemoteDataSource {
   Future<void> addReceipt(
     @Body() ReceiptDto receiptDto,
   );
+
+  @override
+  @GET('/receipts')
+  Future<List<ReceiptDto>> getCurrentUserReceipts();
 }
