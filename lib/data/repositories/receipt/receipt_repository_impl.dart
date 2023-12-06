@@ -26,9 +26,11 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   Future<List<Receipt>> getCurrentUserReceipts() async {
     final List<Receipt> models = [];
     final dtoList = await _receiptRemoteDataSource.getCurrentUserReceipts();
-    dtoList.map((dto) {
-      models.add(dto.toModel());
-    });
+    log('dto list: ${dtoList.toString()}');
+    for (int i = 0; i < dtoList.length; i++) {
+      models.add(dtoList[i].toModel());
+    }
+     log('models list: ${models.toString()}');
     return models;
   }
 
