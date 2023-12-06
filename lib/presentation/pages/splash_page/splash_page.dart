@@ -20,70 +20,74 @@ class SplashPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<SplashBloc>()..add(const Started()),
       child: BlocSideEffectConsumer<SplashBloc, SplashBloc, SplashState,
-          SplashCommand>(listener: (context, sideEffect) {
-        sideEffect.when(start: () {});
-      }, builder: (context, state) {
-        return Scaffold(
+          SplashCommand>(
+        listener: (context, sideEffect) {
+          sideEffect.when(start: () {});
+        },
+        builder: (context, state) {
+          return Scaffold(
             body: Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    AppColors.pancake2,
-                    AppColors.pancake3,
-                    AppColors.pancake5,
-                  ],
-                ),
-              ),
-            ),
-            Column(
               children: [
-                Image.asset(
-                  AppImages.pancake,
-                  width: 120.w,
-                  height: 120.h,
-                  color: AppColors.white,
-                ),
-                15.h.heightBox,
-                Text(
-                  'Первый блин.com',
-                  style: AppTextStyles.semiBold50,
-                ),
-                310.h.heightBox,
-                MainButton(
-                  text: 'Войти',
-                  onPressed: () {
-                    context.router.push(const SignInRoute());
-                  },
-                ),
-                15.h.heightBox,
-                MainButton(
-                  text: 'Зарегистрироваться',
-                  onPressed: () {
-                    context.router.push(const SignUpRoute());
-                  },
-                ),
-                20.h.heightBox,
-                GestureDetector(
-                  onTap: () {
-                    //context.router.push(const ForgotPasswordRoute());
-                    context.router.push(MainRoute());
-                  },
-                  child: Text(
-                    'Забыли пароль?',
-                    style: AppTextStyles.semiBold15,
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        AppColors.pancake2,
+                        AppColors.pancake3,
+                        AppColors.pancake5,
+                      ],
+                    ),
                   ),
                 ),
+                Column(
+                  children: [
+                    Image.asset(
+                      AppImages.pancake,
+                      width: 120.w,
+                      height: 120.h,
+                      color: AppColors.white,
+                    ),
+                    15.h.heightBox,
+                    Text(
+                      'Первый блин.com',
+                      style: AppTextStyles.semiBold50,
+                    ),
+                    310.h.heightBox,
+                    MainButton(
+                      text: 'Войти',
+                      onPressed: () {
+                        context.router.push(const SignInRoute());
+                      },
+                    ),
+                    15.h.heightBox,
+                    MainButton(
+                      text: 'Зарегистрироваться',
+                      onPressed: () {
+                        context.router.push(const SignUpRoute());
+                      },
+                    ),
+                    20.h.heightBox,
+                    GestureDetector(
+                      onTap: () {
+                        //context.router.push(const ForgotPasswordRoute());
+                        context.router.push(MainRoute());
+                      },
+                      child: Text(
+                        'Забыли пароль?',
+                        style: AppTextStyles.semiBold15,
+                      ),
+                    ),
+                  ],
+                ).toCenter().paddingOnly(left: 40.w, right: 40.w, top: 140.h),
               ],
-            ).toCenter().paddingOnly(left: 40.w, right: 40.w, top: 140.h),
-          ],
-        ));
-      }),
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -90,7 +90,7 @@ class _SignInPageState extends State<SignInPage> {
                               .add(SignInEvent.changedPassword(password: p0));
                         },
                       ),
-                      330.h.heightBox,
+                      25.h.heightBox,
                       MainButton(
                         text: 'Войти',
                         backgroundColor: AppColors.pancake5,

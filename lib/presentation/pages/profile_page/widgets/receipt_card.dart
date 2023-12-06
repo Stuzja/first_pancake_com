@@ -1,5 +1,6 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
+import 'package:first_pancake_com/utils/app_images.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,17 +10,19 @@ class ReceiptCards extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
+    required this.onTap,
     this.imagePath,
   });
 
   final String title;
   final String description;
+  final VoidCallback onTap;
   final String? imagePath;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Ink(
         width: double.infinity,
         height: 80.h,
@@ -48,11 +51,15 @@ class ReceiptCards extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(12.r),
                     ),
-                    child: const Icon(
-                      Icons.hourglass_empty_outlined,
-                      color: AppColors.grey3,
-                    ),
-                  ),
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      width: 30.w,
+                      height: 30.h,
+                      child: Image.asset(
+                        AppImages.pancake,
+                        color: AppColors.grey3,
+                      ),
+                    )),
             20.w.widthBox,
             Expanded(
               child: Column(

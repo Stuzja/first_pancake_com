@@ -3,9 +3,12 @@ import 'dart:developer';
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/bloc/profile_bloc.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/widgets/receipt_card.dart';
+import 'package:first_pancake_com/presentation/pages/receipt_page/receipt_page.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
+import 'package:first_pancake_com/utils/app_images.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,9 +60,14 @@ class ProfilePage extends StatelessWidget {
                                 ),
                                 borderRadius: BorderRadius.circular(12.r),
                               ),
-                              child: const Icon(
-                                Icons.hourglass_empty_outlined,
-                                color: AppColors.grey3,
+                              alignment: Alignment.center,
+                              child: SizedBox(
+                                width: 110.w,
+                                height: 110.h,
+                                child: Image.asset(
+                                  AppImages.pancake,
+                                  color: AppColors.grey3,
+                                ),
                               ),
                             ),
                             20.h.heightBox,
@@ -113,6 +121,8 @@ class ProfilePage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               final receipt = state.receipts[index];
                               return ReceiptCards(
+                                onTap: () => context.router
+                                    .push(ReceiptRoute(receipt: receipt)),
                                 title: receipt.title,
                                 description: receipt.description!,
                               );

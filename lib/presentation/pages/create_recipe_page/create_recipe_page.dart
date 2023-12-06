@@ -159,7 +159,9 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
                     onPressed: () {
                       final receipt = Receipt(
                         title: titleController.text,
-                        description: descriptionController.text,
+                        description: descriptionController.text.isNotEmpty
+                            ? descriptionController.text
+                            : null,
                         photo: image != null ? image!.path : 'empty photo',
                       );
                       context
