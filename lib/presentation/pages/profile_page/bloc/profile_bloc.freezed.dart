@@ -69,23 +69,25 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedCopyWith<$Res> {
-  factory _$$StartedCopyWith(_$Started value, $Res Function(_$Started) then) =
-      __$$StartedCopyWithImpl<$Res>;
+abstract class _$$StartedImplCopyWith<$Res> {
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$Started>
-    implements _$$StartedCopyWith<$Res> {
-  __$$StartedCopyWithImpl(_$Started _value, $Res Function(_$Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Started implements Started {
-  const _$Started();
+class _$StartedImpl implements Started {
+  const _$StartedImpl();
 
   @override
   String toString() {
@@ -95,7 +97,7 @@ class _$Started implements Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Started);
+        (other.runtimeType == runtimeType && other is _$StartedImpl);
   }
 
   @override
@@ -159,7 +161,7 @@ class _$Started implements Started {
 }
 
 abstract class Started implements ProfileEvent {
-  const factory Started() = _$Started;
+  const factory Started() = _$StartedImpl;
 }
 
 /// @nodoc
@@ -167,32 +169,44 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -217,24 +231,25 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -244,7 +259,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -254,6 +269,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
   }) {
     return initial();
   }
@@ -262,6 +279,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
   }) {
     return initial?.call();
   }
@@ -270,6 +289,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,7 +302,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
   }) {
     return initial(this);
   }
@@ -289,7 +312,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -297,7 +322,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -307,8 +334,283 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements ProfileState {
-  const factory _Initial() = _$_Initial;
+abstract class Initial implements ProfileState {
+  const factory Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingImpl implements Loading {
+  const _$LoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProfileState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading implements ProfileState {
+  const factory Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User currentUser, List<Receipt> receipts});
+
+  $UserCopyWith<$Res> get currentUser;
+}
+
+/// @nodoc
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentUser = null,
+    Object? receipts = null,
+  }) {
+    return _then(_$LoadedImpl(
+      null == currentUser
+          ? _value.currentUser
+          : currentUser // ignore: cast_nullable_to_non_nullable
+              as User,
+      null == receipts
+          ? _value._receipts
+          : receipts // ignore: cast_nullable_to_non_nullable
+              as List<Receipt>,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get currentUser {
+    return $UserCopyWith<$Res>(_value.currentUser, (value) {
+      return _then(_value.copyWith(currentUser: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$LoadedImpl implements Loaded {
+  const _$LoadedImpl(this.currentUser, final List<Receipt> receipts)
+      : _receipts = receipts;
+
+  @override
+  final User currentUser;
+  final List<Receipt> _receipts;
+  @override
+  List<Receipt> get receipts {
+    if (_receipts is EqualUnmodifiableListView) return _receipts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_receipts);
+  }
+
+  @override
+  String toString() {
+    return 'ProfileState.loaded(currentUser: $currentUser, receipts: $receipts)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedImpl &&
+            (identical(other.currentUser, currentUser) ||
+                other.currentUser == currentUser) &&
+            const DeepCollectionEquality().equals(other._receipts, _receipts));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, currentUser, const DeepCollectionEquality().hash(_receipts));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User currentUser, List<Receipt> receipts) loaded,
+  }) {
+    return loaded(currentUser, receipts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User currentUser, List<Receipt> receipts)? loaded,
+  }) {
+    return loaded?.call(currentUser, receipts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User currentUser, List<Receipt> receipts)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(currentUser, receipts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loaded implements ProfileState {
+  const factory Loaded(final User currentUser, final List<Receipt> receipts) =
+      _$LoadedImpl;
+
+  User get currentUser;
+  List<Receipt> get receipts;
+  @JsonKey(ignore: true)
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -390,25 +692,25 @@ class _$ProfileCommandCopyWithImpl<$Res, $Val extends ProfileCommand>
 }
 
 /// @nodoc
-abstract class _$$NavToSubscribersCopyWith<$Res> {
-  factory _$$NavToSubscribersCopyWith(
-          _$NavToSubscribers value, $Res Function(_$NavToSubscribers) then) =
-      __$$NavToSubscribersCopyWithImpl<$Res>;
+abstract class _$$NavToSubscribersImplCopyWith<$Res> {
+  factory _$$NavToSubscribersImplCopyWith(_$NavToSubscribersImpl value,
+          $Res Function(_$NavToSubscribersImpl) then) =
+      __$$NavToSubscribersImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToSubscribersCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscribers>
-    implements _$$NavToSubscribersCopyWith<$Res> {
-  __$$NavToSubscribersCopyWithImpl(
-      _$NavToSubscribers _value, $Res Function(_$NavToSubscribers) _then)
+class __$$NavToSubscribersImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscribersImpl>
+    implements _$$NavToSubscribersImplCopyWith<$Res> {
+  __$$NavToSubscribersImplCopyWithImpl(_$NavToSubscribersImpl _value,
+      $Res Function(_$NavToSubscribersImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToSubscribers implements NavToSubscribers {
-  const _$NavToSubscribers();
+class _$NavToSubscribersImpl implements NavToSubscribers {
+  const _$NavToSubscribersImpl();
 
   @override
   String toString() {
@@ -418,7 +720,7 @@ class _$NavToSubscribers implements NavToSubscribers {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToSubscribers);
+        (other.runtimeType == runtimeType && other is _$NavToSubscribersImpl);
   }
 
   @override
@@ -506,29 +808,29 @@ class _$NavToSubscribers implements NavToSubscribers {
 }
 
 abstract class NavToSubscribers implements ProfileCommand {
-  const factory NavToSubscribers() = _$NavToSubscribers;
+  const factory NavToSubscribers() = _$NavToSubscribersImpl;
 }
 
 /// @nodoc
-abstract class _$$NavToSubscriptionsCopyWith<$Res> {
-  factory _$$NavToSubscriptionsCopyWith(_$NavToSubscriptions value,
-          $Res Function(_$NavToSubscriptions) then) =
-      __$$NavToSubscriptionsCopyWithImpl<$Res>;
+abstract class _$$NavToSubscriptionsImplCopyWith<$Res> {
+  factory _$$NavToSubscriptionsImplCopyWith(_$NavToSubscriptionsImpl value,
+          $Res Function(_$NavToSubscriptionsImpl) then) =
+      __$$NavToSubscriptionsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToSubscriptionsCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscriptions>
-    implements _$$NavToSubscriptionsCopyWith<$Res> {
-  __$$NavToSubscriptionsCopyWithImpl(
-      _$NavToSubscriptions _value, $Res Function(_$NavToSubscriptions) _then)
+class __$$NavToSubscriptionsImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSubscriptionsImpl>
+    implements _$$NavToSubscriptionsImplCopyWith<$Res> {
+  __$$NavToSubscriptionsImplCopyWithImpl(_$NavToSubscriptionsImpl _value,
+      $Res Function(_$NavToSubscriptionsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToSubscriptions implements NavToSubscriptions {
-  const _$NavToSubscriptions();
+class _$NavToSubscriptionsImpl implements NavToSubscriptions {
+  const _$NavToSubscriptionsImpl();
 
   @override
   String toString() {
@@ -538,7 +840,7 @@ class _$NavToSubscriptions implements NavToSubscriptions {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToSubscriptions);
+        (other.runtimeType == runtimeType && other is _$NavToSubscriptionsImpl);
   }
 
   @override
@@ -626,29 +928,29 @@ class _$NavToSubscriptions implements NavToSubscriptions {
 }
 
 abstract class NavToSubscriptions implements ProfileCommand {
-  const factory NavToSubscriptions() = _$NavToSubscriptions;
+  const factory NavToSubscriptions() = _$NavToSubscriptionsImpl;
 }
 
 /// @nodoc
-abstract class _$$NavToEditProfileCopyWith<$Res> {
-  factory _$$NavToEditProfileCopyWith(
-          _$NavToEditProfile value, $Res Function(_$NavToEditProfile) then) =
-      __$$NavToEditProfileCopyWithImpl<$Res>;
+abstract class _$$NavToEditProfileImplCopyWith<$Res> {
+  factory _$$NavToEditProfileImplCopyWith(_$NavToEditProfileImpl value,
+          $Res Function(_$NavToEditProfileImpl) then) =
+      __$$NavToEditProfileImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToEditProfileCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToEditProfile>
-    implements _$$NavToEditProfileCopyWith<$Res> {
-  __$$NavToEditProfileCopyWithImpl(
-      _$NavToEditProfile _value, $Res Function(_$NavToEditProfile) _then)
+class __$$NavToEditProfileImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToEditProfileImpl>
+    implements _$$NavToEditProfileImplCopyWith<$Res> {
+  __$$NavToEditProfileImplCopyWithImpl(_$NavToEditProfileImpl _value,
+      $Res Function(_$NavToEditProfileImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToEditProfile implements NavToEditProfile {
-  const _$NavToEditProfile();
+class _$NavToEditProfileImpl implements NavToEditProfile {
+  const _$NavToEditProfileImpl();
 
   @override
   String toString() {
@@ -658,7 +960,7 @@ class _$NavToEditProfile implements NavToEditProfile {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToEditProfile);
+        (other.runtimeType == runtimeType && other is _$NavToEditProfileImpl);
   }
 
   @override
@@ -746,29 +1048,29 @@ class _$NavToEditProfile implements NavToEditProfile {
 }
 
 abstract class NavToEditProfile implements ProfileCommand {
-  const factory NavToEditProfile() = _$NavToEditProfile;
+  const factory NavToEditProfile() = _$NavToEditProfileImpl;
 }
 
 /// @nodoc
-abstract class _$$NavToFavouritesCopyWith<$Res> {
-  factory _$$NavToFavouritesCopyWith(
-          _$NavToFavourites value, $Res Function(_$NavToFavourites) then) =
-      __$$NavToFavouritesCopyWithImpl<$Res>;
+abstract class _$$NavToFavouritesImplCopyWith<$Res> {
+  factory _$$NavToFavouritesImplCopyWith(_$NavToFavouritesImpl value,
+          $Res Function(_$NavToFavouritesImpl) then) =
+      __$$NavToFavouritesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToFavouritesCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToFavourites>
-    implements _$$NavToFavouritesCopyWith<$Res> {
-  __$$NavToFavouritesCopyWithImpl(
-      _$NavToFavourites _value, $Res Function(_$NavToFavourites) _then)
+class __$$NavToFavouritesImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToFavouritesImpl>
+    implements _$$NavToFavouritesImplCopyWith<$Res> {
+  __$$NavToFavouritesImplCopyWithImpl(
+      _$NavToFavouritesImpl _value, $Res Function(_$NavToFavouritesImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToFavourites implements NavToFavourites {
-  const _$NavToFavourites();
+class _$NavToFavouritesImpl implements NavToFavourites {
+  const _$NavToFavouritesImpl();
 
   @override
   String toString() {
@@ -778,7 +1080,7 @@ class _$NavToFavourites implements NavToFavourites {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToFavourites);
+        (other.runtimeType == runtimeType && other is _$NavToFavouritesImpl);
   }
 
   @override
@@ -866,27 +1168,29 @@ class _$NavToFavourites implements NavToFavourites {
 }
 
 abstract class NavToFavourites implements ProfileCommand {
-  const factory NavToFavourites() = _$NavToFavourites;
+  const factory NavToFavourites() = _$NavToFavouritesImpl;
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$ProfileCommandCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Error implements Error {
-  const _$Error();
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl();
 
   @override
   String toString() {
@@ -896,7 +1200,7 @@ class _$Error implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Error);
+        (other.runtimeType == runtimeType && other is _$ErrorImpl);
   }
 
   @override
@@ -984,5 +1288,5 @@ class _$Error implements Error {
 }
 
 abstract class Error implements ProfileCommand {
-  const factory Error() = _$Error;
+  const factory Error() = _$ErrorImpl;
 }

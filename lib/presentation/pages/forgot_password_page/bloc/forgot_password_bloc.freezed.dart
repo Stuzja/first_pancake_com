@@ -89,21 +89,22 @@ class _$ForgotPasswordEventCopyWithImpl<$Res, $Val extends ForgotPasswordEvent>
 }
 
 /// @nodoc
-abstract class _$$SendCodeCopyWith<$Res>
+abstract class _$$SendCodeImplCopyWith<$Res>
     implements $ForgotPasswordEventCopyWith<$Res> {
-  factory _$$SendCodeCopyWith(
-          _$SendCode value, $Res Function(_$SendCode) then) =
-      __$$SendCodeCopyWithImpl<$Res>;
+  factory _$$SendCodeImplCopyWith(
+          _$SendCodeImpl value, $Res Function(_$SendCodeImpl) then) =
+      __$$SendCodeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class __$$SendCodeCopyWithImpl<$Res>
-    extends _$ForgotPasswordEventCopyWithImpl<$Res, _$SendCode>
-    implements _$$SendCodeCopyWith<$Res> {
-  __$$SendCodeCopyWithImpl(_$SendCode _value, $Res Function(_$SendCode) _then)
+class __$$SendCodeImplCopyWithImpl<$Res>
+    extends _$ForgotPasswordEventCopyWithImpl<$Res, _$SendCodeImpl>
+    implements _$$SendCodeImplCopyWith<$Res> {
+  __$$SendCodeImplCopyWithImpl(
+      _$SendCodeImpl _value, $Res Function(_$SendCodeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +112,7 @@ class __$$SendCodeCopyWithImpl<$Res>
   $Res call({
     Object? email = null,
   }) {
-    return _then(_$SendCode(
+    return _then(_$SendCodeImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -122,8 +123,8 @@ class __$$SendCodeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SendCode implements SendCode {
-  const _$SendCode({required this.email});
+class _$SendCodeImpl implements SendCode {
+  const _$SendCodeImpl({required this.email});
 
   @override
   final String email;
@@ -137,7 +138,7 @@ class _$SendCode implements SendCode {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SendCode &&
+            other is _$SendCodeImpl &&
             (identical(other.email, email) || other.email == email));
   }
 
@@ -147,8 +148,8 @@ class _$SendCode implements SendCode {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SendCodeCopyWith<_$SendCode> get copyWith =>
-      __$$SendCodeCopyWithImpl<_$SendCode>(this, _$identity);
+  _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
+      __$$SendCodeImplCopyWithImpl<_$SendCodeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -208,13 +209,13 @@ class _$SendCode implements SendCode {
 }
 
 abstract class SendCode implements ForgotPasswordEvent {
-  const factory SendCode({required final String email}) = _$SendCode;
+  const factory SendCode({required final String email}) = _$SendCodeImpl;
 
   @override
   String get email;
   @override
   @JsonKey(ignore: true)
-  _$$SendCodeCopyWith<_$SendCode> get copyWith =>
+  _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -273,24 +274,25 @@ class _$ForgotPasswordStateCopyWithImpl<$Res, $Val extends ForgotPasswordState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ForgotPasswordStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ForgotPasswordStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -300,7 +302,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -364,7 +366,7 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements ForgotPasswordState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -429,25 +431,25 @@ class _$ForgotPasswordCommandCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$NavToEnterCodeCopyWith<$Res> {
-  factory _$$NavToEnterCodeCopyWith(
-          _$NavToEnterCode value, $Res Function(_$NavToEnterCode) then) =
-      __$$NavToEnterCodeCopyWithImpl<$Res>;
+abstract class _$$NavToEnterCodeImplCopyWith<$Res> {
+  factory _$$NavToEnterCodeImplCopyWith(_$NavToEnterCodeImpl value,
+          $Res Function(_$NavToEnterCodeImpl) then) =
+      __$$NavToEnterCodeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NavToEnterCodeCopyWithImpl<$Res>
-    extends _$ForgotPasswordCommandCopyWithImpl<$Res, _$NavToEnterCode>
-    implements _$$NavToEnterCodeCopyWith<$Res> {
-  __$$NavToEnterCodeCopyWithImpl(
-      _$NavToEnterCode _value, $Res Function(_$NavToEnterCode) _then)
+class __$$NavToEnterCodeImplCopyWithImpl<$Res>
+    extends _$ForgotPasswordCommandCopyWithImpl<$Res, _$NavToEnterCodeImpl>
+    implements _$$NavToEnterCodeImplCopyWith<$Res> {
+  __$$NavToEnterCodeImplCopyWithImpl(
+      _$NavToEnterCodeImpl _value, $Res Function(_$NavToEnterCodeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NavToEnterCode implements NavToEnterCode {
-  const _$NavToEnterCode();
+class _$NavToEnterCodeImpl implements NavToEnterCode {
+  const _$NavToEnterCodeImpl();
 
   @override
   String toString() {
@@ -457,7 +459,7 @@ class _$NavToEnterCode implements NavToEnterCode {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NavToEnterCode);
+        (other.runtimeType == runtimeType && other is _$NavToEnterCodeImpl);
   }
 
   @override
@@ -527,27 +529,29 @@ class _$NavToEnterCode implements NavToEnterCode {
 }
 
 abstract class NavToEnterCode implements ForgotPasswordCommand {
-  const factory NavToEnterCode() = _$NavToEnterCode;
+  const factory NavToEnterCode() = _$NavToEnterCodeImpl;
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$ForgotPasswordCommandCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$ForgotPasswordCommandCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Error implements Error {
-  const _$Error();
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl();
 
   @override
   String toString() {
@@ -557,7 +561,7 @@ class _$Error implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Error);
+        (other.runtimeType == runtimeType && other is _$ErrorImpl);
   }
 
   @override
@@ -627,5 +631,5 @@ class _$Error implements Error {
 }
 
 abstract class Error implements ForgotPasswordCommand {
-  const factory Error() = _$Error;
+  const factory Error() = _$ErrorImpl;
 }

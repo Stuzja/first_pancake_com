@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
@@ -25,11 +24,19 @@ abstract class DataModule {
   @lazySingleton
   Dio get dio => Dio(
         BaseOptions(
-          baseUrl: "postgres://first_pancake_com_user:FN84sZMw2SXVeq6ZTohAwa1xwcNjkrZF@dpg-clj33cpll56s73fcunig-a/first_pancake_com",
+          baseUrl:
+              "http://192.168.1.229:3000", //local baseUrl: "http://127.0.0.1:3000" production baseUrl:  "https://first-pancake-com.onrender.com/"
           connectTimeout: timeOutInSec * _millisecondsInSec,
           receiveTimeout: timeOutInSec * _millisecondsInSec,
         ),
-      );
+      )..interceptors.add(PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          responseHeader: false,
+          compact: false,
+          maxWidth: 100,
+        ));
 
   @lazySingleton
   Connectivity get connectivity => Connectivity();

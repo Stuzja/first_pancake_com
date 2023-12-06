@@ -6,26 +6,21 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
+      id: json['id'] as int?,
       username: json['username'] as String,
       email: json['email'] as String,
-      password: json['password'] as String,
-      accessLevel: json['accessLevel'] == null
-          ? null
-          : AccessLevel.fromJson(json['accessLevel'] as Map<String, dynamic>),
-      ownRecipes: (json['ownRecipes'] as List<dynamic>?)
-          ?.map((e) => Receipt.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      favourites: (json['favourites'] as List<dynamic>?)
-          ?.map((e) => Receipt.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      subscribersCount: json['subscribersCount'] as int?,
+      receiptsCount: json['receiptsCount'] as int?,
+      favouritesCount: json['favouritesCount'] as int?,
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
       'username': instance.username,
       'email': instance.email,
-      'password': instance.password,
-      'accessLevel': instance.accessLevel,
-      'ownRecipes': instance.ownRecipes,
-      'favourites': instance.favourites,
+      'subscribersCount': instance.subscribersCount,
+      'receiptsCount': instance.receiptsCount,
+      'favouritesCount': instance.favouritesCount,
     };

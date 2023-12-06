@@ -20,10 +20,9 @@ Receipt _$ReceiptFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Receipt {
-  String get title =>
-      throw _privateConstructorUsedError; // required Photo photo,
+  String get title => throw _privateConstructorUsedError;
+  String? get photo => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  User? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +34,7 @@ abstract class $ReceiptCopyWith<$Res> {
   factory $ReceiptCopyWith(Receipt value, $Res Function(Receipt) then) =
       _$ReceiptCopyWithImpl<$Res, Receipt>;
   @useResult
-  $Res call({String title, String? description, User? user});
-
-  $UserCopyWith<$Res>? get user;
+  $Res call({String title, String? photo, String? description});
 }
 
 /// @nodoc
@@ -54,127 +51,112 @@ class _$ReceiptCopyWithImpl<$Res, $Val extends Receipt>
   @override
   $Res call({
     Object? title = null,
+    Object? photo = freezed,
     Object? description = freezed,
-    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      photo: freezed == photo
+          ? _value.photo
+          : photo // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get user {
-    if (_value.user == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.user!, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_ReceiptCopyWith<$Res> implements $ReceiptCopyWith<$Res> {
-  factory _$$_ReceiptCopyWith(
-          _$_Receipt value, $Res Function(_$_Receipt) then) =
-      __$$_ReceiptCopyWithImpl<$Res>;
+abstract class _$$ReceiptImplCopyWith<$Res> implements $ReceiptCopyWith<$Res> {
+  factory _$$ReceiptImplCopyWith(
+          _$ReceiptImpl value, $Res Function(_$ReceiptImpl) then) =
+      __$$ReceiptImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String? description, User? user});
-
-  @override
-  $UserCopyWith<$Res>? get user;
+  $Res call({String title, String? photo, String? description});
 }
 
 /// @nodoc
-class __$$_ReceiptCopyWithImpl<$Res>
-    extends _$ReceiptCopyWithImpl<$Res, _$_Receipt>
-    implements _$$_ReceiptCopyWith<$Res> {
-  __$$_ReceiptCopyWithImpl(_$_Receipt _value, $Res Function(_$_Receipt) _then)
+class __$$ReceiptImplCopyWithImpl<$Res>
+    extends _$ReceiptCopyWithImpl<$Res, _$ReceiptImpl>
+    implements _$$ReceiptImplCopyWith<$Res> {
+  __$$ReceiptImplCopyWithImpl(
+      _$ReceiptImpl _value, $Res Function(_$ReceiptImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? title = null,
+    Object? photo = freezed,
     Object? description = freezed,
-    Object? user = freezed,
   }) {
-    return _then(_$_Receipt(
+    return _then(_$ReceiptImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      photo: freezed == photo
+          ? _value.photo
+          : photo // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Receipt implements _Receipt {
-  const _$_Receipt({required this.title, this.description, this.user});
+class _$ReceiptImpl implements _Receipt {
+  const _$ReceiptImpl({required this.title, this.photo, this.description});
 
-  factory _$_Receipt.fromJson(Map<String, dynamic> json) =>
-      _$$_ReceiptFromJson(json);
+  factory _$ReceiptImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReceiptImplFromJson(json);
 
   @override
   final String title;
-// required Photo photo,
+  @override
+  final String? photo;
   @override
   final String? description;
-  @override
-  final User? user;
 
   @override
   String toString() {
-    return 'Receipt(title: $title, description: $description, user: $user)';
+    return 'Receipt(title: $title, photo: $photo, description: $description)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Receipt &&
+            other is _$ReceiptImpl &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.photo, photo) || other.photo == photo) &&
             (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.user, user) || other.user == user));
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, description, user);
+  int get hashCode => Object.hash(runtimeType, title, photo, description);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReceiptCopyWith<_$_Receipt> get copyWith =>
-      __$$_ReceiptCopyWithImpl<_$_Receipt>(this, _$identity);
+  _$$ReceiptImplCopyWith<_$ReceiptImpl> get copyWith =>
+      __$$ReceiptImplCopyWithImpl<_$ReceiptImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReceiptToJson(
+    return _$$ReceiptImplToJson(
       this,
     );
   }
@@ -183,19 +165,19 @@ class _$_Receipt implements _Receipt {
 abstract class _Receipt implements Receipt {
   const factory _Receipt(
       {required final String title,
-      final String? description,
-      final User? user}) = _$_Receipt;
+      final String? photo,
+      final String? description}) = _$ReceiptImpl;
 
-  factory _Receipt.fromJson(Map<String, dynamic> json) = _$_Receipt.fromJson;
+  factory _Receipt.fromJson(Map<String, dynamic> json) = _$ReceiptImpl.fromJson;
 
   @override
   String get title;
-  @override // required Photo photo,
+  @override
+  String? get photo;
+  @override
   String? get description;
   @override
-  User? get user;
-  @override
   @JsonKey(ignore: true)
-  _$$_ReceiptCopyWith<_$_Receipt> get copyWith =>
+  _$$ReceiptImplCopyWith<_$ReceiptImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
