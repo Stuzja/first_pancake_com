@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/domain/repositories/auth/auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:side_effect_bloc/side_effect_bloc.dart';
@@ -12,8 +12,8 @@ part 'splash_bloc.freezed.dart';
 @injectable
 class SplashBloc extends Bloc<SplashEvent, SplashState>
     with SideEffectBlocMixin<SplashState, SplashCommand> {
-  SplashBloc(
-  ) : super(const _Initial()) {
+  final AuthRepository authRepository;
+  SplashBloc(this.authRepository) : super(const _Initial()) {
     on<Started>(_onStarted);
   }
 
@@ -21,10 +21,8 @@ class SplashBloc extends Bloc<SplashEvent, SplashState>
     Started event,
     Emitter<SplashState> emit,
   ) async {
-    if (getIt.currentScopeName == 'auth') {
-      await getIt.popScope();
-    }
-    getIt.pushNewScope(scopeName: 'auth');
-    emit(state);
+    // if (await authRepository.isLoggedIn) {
+    //   produceSideEffect(const SplashCommand.navToHome());
+    // }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:first_pancake_com/di/locator.dart';
 import 'package:first_pancake_com/domain/repositories/snackbar_manager/snackbar_manager.dart';
+import 'package:first_pancake_com/navigation/auth_guard.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  final autoRouter = AutoRouter();
+  final autoRouter = AutoRouter(authGuard: AuthGuard());
 
   @override
   void initState() {

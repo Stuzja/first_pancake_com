@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:first_pancake_com/navigation/auth_guard.dart';
 import 'package:first_pancake_com/presentation/pages/categories_page/categories_page.dart';
 import 'package:first_pancake_com/presentation/pages/create_recipe_page/create_recipe_page.dart';
 import 'package:first_pancake_com/presentation/pages/enter_code_page/enter_code_page.dart';
@@ -17,10 +18,11 @@ import 'package:first_pancake_com/presentation/pages/splash_page/splash_page.dar
   routes: <AutoRoute>[
     AutoRoute(
       page: SplashPage,
-      initial: true,
     ),
     AutoRoute(
       page: MainPage,
+      initial: true,
+      guards: [AuthGuard],
     ),
     AutoRoute(
       page: SignInPage,

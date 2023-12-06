@@ -13,44 +13,44 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i10;
 import 'package:shared_preferences/shared_preferences.dart' as _i16;
 
-import '../data/datasources/auth/local/auth_local_data_source.dart' as _i22;
-import '../data/datasources/auth/remote/auth_remote_data_source.dart' as _i23;
+import '../data/datasources/auth/local/auth_local_data_source.dart' as _i21;
+import '../data/datasources/auth/remote/auth_remote_data_source.dart' as _i22;
 import '../data/datasources/auth/remote/auth_remote_data_source_impl.dart'
-    as _i24;
+    as _i23;
 import '../data/datasources/receipt/local/receipt_local_data_source.dart'
     as _i11;
 import '../data/datasources/receipt/remote/receipt_remote_data_source.dart'
     as _i12;
 import '../data/datasources/receipt/remote/receipt_remote_data_source_impl.dart'
     as _i13;
-import '../data/datasources/user/remote/user_remote_data_source.dart' as _i20;
+import '../data/datasources/user/remote/user_remote_data_source.dart' as _i19;
 import '../data/datasources/user/remote/user_remote_data_source_impl.dart'
-    as _i21;
+    as _i20;
 import '../data/di/locator.dart' as _i35;
 import '../data/interceptors/auth_interceptor.dart' as _i33;
 import '../data/interceptors/dio_connectivity_request_retrier.dart' as _i5;
 import '../data/interceptors/dio_interceptors_manager.dart' as _i34;
-import '../data/repositories/auth/auth_repository_impl.dart' as _i28;
+import '../data/repositories/auth/auth_repository_impl.dart' as _i27;
 import '../data/repositories/receipt/receipt_repository_impl.dart' as _i15;
 import '../data/repositories/snackbar_manager/snackbar_manager_impl.dart'
     as _i18;
-import '../data/repositories/user/user_repository_impl.dart' as _i26;
-import '../domain/repositories/auth/auth_repository.dart' as _i27;
+import '../data/repositories/user/user_repository_impl.dart' as _i25;
+import '../domain/repositories/auth/auth_repository.dart' as _i26;
 import '../domain/repositories/receipt/receipt_repository.dart' as _i14;
 import '../domain/repositories/snackbar_manager/snackbar_manager.dart' as _i17;
-import '../domain/repositories/user/user_repository.dart' as _i25;
+import '../domain/repositories/user/user_repository.dart' as _i24;
 import '../presentation/pages/create_recipe_page/bloc/create_recipe_bloc.dart'
-    as _i29;
+    as _i28;
 import '../presentation/pages/enter_code_page/bloc/enter_code_bloc.dart' as _i6;
 import '../presentation/pages/forgot_password_page/bloc/forgot_password_bloc.dart'
     as _i8;
 import '../presentation/pages/new_password_page/bloc/new_password_bloc.dart'
     as _i9;
-import '../presentation/pages/profile_page/bloc/profile_bloc.dart' as _i30;
-import '../presentation/pages/sign_in_page/bloc/sign_in_bloc.dart' as _i31;
-import '../presentation/pages/sign_up_page/bloc/sign_up_bloc.dart' as _i32;
+import '../presentation/pages/profile_page/bloc/profile_bloc.dart' as _i29;
+import '../presentation/pages/sign_in_page/bloc/sign_in_bloc.dart' as _i30;
+import '../presentation/pages/sign_up_page/bloc/sign_up_bloc.dart' as _i31;
 import '../presentation/pages/splash_page/bloc/splash_bloc.dart'
-    as _i19; // ignore_for_file: unnecessary_lambdas
+    as _i32; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -89,41 +89,42 @@ Future<_i1.GetIt> $initGetIt(
     preResolve: true,
   );
   gh.singleton<_i17.SnackBarManager>(_i18.SnackBarManagerImpl());
-  gh.factory<_i19.SplashBloc>(() => _i19.SplashBloc());
-  gh.singleton<_i20.UserRemoteDataSource>(
-      _i21.UserRemoteDataSourceImpl(get<_i4.Dio>()));
-  gh.factory<_i22.AuthLocalDataSource>(() => _i22.AuthLocalDataSource(
+  gh.singleton<_i19.UserRemoteDataSource>(
+      _i20.UserRemoteDataSourceImpl(get<_i4.Dio>()));
+  gh.factory<_i21.AuthLocalDataSource>(() => _i21.AuthLocalDataSource(
         get<_i16.SharedPreferences>(),
         get<_i7.FlutterSecureStorage>(),
       ));
-  gh.singleton<_i23.AuthRemoteDataSource>(
-      _i24.AuthDataSourceImpl(get<_i4.Dio>()));
-  gh.singleton<_i25.UserRepository>(_i26.UserRepositoryImpl(
-    get<_i22.AuthLocalDataSource>(),
-    get<_i20.UserRemoteDataSource>(),
+  gh.singleton<_i22.AuthRemoteDataSource>(
+      _i23.AuthDataSourceImpl(get<_i4.Dio>()));
+  gh.singleton<_i24.UserRepository>(_i25.UserRepositoryImpl(
+    get<_i21.AuthLocalDataSource>(),
+    get<_i19.UserRemoteDataSource>(),
     get<_i16.SharedPreferences>(),
   ));
-  gh.singleton<_i27.AuthRepository>(_i28.AuthRepositoryImpl(
-    get<_i23.AuthRemoteDataSource>(),
-    get<_i22.AuthLocalDataSource>(),
-    get<_i25.UserRepository>(),
+  gh.singleton<_i26.AuthRepository>(_i27.AuthRepositoryImpl(
+    get<_i22.AuthRemoteDataSource>(),
+    get<_i21.AuthLocalDataSource>(),
+    get<_i24.UserRepository>(),
   ));
-  gh.factory<_i29.CreateRecipeBloc>(() => _i29.CreateRecipeBloc(
+  gh.factory<_i28.CreateRecipeBloc>(() => _i28.CreateRecipeBloc(
         get<_i14.ReceiptRepository>(),
-        get<_i27.AuthRepository>(),
+        get<_i26.AuthRepository>(),
         get<_i16.SharedPreferences>(),
       ));
-  gh.factory<_i30.ProfileBloc>(() => _i30.ProfileBloc(
-        get<_i25.UserRepository>(),
+  gh.factory<_i29.ProfileBloc>(() => _i29.ProfileBloc(
+        get<_i24.UserRepository>(),
         get<_i14.ReceiptRepository>(),
       ));
-  gh.factory<_i31.SignInBloc>(
-      () => _i31.SignInBloc(get<_i27.AuthRepository>()));
-  gh.factory<_i32.SignUpBloc>(
-      () => _i32.SignUpBloc(get<_i27.AuthRepository>()));
+  gh.factory<_i30.SignInBloc>(
+      () => _i30.SignInBloc(get<_i26.AuthRepository>()));
+  gh.factory<_i31.SignUpBloc>(
+      () => _i31.SignUpBloc(get<_i26.AuthRepository>()));
+  gh.factory<_i32.SplashBloc>(
+      () => _i32.SplashBloc(get<_i26.AuthRepository>()));
   gh.factory<_i33.AuthInterceptor>(() => _i33.AuthInterceptor(
         get<_i4.Dio>(),
-        get<_i27.AuthRepository>(),
+        get<_i26.AuthRepository>(),
         get<_i17.SnackBarManager>(),
         get<_i5.DioConnectivityRequestRetrier>(),
       ));
