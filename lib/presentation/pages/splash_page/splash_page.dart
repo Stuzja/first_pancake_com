@@ -22,7 +22,9 @@ class SplashPage extends StatelessWidget {
       child: BlocSideEffectConsumer<SplashBloc, SplashBloc, SplashState,
           SplashCommand>(
         listener: (context, sideEffect) {
-          sideEffect.when(start: () {});
+          sideEffect.when(
+            navToHome: () => context.router.push(const MainRoute()),
+          );
         },
         builder: (context, state) {
           return Scaffold(

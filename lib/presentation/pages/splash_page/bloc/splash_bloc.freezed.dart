@@ -318,33 +318,33 @@ abstract class _Initial implements SplashState {
 mixin _$SplashCommand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() navToHome,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? navToHome,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? navToHome,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(NavToHome value) navToHome,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(NavToHome value)? navToHome,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(NavToHome value)? navToHome,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -369,35 +369,35 @@ class _$SplashCommandCopyWithImpl<$Res, $Val extends SplashCommand>
 }
 
 /// @nodoc
-abstract class _$$StartImplCopyWith<$Res> {
-  factory _$$StartImplCopyWith(
-          _$StartImpl value, $Res Function(_$StartImpl) then) =
-      __$$StartImplCopyWithImpl<$Res>;
+abstract class _$$NavToHomeImplCopyWith<$Res> {
+  factory _$$NavToHomeImplCopyWith(
+          _$NavToHomeImpl value, $Res Function(_$NavToHomeImpl) then) =
+      __$$NavToHomeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartImplCopyWithImpl<$Res>
-    extends _$SplashCommandCopyWithImpl<$Res, _$StartImpl>
-    implements _$$StartImplCopyWith<$Res> {
-  __$$StartImplCopyWithImpl(
-      _$StartImpl _value, $Res Function(_$StartImpl) _then)
+class __$$NavToHomeImplCopyWithImpl<$Res>
+    extends _$SplashCommandCopyWithImpl<$Res, _$NavToHomeImpl>
+    implements _$$NavToHomeImplCopyWith<$Res> {
+  __$$NavToHomeImplCopyWithImpl(
+      _$NavToHomeImpl _value, $Res Function(_$NavToHomeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartImpl implements _Start {
-  const _$StartImpl();
+class _$NavToHomeImpl implements NavToHome {
+  const _$NavToHomeImpl();
 
   @override
   String toString() {
-    return 'SplashCommand.start()';
+    return 'SplashCommand.navToHome()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartImpl);
+        (other.runtimeType == runtimeType && other is _$NavToHomeImpl);
   }
 
   @override
@@ -406,27 +406,27 @@ class _$StartImpl implements _Start {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() navToHome,
   }) {
-    return start();
+    return navToHome();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? navToHome,
   }) {
-    return start?.call();
+    return navToHome?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? navToHome,
     required TResult orElse(),
   }) {
-    if (start != null) {
-      return start();
+    if (navToHome != null) {
+      return navToHome();
     }
     return orElse();
   }
@@ -434,32 +434,32 @@ class _$StartImpl implements _Start {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(NavToHome value) navToHome,
   }) {
-    return start(this);
+    return navToHome(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(NavToHome value)? navToHome,
   }) {
-    return start?.call(this);
+    return navToHome?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(NavToHome value)? navToHome,
     required TResult orElse(),
   }) {
-    if (start != null) {
-      return start(this);
+    if (navToHome != null) {
+      return navToHome(this);
     }
     return orElse();
   }
 }
 
-abstract class _Start implements SplashCommand {
-  const factory _Start() = _$StartImpl;
+abstract class NavToHome implements SplashCommand {
+  const factory NavToHome() = _$NavToHomeImpl;
 }

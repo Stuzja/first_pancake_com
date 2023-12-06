@@ -14,7 +14,7 @@
 import 'package:auto_route/auto_route.dart' as _i13;
 import 'package:flutter/material.dart' as _i14;
 
-import '../domain/entities/receipt/receipt.dart' as _i15;
+import '../domain/entities/receipt/receipt.dart' as _i16;
 import '../presentation/pages/categories_page/categories_page.dart' as _i8;
 import '../presentation/pages/create_recipe_page/create_recipe_page.dart'
     as _i9;
@@ -30,10 +30,15 @@ import '../presentation/pages/search_recipe_page/search_recipe_page.dart'
 import '../presentation/pages/sign_in_page/sign_in_page.dart' as _i3;
 import '../presentation/pages/sign_up_page/sign_up_page.dart' as _i4;
 import '../presentation/pages/splash_page/splash_page.dart' as _i1;
+import 'auth_guard.dart' as _i15;
 
 class AutoRouter extends _i13.RootStackRouter {
-  AutoRouter([_i14.GlobalKey<_i14.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+  AutoRouter({
+    _i14.GlobalKey<_i14.NavigatorState>? navigatorKey,
+    required this.authGuard,
+  }) : super(navigatorKey);
+
+  final _i15.AuthGuard authGuard;
 
   @override
   final Map<String, _i13.PageFactory> pagesMap = {
@@ -119,11 +124,12 @@ class AutoRouter extends _i13.RootStackRouter {
   List<_i13.RouteConfig> get routes => [
         _i13.RouteConfig(
           SplashRoute.name,
-          path: '/',
+          path: '/splash-page',
         ),
         _i13.RouteConfig(
           MainRoute.name,
-          path: '/main-page',
+          path: '/',
+          guards: [authGuard],
         ),
         _i13.RouteConfig(
           SignInRoute.name,
@@ -174,7 +180,7 @@ class SplashRoute extends _i13.PageRouteInfo<void> {
   const SplashRoute()
       : super(
           SplashRoute.name,
-          path: '/',
+          path: '/splash-page',
         );
 
   static const String name = 'SplashRoute';
@@ -186,7 +192,7 @@ class MainRoute extends _i13.PageRouteInfo<void> {
   const MainRoute()
       : super(
           MainRoute.name,
-          path: '/main-page',
+          path: '/',
         );
 
   static const String name = 'MainRoute';
@@ -305,7 +311,7 @@ class SearchRecipeRoute extends _i13.PageRouteInfo<void> {
 class ReceiptRoute extends _i13.PageRouteInfo<ReceiptRouteArgs> {
   ReceiptRoute({
     _i14.Key? key,
-    required _i15.Receipt receipt,
+    required _i16.Receipt receipt,
   }) : super(
           ReceiptRoute.name,
           path: '/receipt-page',
@@ -326,7 +332,7 @@ class ReceiptRouteArgs {
 
   final _i14.Key? key;
 
-  final _i15.Receipt receipt;
+  final _i16.Receipt receipt;
 
   @override
   String toString() {
