@@ -104,16 +104,20 @@ class ProfilePage extends StatelessWidget {
                           'Мои рецепты',
                           style: AppTextStyles.label.copyWith(fontSize: 22.sp),
                         ),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: state.receipts.length,
-                          itemBuilder: (context, index) {
-                            final receipt = state.receipts[index];
-                            return ReceiptCards(
-                              title: receipt.title,
-                              description: receipt.description!,
-                            );
-                          },
+                        10.h.heightBox,
+                        SizedBox(
+                          height: 320.h,
+                          child: ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            itemCount: state.receipts.length,
+                            itemBuilder: (context, index) {
+                              final receipt = state.receipts[index];
+                              return ReceiptCards(
+                                title: receipt.title,
+                                description: receipt.description!,
+                              );
+                            },
+                          ),
                         ),
                       ],
                     ).paddingSymmetric(horizontal: 30.w),
