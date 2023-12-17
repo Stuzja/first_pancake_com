@@ -30,7 +30,7 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
     for (int i = 0; i < dtoList.length; i++) {
       models.add(dtoList[i].toModel());
     }
-     log('models list: ${models.toString()}');
+    log('models list: ${models.toString()}');
     return models;
   }
 
@@ -38,5 +38,16 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   Future<Receipt> getReceiptById() {
     // TODO: implement getReceiptById
     throw UnimplementedError();
+  }
+
+  @override
+  Future<List<Receipt>> getAllReceipts() async {
+    final List<Receipt> models = [];
+    final dtoList = await _receiptRemoteDataSource.getAllReceipts();
+    for (int i = 0; i < dtoList.length; i++) {
+      models.add(dtoList[i].toModel());
+    }
+    log(models.length.toString());
+    return models;
   }
 }

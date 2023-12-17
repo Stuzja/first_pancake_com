@@ -12,6 +12,7 @@ _$RegistrationModelImpl _$$RegistrationModelImplFromJson(
       email: json['email'] as String,
       username: json['username'] as String,
       password: json['password'] as String,
+      profile_image: json['profile_image'] as String?,
     );
 
 Map<String, dynamic> _$$RegistrationModelImplToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$RegistrationModelImplToJson(
       'email': instance.email,
       'username': instance.username,
       'password': instance.password,
+      'profile_image': instance.profile_image,
     };

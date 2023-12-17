@@ -11,5 +11,7 @@ class SignUpEvent with _$SignUpEvent {
       ChangedRepassword;
   const factory SignUpEvent.changedEmail({required String email}) =
       ChangedEmail;
+  const factory SignUpEvent.changedPhoto({String? profileImage}) =
+      ChangedProfileImage;
   const factory SignUpEvent.signUpClicked() = SignUpClicked;
 }

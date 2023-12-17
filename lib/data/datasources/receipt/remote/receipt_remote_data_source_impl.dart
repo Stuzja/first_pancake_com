@@ -21,4 +21,8 @@ abstract class ReceiptDataSourceImpl implements ReceiptRemoteDataSource {
   @override
   @GET('/receipts')
   Future<List<ReceiptDto>> getCurrentUserReceipts();
+
+  @override
+  @GET('/search/all')
+  Future<List<ReceiptDto>> getAllReceipts();
 }

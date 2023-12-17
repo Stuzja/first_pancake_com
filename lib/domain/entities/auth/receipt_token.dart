@@ -8,6 +8,7 @@ class ReceiptToken with _$ReceiptToken {
   const factory ReceiptToken({
     required String token,
     required int user_id,
+    String? profile_image,
   }) = _ReceiptToken;
 
   factory ReceiptToken.fromJson(Map<String, dynamic> json) =>

@@ -34,7 +34,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     Emitter<ProfileState> emit,
   ) async {
     try {
-      currentUser = await _userRepository.getCurrentUser();
+      currentUser = await _userRepository.getCurrentUser(); 
+     // log(currentUser!.profileImage!.substring(0, 5));
       receipts = await _receiptRepository.getCurrentUserReceipts();
       log('receipts: ${receipts.toString()}');
       emit(ProfileState.loaded(currentUser!, receipts!));

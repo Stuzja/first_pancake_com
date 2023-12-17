@@ -26,9 +26,7 @@ class UserRepositoryImpl extends UserRepository {
     final currentUserId = _prefs.get('UserId');
     log(currentUserId.toString());
     final UserDto userDto = await _userRemoteDataSource.getCurrentUser();
-    log('user dto: ${userDto.toString()}');
     final User user = userDto.toModel();
-    log('user model: ${user.toString()}');
     return user;
   }
 }

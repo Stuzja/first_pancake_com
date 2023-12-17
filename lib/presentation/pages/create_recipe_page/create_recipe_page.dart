@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
@@ -28,15 +29,22 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   File? image;
+  String? imageToBase;
 
-  Future<void> pickImage() async {
+  Future<String> pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
+      if (image == null) return '';
       final imageTemp = File(image.path);
-      setState(() => this.image = imageTemp);
+      List<int> imageBytes = await imageTemp.readAsBytes();
+      String base64Image = base64Encode(imageBytes);
+      setState(
+        () => this.image = imageTemp,
+      );
+      return base64Image;
     } catch (error) {
       log('Failed to pick an image: $error');
+      return '';
     }
   }
 
@@ -73,11 +81,26 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
         },
         builder: (context, state) {
           return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: InkWell(
+                onTap: context.router.pop,
+                child: Padding(
+                  padding: EdgeInsets.all(16.r),
+                  child: const Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            ),
             body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  60.h.heightBox,
+                  10.h.heightBox,
                   Text(
                     'Создайте свой рецепт',
                     style: AppTextStyles.title,
@@ -115,7 +138,9 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
                   ),
                   20.h.heightBox,
                   GestureDetector(
-                    onTap: () async => await pickImage(),
+                    onTap: () async {
+                      imageToBase = await pickImage();
+                    },
                     child: Container(
                       width: 300.w,
                       height: 300.h,
@@ -162,7 +187,7 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
                         description: descriptionController.text.isNotEmpty
                             ? descriptionController.text
                             : null,
-                        photo: image != null ? image!.path : 'empty photo',
+                        photo: imageToBase,
                       );
                       context
                           .read<CreateRecipeBloc>()

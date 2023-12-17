@@ -23,6 +23,7 @@ mixin _$SignUpEvent {
     required TResult Function(String password) changedPassword,
     required TResult Function(String repassword) changedRepassword,
     required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
     required TResult Function() signUpClicked,
   }) =>
       throw _privateConstructorUsedError;
@@ -33,6 +34,7 @@ mixin _$SignUpEvent {
     TResult? Function(String password)? changedPassword,
     TResult? Function(String repassword)? changedRepassword,
     TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
     TResult? Function()? signUpClicked,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +45,7 @@ mixin _$SignUpEvent {
     TResult Function(String password)? changedPassword,
     TResult Function(String repassword)? changedRepassword,
     TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
     TResult Function()? signUpClicked,
     required TResult orElse(),
   }) =>
@@ -54,6 +57,7 @@ mixin _$SignUpEvent {
     required TResult Function(ChangedPassword value) changedPassword,
     required TResult Function(ChangedRepassword value) changedRepassword,
     required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
     required TResult Function(SignUpClicked value) signUpClicked,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +68,7 @@ mixin _$SignUpEvent {
     TResult? Function(ChangedPassword value)? changedPassword,
     TResult? Function(ChangedRepassword value)? changedRepassword,
     TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
     TResult? Function(SignUpClicked value)? signUpClicked,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +79,7 @@ mixin _$SignUpEvent {
     TResult Function(ChangedPassword value)? changedPassword,
     TResult Function(ChangedRepassword value)? changedRepassword,
     TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
     TResult Function(SignUpClicked value)? signUpClicked,
     required TResult orElse(),
   }) =>
@@ -141,6 +147,7 @@ class _$StartedImpl implements Started {
     required TResult Function(String password) changedPassword,
     required TResult Function(String repassword) changedRepassword,
     required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
     required TResult Function() signUpClicked,
   }) {
     return started();
@@ -154,6 +161,7 @@ class _$StartedImpl implements Started {
     TResult? Function(String password)? changedPassword,
     TResult? Function(String repassword)? changedRepassword,
     TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
     TResult? Function()? signUpClicked,
   }) {
     return started?.call();
@@ -167,6 +175,7 @@ class _$StartedImpl implements Started {
     TResult Function(String password)? changedPassword,
     TResult Function(String repassword)? changedRepassword,
     TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
     TResult Function()? signUpClicked,
     required TResult orElse(),
   }) {
@@ -184,6 +193,7 @@ class _$StartedImpl implements Started {
     required TResult Function(ChangedPassword value) changedPassword,
     required TResult Function(ChangedRepassword value) changedRepassword,
     required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
     required TResult Function(SignUpClicked value) signUpClicked,
   }) {
     return started(this);
@@ -197,6 +207,7 @@ class _$StartedImpl implements Started {
     TResult? Function(ChangedPassword value)? changedPassword,
     TResult? Function(ChangedRepassword value)? changedRepassword,
     TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
     TResult? Function(SignUpClicked value)? signUpClicked,
   }) {
     return started?.call(this);
@@ -210,6 +221,7 @@ class _$StartedImpl implements Started {
     TResult Function(ChangedPassword value)? changedPassword,
     TResult Function(ChangedRepassword value)? changedRepassword,
     TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
     TResult Function(SignUpClicked value)? signUpClicked,
     required TResult orElse(),
   }) {
@@ -295,6 +307,7 @@ class _$ChangedUsernameImpl implements ChangedUsername {
     required TResult Function(String password) changedPassword,
     required TResult Function(String repassword) changedRepassword,
     required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
     required TResult Function() signUpClicked,
   }) {
     return changedUsername(username);
@@ -308,6 +321,7 @@ class _$ChangedUsernameImpl implements ChangedUsername {
     TResult? Function(String password)? changedPassword,
     TResult? Function(String repassword)? changedRepassword,
     TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
     TResult? Function()? signUpClicked,
   }) {
     return changedUsername?.call(username);
@@ -321,6 +335,7 @@ class _$ChangedUsernameImpl implements ChangedUsername {
     TResult Function(String password)? changedPassword,
     TResult Function(String repassword)? changedRepassword,
     TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
     TResult Function()? signUpClicked,
     required TResult orElse(),
   }) {
@@ -338,6 +353,7 @@ class _$ChangedUsernameImpl implements ChangedUsername {
     required TResult Function(ChangedPassword value) changedPassword,
     required TResult Function(ChangedRepassword value) changedRepassword,
     required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
     required TResult Function(SignUpClicked value) signUpClicked,
   }) {
     return changedUsername(this);
@@ -351,6 +367,7 @@ class _$ChangedUsernameImpl implements ChangedUsername {
     TResult? Function(ChangedPassword value)? changedPassword,
     TResult? Function(ChangedRepassword value)? changedRepassword,
     TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
     TResult? Function(SignUpClicked value)? signUpClicked,
   }) {
     return changedUsername?.call(this);
@@ -364,6 +381,7 @@ class _$ChangedUsernameImpl implements ChangedUsername {
     TResult Function(ChangedPassword value)? changedPassword,
     TResult Function(ChangedRepassword value)? changedRepassword,
     TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
     TResult Function(SignUpClicked value)? signUpClicked,
     required TResult orElse(),
   }) {
@@ -455,6 +473,7 @@ class _$ChangedPasswordImpl implements ChangedPassword {
     required TResult Function(String password) changedPassword,
     required TResult Function(String repassword) changedRepassword,
     required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
     required TResult Function() signUpClicked,
   }) {
     return changedPassword(password);
@@ -468,6 +487,7 @@ class _$ChangedPasswordImpl implements ChangedPassword {
     TResult? Function(String password)? changedPassword,
     TResult? Function(String repassword)? changedRepassword,
     TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
     TResult? Function()? signUpClicked,
   }) {
     return changedPassword?.call(password);
@@ -481,6 +501,7 @@ class _$ChangedPasswordImpl implements ChangedPassword {
     TResult Function(String password)? changedPassword,
     TResult Function(String repassword)? changedRepassword,
     TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
     TResult Function()? signUpClicked,
     required TResult orElse(),
   }) {
@@ -498,6 +519,7 @@ class _$ChangedPasswordImpl implements ChangedPassword {
     required TResult Function(ChangedPassword value) changedPassword,
     required TResult Function(ChangedRepassword value) changedRepassword,
     required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
     required TResult Function(SignUpClicked value) signUpClicked,
   }) {
     return changedPassword(this);
@@ -511,6 +533,7 @@ class _$ChangedPasswordImpl implements ChangedPassword {
     TResult? Function(ChangedPassword value)? changedPassword,
     TResult? Function(ChangedRepassword value)? changedRepassword,
     TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
     TResult? Function(SignUpClicked value)? signUpClicked,
   }) {
     return changedPassword?.call(this);
@@ -524,6 +547,7 @@ class _$ChangedPasswordImpl implements ChangedPassword {
     TResult Function(ChangedPassword value)? changedPassword,
     TResult Function(ChangedRepassword value)? changedRepassword,
     TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
     TResult Function(SignUpClicked value)? signUpClicked,
     required TResult orElse(),
   }) {
@@ -615,6 +639,7 @@ class _$ChangedRepasswordImpl implements ChangedRepassword {
     required TResult Function(String password) changedPassword,
     required TResult Function(String repassword) changedRepassword,
     required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
     required TResult Function() signUpClicked,
   }) {
     return changedRepassword(repassword);
@@ -628,6 +653,7 @@ class _$ChangedRepasswordImpl implements ChangedRepassword {
     TResult? Function(String password)? changedPassword,
     TResult? Function(String repassword)? changedRepassword,
     TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
     TResult? Function()? signUpClicked,
   }) {
     return changedRepassword?.call(repassword);
@@ -641,6 +667,7 @@ class _$ChangedRepasswordImpl implements ChangedRepassword {
     TResult Function(String password)? changedPassword,
     TResult Function(String repassword)? changedRepassword,
     TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
     TResult Function()? signUpClicked,
     required TResult orElse(),
   }) {
@@ -658,6 +685,7 @@ class _$ChangedRepasswordImpl implements ChangedRepassword {
     required TResult Function(ChangedPassword value) changedPassword,
     required TResult Function(ChangedRepassword value) changedRepassword,
     required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
     required TResult Function(SignUpClicked value) signUpClicked,
   }) {
     return changedRepassword(this);
@@ -671,6 +699,7 @@ class _$ChangedRepasswordImpl implements ChangedRepassword {
     TResult? Function(ChangedPassword value)? changedPassword,
     TResult? Function(ChangedRepassword value)? changedRepassword,
     TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
     TResult? Function(SignUpClicked value)? signUpClicked,
   }) {
     return changedRepassword?.call(this);
@@ -684,6 +713,7 @@ class _$ChangedRepasswordImpl implements ChangedRepassword {
     TResult Function(ChangedPassword value)? changedPassword,
     TResult Function(ChangedRepassword value)? changedRepassword,
     TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
     TResult Function(SignUpClicked value)? signUpClicked,
     required TResult orElse(),
   }) {
@@ -773,6 +803,7 @@ class _$ChangedEmailImpl implements ChangedEmail {
     required TResult Function(String password) changedPassword,
     required TResult Function(String repassword) changedRepassword,
     required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
     required TResult Function() signUpClicked,
   }) {
     return changedEmail(email);
@@ -786,6 +817,7 @@ class _$ChangedEmailImpl implements ChangedEmail {
     TResult? Function(String password)? changedPassword,
     TResult? Function(String repassword)? changedRepassword,
     TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
     TResult? Function()? signUpClicked,
   }) {
     return changedEmail?.call(email);
@@ -799,6 +831,7 @@ class _$ChangedEmailImpl implements ChangedEmail {
     TResult Function(String password)? changedPassword,
     TResult Function(String repassword)? changedRepassword,
     TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
     TResult Function()? signUpClicked,
     required TResult orElse(),
   }) {
@@ -816,6 +849,7 @@ class _$ChangedEmailImpl implements ChangedEmail {
     required TResult Function(ChangedPassword value) changedPassword,
     required TResult Function(ChangedRepassword value) changedRepassword,
     required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
     required TResult Function(SignUpClicked value) signUpClicked,
   }) {
     return changedEmail(this);
@@ -829,6 +863,7 @@ class _$ChangedEmailImpl implements ChangedEmail {
     TResult? Function(ChangedPassword value)? changedPassword,
     TResult? Function(ChangedRepassword value)? changedRepassword,
     TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
     TResult? Function(SignUpClicked value)? signUpClicked,
   }) {
     return changedEmail?.call(this);
@@ -842,6 +877,7 @@ class _$ChangedEmailImpl implements ChangedEmail {
     TResult Function(ChangedPassword value)? changedPassword,
     TResult Function(ChangedRepassword value)? changedRepassword,
     TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
     TResult Function(SignUpClicked value)? signUpClicked,
     required TResult orElse(),
   }) {
@@ -859,6 +895,172 @@ abstract class ChangedEmail implements SignUpEvent {
   String get email;
   @JsonKey(ignore: true)
   _$$ChangedEmailImplCopyWith<_$ChangedEmailImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangedProfileImageImplCopyWith<$Res> {
+  factory _$$ChangedProfileImageImplCopyWith(_$ChangedProfileImageImpl value,
+          $Res Function(_$ChangedProfileImageImpl) then) =
+      __$$ChangedProfileImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? profileImage});
+}
+
+/// @nodoc
+class __$$ChangedProfileImageImplCopyWithImpl<$Res>
+    extends _$SignUpEventCopyWithImpl<$Res, _$ChangedProfileImageImpl>
+    implements _$$ChangedProfileImageImplCopyWith<$Res> {
+  __$$ChangedProfileImageImplCopyWithImpl(_$ChangedProfileImageImpl _value,
+      $Res Function(_$ChangedProfileImageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? profileImage = freezed,
+  }) {
+    return _then(_$ChangedProfileImageImpl(
+      profileImage: freezed == profileImage
+          ? _value.profileImage
+          : profileImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangedProfileImageImpl implements ChangedProfileImage {
+  const _$ChangedProfileImageImpl({this.profileImage});
+
+  @override
+  final String? profileImage;
+
+  @override
+  String toString() {
+    return 'SignUpEvent.changedPhoto(profileImage: $profileImage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangedProfileImageImpl &&
+            (identical(other.profileImage, profileImage) ||
+                other.profileImage == profileImage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profileImage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangedProfileImageImplCopyWith<_$ChangedProfileImageImpl> get copyWith =>
+      __$$ChangedProfileImageImplCopyWithImpl<_$ChangedProfileImageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String username) changedUsername,
+    required TResult Function(String password) changedPassword,
+    required TResult Function(String repassword) changedRepassword,
+    required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
+    required TResult Function() signUpClicked,
+  }) {
+    return changedPhoto(profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String username)? changedUsername,
+    TResult? Function(String password)? changedPassword,
+    TResult? Function(String repassword)? changedRepassword,
+    TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
+    TResult? Function()? signUpClicked,
+  }) {
+    return changedPhoto?.call(profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String username)? changedUsername,
+    TResult Function(String password)? changedPassword,
+    TResult Function(String repassword)? changedRepassword,
+    TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
+    TResult Function()? signUpClicked,
+    required TResult orElse(),
+  }) {
+    if (changedPhoto != null) {
+      return changedPhoto(profileImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ChangedUsername value) changedUsername,
+    required TResult Function(ChangedPassword value) changedPassword,
+    required TResult Function(ChangedRepassword value) changedRepassword,
+    required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
+    required TResult Function(SignUpClicked value) signUpClicked,
+  }) {
+    return changedPhoto(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ChangedUsername value)? changedUsername,
+    TResult? Function(ChangedPassword value)? changedPassword,
+    TResult? Function(ChangedRepassword value)? changedRepassword,
+    TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
+    TResult? Function(SignUpClicked value)? signUpClicked,
+  }) {
+    return changedPhoto?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ChangedUsername value)? changedUsername,
+    TResult Function(ChangedPassword value)? changedPassword,
+    TResult Function(ChangedRepassword value)? changedRepassword,
+    TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
+    TResult Function(SignUpClicked value)? signUpClicked,
+    required TResult orElse(),
+  }) {
+    if (changedPhoto != null) {
+      return changedPhoto(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangedProfileImage implements SignUpEvent {
+  const factory ChangedProfileImage({final String? profileImage}) =
+      _$ChangedProfileImageImpl;
+
+  String? get profileImage;
+  @JsonKey(ignore: true)
+  _$$ChangedProfileImageImplCopyWith<_$ChangedProfileImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -905,6 +1107,7 @@ class _$SignUpClickedImpl implements SignUpClicked {
     required TResult Function(String password) changedPassword,
     required TResult Function(String repassword) changedRepassword,
     required TResult Function(String email) changedEmail,
+    required TResult Function(String? profileImage) changedPhoto,
     required TResult Function() signUpClicked,
   }) {
     return signUpClicked();
@@ -918,6 +1121,7 @@ class _$SignUpClickedImpl implements SignUpClicked {
     TResult? Function(String password)? changedPassword,
     TResult? Function(String repassword)? changedRepassword,
     TResult? Function(String email)? changedEmail,
+    TResult? Function(String? profileImage)? changedPhoto,
     TResult? Function()? signUpClicked,
   }) {
     return signUpClicked?.call();
@@ -931,6 +1135,7 @@ class _$SignUpClickedImpl implements SignUpClicked {
     TResult Function(String password)? changedPassword,
     TResult Function(String repassword)? changedRepassword,
     TResult Function(String email)? changedEmail,
+    TResult Function(String? profileImage)? changedPhoto,
     TResult Function()? signUpClicked,
     required TResult orElse(),
   }) {
@@ -948,6 +1153,7 @@ class _$SignUpClickedImpl implements SignUpClicked {
     required TResult Function(ChangedPassword value) changedPassword,
     required TResult Function(ChangedRepassword value) changedRepassword,
     required TResult Function(ChangedEmail value) changedEmail,
+    required TResult Function(ChangedProfileImage value) changedPhoto,
     required TResult Function(SignUpClicked value) signUpClicked,
   }) {
     return signUpClicked(this);
@@ -961,6 +1167,7 @@ class _$SignUpClickedImpl implements SignUpClicked {
     TResult? Function(ChangedPassword value)? changedPassword,
     TResult? Function(ChangedRepassword value)? changedRepassword,
     TResult? Function(ChangedEmail value)? changedEmail,
+    TResult? Function(ChangedProfileImage value)? changedPhoto,
     TResult? Function(SignUpClicked value)? signUpClicked,
   }) {
     return signUpClicked?.call(this);
@@ -974,6 +1181,7 @@ class _$SignUpClickedImpl implements SignUpClicked {
     TResult Function(ChangedPassword value)? changedPassword,
     TResult Function(ChangedRepassword value)? changedRepassword,
     TResult Function(ChangedEmail value)? changedEmail,
+    TResult Function(ChangedProfileImage value)? changedPhoto,
     TResult Function(SignUpClicked value)? signUpClicked,
     required TResult orElse(),
   }) {
@@ -994,24 +1202,25 @@ mixin _$SignUpState {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get repassword => throw _privateConstructorUsedError;
+  String? get profileImage => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String username, String email, String password, String repassword)
+    required TResult Function(String username, String email, String password,
+            String repassword, String? profileImage)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String username, String email, String password, String repassword)?
+    TResult? Function(String username, String email, String password,
+            String repassword, String? profileImage)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String username, String email, String password, String repassword)?
+    TResult Function(String username, String email, String password,
+            String repassword, String? profileImage)?
         initial,
     required TResult orElse(),
   }) =>
@@ -1045,7 +1254,11 @@ abstract class $SignUpStateCopyWith<$Res> {
       _$SignUpStateCopyWithImpl<$Res, SignUpState>;
   @useResult
   $Res call(
-      {String username, String email, String password, String repassword});
+      {String username,
+      String email,
+      String password,
+      String repassword,
+      String? profileImage});
 }
 
 /// @nodoc
@@ -1065,6 +1278,7 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
     Object? email = null,
     Object? password = null,
     Object? repassword = null,
+    Object? profileImage = freezed,
   }) {
     return _then(_value.copyWith(
       username: null == username
@@ -1083,6 +1297,10 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
           ? _value.repassword
           : repassword // ignore: cast_nullable_to_non_nullable
               as String,
+      profileImage: freezed == profileImage
+          ? _value.profileImage
+          : profileImage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -1096,7 +1314,11 @@ abstract class _$$InitialImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String username, String email, String password, String repassword});
+      {String username,
+      String email,
+      String password,
+      String repassword,
+      String? profileImage});
 }
 
 /// @nodoc
@@ -1114,6 +1336,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
     Object? repassword = null,
+    Object? profileImage = freezed,
   }) {
     return _then(_$InitialImpl(
       username: null == username
@@ -1132,6 +1355,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.repassword
           : repassword // ignore: cast_nullable_to_non_nullable
               as String,
+      profileImage: freezed == profileImage
+          ? _value.profileImage
+          : profileImage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1143,7 +1370,8 @@ class _$InitialImpl implements _Initial {
       {required this.username,
       required this.email,
       required this.password,
-      required this.repassword});
+      required this.repassword,
+      this.profileImage});
 
   @override
   final String username;
@@ -1153,10 +1381,12 @@ class _$InitialImpl implements _Initial {
   final String password;
   @override
   final String repassword;
+  @override
+  final String? profileImage;
 
   @override
   String toString() {
-    return 'SignUpState.initial(username: $username, email: $email, password: $password, repassword: $repassword)';
+    return 'SignUpState.initial(username: $username, email: $email, password: $password, repassword: $repassword, profileImage: $profileImage)';
   }
 
   @override
@@ -1170,12 +1400,14 @@ class _$InitialImpl implements _Initial {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.repassword, repassword) ||
-                other.repassword == repassword));
+                other.repassword == repassword) &&
+            (identical(other.profileImage, profileImage) ||
+                other.profileImage == profileImage));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, username, email, password, repassword);
+  int get hashCode => Object.hash(
+      runtimeType, username, email, password, repassword, profileImage);
 
   @JsonKey(ignore: true)
   @override
@@ -1186,33 +1418,33 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String username, String email, String password, String repassword)
+    required TResult Function(String username, String email, String password,
+            String repassword, String? profileImage)
         initial,
   }) {
-    return initial(username, email, password, repassword);
+    return initial(username, email, password, repassword, profileImage);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String username, String email, String password, String repassword)?
+    TResult? Function(String username, String email, String password,
+            String repassword, String? profileImage)?
         initial,
   }) {
-    return initial?.call(username, email, password, repassword);
+    return initial?.call(username, email, password, repassword, profileImage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String username, String email, String password, String repassword)?
+    TResult Function(String username, String email, String password,
+            String repassword, String? profileImage)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(username, email, password, repassword);
+      return initial(username, email, password, repassword, profileImage);
     }
     return orElse();
   }
@@ -1251,7 +1483,8 @@ abstract class _Initial implements SignUpState {
       {required final String username,
       required final String email,
       required final String password,
-      required final String repassword}) = _$InitialImpl;
+      required final String repassword,
+      final String? profileImage}) = _$InitialImpl;
 
   @override
   String get username;
@@ -1261,6 +1494,8 @@ abstract class _Initial implements SignUpState {
   String get password;
   @override
   String get repassword;
+  @override
+  String? get profileImage;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

@@ -26,6 +26,7 @@ mixin _$UserDto {
   int? get subscribers_count => throw _privateConstructorUsedError;
   int? get receipts_count => throw _privateConstructorUsedError;
   int? get favoutite_receipts => throw _privateConstructorUsedError;
+  String? get profile_image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $UserDtoCopyWith<$Res> {
       String email,
       int? subscribers_count,
       int? receipts_count,
-      int? favoutite_receipts});
+      int? favoutite_receipts,
+      String? profile_image});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
     Object? subscribers_count = freezed,
     Object? receipts_count = freezed,
     Object? favoutite_receipts = freezed,
+    Object? profile_image = freezed,
   }) {
     return _then(_value.copyWith(
       user_id: freezed == user_id
@@ -91,6 +94,10 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
           ? _value.favoutite_receipts
           : favoutite_receipts // ignore: cast_nullable_to_non_nullable
               as int?,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -108,7 +115,8 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       String email,
       int? subscribers_count,
       int? receipts_count,
-      int? favoutite_receipts});
+      int? favoutite_receipts,
+      String? profile_image});
 }
 
 /// @nodoc
@@ -128,6 +136,7 @@ class __$$UserDtoImplCopyWithImpl<$Res>
     Object? subscribers_count = freezed,
     Object? receipts_count = freezed,
     Object? favoutite_receipts = freezed,
+    Object? profile_image = freezed,
   }) {
     return _then(_$UserDtoImpl(
       user_id: freezed == user_id
@@ -154,6 +163,10 @@ class __$$UserDtoImplCopyWithImpl<$Res>
           ? _value.favoutite_receipts
           : favoutite_receipts // ignore: cast_nullable_to_non_nullable
               as int?,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -167,7 +180,8 @@ class _$UserDtoImpl implements _UserDto {
       required this.email,
       this.subscribers_count,
       this.receipts_count,
-      this.favoutite_receipts});
+      this.favoutite_receipts,
+      this.profile_image});
 
   factory _$UserDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserDtoImplFromJson(json);
@@ -184,10 +198,12 @@ class _$UserDtoImpl implements _UserDto {
   final int? receipts_count;
   @override
   final int? favoutite_receipts;
+  @override
+  final String? profile_image;
 
   @override
   String toString() {
-    return 'UserDto(user_id: $user_id, username: $username, email: $email, subscribers_count: $subscribers_count, receipts_count: $receipts_count, favoutite_receipts: $favoutite_receipts)';
+    return 'UserDto(user_id: $user_id, username: $username, email: $email, subscribers_count: $subscribers_count, receipts_count: $receipts_count, favoutite_receipts: $favoutite_receipts, profile_image: $profile_image)';
   }
 
   @override
@@ -204,13 +220,15 @@ class _$UserDtoImpl implements _UserDto {
             (identical(other.receipts_count, receipts_count) ||
                 other.receipts_count == receipts_count) &&
             (identical(other.favoutite_receipts, favoutite_receipts) ||
-                other.favoutite_receipts == favoutite_receipts));
+                other.favoutite_receipts == favoutite_receipts) &&
+            (identical(other.profile_image, profile_image) ||
+                other.profile_image == profile_image));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, user_id, username, email,
-      subscribers_count, receipts_count, favoutite_receipts);
+      subscribers_count, receipts_count, favoutite_receipts, profile_image);
 
   @JsonKey(ignore: true)
   @override
@@ -233,7 +251,8 @@ abstract class _UserDto implements UserDto {
       required final String email,
       final int? subscribers_count,
       final int? receipts_count,
-      final int? favoutite_receipts}) = _$UserDtoImpl;
+      final int? favoutite_receipts,
+      final String? profile_image}) = _$UserDtoImpl;
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$UserDtoImpl.fromJson;
 
@@ -249,6 +268,8 @@ abstract class _UserDto implements UserDto {
   int? get receipts_count;
   @override
   int? get favoutite_receipts;
+  @override
+  String? get profile_image;
   @override
   @JsonKey(ignore: true)
   _$$UserDtoImplCopyWith<_$UserDtoImpl> get copyWith =>

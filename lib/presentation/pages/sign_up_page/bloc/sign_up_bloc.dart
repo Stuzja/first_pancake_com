@@ -28,6 +28,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState>
     on<ChangedUsername>(_onChangedUsername);
     on<ChangedPassword>(_onChangedPassword);
     on<ChangedRepassword>(_onChangedRepassword);
+    on<ChangedProfileImage>(_onChangedProfileImage);
     on<SignUpClicked>(_onSignUpClicked);
   }
 
@@ -70,6 +71,13 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState>
     emit(state.copyWith(username: event.username));
   }
 
+  void _onChangedProfileImage(
+    ChangedProfileImage event,
+    Emitter<SignUpState> emit,
+  ) {
+    emit(state.copyWith(profileImage: event.profileImage));
+  }
+
   Future<void> _onSignUpClicked(
     SignUpClicked event,
     Emitter<SignUpState> emit,
@@ -78,20 +86,21 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState>
         Validators.validateEmail(state.email) == null &&
         state.email != '') {
       try {
+        
         await authRepository.signUp(
           RegistrationModel(
             email: state.email,
             username: state.username,
             password: state.password,
+            profile_image: state.profileImage,
           ),
         );
         produceSideEffect(const SignUpCommand.navToHomePage());
       } catch (e) {
         produceSideEffect(const SignUpCommand.error());
       }
-    }
-    else{
-       produceSideEffect(const SignUpCommand.validator());
+    } else {
+      produceSideEffect(const SignUpCommand.validator());
     }
   }
 }

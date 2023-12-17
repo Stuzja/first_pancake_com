@@ -26,6 +26,7 @@ mixin _$User {
   int? get subscribersCount => throw _privateConstructorUsedError;
   int? get receiptsCount => throw _privateConstructorUsedError;
   int? get favouritesCount => throw _privateConstructorUsedError;
+  String? get profile_image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $UserCopyWith<$Res> {
       String email,
       int? subscribersCount,
       int? receiptsCount,
-      int? favouritesCount});
+      int? favouritesCount,
+      String? profile_image});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? subscribersCount = freezed,
     Object? receiptsCount = freezed,
     Object? favouritesCount = freezed,
+    Object? profile_image = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -91,6 +94,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.favouritesCount
           : favouritesCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -108,7 +115,8 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String email,
       int? subscribersCount,
       int? receiptsCount,
-      int? favouritesCount});
+      int? favouritesCount,
+      String? profile_image});
 }
 
 /// @nodoc
@@ -127,6 +135,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? subscribersCount = freezed,
     Object? receiptsCount = freezed,
     Object? favouritesCount = freezed,
+    Object? profile_image = freezed,
   }) {
     return _then(_$UserImpl(
       id: freezed == id
@@ -153,6 +162,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.favouritesCount
           : favouritesCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -166,7 +179,8 @@ class _$UserImpl implements _User {
       required this.email,
       this.subscribersCount,
       this.receiptsCount,
-      this.favouritesCount});
+      this.favouritesCount,
+      this.profile_image});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -183,10 +197,12 @@ class _$UserImpl implements _User {
   final int? receiptsCount;
   @override
   final int? favouritesCount;
+  @override
+  final String? profile_image;
 
   @override
   String toString() {
-    return 'User(id: $id, username: $username, email: $email, subscribersCount: $subscribersCount, receiptsCount: $receiptsCount, favouritesCount: $favouritesCount)';
+    return 'User(id: $id, username: $username, email: $email, subscribersCount: $subscribersCount, receiptsCount: $receiptsCount, favouritesCount: $favouritesCount, profile_image: $profile_image)';
   }
 
   @override
@@ -203,13 +219,15 @@ class _$UserImpl implements _User {
             (identical(other.receiptsCount, receiptsCount) ||
                 other.receiptsCount == receiptsCount) &&
             (identical(other.favouritesCount, favouritesCount) ||
-                other.favouritesCount == favouritesCount));
+                other.favouritesCount == favouritesCount) &&
+            (identical(other.profile_image, profile_image) ||
+                other.profile_image == profile_image));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, username, email,
-      subscribersCount, receiptsCount, favouritesCount);
+      subscribersCount, receiptsCount, favouritesCount, profile_image);
 
   @JsonKey(ignore: true)
   @override
@@ -232,7 +250,8 @@ abstract class _User implements User {
       required final String email,
       final int? subscribersCount,
       final int? receiptsCount,
-      final int? favouritesCount}) = _$UserImpl;
+      final int? favouritesCount,
+      final String? profile_image}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -248,6 +267,8 @@ abstract class _User implements User {
   int? get receiptsCount;
   @override
   int? get favouritesCount;
+  @override
+  String? get profile_image;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

@@ -9,6 +9,7 @@ class RegistrationModel with _$RegistrationModel {
     required String email,
     required String username,
     required String password,
+    String? profile_image,
   }) = _RegistrationModel;
 
   factory RegistrationModel.fromJson(Map<String, dynamic> json) =>

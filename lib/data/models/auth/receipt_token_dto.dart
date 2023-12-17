@@ -10,6 +10,7 @@ class ReceiptTokenDto with _$ReceiptTokenDto {
   const factory ReceiptTokenDto({
     required String token,
     required int user_id,
+    String? profile_image,
   }) = _ReceiptTokenDto;
 
   factory ReceiptTokenDto.fromJson(Map<String, dynamic> json) =>

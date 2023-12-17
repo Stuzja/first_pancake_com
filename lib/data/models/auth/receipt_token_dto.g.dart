@@ -11,6 +11,7 @@ _$ReceiptTokenDtoImpl _$$ReceiptTokenDtoImplFromJson(
     _$ReceiptTokenDtoImpl(
       token: json['token'] as String,
       user_id: json['user_id'] as int,
+      profile_image: json['profile_image'] as String?,
     );
 
 Map<String, dynamic> _$$ReceiptTokenDtoImplToJson(
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$ReceiptTokenDtoImplToJson(
     <String, dynamic>{
       'token': instance.token,
       'user_id': instance.user_id,
+      'profile_image': instance.profile_image,
     };

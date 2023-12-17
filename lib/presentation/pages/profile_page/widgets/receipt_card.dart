@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
 import 'package:first_pancake_com/utils/app_images.dart';
@@ -12,12 +14,14 @@ class ReceiptCards extends StatelessWidget {
     required this.description,
     required this.onTap,
     this.imagePath,
+    this.timeStamp,
   });
 
   final String title;
   final String description;
   final VoidCallback onTap;
   final String? imagePath;
+  final String? timeStamp;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,13 @@ class ReceiptCards extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(12.r),
                     ),
-                    child: Image.asset(imagePath!),
+                    child: Image.memory(
+                      base64Decode(
+                        imagePath!,
+                      ),
+                      height: 80.h,
+                      fit: BoxFit.cover,
+                    ),
                   )
                 : Container(
                     width: 65.w,
@@ -66,10 +76,24 @@ class ReceiptCards extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    title,
-                    style: AppTextStyles.label,
-                    overflow: TextOverflow.ellipsis,
+                  RichText(
+                    text: TextSpan(
+                      text: title,
+                      style: AppTextStyles.semiBold15.copyWith(
+                        fontFamily: 'Montserrat',
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: '   ${timeStamp!.substring(0, 10)}',
+                          style: AppTextStyles.semiBold15.copyWith(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Montserrat',
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Text(
                     description,
@@ -82,7 +106,7 @@ class ReceiptCards extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
