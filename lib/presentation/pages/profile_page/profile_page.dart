@@ -50,6 +50,25 @@ class ProfilePage extends StatelessWidget {
         },
         builder: (context, state) {
           return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: InkWell(
+                onTap: context.router.pop,
+                child: Padding(
+                  padding: EdgeInsets.all(16.r),
+                  child: const Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              centerTitle: true,
+              title: Text(
+                'Профиль',
+                style: AppTextStyles.label,
+              ),
+            ),
             body: state is Loaded
                 ? SingleChildScrollView(
                     child: Column(
@@ -58,7 +77,7 @@ class ProfilePage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            60.h.heightBox,
+                            10.h.heightBox,
                             Container(
                               width: 200.w,
                               height: 200.h,
@@ -144,6 +163,7 @@ class ProfilePage extends StatelessWidget {
                                 title: receipt.title,
                                 description: receipt.description!,
                                 imagePath: receipt.photo,
+                                timeStamp: receipt.timeStamp,
                               );
                             },
                           ),

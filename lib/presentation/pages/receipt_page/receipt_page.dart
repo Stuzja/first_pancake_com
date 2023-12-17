@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
@@ -20,10 +21,24 @@ class ReceiptPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: InkWell(
+          onTap: context.router.pop,
+          child: Padding(
+            padding: EdgeInsets.all(16.r),
+            child: const Icon(
+              Icons.arrow_back_outlined,
+              color: Colors.grey,
+            ),
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
           children: [
-            50.h.heightBox,
+            10.h.heightBox,
             Container(
               width: 200.w,
               height: 200.h,

@@ -81,11 +81,26 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
         },
         builder: (context, state) {
           return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: InkWell(
+                onTap: context.router.pop,
+                child: Padding(
+                  padding: EdgeInsets.all(16.r),
+                  child: const Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            ),
             body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  60.h.heightBox,
+                  10.h.heightBox,
                   Text(
                     'Создайте свой рецепт',
                     style: AppTextStyles.title,

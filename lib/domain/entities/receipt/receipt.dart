@@ -11,6 +11,7 @@ class Receipt with _$Receipt {
     required String title,
     String? photo,
     String? description,
+    String? timeStamp,
   }) = _Receipt;
 
   factory Receipt.fromJson(Map<String, dynamic> json) =>

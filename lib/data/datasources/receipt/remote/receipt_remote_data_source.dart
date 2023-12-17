@@ -6,5 +6,5 @@ abstract class ReceiptRemoteDataSource {
 
   Future<List<ReceiptDto>> getCurrentUserReceipts();
 
-  //Future<ReceiptDto> getReceiptById(final int id);
+  Future<List<ReceiptDto>> getAllReceipts();
 }

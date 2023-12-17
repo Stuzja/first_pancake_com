@@ -7,5 +7,9 @@ abstract class ReceiptRepository {
 
   Future<List<Receipt>> getCurrentUserReceipts();
 
+  Future<List<Receipt>> getAllReceipts();
+
   Future<Receipt> getReceiptById();
+
+  
 }
