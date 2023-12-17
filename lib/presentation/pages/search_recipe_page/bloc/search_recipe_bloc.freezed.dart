@@ -19,32 +19,38 @@ mixin _$SearchRecipeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String text) textChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String text)? textChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String text)? textChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(TextChanged value) textChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
+    TResult? Function(TextChanged value)? textChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(TextChanged value)? textChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String text) textChanged,
   }) {
     return started();
   }
@@ -115,6 +122,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String text)? textChanged,
   }) {
     return started?.call();
   }
@@ -123,6 +131,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String text)? textChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -135,6 +144,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(TextChanged value) textChanged,
   }) {
     return started(this);
   }
@@ -143,6 +153,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
+    TResult? Function(TextChanged value)? textChanged,
   }) {
     return started?.call(this);
   }
@@ -151,6 +162,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(TextChanged value)? textChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -165,26 +177,159 @@ abstract class Started implements SearchRecipeEvent {
 }
 
 /// @nodoc
+abstract class _$$TextChangedImplCopyWith<$Res> {
+  factory _$$TextChangedImplCopyWith(
+          _$TextChangedImpl value, $Res Function(_$TextChangedImpl) then) =
+      __$$TextChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$TextChangedImplCopyWithImpl<$Res>
+    extends _$SearchRecipeEventCopyWithImpl<$Res, _$TextChangedImpl>
+    implements _$$TextChangedImplCopyWith<$Res> {
+  __$$TextChangedImplCopyWithImpl(
+      _$TextChangedImpl _value, $Res Function(_$TextChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$TextChangedImpl(
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TextChangedImpl implements TextChanged {
+  const _$TextChangedImpl({required this.text});
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'SearchRecipeEvent.textChanged(text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TextChangedImpl &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TextChangedImplCopyWith<_$TextChangedImpl> get copyWith =>
+      __$$TextChangedImplCopyWithImpl<_$TextChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String text) textChanged,
+  }) {
+    return textChanged(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String text)? textChanged,
+  }) {
+    return textChanged?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String text)? textChanged,
+    required TResult orElse(),
+  }) {
+    if (textChanged != null) {
+      return textChanged(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(TextChanged value) textChanged,
+  }) {
+    return textChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(TextChanged value)? textChanged,
+  }) {
+    return textChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(TextChanged value)? textChanged,
+    required TResult orElse(),
+  }) {
+    if (textChanged != null) {
+      return textChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TextChanged implements SearchRecipeEvent {
+  const factory TextChanged({required final String text}) = _$TextChangedImpl;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$$TextChangedImplCopyWith<_$TextChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SearchRecipeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Receipt> receipts) loaded,
+    required TResult Function(List<Receipt> receipts, String text) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Receipt> receipts)? loaded,
+    TResult? Function(List<Receipt> receipts, String text)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Receipt> receipts)? loaded,
+    TResult Function(List<Receipt> receipts, String text)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -270,7 +415,7 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Receipt> receipts) loaded,
+    required TResult Function(List<Receipt> receipts, String text) loaded,
   }) {
     return initial();
   }
@@ -280,7 +425,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Receipt> receipts)? loaded,
+    TResult? Function(List<Receipt> receipts, String text)? loaded,
   }) {
     return initial?.call();
   }
@@ -290,7 +435,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Receipt> receipts)? loaded,
+    TResult Function(List<Receipt> receipts, String text)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -378,7 +523,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Receipt> receipts) loaded,
+    required TResult Function(List<Receipt> receipts, String text) loaded,
   }) {
     return loading();
   }
@@ -388,7 +533,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Receipt> receipts)? loaded,
+    TResult? Function(List<Receipt> receipts, String text)? loaded,
   }) {
     return loading?.call();
   }
@@ -398,7 +543,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Receipt> receipts)? loaded,
+    TResult Function(List<Receipt> receipts, String text)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -452,7 +597,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Receipt> receipts});
+  $Res call({List<Receipt> receipts, String text});
 }
 
 /// @nodoc
@@ -467,12 +612,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? receipts = null,
+    Object? text = null,
   }) {
     return _then(_$LoadedImpl(
       null == receipts
           ? _value._receipts
           : receipts // ignore: cast_nullable_to_non_nullable
               as List<Receipt>,
+      null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -480,7 +630,8 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl(final List<Receipt> receipts) : _receipts = receipts;
+  const _$LoadedImpl(final List<Receipt> receipts, this.text)
+      : _receipts = receipts;
 
   final List<Receipt> _receipts;
   @override
@@ -491,8 +642,11 @@ class _$LoadedImpl implements Loaded {
   }
 
   @override
+  final String text;
+
+  @override
   String toString() {
-    return 'SearchRecipeState.loaded(receipts: $receipts)';
+    return 'SearchRecipeState.loaded(receipts: $receipts, text: $text)';
   }
 
   @override
@@ -500,12 +654,13 @@ class _$LoadedImpl implements Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            const DeepCollectionEquality().equals(other._receipts, _receipts));
+            const DeepCollectionEquality().equals(other._receipts, _receipts) &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_receipts));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_receipts), text);
 
   @JsonKey(ignore: true)
   @override
@@ -518,9 +673,9 @@ class _$LoadedImpl implements Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Receipt> receipts) loaded,
+    required TResult Function(List<Receipt> receipts, String text) loaded,
   }) {
-    return loaded(receipts);
+    return loaded(receipts, text);
   }
 
   @override
@@ -528,9 +683,9 @@ class _$LoadedImpl implements Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Receipt> receipts)? loaded,
+    TResult? Function(List<Receipt> receipts, String text)? loaded,
   }) {
-    return loaded?.call(receipts);
+    return loaded?.call(receipts, text);
   }
 
   @override
@@ -538,11 +693,11 @@ class _$LoadedImpl implements Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Receipt> receipts)? loaded,
+    TResult Function(List<Receipt> receipts, String text)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(receipts);
+      return loaded(receipts, text);
     }
     return orElse();
   }
@@ -583,9 +738,11 @@ class _$LoadedImpl implements Loaded {
 }
 
 abstract class Loaded implements SearchRecipeState {
-  const factory Loaded(final List<Receipt> receipts) = _$LoadedImpl;
+  const factory Loaded(final List<Receipt> receipts, final String text) =
+      _$LoadedImpl;
 
   List<Receipt> get receipts;
+  String get text;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;

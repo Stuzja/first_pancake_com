@@ -6,5 +6,6 @@ class SearchRecipeState with _$SearchRecipeState {
   const factory SearchRecipeState.loading() = Loading;
   const factory SearchRecipeState.loaded(
     List<Receipt> receipts,
+    String text,
   ) = Loaded;
 }
