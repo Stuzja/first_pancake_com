@@ -70,13 +70,13 @@ class ReceiptPage extends StatelessWidget {
             ),
             20.heightBox,
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   receipt.title,
                   style: AppTextStyles.title,
                 ),
-                20.h.heightBox,
+                10.h.heightBox,
                 receipt.description != null
                     ? Text(
                         receipt.description!,
@@ -86,6 +86,11 @@ class ReceiptPage extends StatelessWidget {
                         'У этого рецепта отсутствует описание',
                         style: AppTextStyles.underTitle,
                       ),
+                15.h.heightBox,
+                Text(
+                  'создан ${receipt.timeStamp!.substring(0, 10)}',
+                  style: AppTextStyles.underTitle.copyWith(fontSize: 12.sp),
+                ),
               ],
             ),
           ],
