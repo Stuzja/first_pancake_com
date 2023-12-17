@@ -21,6 +21,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState>
     this._receiptRepository,
   ) : super(const Initial()) {
     on<Started>(_onStarted);
+    on<TextChanged>(_onTextChanged);
   }
 
   void _onStarted(
@@ -30,11 +31,25 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState>
     try {
       emit(const SearchRecipeState.loading());
       final receipts = await _receiptRepository.getAllReceipts();
-      emit(SearchRecipeState.loaded(receipts));
+      emit(SearchRecipeState.loaded(
+        receipts,
+        '',
+      ));
     } catch (e) {
       log('Error in search recipe bloc: $e');
       emit(const SearchRecipeState.initial());
       produceSideEffect(const SearchRecipeCommand.error());
+    }
+  }
+
+  void _onTextChanged(
+    TextChanged event,
+    Emitter<SearchRecipeState> emit,
+  ) async {
+    if (state is Loaded) {
+      emit((state as Loaded).copyWith(
+        text: event.text,
+      ));
     }
   }
 }
