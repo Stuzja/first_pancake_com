@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
@@ -11,12 +13,19 @@ import 'package:first_pancake_com/utils/app_colors.dart';
 import 'package:first_pancake_com/utils/app_images.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:side_effect_bloc/side_effect_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+
+  File? convertToImage(String base64Image) {
+    Uint8List imageBytes = base64Decode(base64Image);
+    log('image bytes: ${imageBytes.toString().substring(0, 5)}');
+    return File.fromRawPath(imageBytes);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +70,23 @@ class ProfilePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12.r),
                               ),
                               alignment: Alignment.center,
-                              child: SizedBox(
-                                width: 110.w,
-                                height: 110.h,
-                                child: Image.asset(
-                                  AppImages.pancake,
-                                  color: AppColors.grey3,
-                                ),
-                              ),
+                              child: state.currentUser.profile_image == null
+                                  ? SizedBox(
+                                      width: 110.w,
+                                      height: 110.h,
+                                      child: Icon(
+                                        Icons.add_a_photo_outlined,
+                                        color: AppColors.grey4,
+                                        size: 80.r,
+                                      ),
+                                    )
+                                  : Image.memory(
+                                      base64Decode(
+                                        state.currentUser.profile_image!,
+                                      ),
+                                      height: 300.h,
+                                      fit: BoxFit.cover,
+                                    ),
                             ),
                             20.h.heightBox,
                             Text(
@@ -125,6 +143,7 @@ class ProfilePage extends StatelessWidget {
                                     .push(ReceiptRoute(receipt: receipt)),
                                 title: receipt.title,
                                 description: receipt.description!,
+                                imagePath: receipt.photo,
                               );
                             },
                           ),

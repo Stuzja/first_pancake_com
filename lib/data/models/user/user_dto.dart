@@ -15,6 +15,7 @@ class UserDto with _$UserDto {
     int? subscribers_count,
     int? receipts_count,
     int? favoutite_receipts,
+    String? profile_image,
   }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
@@ -23,7 +24,6 @@ class UserDto with _$UserDto {
 
 extension UserMapper on UserDto {
   User toModel() {
-    log('converting to model');
     return User(
       id: user_id,
       username: username,
@@ -31,6 +31,7 @@ extension UserMapper on UserDto {
       subscribersCount: subscribers_count,
       receiptsCount: receipts_count,
       favouritesCount: favoutite_receipts,
+      profile_image: profile_image,
     );
   }
 
@@ -42,6 +43,7 @@ extension UserMapper on UserDto {
       subscribers_count: user.subscribersCount,
       receipts_count: user.receiptsCount,
       favoutite_receipts: user.favouritesCount,
+      profile_image: user.profile_image,
     );
   }
 }

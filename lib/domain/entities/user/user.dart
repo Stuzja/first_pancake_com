@@ -15,6 +15,7 @@ class User with _$User {
     int? subscribersCount,
     int? receiptsCount,
     int? favouritesCount,
+    String? profile_image,
     // subscribers
     // subscriptions
   }) = _User;

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
@@ -26,15 +27,22 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   File? image;
+  String? imageToBase;
 
-  Future<void> pickImage() async {
+  Future<String> pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
+      if (image == null) return '';
       final imageTemp = File(image.path);
-      setState(() => this.image = imageTemp);
+      List<int> imageBytes = await imageTemp.readAsBytes();
+      String base64Image = base64Encode(imageBytes);
+      setState(
+        () => this.image = imageTemp,
+      );
+      return base64Image;
     } catch (error) {
       log('Failed to pick an image: $error');
+      return '';
     }
   }
 
@@ -62,7 +70,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
             validator: () {
-                const snackBar = SnackBar(
+              const snackBar = SnackBar(
                 content: Text('Введите корректные данные.'),
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -153,7 +161,14 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       20.h.heightBox,
                       GestureDetector(
-                        onTap: () async => await pickImage(),
+                        onTap: () async {
+                          imageToBase = await pickImage();
+                          context.read<SignUpBloc>().add(
+                              SignUpEvent.changedPhoto(
+                                  profileImage: imageToBase));
+                                  log('imageToBase:');
+                          log(imageToBase!.substring(0, 5));
+                        },
                         child: Container(
                           width: 300.w,
                           height: 300.h,

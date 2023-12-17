@@ -10,6 +10,7 @@ class RegistrationDto with _$RegistrationDto {
     required String email,
     required String username,
     required String password,
+    String? profile_image,
   }) = _RegistrationDto;
 
   factory RegistrationDto.fromJson(Map<String, dynamic> json) =>
@@ -21,7 +22,8 @@ extension RegistrationMapper on RegistrationDto {
     return RegistrationModel(
       email: email,
       username: username,
-      password: password
+      password: password,
+      profile_image: profile_image,
     );
   }
 
@@ -29,7 +31,8 @@ extension RegistrationMapper on RegistrationDto {
     return RegistrationDto(
       email: reg.email,
       username: reg.username,
-      password: reg.password
+      password: reg.password,
+      profile_image: reg.profile_image,
     );
   }
 }

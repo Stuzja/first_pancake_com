@@ -23,6 +23,7 @@ mixin _$RegistrationModel {
   String get email => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String? get profile_image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,8 @@ abstract class $RegistrationModelCopyWith<$Res> {
           RegistrationModel value, $Res Function(RegistrationModel) then) =
       _$RegistrationModelCopyWithImpl<$Res, RegistrationModel>;
   @useResult
-  $Res call({String email, String username, String password});
+  $Res call(
+      {String email, String username, String password, String? profile_image});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$RegistrationModelCopyWithImpl<$Res, $Val extends RegistrationModel>
     Object? email = null,
     Object? username = null,
     Object? password = null,
+    Object? profile_image = freezed,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -69,6 +72,10 @@ class _$RegistrationModelCopyWithImpl<$Res, $Val extends RegistrationModel>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -81,7 +88,8 @@ abstract class _$$RegistrationModelImplCopyWith<$Res>
       __$$RegistrationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String username, String password});
+  $Res call(
+      {String email, String username, String password, String? profile_image});
 }
 
 /// @nodoc
@@ -98,6 +106,7 @@ class __$$RegistrationModelImplCopyWithImpl<$Res>
     Object? email = null,
     Object? username = null,
     Object? password = null,
+    Object? profile_image = freezed,
   }) {
     return _then(_$RegistrationModelImpl(
       email: null == email
@@ -112,6 +121,10 @@ class __$$RegistrationModelImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -120,7 +133,10 @@ class __$$RegistrationModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RegistrationModelImpl implements _RegistrationModel {
   const _$RegistrationModelImpl(
-      {required this.email, required this.username, required this.password});
+      {required this.email,
+      required this.username,
+      required this.password,
+      this.profile_image});
 
   factory _$RegistrationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$RegistrationModelImplFromJson(json);
@@ -131,10 +147,12 @@ class _$RegistrationModelImpl implements _RegistrationModel {
   final String username;
   @override
   final String password;
+  @override
+  final String? profile_image;
 
   @override
   String toString() {
-    return 'RegistrationModel(email: $email, username: $username, password: $password)';
+    return 'RegistrationModel(email: $email, username: $username, password: $password, profile_image: $profile_image)';
   }
 
   @override
@@ -146,12 +164,15 @@ class _$RegistrationModelImpl implements _RegistrationModel {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.profile_image, profile_image) ||
+                other.profile_image == profile_image));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, email, username, password);
+  int get hashCode =>
+      Object.hash(runtimeType, email, username, password, profile_image);
 
   @JsonKey(ignore: true)
   @override
@@ -172,7 +193,8 @@ abstract class _RegistrationModel implements RegistrationModel {
   const factory _RegistrationModel(
       {required final String email,
       required final String username,
-      required final String password}) = _$RegistrationModelImpl;
+      required final String password,
+      final String? profile_image}) = _$RegistrationModelImpl;
 
   factory _RegistrationModel.fromJson(Map<String, dynamic> json) =
       _$RegistrationModelImpl.fromJson;
@@ -183,6 +205,8 @@ abstract class _RegistrationModel implements RegistrationModel {
   String get username;
   @override
   String get password;
+  @override
+  String? get profile_image;
   @override
   @JsonKey(ignore: true)
   _$$RegistrationModelImplCopyWith<_$RegistrationModelImpl> get copyWith =>

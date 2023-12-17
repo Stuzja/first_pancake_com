@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
@@ -22,43 +24,35 @@ class ReceiptPage extends StatelessWidget {
         child: Column(
           children: [
             50.h.heightBox,
-            receipt.photo == null
-                ? Container(
-                    width: 200.w,
-                    height: 200.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
+            Container(
+              width: 200.w,
+              height: 200.h,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                  color: AppColors.grey4,
+                ),
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+              alignment: Alignment.center,
+              child: receipt.photo == null
+                  ? SizedBox(
+                      width: 110.w,
+                      height: 110.h,
+                      child: Icon(
+                        Icons.add_a_photo_outlined,
                         color: AppColors.grey4,
+                        size: 80.r,
                       ),
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    child: Image.asset(
-                      receipt.photo!,
-                      width: 100.w,
-                      height: 100.h,
-                    ),
-                  )
-                : Container(
-                    width: 200.w,
-                    height: 200.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: AppColors.grey4,
+                    )
+                  : Image.memory(
+                      base64Decode(
+                        receipt.photo!,
                       ),
-                      borderRadius: BorderRadius.circular(12.r),
+                      height: 300.h,
+                      fit: BoxFit.cover,
                     ),
-                    alignment: Alignment.center,
-                    child: SizedBox(
-                      width: 80.w,
-                      height: 80.h,
-                      child: Image.asset(
-                        AppImages.pancake,
-                        color: AppColors.grey3,
-                      ),
-                    ),
-                  ),
+            ),
             20.heightBox,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

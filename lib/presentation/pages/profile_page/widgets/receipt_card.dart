@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
 import 'package:first_pancake_com/utils/app_images.dart';
@@ -39,7 +41,13 @@ class ReceiptCards extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(12.r),
                     ),
-                    child: Image.asset(imagePath!),
+                    child: Image.memory(
+                      base64Decode(
+                        imagePath!,
+                      ),
+                      height: 80.h,
+                      fit: BoxFit.cover,
+                    ),
                   )
                 : Container(
                     width: 65.w,

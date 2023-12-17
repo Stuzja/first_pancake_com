@@ -22,6 +22,7 @@ ReceiptToken _$ReceiptTokenFromJson(Map<String, dynamic> json) {
 mixin _$ReceiptToken {
   String get token => throw _privateConstructorUsedError;
   int get user_id => throw _privateConstructorUsedError;
+  String? get profile_image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $ReceiptTokenCopyWith<$Res> {
           ReceiptToken value, $Res Function(ReceiptToken) then) =
       _$ReceiptTokenCopyWithImpl<$Res, ReceiptToken>;
   @useResult
-  $Res call({String token, int user_id});
+  $Res call({String token, int user_id, String? profile_image});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$ReceiptTokenCopyWithImpl<$Res, $Val extends ReceiptToken>
   $Res call({
     Object? token = null,
     Object? user_id = null,
+    Object? profile_image = freezed,
   }) {
     return _then(_value.copyWith(
       token: null == token
@@ -63,6 +65,10 @@ class _$ReceiptTokenCopyWithImpl<$Res, $Val extends ReceiptToken>
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
               as int,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$ReceiptTokenImplCopyWith<$Res>
       __$$ReceiptTokenImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String token, int user_id});
+  $Res call({String token, int user_id, String? profile_image});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$ReceiptTokenImplCopyWithImpl<$Res>
   $Res call({
     Object? token = null,
     Object? user_id = null,
+    Object? profile_image = freezed,
   }) {
     return _then(_$ReceiptTokenImpl(
       token: null == token
@@ -101,6 +108,10 @@ class __$$ReceiptTokenImplCopyWithImpl<$Res>
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
               as int,
+      profile_image: freezed == profile_image
+          ? _value.profile_image
+          : profile_image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -108,7 +119,8 @@ class __$$ReceiptTokenImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ReceiptTokenImpl implements _ReceiptToken {
-  const _$ReceiptTokenImpl({required this.token, required this.user_id});
+  const _$ReceiptTokenImpl(
+      {required this.token, required this.user_id, this.profile_image});
 
   factory _$ReceiptTokenImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReceiptTokenImplFromJson(json);
@@ -117,10 +129,12 @@ class _$ReceiptTokenImpl implements _ReceiptToken {
   final String token;
   @override
   final int user_id;
+  @override
+  final String? profile_image;
 
   @override
   String toString() {
-    return 'ReceiptToken(token: $token, user_id: $user_id)';
+    return 'ReceiptToken(token: $token, user_id: $user_id, profile_image: $profile_image)';
   }
 
   @override
@@ -129,12 +143,14 @@ class _$ReceiptTokenImpl implements _ReceiptToken {
         (other.runtimeType == runtimeType &&
             other is _$ReceiptTokenImpl &&
             (identical(other.token, token) || other.token == token) &&
-            (identical(other.user_id, user_id) || other.user_id == user_id));
+            (identical(other.user_id, user_id) || other.user_id == user_id) &&
+            (identical(other.profile_image, profile_image) ||
+                other.profile_image == profile_image));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, token, user_id);
+  int get hashCode => Object.hash(runtimeType, token, user_id, profile_image);
 
   @JsonKey(ignore: true)
   @override
@@ -153,7 +169,8 @@ class _$ReceiptTokenImpl implements _ReceiptToken {
 abstract class _ReceiptToken implements ReceiptToken {
   const factory _ReceiptToken(
       {required final String token,
-      required final int user_id}) = _$ReceiptTokenImpl;
+      required final int user_id,
+      final String? profile_image}) = _$ReceiptTokenImpl;
 
   factory _ReceiptToken.fromJson(Map<String, dynamic> json) =
       _$ReceiptTokenImpl.fromJson;
@@ -162,6 +179,8 @@ abstract class _ReceiptToken implements ReceiptToken {
   String get token;
   @override
   int get user_id;
+  @override
+  String? get profile_image;
   @override
   @JsonKey(ignore: true)
   _$$ReceiptTokenImplCopyWith<_$ReceiptTokenImpl> get copyWith =>

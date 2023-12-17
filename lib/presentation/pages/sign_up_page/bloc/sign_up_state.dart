@@ -7,5 +7,6 @@ class SignUpState with _$SignUpState {
     required String email,
     required String password,
     required String repassword,
+    String? profileImage,
   }) = _Initial;
 }
