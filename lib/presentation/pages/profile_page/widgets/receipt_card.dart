@@ -77,6 +77,8 @@ class ReceiptCards extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   RichText(
+                    overflow: TextOverflow.fade,
+                    maxLines: 2,
                     text: TextSpan(
                       text: title,
                       style: AppTextStyles.semiBold15.copyWith(
