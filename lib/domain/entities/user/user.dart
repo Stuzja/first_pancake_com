@@ -13,6 +13,7 @@ class User with _$User {
     required String username,
     required String email,
     int? subscribersCount,
+    int? subscriptionsCount,
     int? receiptsCount,
     int? favouritesCount,
     String? profile_image,

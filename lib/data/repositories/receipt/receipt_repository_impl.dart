@@ -23,6 +23,11 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   }
 
   @override
+  Future<void> addToFavorites(Receipt receipt) async {
+    await _receiptRemoteDataSource.addToFavourites(receipt.id!, ReceiptMapper.fromModel(receipt));
+  }
+
+  @override
   Future<List<Receipt>> getCurrentUserReceipts() async {
     final List<Receipt> models = [];
     final dtoList = await _receiptRemoteDataSource.getCurrentUserReceipts();

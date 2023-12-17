@@ -34,11 +34,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     Emitter<ProfileState> emit,
   ) async {
     try {
-      currentUser = await _userRepository.getCurrentUser(); 
-     // log(currentUser!.profileImage!.substring(0, 5));
+      currentUser = await _userRepository.getCurrentUser();
       receipts = await _receiptRepository.getCurrentUserReceipts();
+
+      final subscribers = await _userRepository.getSubscribers();
+      final subscriptions = await _userRepository.getSubscriptions();
       log('receipts: ${receipts.toString()}');
-      emit(ProfileState.loaded(currentUser!, receipts!));
+      emit(ProfileState.loaded(
+        currentUser!,
+        receipts!,
+        subscribers.length,
+        subscriptions.length,
+      ));
     } catch (e) {
       log('Error in profile bloc: $e');
       emit(const ProfileState.initial());

@@ -24,6 +24,7 @@ mixin _$ReceiptDto {
   String? get photo => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get created_at => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +39,11 @@ abstract class $ReceiptDtoCopyWith<$Res> {
       _$ReceiptDtoCopyWithImpl<$Res, ReceiptDto>;
   @useResult
   $Res call(
-      {String title, String? photo, String? description, String? created_at});
+      {String title,
+      String? photo,
+      String? description,
+      String? created_at,
+      int? id});
 }
 
 /// @nodoc
@@ -58,6 +63,7 @@ class _$ReceiptDtoCopyWithImpl<$Res, $Val extends ReceiptDto>
     Object? photo = freezed,
     Object? description = freezed,
     Object? created_at = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -76,6 +82,10 @@ class _$ReceiptDtoCopyWithImpl<$Res, $Val extends ReceiptDto>
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -89,7 +99,11 @@ abstract class _$$ReceiptDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String title, String? photo, String? description, String? created_at});
+      {String title,
+      String? photo,
+      String? description,
+      String? created_at,
+      int? id});
 }
 
 /// @nodoc
@@ -107,6 +121,7 @@ class __$$ReceiptDtoImplCopyWithImpl<$Res>
     Object? photo = freezed,
     Object? description = freezed,
     Object? created_at = freezed,
+    Object? id = freezed,
   }) {
     return _then(_$ReceiptDtoImpl(
       title: null == title
@@ -125,6 +140,10 @@ class __$$ReceiptDtoImplCopyWithImpl<$Res>
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -133,7 +152,11 @@ class __$$ReceiptDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ReceiptDtoImpl implements _ReceiptDto {
   const _$ReceiptDtoImpl(
-      {required this.title, this.photo, this.description, this.created_at});
+      {required this.title,
+      this.photo,
+      this.description,
+      this.created_at,
+      this.id});
 
   factory _$ReceiptDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReceiptDtoImplFromJson(json);
@@ -146,10 +169,12 @@ class _$ReceiptDtoImpl implements _ReceiptDto {
   final String? description;
   @override
   final String? created_at;
+  @override
+  final int? id;
 
   @override
   String toString() {
-    return 'ReceiptDto(title: $title, photo: $photo, description: $description, created_at: $created_at)';
+    return 'ReceiptDto(title: $title, photo: $photo, description: $description, created_at: $created_at, id: $id)';
   }
 
   @override
@@ -162,13 +187,14 @@ class _$ReceiptDtoImpl implements _ReceiptDto {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.created_at, created_at) ||
-                other.created_at == created_at));
+                other.created_at == created_at) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, title, photo, description, created_at);
+      Object.hash(runtimeType, title, photo, description, created_at, id);
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +215,8 @@ abstract class _ReceiptDto implements ReceiptDto {
       {required final String title,
       final String? photo,
       final String? description,
-      final String? created_at}) = _$ReceiptDtoImpl;
+      final String? created_at,
+      final int? id}) = _$ReceiptDtoImpl;
 
   factory _ReceiptDto.fromJson(Map<String, dynamic> json) =
       _$ReceiptDtoImpl.fromJson;
@@ -202,6 +229,8 @@ abstract class _ReceiptDto implements ReceiptDto {
   String? get description;
   @override
   String? get created_at;
+  @override
+  int? get id;
   @override
   @JsonKey(ignore: true)
   _$$ReceiptDtoImplCopyWith<_$ReceiptDtoImpl> get copyWith =>

@@ -12,6 +12,7 @@ _$ReceiptDtoImpl _$$ReceiptDtoImplFromJson(Map<String, dynamic> json) =>
       photo: json['photo'] as String?,
       description: json['description'] as String?,
       created_at: json['created_at'] as String?,
+      id: json['id'] as int?,
     );
 
 Map<String, dynamic> _$$ReceiptDtoImplToJson(_$ReceiptDtoImpl instance) =>
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$ReceiptDtoImplToJson(_$ReceiptDtoImpl instance) =>
       'photo': instance.photo,
       'description': instance.description,
       'created_at': instance.created_at,
+      'id': instance.id,
     };

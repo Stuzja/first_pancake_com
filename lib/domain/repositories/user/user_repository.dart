@@ -5,4 +5,8 @@ abstract class UserRepository {
   //final currentUser = BehaviorSubject<User>();
   //Future<void> loadCurrentUser(int userId);
   Future<User> getCurrentUser();
+
+  Future<List<User>> getSubscribers();
+
+  Future<List<User>> getSubscriptions();
 }

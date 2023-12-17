@@ -15,4 +15,12 @@ abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   @GET('/user')
   Future<UserDto> getCurrentUser();
+
+  @override
+  @GET('/user/subscribers')
+  Future<List<UserDto>> getSubscribers();
+
+  @override
+  @GET('/user/subscriptions')
+  Future<List<UserDto>> getSubscriptions();
 }

@@ -29,4 +29,26 @@ class UserRepositoryImpl extends UserRepository {
     final User user = userDto.toModel();
     return user;
   }
+
+  @override
+  Future<List<User>> getSubscribers() async {
+    List<User> models = [];
+    final dtoList = await _userRemoteDataSource.getSubscribers();
+    log(dtoList.toString());
+    for (int i = 0; i < dtoList.length; i++) {
+      models.add(dtoList[i].toModel());
+    }
+    log(models.length.toString());
+    return models;
+  }
+
+  @override
+  Future<List<User>> getSubscriptions() async {
+    List<User> models = [];
+    final dtoList = await _userRemoteDataSource.getSubscriptions();
+    for (int i = 0; i < dtoList.length; i++) {
+      models.add(dtoList[i].toModel());
+    }
+    return models;
+  }
 }

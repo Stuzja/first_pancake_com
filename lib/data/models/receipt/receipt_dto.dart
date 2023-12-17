@@ -12,6 +12,7 @@ class ReceiptDto with _$ReceiptDto {
     String? photo,
     String? description,
     String? created_at,
+    int? id,
   }) = _ReceiptDto;
 
   factory ReceiptDto.fromJson(Map<String, dynamic> json) =>
@@ -25,6 +26,7 @@ extension ReceiptMapper on ReceiptDto {
       photo: photo,
       description: description,
       timeStamp: created_at,
+      id: id,
     );
   }
 
@@ -34,6 +36,7 @@ extension ReceiptMapper on ReceiptDto {
       photo: receipt.photo,
       description: receipt.description,
       created_at: receipt.timeStamp,
+      id: receipt.id,
     );
   }
 }

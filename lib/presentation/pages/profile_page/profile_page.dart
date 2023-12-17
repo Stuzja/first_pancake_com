@@ -117,19 +117,23 @@ class ProfilePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    context.router.push(const SubscriptionsRoute());
+                                  },
                                   child: NumberWidget(
-                                    num: state.currentUser.subscribersCount!,
-                                    firstLine: 'подписчиков',
+                                    num: state.subscriptionsCount,
+                                    firstLine: 'подписок',
                                     secondLine: '',
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    context.router.push(const SubscribersRoute());
+                                  },
                                   child: NumberWidget(
-                                    num: state.currentUser.receiptsCount!,
-                                    firstLine: 'создано',
-                                    secondLine: 'рецептов',
+                                    num: state.subscribersCount,
+                                    firstLine: 'подписчиков',
+                                    secondLine: '',
                                   ),
                                 ),
                                 InkWell(
@@ -146,7 +150,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                         25.h.heightBox,
                         Text(
-                          'Мои рецепты',
+                          'Мои рецепты (${state.currentUser.receiptsCount} создано)',
                           style: AppTextStyles.label.copyWith(fontSize: 22.sp),
                         ),
                         10.h.heightBox,

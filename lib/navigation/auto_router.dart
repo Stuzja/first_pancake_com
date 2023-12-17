@@ -12,6 +12,8 @@ import 'package:first_pancake_com/presentation/pages/search_recipe_page/search_r
 import 'package:first_pancake_com/presentation/pages/sign_in_page/sign_in_page.dart';
 import 'package:first_pancake_com/presentation/pages/sign_up_page/sign_up_page.dart';
 import 'package:first_pancake_com/presentation/pages/splash_page/splash_page.dart';
+import 'package:first_pancake_com/presentation/pages/subscribers_page/subscribers_page.dart';
+import 'package:first_pancake_com/presentation/pages/subscriptions_page/subscriptions_page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -53,6 +55,12 @@ import 'package:first_pancake_com/presentation/pages/splash_page/splash_page.dar
     ),
     AutoRoute(
       page: ReceiptPage,
+    ),
+    AutoRoute(
+      page: SubscribersPage,
+    ),
+    AutoRoute(
+      page: SubscriptionsPage,
     )
   ],
 )
