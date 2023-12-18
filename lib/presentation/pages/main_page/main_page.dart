@@ -84,7 +84,7 @@ class MainPage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.router.push(const ProfileRoute());
+                    context.router.push(ProfileRoute());
                   },
                   child: const MainPageItem(
                     label: 'Профиль',

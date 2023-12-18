@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/domain/repositories/user/user_repository.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/bloc/profile_bloc.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/widgets/receipt_card.dart';
@@ -19,7 +20,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:side_effect_bloc/side_effect_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({super.key, this.userId});
+  final int? userId;
 
   File? convertToImage(String base64Image) {
     Uint8List imageBytes = base64Decode(base64Image);
@@ -31,7 +33,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          getIt<ProfileBloc>()..add(const ProfileEvent.started()),
+          getIt<ProfileBloc>()..add(ProfileEvent.started(userId)),
       child: BlocSideEffectConsumer<ProfileBloc, ProfileBloc, ProfileState,
           ProfileCommand>(
         listener: (context, sideEffect) {

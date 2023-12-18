@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/di/locator.dart';
 import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
+import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/receipt_page/bloc/receipt_bloc.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
 import 'package:first_pancake_com/utils/app_images.dart';
@@ -93,18 +94,29 @@ class ReceiptPage extends StatelessWidget {
                               state.receipt.title,
                               style: AppTextStyles.title,
                             ),
-                            10.h.heightBox,
+                            5.h.heightBox,
                             Row(
                               children: [
-                                Text(
-                                  state.receipt.receipt_author!,
-                                  style: AppTextStyles.title.copyWith(
-                                      color: AppColors.pancake5,
-                                      fontSize: 25.sp,
-                                      height: 25.h / 20.sp),
+                                InkWell(
+                                  onTap: () {
+                                    context.router.push(ProfileRoute());
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 5.w,
+                                      vertical: 2.h,
+                                    ),
+                                    child: Text(
+                                      state.receipt.receipt_author!,
+                                      style: AppTextStyles.title.copyWith(
+                                          color: AppColors.pancake5,
+                                          fontSize: 25.sp,
+                                          height: 25.h / 20.sp),
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(
-                                  width: 10.w,
+                                  width: 5.w,
                                 ),
                                 Text(
                                   'создан ${state.receipt.timeStamp!.substring(0, 10)}',

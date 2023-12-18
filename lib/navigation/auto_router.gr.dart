@@ -97,9 +97,14 @@ class AutoRouter extends _i14.RootStackRouter {
       );
     },
     ProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileRouteArgs>(
+          orElse: () => const ProfileRouteArgs());
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i10.ProfilePage(),
+        child: _i10.ProfilePage(
+          key: args.key,
+          userId: args.userId,
+        ),
       );
     },
     SearchRecipeRoute.name: (routeData) {
@@ -294,14 +299,36 @@ class CreateRecipeRoute extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i10.ProfilePage]
-class ProfileRoute extends _i14.PageRouteInfo<void> {
-  const ProfileRoute()
-      : super(
+class ProfileRoute extends _i14.PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({
+    _i15.Key? key,
+    int? userId,
+  }) : super(
           ProfileRoute.name,
           path: '/profile-page',
+          args: ProfileRouteArgs(
+            key: key,
+            userId: userId,
+          ),
         );
 
   static const String name = 'ProfileRoute';
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({
+    this.key,
+    this.userId,
+  });
+
+  final _i15.Key? key;
+
+  final int? userId;
+
+  @override
+  String toString() {
+    return 'ProfileRouteArgs{key: $key, userId: $userId}';
+  }
 }
 
 /// generated route for
