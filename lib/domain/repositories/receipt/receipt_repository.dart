@@ -9,11 +9,10 @@ abstract class ReceiptRepository {
 
   Future<List<Receipt>> getAllReceipts();
 
-  Future<Receipt> getReceiptById();
+  Future<void> addToFavorites(int receiptId) async {}
 
-  Future<void> addToFavorites(Receipt receipt) async {}
+  Future<void> deleteFromFavourites(int receiptId) async {}
 
-  Future<void> deleteFromFavourites(Receipt receipt) async {}
   Future<Receipt> getReceiptById(int receiptId);
 
   Future<List<Receipt>> getReceiptsById(int userId);

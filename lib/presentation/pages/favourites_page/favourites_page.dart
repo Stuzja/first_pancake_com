@@ -68,7 +68,7 @@ class FavouritesPage extends StatelessWidget {
                                 final receipt = state.receipts[index];
                                 return ReceiptCards(
                                   onTap: () => context.router
-                                      .push(ReceiptRoute(receipt: receipt)),
+                                      .push(ReceiptRoute(receiptId: receipt.id!)),
                                   title: receipt.title,
                                   description: receipt.description!,
                                   imagePath: receipt.photo,

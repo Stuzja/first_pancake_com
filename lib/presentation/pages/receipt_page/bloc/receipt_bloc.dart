@@ -38,10 +38,11 @@ class ReceiptBloc extends Bloc<ReceiptEvent, ReceiptState>
       final favourites = await _userRepository.getFavourites();
       log(favourites.toString());
       List<int?> recipeIds = favourites.map((recipe) => recipe.id).toList();
-      if (recipeIds.contains(event.receipt.id!)) {
-        emit(const ReceiptState.loaded(isFavourite: true));
+      final receipt = await _receiptRepository.getReceiptById(event.receiptId);
+      if (recipeIds.contains(event.receiptId)) {
+        emit(ReceiptState.loaded(receipt: receipt, isFavourite: true));
       } else {
-        emit(const ReceiptState.loaded(isFavourite: false));
+        emit(ReceiptState.loaded(receipt: receipt, isFavourite: false));
       }
     } catch (e) {
       log('Error in receipt bloc: $e');
@@ -56,9 +57,10 @@ class ReceiptBloc extends Bloc<ReceiptEvent, ReceiptState>
   ) async {
     try {
       emit(const ReceiptState.loading());
-      await _receiptRepository.addToFavorites(event.receipt);
+      await _receiptRepository.addToFavorites(event.receiptId);
+      final receipt = await _receiptRepository.getReceiptById(event.receiptId);
       produceSideEffect(const ReceiptCommand.favorite());
-      emit(const ReceiptState.loaded(isFavourite: true));
+      emit(ReceiptState.loaded(receipt: receipt, isFavourite: true));
     } catch (e) {
       log('Error in receipt bloc: $e');
       emit(const ReceiptState.initial());
@@ -73,9 +75,10 @@ class ReceiptBloc extends Bloc<ReceiptEvent, ReceiptState>
     try {
       log('ENTER DELETE');
       emit(const ReceiptState.loading());
-      await _receiptRepository.deleteFromFavourites(event.receipt);
+      await _receiptRepository.deleteFromFavourites(event.receiptId);
+      final receipt = await _receiptRepository.getReceiptById(event.receiptId);
       produceSideEffect(const ReceiptCommand.notFavorite());
-      emit(const ReceiptState.loaded(isFavourite: false));
+      emit(ReceiptState.loaded(receipt: receipt, isFavourite: false));
     } catch (e) {
       log('Error in receipt bloc: $e');
       emit(const ReceiptState.initial());

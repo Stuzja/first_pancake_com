@@ -41,12 +41,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
         final subscriptions = await _userRepository.getSubscriptions();
         final favourites = await _userRepository.getFavourites();
         emit(ProfileState.loaded(
-        user!,
-        receipts!,
-        subscribers.length,
-        subscriptions.length,
-        favourites.length,
-      ));
+          user!,
+          receipts!,
+          subscribers.length,
+          subscriptions.length,
+          favourites.length,
+        ));
       } catch (e) {
         log('Error in profile bloc: $e');
         emit(const ProfileState.initial());
@@ -54,10 +54,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
       }
     } else {
       try {
-        log(event.userId!.toString());
         user = await _userRepository.getUserById(event.userId!);
         receipts = await _receiptRepository.getReceiptsById(event.userId!);
-        log('receipts: ${receipts.toString()}');
         emit(ProfileState.loaded(user!, receipts!, 0, 0, 0));
       } catch (e) {
         log('Error in profile bloc: $e');

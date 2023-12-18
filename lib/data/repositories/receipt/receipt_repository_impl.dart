@@ -21,13 +21,13 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   }
 
   @override
-  Future<void> addToFavorites(Receipt receipt) async {
-    await _receiptRemoteDataSource.addToFavourites(receipt.id!);
+  Future<void> addToFavorites(int receiptId) async {
+    await _receiptRemoteDataSource.addToFavourites(receiptId);
   }
 
   @override
-  Future<void> deleteFromFavourites(Receipt receipt) async {
-    await _receiptRemoteDataSource.deleteFromFavourites(receipt.id!);
+  Future<void> deleteFromFavourites(int receiptId) async {
+    await _receiptRemoteDataSource.deleteFromFavourites(receiptId);
   }
 
   @override
