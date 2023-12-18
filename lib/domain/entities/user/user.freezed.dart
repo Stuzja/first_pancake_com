@@ -24,6 +24,7 @@ mixin _$User {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   int? get subscribersCount => throw _privateConstructorUsedError;
+  int? get subscriptions_count => throw _privateConstructorUsedError;
   int? get receiptsCount => throw _privateConstructorUsedError;
   int? get favouritesCount => throw _privateConstructorUsedError;
   String? get profile_image => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $UserCopyWith<$Res> {
       String username,
       String email,
       int? subscribersCount,
+      int? subscriptions_count,
       int? receiptsCount,
       int? favouritesCount,
       String? profile_image});
@@ -65,6 +67,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? username = null,
     Object? email = null,
     Object? subscribersCount = freezed,
+    Object? subscriptions_count = freezed,
     Object? receiptsCount = freezed,
     Object? favouritesCount = freezed,
     Object? profile_image = freezed,
@@ -85,6 +88,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       subscribersCount: freezed == subscribersCount
           ? _value.subscribersCount
           : subscribersCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subscriptions_count: freezed == subscriptions_count
+          ? _value.subscriptions_count
+          : subscriptions_count // ignore: cast_nullable_to_non_nullable
               as int?,
       receiptsCount: freezed == receiptsCount
           ? _value.receiptsCount
@@ -114,6 +121,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String username,
       String email,
       int? subscribersCount,
+      int? subscriptions_count,
       int? receiptsCount,
       int? favouritesCount,
       String? profile_image});
@@ -133,6 +141,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? subscribersCount = freezed,
+    Object? subscriptions_count = freezed,
     Object? receiptsCount = freezed,
     Object? favouritesCount = freezed,
     Object? profile_image = freezed,
@@ -153,6 +162,10 @@ class __$$UserImplCopyWithImpl<$Res>
       subscribersCount: freezed == subscribersCount
           ? _value.subscribersCount
           : subscribersCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subscriptions_count: freezed == subscriptions_count
+          ? _value.subscriptions_count
+          : subscriptions_count // ignore: cast_nullable_to_non_nullable
               as int?,
       receiptsCount: freezed == receiptsCount
           ? _value.receiptsCount
@@ -178,6 +191,7 @@ class _$UserImpl implements _User {
       required this.username,
       required this.email,
       this.subscribersCount,
+      this.subscriptions_count,
       this.receiptsCount,
       this.favouritesCount,
       this.profile_image});
@@ -194,6 +208,8 @@ class _$UserImpl implements _User {
   @override
   final int? subscribersCount;
   @override
+  final int? subscriptions_count;
+  @override
   final int? receiptsCount;
   @override
   final int? favouritesCount;
@@ -202,7 +218,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, username: $username, email: $email, subscribersCount: $subscribersCount, receiptsCount: $receiptsCount, favouritesCount: $favouritesCount, profile_image: $profile_image)';
+    return 'User(id: $id, username: $username, email: $email, subscribersCount: $subscribersCount, subscriptions_count: $subscriptions_count, receiptsCount: $receiptsCount, favouritesCount: $favouritesCount, profile_image: $profile_image)';
   }
 
   @override
@@ -216,6 +232,8 @@ class _$UserImpl implements _User {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.subscribersCount, subscribersCount) ||
                 other.subscribersCount == subscribersCount) &&
+            (identical(other.subscriptions_count, subscriptions_count) ||
+                other.subscriptions_count == subscriptions_count) &&
             (identical(other.receiptsCount, receiptsCount) ||
                 other.receiptsCount == receiptsCount) &&
             (identical(other.favouritesCount, favouritesCount) ||
@@ -226,8 +244,16 @@ class _$UserImpl implements _User {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, email,
-      subscribersCount, receiptsCount, favouritesCount, profile_image);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      username,
+      email,
+      subscribersCount,
+      subscriptions_count,
+      receiptsCount,
+      favouritesCount,
+      profile_image);
 
   @JsonKey(ignore: true)
   @override
@@ -249,6 +275,7 @@ abstract class _User implements User {
       required final String username,
       required final String email,
       final int? subscribersCount,
+      final int? subscriptions_count,
       final int? receiptsCount,
       final int? favouritesCount,
       final String? profile_image}) = _$UserImpl;
@@ -263,6 +290,8 @@ abstract class _User implements User {
   String get email;
   @override
   int? get subscribersCount;
+  @override
+  int? get subscriptions_count;
   @override
   int? get receiptsCount;
   @override

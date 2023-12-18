@@ -15,4 +15,12 @@ abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   @GET('/user')
   Future<UserDto> getCurrentUser();
+
+  @override
+  @GET('/user/{id}')
+  Future<UserDto> getUserById(
+    @Path("id") userId,
+  );
+
+  // у меня такая хуйня была когда я рут неверно написал
 }

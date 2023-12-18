@@ -5,13 +5,10 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/di/locator.dart';
-import 'package:first_pancake_com/domain/repositories/user/user_repository.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/bloc/profile_bloc.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/widgets/receipt_card.dart';
-import 'package:first_pancake_com/presentation/pages/receipt_page/receipt_page.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
-import 'package:first_pancake_com/utils/app_images.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -118,30 +115,30 @@ class ProfilePage extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                InkWell(
-                                  onTap: () {},
-                                  child: NumberWidget(
-                                    num: state.currentUser.subscribersCount!,
-                                    firstLine: 'подписчиков',
-                                    secondLine: '',
-                                  ),
-                                ),
-                                InkWell(
-                                  onTap: () {},
-                                  child: NumberWidget(
-                                    num: state.currentUser.receiptsCount!,
-                                    firstLine: 'создано',
-                                    secondLine: 'рецептов',
-                                  ),
-                                ),
-                                InkWell(
-                                  onTap: () {},
-                                  child: NumberWidget(
-                                    num: state.currentUser.favouritesCount!,
-                                    firstLine: 'любимых',
-                                    secondLine: 'рецептов',
-                                  ),
-                                ),
+                                // InkWell(
+                                //   onTap: () {},
+                                //   child: NumberWidget(
+                                //     num: state.currentUser.subscribersCount!,
+                                //     firstLine: 'подписчиков',
+                                //     secondLine: '',
+                                //   ),
+                                // ),
+                                // InkWell(
+                                //   onTap: () {},
+                                //   child: NumberWidget(
+                                //     num: state.currentUser.receiptsCount!,
+                                //     firstLine: 'создано',
+                                //     secondLine: 'рецептов',
+                                //   ),
+                                // ),
+                                // InkWell(
+                                //   onTap: () {},
+                                //   child: NumberWidget(
+                                //     num: state.currentUser.favouritesCount!,
+                                //     firstLine: 'любимых',
+                                //     secondLine: 'рецептов',
+                                //   ),
+                                // ),
                               ],
                             ),
                           ],

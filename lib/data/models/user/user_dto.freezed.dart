@@ -24,6 +24,7 @@ mixin _$UserDto {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   int? get subscribers_count => throw _privateConstructorUsedError;
+  int? get subscriptions_count => throw _privateConstructorUsedError;
   int? get receipts_count => throw _privateConstructorUsedError;
   int? get favoutite_receipts => throw _privateConstructorUsedError;
   String? get profile_image => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $UserDtoCopyWith<$Res> {
       String username,
       String email,
       int? subscribers_count,
+      int? subscriptions_count,
       int? receipts_count,
       int? favoutite_receipts,
       String? profile_image});
@@ -65,6 +67,7 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
     Object? username = null,
     Object? email = null,
     Object? subscribers_count = freezed,
+    Object? subscriptions_count = freezed,
     Object? receipts_count = freezed,
     Object? favoutite_receipts = freezed,
     Object? profile_image = freezed,
@@ -85,6 +88,10 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
       subscribers_count: freezed == subscribers_count
           ? _value.subscribers_count
           : subscribers_count // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subscriptions_count: freezed == subscriptions_count
+          ? _value.subscriptions_count
+          : subscriptions_count // ignore: cast_nullable_to_non_nullable
               as int?,
       receipts_count: freezed == receipts_count
           ? _value.receipts_count
@@ -114,6 +121,7 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       String username,
       String email,
       int? subscribers_count,
+      int? subscriptions_count,
       int? receipts_count,
       int? favoutite_receipts,
       String? profile_image});
@@ -134,6 +142,7 @@ class __$$UserDtoImplCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? subscribers_count = freezed,
+    Object? subscriptions_count = freezed,
     Object? receipts_count = freezed,
     Object? favoutite_receipts = freezed,
     Object? profile_image = freezed,
@@ -154,6 +163,10 @@ class __$$UserDtoImplCopyWithImpl<$Res>
       subscribers_count: freezed == subscribers_count
           ? _value.subscribers_count
           : subscribers_count // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subscriptions_count: freezed == subscriptions_count
+          ? _value.subscriptions_count
+          : subscriptions_count // ignore: cast_nullable_to_non_nullable
               as int?,
       receipts_count: freezed == receipts_count
           ? _value.receipts_count
@@ -179,6 +192,7 @@ class _$UserDtoImpl implements _UserDto {
       required this.username,
       required this.email,
       this.subscribers_count,
+      this.subscriptions_count,
       this.receipts_count,
       this.favoutite_receipts,
       this.profile_image});
@@ -195,6 +209,8 @@ class _$UserDtoImpl implements _UserDto {
   @override
   final int? subscribers_count;
   @override
+  final int? subscriptions_count;
+  @override
   final int? receipts_count;
   @override
   final int? favoutite_receipts;
@@ -203,7 +219,7 @@ class _$UserDtoImpl implements _UserDto {
 
   @override
   String toString() {
-    return 'UserDto(user_id: $user_id, username: $username, email: $email, subscribers_count: $subscribers_count, receipts_count: $receipts_count, favoutite_receipts: $favoutite_receipts, profile_image: $profile_image)';
+    return 'UserDto(user_id: $user_id, username: $username, email: $email, subscribers_count: $subscribers_count, subscriptions_count: $subscriptions_count, receipts_count: $receipts_count, favoutite_receipts: $favoutite_receipts, profile_image: $profile_image)';
   }
 
   @override
@@ -217,6 +233,8 @@ class _$UserDtoImpl implements _UserDto {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.subscribers_count, subscribers_count) ||
                 other.subscribers_count == subscribers_count) &&
+            (identical(other.subscriptions_count, subscriptions_count) ||
+                other.subscriptions_count == subscriptions_count) &&
             (identical(other.receipts_count, receipts_count) ||
                 other.receipts_count == receipts_count) &&
             (identical(other.favoutite_receipts, favoutite_receipts) ||
@@ -227,8 +245,16 @@ class _$UserDtoImpl implements _UserDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, user_id, username, email,
-      subscribers_count, receipts_count, favoutite_receipts, profile_image);
+  int get hashCode => Object.hash(
+      runtimeType,
+      user_id,
+      username,
+      email,
+      subscribers_count,
+      subscriptions_count,
+      receipts_count,
+      favoutite_receipts,
+      profile_image);
 
   @JsonKey(ignore: true)
   @override
@@ -250,6 +276,7 @@ abstract class _UserDto implements UserDto {
       required final String username,
       required final String email,
       final int? subscribers_count,
+      final int? subscriptions_count,
       final int? receipts_count,
       final int? favoutite_receipts,
       final String? profile_image}) = _$UserDtoImpl;
@@ -264,6 +291,8 @@ abstract class _UserDto implements UserDto {
   String get email;
   @override
   int? get subscribers_count;
+  @override
+  int? get subscriptions_count;
   @override
   int? get receipts_count;
   @override

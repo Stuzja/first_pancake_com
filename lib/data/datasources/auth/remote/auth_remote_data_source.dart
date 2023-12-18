@@ -6,7 +6,7 @@ abstract class AuthRemoteDataSource {
   Future<ReceiptTokenDto> registration(
     final RegistrationDto regDto,
   );
-  
+
   Future<ReceiptTokenDto> login(
     final String content_type,
     final LoginDto loginDto,

@@ -85,10 +85,8 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i12.ReceiptLocalDataSource>(() => _i12.ReceiptLocalDataSource());
   gh.singleton<_i13.ReceiptRemoteDataSource>(
       _i14.ReceiptDataSourceImpl(get<_i4.Dio>()));
-  gh.singleton<_i15.ReceiptRepository>(_i16.ReceiptRepositoryImpl(
-    get<_i13.ReceiptRemoteDataSource>(),
-    get<_i12.ReceiptLocalDataSource>(),
-  ));
+  gh.singleton<_i15.ReceiptRepository>(
+      _i16.ReceiptRepositoryImpl(get<_i13.ReceiptRemoteDataSource>()));
   gh.factory<_i17.SearchRecipeBloc>(
       () => _i17.SearchRecipeBloc(get<_i15.ReceiptRepository>()));
   await gh.factoryAsync<_i18.SharedPreferences>(
