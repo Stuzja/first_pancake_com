@@ -1,3 +1,5 @@
+import 'package:first_pancake_com/domain/entities/auth/login_model.dart';
+import 'package:first_pancake_com/domain/entities/auth/registration_model.dart';
 import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 
 abstract class ReceiptRepository {
@@ -6,6 +8,10 @@ abstract class ReceiptRepository {
   Future<List<Receipt>> getCurrentUserReceipts();
 
   Future<List<Receipt>> getAllReceipts();
+
+  Future<void> addToFavorites(int receiptId) async {}
+
+  Future<void> deleteFromFavourites(int receiptId) async {}
 
   Future<Receipt> getReceiptById(int receiptId);
 

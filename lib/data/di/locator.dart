@@ -26,7 +26,7 @@ abstract class DataModule {
         BaseOptions(
           // baseUrl:
           baseUrl:
-              "http://192.168.31.12:3000", //local baseUrl: "http://127.0.0.1:3000"
+              "http://192.168.1.229:3000", //local baseUrl: "http://127.0.0.1:3000"
           //baseUrl:  "https://first-pancake-com.onrender.com/",
           connectTimeout: timeOutInSec * _millisecondsInSec,
           receiveTimeout: timeOutInSec * _millisecondsInSec,

@@ -7,6 +7,14 @@ abstract class ReceiptRemoteDataSource {
 
   Future<List<ReceiptDto>> getAllReceipts();
 
+  Future<void> addToFavourites(
+    int recipeId,
+  );
+
+  Future<void> deleteFromFavourites(
+    int recipeId,
+  );
+
   Future<ReceiptDto> receiptById(
     int receiptId,
   );

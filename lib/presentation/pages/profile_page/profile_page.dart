@@ -115,37 +115,46 @@ class ProfilePage extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                // InkWell(
-                                //   onTap: () {},
-                                //   child: NumberWidget(
-                                //     num: state.currentUser.subscribersCount!,
-                                //     firstLine: 'подписчиков',
-                                //     secondLine: '',
-                                //   ),
-                                // ),
-                                // InkWell(
-                                //   onTap: () {},
-                                //   child: NumberWidget(
-                                //     num: state.currentUser.receiptsCount!,
-                                //     firstLine: 'создано',
-                                //     secondLine: 'рецептов',
-                                //   ),
-                                // ),
-                                // InkWell(
-                                //   onTap: () {},
-                                //   child: NumberWidget(
-                                //     num: state.currentUser.favouritesCount!,
-                                //     firstLine: 'любимых',
-                                //     secondLine: 'рецептов',
-                                //   ),
-                                // ),
+                                InkWell(
+                                  onTap: () {
+                                    context.router
+                                        .push(const SubscriptionsRoute());
+                                  },
+                                  child: NumberWidget(
+                                    num: state.subscriptionsCount,
+                                    firstLine: 'подписок',
+                                    secondLine: '',
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    context.router
+                                        .push(const SubscribersRoute());
+                                  },
+                                  child: NumberWidget(
+                                    num: state.subscribersCount,
+                                    firstLine: 'подписчиков',
+                                    secondLine: '',
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    context.router
+                                        .push(const FavouritesRoute());
+                                  },
+                                  child: NumberWidget(
+                                    num: state.favouritesCount,
+                                    firstLine: 'любимых',
+                                    secondLine: 'рецептов',
+                                  ),
+                                ),
                               ],
                             ),
                           ],
                         ),
                         25.h.heightBox,
                         Text(
-                          'Мои рецепты',
+                          'Мои рецепты (${state.currentUser.receiptsCount} создано)',
                           style: AppTextStyles.label.copyWith(fontSize: 22.sp),
                         ),
                         10.h.heightBox,

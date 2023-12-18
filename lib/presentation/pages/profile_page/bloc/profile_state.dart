@@ -7,5 +7,8 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.loaded(
     User currentUser,
     List<Receipt> receipts,
+    int subscribersCount,
+    int subscriptionsCount,
+    int favouritesCount,
   ) = Loaded;
 }

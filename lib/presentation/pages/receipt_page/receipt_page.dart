@@ -27,12 +27,26 @@ class ReceiptPage extends StatelessWidget {
           getIt<ReceiptBloc>()..add(ReceiptEvent.started(receiptId)),
       child: BlocSideEffectConsumer<ReceiptBloc, ReceiptBloc, ReceiptState,
           ReceiptCommand>(listener: (context, sideEffect) {
-        sideEffect.when(error: () {
-          const snackBar = SnackBar(
-            content: Text('Ошибка! Не удается получить рецепт.'),
-          );
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        });
+        sideEffect.when(
+          error: () {
+            const snackBar = SnackBar(
+              content: Text('Ошибка! Не удается получить рецепт.'),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+          favorite: () {
+            const snackBar = SnackBar(
+              content: Text('Рецепт добавлен в избранное'),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+          notFavorite: () {
+            const snackBar = SnackBar(
+              content: Text('Рецепт удален из избранного'),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+        );
       }, builder: (context, state) {
         return Scaffold(
             appBar: AppBar(

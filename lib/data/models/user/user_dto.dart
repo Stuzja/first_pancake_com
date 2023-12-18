@@ -41,10 +41,10 @@ extension UserMapper on UserDto {
       username: user.username,
       email: user.email,
       subscribers_count: user.subscribersCount,
+      subscriptions_count: user.subscriptions_count,
       receipts_count: user.receiptsCount,
       favoutite_receipts: user.favouritesCount,
       profile_image: user.profile_image,
-      subscriptions_count: user.subscriptions_count,
     );
   }
 }
