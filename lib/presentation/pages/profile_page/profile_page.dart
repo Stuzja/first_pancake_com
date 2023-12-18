@@ -8,9 +8,7 @@ import 'package:first_pancake_com/di/locator.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/bloc/profile_bloc.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/widgets/receipt_card.dart';
-import 'package:first_pancake_com/presentation/pages/receipt_page/receipt_page.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
-import 'package:first_pancake_com/utils/app_images.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,7 +17,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:side_effect_bloc/side_effect_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({super.key, this.userId});
+  final int? userId;
 
   File? convertToImage(String base64Image) {
     Uint8List imageBytes = base64Decode(base64Image);
@@ -31,7 +30,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          getIt<ProfileBloc>()..add(const ProfileEvent.started()),
+          getIt<ProfileBloc>()..add(ProfileEvent.started(userId)),
       child: BlocSideEffectConsumer<ProfileBloc, ProfileBloc, ProfileState,
           ProfileCommand>(
         listener: (context, sideEffect) {
@@ -168,7 +167,7 @@ class ProfilePage extends StatelessWidget {
                               final receipt = state.receipts[index];
                               return ReceiptCards(
                                 onTap: () => context.router
-                                    .push(ReceiptRoute(receipt: receipt)),
+                                    .push(ReceiptRoute(receiptId: receipt.id!)),
                                 title: receipt.title,
                                 description: receipt.description!,
                                 imagePath: receipt.photo,

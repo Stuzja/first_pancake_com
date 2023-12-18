@@ -14,4 +14,7 @@ abstract class ReceiptRepository {
   Future<void> addToFavorites(Receipt receipt) async {}
 
   Future<void> deleteFromFavourites(Receipt receipt) async {}
+  Future<Receipt> getReceiptById(int receiptId);
+
+  Future<List<Receipt>> getReceiptsById(int userId);
 }

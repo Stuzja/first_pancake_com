@@ -32,6 +32,13 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
+  Future<User> getUserById(int userId) async {
+    final UserDto userDto = await _userRemoteDataSource.getUserById(userId);
+    final User user = userDto.toModel();
+    return user;
+  }
+
+  @override
   Future<List<User>> getSubscribers() async {
     List<User> models = [];
     final dtoList = await _userRemoteDataSource.getSubscribers();

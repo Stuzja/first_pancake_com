@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:first_pancake_com/domain/entities/user/user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -30,6 +28,7 @@ extension UserMapper on UserDto {
       username: username,
       email: email,
       subscribersCount: subscribers_count,
+      subscriptions_count: subscribers_count,
       subscriptionsCount: subscriptions_count,
       receiptsCount: receipts_count,
       favouritesCount: favoutite_receipts,

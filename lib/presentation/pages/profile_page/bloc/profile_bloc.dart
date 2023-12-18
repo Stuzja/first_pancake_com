@@ -20,7 +20,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
   final UserRepository _userRepository;
   final ReceiptRepository _receiptRepository;
   List<Receipt>? receipts;
-  User? currentUser;
+  User? user;
 
   ProfileBloc(
     this._userRepository,
@@ -33,25 +33,37 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     Started event,
     Emitter<ProfileState> emit,
   ) async {
-    try {
-      currentUser = await _userRepository.getCurrentUser();
-      receipts = await _receiptRepository.getCurrentUserReceipts();
-
-      final subscribers = await _userRepository.getSubscribers();
-      final subscriptions = await _userRepository.getSubscriptions();
-      final favourites = await _userRepository.getFavourites();
-
-      emit(ProfileState.loaded(
-        currentUser!,
+    if (event.userId == null) {
+      try {
+        user = await _userRepository.getCurrentUser();
+        receipts = await _receiptRepository.getCurrentUserReceipts();
+        final subscribers = await _userRepository.getSubscribers();
+        final subscriptions = await _userRepository.getSubscriptions();
+        final favourites = await _userRepository.getFavourites();
+        emit(ProfileState.loaded(
+        user!,
         receipts!,
         subscribers.length,
         subscriptions.length,
         favourites.length,
       ));
-    } catch (e) {
-      log('Error in profile bloc: $e');
-      emit(const ProfileState.initial());
-      produceSideEffect(const ProfileCommand.error());
+      } catch (e) {
+        log('Error in profile bloc: $e');
+        emit(const ProfileState.initial());
+        produceSideEffect(const ProfileCommand.error());
+      }
+    } else {
+      try {
+        log(event.userId!.toString());
+        user = await _userRepository.getUserById(event.userId!);
+        receipts = await _receiptRepository.getReceiptsById(event.userId!);
+        log('receipts: ${receipts.toString()}');
+        emit(ProfileState.loaded(user!, receipts!, 0, 0, 0));
+      } catch (e) {
+        log('Error in profile bloc: $e');
+        emit(const ProfileState.initial());
+        produceSideEffect(const ProfileCommand.error());
+      }
     }
   }
 }

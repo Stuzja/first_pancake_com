@@ -12,6 +12,8 @@ class Receipt with _$Receipt {
     String? photo,
     String? description,
     String? timeStamp,
+    int? user_id,
+    String? receipt_author,
     int? id,
   }) = _Receipt;
 

@@ -10,11 +10,9 @@ import 'package:injectable/injectable.dart';
 @Singleton(as: ReceiptRepository)
 class ReceiptRepositoryImpl extends ReceiptRepository {
   final ReceiptRemoteDataSource _receiptRemoteDataSource;
-  final ReceiptLocalDataSource _receiptLocalDataSource;
 
   ReceiptRepositoryImpl(
     this._receiptRemoteDataSource,
-    this._receiptLocalDataSource,
   );
 
   @override
@@ -43,9 +41,20 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   }
 
   @override
-  Future<Receipt> getReceiptById() {
-    // TODO: implement getReceiptById
-    throw UnimplementedError();
+  Future<List<Receipt>> getReceiptsById(int userId) async {
+    final List<Receipt> models = [];
+    final dtoList = await _receiptRemoteDataSource.getReceiptsById(userId);
+    log('dto list: ${dtoList.toString()}');
+    for (int i = 0; i < dtoList.length; i++) {
+      models.add(dtoList[i].toModel());
+    }
+    log('models list: ${models.toString()}');
+    return models;
+  }
+
+  @override
+  Future<Receipt> getReceiptById(int receiptId) async {
+    return (await _receiptRemoteDataSource.receiptById(receiptId)).toModel();
   }
 
   @override

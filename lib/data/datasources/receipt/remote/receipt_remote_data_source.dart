@@ -1,5 +1,4 @@
 import 'package:first_pancake_com/data/models/receipt/receipt_dto.dart';
-import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 
 abstract class ReceiptRemoteDataSource {
   Future<void> addReceipt(final ReceiptDto receiptDto);
@@ -14,5 +13,13 @@ abstract class ReceiptRemoteDataSource {
 
   Future<void> deleteFromFavourites(
     int recipeId,
+  );
+
+  Future<ReceiptDto> receiptById(
+    int receiptId,
+  );
+
+  Future<List<ReceiptDto>> getReceiptsById(
+    int userId,
   );
 }

@@ -4,4 +4,5 @@ part of 'create_recipe_bloc.dart';
 class CreateRecipeCommand with _$CreateRecipeCommand {
   const factory CreateRecipeCommand.navToHomePage() = NavToHomePage;
   const factory CreateRecipeCommand.error() = Error;
+  const factory CreateRecipeCommand.validation() = Validation;
 }

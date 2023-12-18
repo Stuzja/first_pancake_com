@@ -7,6 +7,7 @@ import 'package:first_pancake_com/presentation/pages/favourites_page/favourites_
 import 'package:first_pancake_com/presentation/pages/forgot_password_page/forgot_password_page.dart';
 import 'package:first_pancake_com/presentation/pages/main_page/main_page.dart';
 import 'package:first_pancake_com/presentation/pages/new_password_page/new_password_page.dart';
+import 'package:first_pancake_com/presentation/pages/new_recipes/new_recipes_page.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/profile_page.dart';
 import 'package:first_pancake_com/presentation/pages/receipt_page/receipt_page.dart';
 import 'package:first_pancake_com/presentation/pages/search_recipe_page/search_recipe_page.dart';
@@ -56,6 +57,9 @@ import 'package:first_pancake_com/presentation/pages/subscriptions_page/subscrip
     ),
     AutoRoute(
       page: ReceiptPage,
+    ),
+    AutoRoute(
+      page: NewRecipesPage,
     ),
     AutoRoute(
       page: SubscribersPage,

@@ -24,7 +24,6 @@ mixin _$Receipt {
   String? get photo => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get timeStamp => throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +36,7 @@ abstract class $ReceiptCopyWith<$Res> {
       _$ReceiptCopyWithImpl<$Res, Receipt>;
   @useResult
   $Res call(
-      {String title,
-      String? photo,
-      String? description,
-      String? timeStamp,
-      int? id});
+      {String title, String? photo, String? description, String? timeStamp});
 }
 
 /// @nodoc
@@ -61,7 +56,6 @@ class _$ReceiptCopyWithImpl<$Res, $Val extends Receipt>
     Object? photo = freezed,
     Object? description = freezed,
     Object? timeStamp = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -80,10 +74,6 @@ class _$ReceiptCopyWithImpl<$Res, $Val extends Receipt>
           ? _value.timeStamp
           : timeStamp // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 }
@@ -96,11 +86,7 @@ abstract class _$$ReceiptImplCopyWith<$Res> implements $ReceiptCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String title,
-      String? photo,
-      String? description,
-      String? timeStamp,
-      int? id});
+      {String title, String? photo, String? description, String? timeStamp});
 }
 
 /// @nodoc
@@ -118,7 +104,6 @@ class __$$ReceiptImplCopyWithImpl<$Res>
     Object? photo = freezed,
     Object? description = freezed,
     Object? timeStamp = freezed,
-    Object? id = freezed,
   }) {
     return _then(_$ReceiptImpl(
       title: null == title
@@ -137,10 +122,6 @@ class __$$ReceiptImplCopyWithImpl<$Res>
           ? _value.timeStamp
           : timeStamp // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -149,11 +130,7 @@ class __$$ReceiptImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ReceiptImpl implements _Receipt {
   const _$ReceiptImpl(
-      {required this.title,
-      this.photo,
-      this.description,
-      this.timeStamp,
-      this.id});
+      {required this.title, this.photo, this.description, this.timeStamp});
 
   factory _$ReceiptImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReceiptImplFromJson(json);
@@ -166,12 +143,10 @@ class _$ReceiptImpl implements _Receipt {
   final String? description;
   @override
   final String? timeStamp;
-  @override
-  final int? id;
 
   @override
   String toString() {
-    return 'Receipt(title: $title, photo: $photo, description: $description, timeStamp: $timeStamp, id: $id)';
+    return 'Receipt(title: $title, photo: $photo, description: $description, timeStamp: $timeStamp)';
   }
 
   @override
@@ -184,14 +159,13 @@ class _$ReceiptImpl implements _Receipt {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.timeStamp, timeStamp) ||
-                other.timeStamp == timeStamp) &&
-            (identical(other.id, id) || other.id == id));
+                other.timeStamp == timeStamp));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, title, photo, description, timeStamp, id);
+      Object.hash(runtimeType, title, photo, description, timeStamp);
 
   @JsonKey(ignore: true)
   @override
@@ -212,8 +186,7 @@ abstract class _Receipt implements Receipt {
       {required final String title,
       final String? photo,
       final String? description,
-      final String? timeStamp,
-      final int? id}) = _$ReceiptImpl;
+      final String? timeStamp}) = _$ReceiptImpl;
 
   factory _Receipt.fromJson(Map<String, dynamic> json) = _$ReceiptImpl.fromJson;
 
@@ -225,8 +198,6 @@ abstract class _Receipt implements Receipt {
   String? get description;
   @override
   String? get timeStamp;
-  @override
-  int? get id;
   @override
   @JsonKey(ignore: true)
   _$$ReceiptImplCopyWith<_$ReceiptImpl> get copyWith =>
