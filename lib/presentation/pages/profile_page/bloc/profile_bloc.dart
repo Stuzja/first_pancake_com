@@ -39,12 +39,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
 
       final subscribers = await _userRepository.getSubscribers();
       final subscriptions = await _userRepository.getSubscriptions();
-      log('receipts: ${receipts.toString()}');
+      final favourites = await _userRepository.getFavourites();
+
       emit(ProfileState.loaded(
         currentUser!,
         receipts!,
         subscribers.length,
         subscriptions.length,
+        favourites.length,
       ));
     } catch (e) {
       log('Error in profile bloc: $e');

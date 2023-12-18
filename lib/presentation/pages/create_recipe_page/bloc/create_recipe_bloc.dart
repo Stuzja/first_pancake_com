@@ -40,7 +40,6 @@ class CreateRecipeBloc extends Bloc<CreateRecipeEvent, CreateRecipeState>
       log('current token: $token, current userId: $userId');
 
       final receipt = event.receipt;
-      log(receipt.toString());
 
       await _receiptRepository.addReceipt(receipt);
       emit(const CreateRecipeState.loaded());

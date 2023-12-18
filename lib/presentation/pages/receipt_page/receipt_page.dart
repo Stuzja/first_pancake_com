@@ -24,10 +24,9 @@ class ReceiptPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isFavorite;
-
     return BlocProvider(
-      create: (context) => getIt<ReceiptBloc>(),
+      create: (context) =>
+          getIt<ReceiptBloc>()..add(ReceiptEvent.started(receipt)),
       child: BlocSideEffectConsumer<ReceiptBloc, ReceiptBloc, ReceiptState,
           ReceiptCommand>(
         listener: (context, sideEffect) {
@@ -44,104 +43,122 @@ class ReceiptPage extends StatelessWidget {
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
+            notFavorite: () {
+              const snackBar = SnackBar(
+                content: Text('Рецепт успешно удален из избранного'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
           );
         },
         builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: InkWell(
-                onTap: context.router.pop,
-                child: Padding(
-                  padding: EdgeInsets.all(16.r),
-                  child: const Icon(
-                    Icons.arrow_back_outlined,
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              actions: [
-                InkWell(
-                  onTap: () {
-                    context
-                        .read<ReceiptBloc>()
-                        .add(ReceiptEvent.addToFavorites(receipt));
-                    isFavorite = true;
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.all(16.r),
-                    child: const Icon(
-                      Icons.star,
-                      color:  Colors.grey,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            body: Center(
-              child: Column(
-                children: [
-                  10.h.heightBox,
-                  Container(
-                    width: 200.w,
-                    height: 200.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: AppColors.grey4,
+          return state is Loaded
+              ? Scaffold(
+                  appBar: AppBar(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    leading: InkWell(
+                      onTap: context.router.pop,
+                      child: Padding(
+                        padding: EdgeInsets.all(16.r),
+                        child: const Icon(
+                          Icons.arrow_back_outlined,
+                          color: Colors.grey,
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(12.r),
                     ),
-                    alignment: Alignment.center,
-                    child: receipt.photo == null
-                        ? SizedBox(
-                            width: 110.w,
-                            height: 110.h,
-                            child: Icon(
-                              Icons.add_a_photo_outlined,
-                              color: AppColors.grey4,
-                              size: 80.r,
-                            ),
-                          )
-                        : Image.memory(
-                            base64Decode(
-                              receipt.photo!,
-                            ),
-                            height: 300.h,
-                            fit: BoxFit.cover,
+                    actions: [
+                      InkWell(
+                        onTap: () {
+                          !(state.isFavourite)
+                              ? context
+                                  .read<ReceiptBloc>()
+                                  .add(ReceiptEvent.addToFavorites(receipt))
+                              : context
+                                  .read<ReceiptBloc>()
+                                  .add(ReceiptEvent.deleteFromFavorites(receipt));
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(16.r),
+                          child: Icon(
+                            Icons.star,
+                            color:
+                                state.isFavourite ? Colors.amber : Colors.grey,
                           ),
-                  ),
-                  20.heightBox,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        receipt.title,
-                        style: AppTextStyles.title,
-                      ),
-                      10.h.heightBox,
-                      receipt.description != null
-                          ? Text(
-                              receipt.description!,
-                              style: AppTextStyles.underTitle,
-                            )
-                          : Text(
-                              'У этого рецепта отсутствует описание',
-                              style: AppTextStyles.underTitle,
-                            ),
-                      15.h.heightBox,
-                      Text(
-                        'создан ${receipt.timeStamp!.substring(0, 10)}',
-                        style:
-                            AppTextStyles.underTitle.copyWith(fontSize: 12.sp),
+                        ),
                       ),
                     ],
                   ),
-                ],
-              ).paddingSymmetric(horizontal: 30.w),
-            ),
-          );
+                  body: Center(
+                    child: Column(
+                      children: [
+                        10.h.heightBox,
+                        Container(
+                          width: 200.w,
+                          height: 200.h,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 1,
+                              color: AppColors.grey4,
+                            ),
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          alignment: Alignment.center,
+                          child: receipt.photo == null
+                              ? SizedBox(
+                                  width: 110.w,
+                                  height: 110.h,
+                                  child: Icon(
+                                    Icons.add_a_photo_outlined,
+                                    color: AppColors.grey4,
+                                    size: 80.r,
+                                  ),
+                                )
+                              : Image.memory(
+                                  base64Decode(
+                                    receipt.photo!,
+                                  ),
+                                  height: 300.h,
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                        20.heightBox,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              receipt.title,
+                              style: AppTextStyles.title,
+                            ),
+                            10.h.heightBox,
+                            receipt.description != null
+                                ? Text(
+                                    receipt.description!,
+                                    style: AppTextStyles.underTitle,
+                                  )
+                                : Text(
+                                    'У этого рецепта отсутствует описание',
+                                    style: AppTextStyles.underTitle,
+                                  ),
+                            15.h.heightBox,
+                            Text(
+                              'создан ${receipt.timeStamp!.substring(0, 10)}',
+                              style: AppTextStyles.underTitle
+                                  .copyWith(fontSize: 12.sp),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ).paddingSymmetric(horizontal: 30.w),
+                  ),
+                )
+              : const Scaffold(
+                  body: Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.pancake5,
+                    ),
+                  ),
+                );
         },
       ),
     );

@@ -11,14 +11,15 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i15;
-import 'package:flutter/material.dart' as _i16;
+import 'package:auto_route/auto_route.dart' as _i16;
+import 'package:flutter/material.dart' as _i17;
 
-import '../domain/entities/receipt/receipt.dart' as _i18;
+import '../domain/entities/receipt/receipt.dart' as _i19;
 import '../presentation/pages/categories_page/categories_page.dart' as _i8;
 import '../presentation/pages/create_recipe_page/create_recipe_page.dart'
     as _i9;
 import '../presentation/pages/enter_code_page/enter_code_page.dart' as _i7;
+import '../presentation/pages/favourites_page/favourites_page.dart' as _i15;
 import '../presentation/pages/forgot_password_page/forgot_password_page.dart'
     as _i5;
 import '../presentation/pages/main_page/main_page.dart' as _i2;
@@ -33,87 +34,87 @@ import '../presentation/pages/splash_page/splash_page.dart' as _i1;
 import '../presentation/pages/subscribers_page/subscribers_page.dart' as _i13;
 import '../presentation/pages/subscriptions_page/subscriptions_page.dart'
     as _i14;
-import 'auth_guard.dart' as _i17;
+import 'auth_guard.dart' as _i18;
 
-class AutoRouter extends _i15.RootStackRouter {
+class AutoRouter extends _i16.RootStackRouter {
   AutoRouter({
-    _i16.GlobalKey<_i16.NavigatorState>? navigatorKey,
+    _i17.GlobalKey<_i17.NavigatorState>? navigatorKey,
     required this.authGuard,
   }) : super(navigatorKey);
 
-  final _i17.AuthGuard authGuard;
+  final _i18.AuthGuard authGuard;
 
   @override
-  final Map<String, _i15.PageFactory> pagesMap = {
+  final Map<String, _i16.PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.SplashPage(),
       );
     },
     MainRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i2.MainPage(),
       );
     },
     SignInRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i3.SignInPage(),
       );
     },
     SignUpRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i4.SignUpPage(),
       );
     },
     ForgotPasswordRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i5.ForgotPasswordPage(),
       );
     },
     NewPasswordRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i6.NewPasswordPage(),
       );
     },
     EnterCodeRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i7.EnterCodePage(),
       );
     },
     CategoriesRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i8.CategoriesPage(),
       );
     },
     CreateRecipeRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i9.CreateRecipePage(),
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i10.ProfilePage(),
       );
     },
     SearchRecipeRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i11.SearchRecipePage(),
       );
     },
     ReceiptRoute.name: (routeData) {
       final args = routeData.argsAs<ReceiptRouteArgs>();
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i12.ReceiptPage(
           key: args.key,
@@ -122,84 +123,94 @@ class AutoRouter extends _i15.RootStackRouter {
       );
     },
     SubscribersRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i13.SubscribersPage(),
       );
     },
     SubscriptionsRoute.name: (routeData) {
-      return _i15.MaterialPageX<dynamic>(
+      return _i16.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i14.SubscriptionsPage(),
+      );
+    },
+    FavouritesRoute.name: (routeData) {
+      return _i16.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i15.FavouritesPage(),
       );
     },
   };
 
   @override
-  List<_i15.RouteConfig> get routes => [
-        _i15.RouteConfig(
+  List<_i16.RouteConfig> get routes => [
+        _i16.RouteConfig(
           SplashRoute.name,
           path: '/splash-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           MainRoute.name,
           path: '/',
           guards: [authGuard],
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           SignInRoute.name,
           path: '/sign-in-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           SignUpRoute.name,
           path: '/sign-up-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           ForgotPasswordRoute.name,
           path: '/forgot-password-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           NewPasswordRoute.name,
           path: '/new-password-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           EnterCodeRoute.name,
           path: '/enter-code-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           CategoriesRoute.name,
           path: '/categories-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           CreateRecipeRoute.name,
           path: '/create-recipe-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           ProfileRoute.name,
           path: '/profile-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           SearchRecipeRoute.name,
           path: '/search-recipe-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           ReceiptRoute.name,
           path: '/receipt-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           SubscribersRoute.name,
           path: '/subscribers-page',
         ),
-        _i15.RouteConfig(
+        _i16.RouteConfig(
           SubscriptionsRoute.name,
           path: '/subscriptions-page',
+        ),
+        _i16.RouteConfig(
+          FavouritesRoute.name,
+          path: '/favourites-page',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.SplashPage]
-class SplashRoute extends _i15.PageRouteInfo<void> {
+class SplashRoute extends _i16.PageRouteInfo<void> {
   const SplashRoute()
       : super(
           SplashRoute.name,
@@ -211,7 +222,7 @@ class SplashRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.MainPage]
-class MainRoute extends _i15.PageRouteInfo<void> {
+class MainRoute extends _i16.PageRouteInfo<void> {
   const MainRoute()
       : super(
           MainRoute.name,
@@ -223,7 +234,7 @@ class MainRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.SignInPage]
-class SignInRoute extends _i15.PageRouteInfo<void> {
+class SignInRoute extends _i16.PageRouteInfo<void> {
   const SignInRoute()
       : super(
           SignInRoute.name,
@@ -235,7 +246,7 @@ class SignInRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.SignUpPage]
-class SignUpRoute extends _i15.PageRouteInfo<void> {
+class SignUpRoute extends _i16.PageRouteInfo<void> {
   const SignUpRoute()
       : super(
           SignUpRoute.name,
@@ -247,7 +258,7 @@ class SignUpRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ForgotPasswordPage]
-class ForgotPasswordRoute extends _i15.PageRouteInfo<void> {
+class ForgotPasswordRoute extends _i16.PageRouteInfo<void> {
   const ForgotPasswordRoute()
       : super(
           ForgotPasswordRoute.name,
@@ -259,7 +270,7 @@ class ForgotPasswordRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.NewPasswordPage]
-class NewPasswordRoute extends _i15.PageRouteInfo<void> {
+class NewPasswordRoute extends _i16.PageRouteInfo<void> {
   const NewPasswordRoute()
       : super(
           NewPasswordRoute.name,
@@ -271,7 +282,7 @@ class NewPasswordRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.EnterCodePage]
-class EnterCodeRoute extends _i15.PageRouteInfo<void> {
+class EnterCodeRoute extends _i16.PageRouteInfo<void> {
   const EnterCodeRoute()
       : super(
           EnterCodeRoute.name,
@@ -283,7 +294,7 @@ class EnterCodeRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.CategoriesPage]
-class CategoriesRoute extends _i15.PageRouteInfo<void> {
+class CategoriesRoute extends _i16.PageRouteInfo<void> {
   const CategoriesRoute()
       : super(
           CategoriesRoute.name,
@@ -295,7 +306,7 @@ class CategoriesRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.CreateRecipePage]
-class CreateRecipeRoute extends _i15.PageRouteInfo<void> {
+class CreateRecipeRoute extends _i16.PageRouteInfo<void> {
   const CreateRecipeRoute()
       : super(
           CreateRecipeRoute.name,
@@ -307,7 +318,7 @@ class CreateRecipeRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i10.ProfilePage]
-class ProfileRoute extends _i15.PageRouteInfo<void> {
+class ProfileRoute extends _i16.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
@@ -319,7 +330,7 @@ class ProfileRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i11.SearchRecipePage]
-class SearchRecipeRoute extends _i15.PageRouteInfo<void> {
+class SearchRecipeRoute extends _i16.PageRouteInfo<void> {
   const SearchRecipeRoute()
       : super(
           SearchRecipeRoute.name,
@@ -331,10 +342,10 @@ class SearchRecipeRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i12.ReceiptPage]
-class ReceiptRoute extends _i15.PageRouteInfo<ReceiptRouteArgs> {
+class ReceiptRoute extends _i16.PageRouteInfo<ReceiptRouteArgs> {
   ReceiptRoute({
-    _i16.Key? key,
-    required _i18.Receipt receipt,
+    _i17.Key? key,
+    required _i19.Receipt receipt,
   }) : super(
           ReceiptRoute.name,
           path: '/receipt-page',
@@ -353,9 +364,9 @@ class ReceiptRouteArgs {
     required this.receipt,
   });
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i18.Receipt receipt;
+  final _i19.Receipt receipt;
 
   @override
   String toString() {
@@ -365,7 +376,7 @@ class ReceiptRouteArgs {
 
 /// generated route for
 /// [_i13.SubscribersPage]
-class SubscribersRoute extends _i15.PageRouteInfo<void> {
+class SubscribersRoute extends _i16.PageRouteInfo<void> {
   const SubscribersRoute()
       : super(
           SubscribersRoute.name,
@@ -377,7 +388,7 @@ class SubscribersRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i14.SubscriptionsPage]
-class SubscriptionsRoute extends _i15.PageRouteInfo<void> {
+class SubscriptionsRoute extends _i16.PageRouteInfo<void> {
   const SubscriptionsRoute()
       : super(
           SubscriptionsRoute.name,
@@ -385,4 +396,16 @@ class SubscriptionsRoute extends _i15.PageRouteInfo<void> {
         );
 
   static const String name = 'SubscriptionsRoute';
+}
+
+/// generated route for
+/// [_i15.FavouritesPage]
+class FavouritesRoute extends _i16.PageRouteInfo<void> {
+  const FavouritesRoute()
+      : super(
+          FavouritesRoute.name,
+          path: '/favourites-page',
+        );
+
+  static const String name = 'FavouritesRoute';
 }

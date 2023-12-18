@@ -40,22 +40,40 @@ class _ReceiptDataSourceImpl implements ReceiptDataSourceImpl {
   }
 
   @override
-  Future<void> addToFavourites(
-    recipeId,
-    receiptDto,
-  ) async {
+  Future<void> addToFavourites(recipeId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = receiptDto;
+    final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/receipt/favourite/${recipeId}',
+          '/receipts/favourite/${recipeId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
+  Future<void> deleteFromFavourites(recipeId) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/receipts/favourite/${recipeId}',
           queryParameters: queryParameters,
           data: _data,
         )

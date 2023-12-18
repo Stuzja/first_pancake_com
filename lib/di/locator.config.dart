@@ -26,37 +26,39 @@ import '../data/datasources/receipt/remote/receipt_remote_data_source_impl.dart'
 import '../data/datasources/user/remote/user_remote_data_source.dart' as _i20;
 import '../data/datasources/user/remote/user_remote_data_source_impl.dart'
     as _i21;
-import '../data/di/locator.dart' as _i39;
-import '../data/interceptors/auth_interceptor.dart' as _i37;
+import '../data/di/locator.dart' as _i40;
+import '../data/interceptors/auth_interceptor.dart' as _i38;
 import '../data/interceptors/dio_connectivity_request_retrier.dart' as _i5;
-import '../data/interceptors/dio_interceptors_manager.dart' as _i38;
-import '../data/repositories/auth/auth_repository_impl.dart' as _i29;
+import '../data/interceptors/dio_interceptors_manager.dart' as _i39;
+import '../data/repositories/auth/auth_repository_impl.dart' as _i28;
 import '../data/repositories/receipt/receipt_repository_impl.dart' as _i15;
 import '../data/repositories/snackbar_manager/snackbar_manager_impl.dart'
     as _i19;
-import '../data/repositories/user/user_repository_impl.dart' as _i27;
-import '../domain/repositories/auth/auth_repository.dart' as _i28;
+import '../data/repositories/user/user_repository_impl.dart' as _i26;
+import '../domain/repositories/auth/auth_repository.dart' as _i27;
 import '../domain/repositories/receipt/receipt_repository.dart' as _i14;
 import '../domain/repositories/snackbar_manager/snackbar_manager.dart' as _i18;
-import '../domain/repositories/user/user_repository.dart' as _i26;
+import '../domain/repositories/user/user_repository.dart' as _i25;
 import '../presentation/pages/create_recipe_page/bloc/create_recipe_bloc.dart'
-    as _i30;
+    as _i29;
 import '../presentation/pages/enter_code_page/bloc/enter_code_bloc.dart' as _i6;
+import '../presentation/pages/favourites_page/bloc/favourites_bloc.dart'
+    as _i30;
 import '../presentation/pages/forgot_password_page/bloc/forgot_password_bloc.dart'
     as _i8;
 import '../presentation/pages/new_password_page/bloc/new_password_bloc.dart'
     as _i9;
 import '../presentation/pages/profile_page/bloc/profile_bloc.dart' as _i31;
-import '../presentation/pages/receipt_page/bloc/receipt_bloc.dart' as _i25;
+import '../presentation/pages/receipt_page/bloc/receipt_bloc.dart' as _i32;
 import '../presentation/pages/search_recipe_page/bloc/search_recipe_bloc.dart'
     as _i16;
-import '../presentation/pages/sign_in_page/bloc/sign_in_bloc.dart' as _i32;
-import '../presentation/pages/sign_up_page/bloc/sign_up_bloc.dart' as _i33;
-import '../presentation/pages/splash_page/bloc/splash_bloc.dart' as _i34;
+import '../presentation/pages/sign_in_page/bloc/sign_in_bloc.dart' as _i33;
+import '../presentation/pages/sign_up_page/bloc/sign_up_bloc.dart' as _i34;
+import '../presentation/pages/splash_page/bloc/splash_bloc.dart' as _i35;
 import '../presentation/pages/subscribers_page/bloc/subscribers_bloc.dart'
-    as _i35;
+    as _i36;
 import '../presentation/pages/subscriptions_page/bloc/subscriptions_bloc.dart'
-    as _i36; // ignore_for_file: unnecessary_lambdas
+    as _i37; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -105,48 +107,52 @@ Future<_i1.GetIt> $initGetIt(
       ));
   gh.singleton<_i23.AuthRemoteDataSource>(
       _i24.AuthDataSourceImpl(get<_i4.Dio>()));
-  gh.factory<_i25.ReceiptBloc>(
-      () => _i25.ReceiptBloc(get<_i14.ReceiptRepository>()));
-  gh.singleton<_i26.UserRepository>(_i27.UserRepositoryImpl(
+  gh.singleton<_i25.UserRepository>(_i26.UserRepositoryImpl(
     get<_i22.AuthLocalDataSource>(),
     get<_i20.UserRemoteDataSource>(),
     get<_i17.SharedPreferences>(),
   ));
-  gh.singleton<_i28.AuthRepository>(_i29.AuthRepositoryImpl(
+  gh.singleton<_i27.AuthRepository>(_i28.AuthRepositoryImpl(
     get<_i23.AuthRemoteDataSource>(),
     get<_i22.AuthLocalDataSource>(),
-    get<_i26.UserRepository>(),
+    get<_i25.UserRepository>(),
   ));
-  gh.factory<_i30.CreateRecipeBloc>(() => _i30.CreateRecipeBloc(
+  gh.factory<_i29.CreateRecipeBloc>(() => _i29.CreateRecipeBloc(
         get<_i14.ReceiptRepository>(),
-        get<_i28.AuthRepository>(),
+        get<_i27.AuthRepository>(),
         get<_i17.SharedPreferences>(),
       ));
+  gh.factory<_i30.FavouritesBloc>(
+      () => _i30.FavouritesBloc(get<_i25.UserRepository>()));
   gh.factory<_i31.ProfileBloc>(() => _i31.ProfileBloc(
-        get<_i26.UserRepository>(),
+        get<_i25.UserRepository>(),
         get<_i14.ReceiptRepository>(),
       ));
-  gh.factory<_i32.SignInBloc>(
-      () => _i32.SignInBloc(get<_i28.AuthRepository>()));
-  gh.factory<_i33.SignUpBloc>(
-      () => _i33.SignUpBloc(get<_i28.AuthRepository>()));
-  gh.factory<_i34.SplashBloc>(
-      () => _i34.SplashBloc(get<_i28.AuthRepository>()));
-  gh.factory<_i35.SubscribersBloc>(
-      () => _i35.SubscribersBloc(get<_i26.UserRepository>()));
-  gh.factory<_i36.SubscriptionsBloc>(
-      () => _i36.SubscriptionsBloc(get<_i26.UserRepository>()));
-  gh.factory<_i37.AuthInterceptor>(() => _i37.AuthInterceptor(
+  gh.factory<_i32.ReceiptBloc>(() => _i32.ReceiptBloc(
+        get<_i14.ReceiptRepository>(),
+        get<_i25.UserRepository>(),
+      ));
+  gh.factory<_i33.SignInBloc>(
+      () => _i33.SignInBloc(get<_i27.AuthRepository>()));
+  gh.factory<_i34.SignUpBloc>(
+      () => _i34.SignUpBloc(get<_i27.AuthRepository>()));
+  gh.factory<_i35.SplashBloc>(
+      () => _i35.SplashBloc(get<_i27.AuthRepository>()));
+  gh.factory<_i36.SubscribersBloc>(
+      () => _i36.SubscribersBloc(get<_i25.UserRepository>()));
+  gh.factory<_i37.SubscriptionsBloc>(
+      () => _i37.SubscriptionsBloc(get<_i25.UserRepository>()));
+  gh.factory<_i38.AuthInterceptor>(() => _i38.AuthInterceptor(
         get<_i4.Dio>(),
-        get<_i28.AuthRepository>(),
+        get<_i27.AuthRepository>(),
         get<_i18.SnackBarManager>(),
         get<_i5.DioConnectivityRequestRetrier>(),
       ));
-  gh.singleton<_i38.DioInterceptorsManager>(_i38.DioInterceptorsManager(
+  gh.singleton<_i39.DioInterceptorsManager>(_i39.DioInterceptorsManager(
     get<_i4.Dio>(),
-    get<_i37.AuthInterceptor>(),
+    get<_i38.AuthInterceptor>(),
   ));
   return get;
 }
 
-class _$DataModule extends _i39.DataModule {}
+class _$DataModule extends _i40.DataModule {}

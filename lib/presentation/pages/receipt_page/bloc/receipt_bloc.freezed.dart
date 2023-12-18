@@ -16,22 +16,26 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ReceiptEvent {
+  Receipt get receipt => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(Receipt receipt) started,
     required TResult Function(Receipt receipt) addToFavorites,
+    required TResult Function(Receipt receipt) deleteFromFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(Receipt receipt)? started,
     TResult? Function(Receipt receipt)? addToFavorites,
+    TResult? Function(Receipt receipt)? deleteFromFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(Receipt receipt)? started,
     TResult Function(Receipt receipt)? addToFavorites,
+    TResult Function(Receipt receipt)? deleteFromFavorites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,20 +43,27 @@ mixin _$ReceiptEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
     required TResult Function(AddToFavorites value) addToFavorites,
+    required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(AddToFavorites value)? addToFavorites,
+    TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(AddToFavorites value)? addToFavorites,
+    TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ReceiptEventCopyWith<ReceiptEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,6 +72,10 @@ abstract class $ReceiptEventCopyWith<$Res> {
   factory $ReceiptEventCopyWith(
           ReceiptEvent value, $Res Function(ReceiptEvent) then) =
       _$ReceiptEventCopyWithImpl<$Res, ReceiptEvent>;
+  @useResult
+  $Res call({Receipt receipt});
+
+  $ReceiptCopyWith<$Res> get receipt;
 }
 
 /// @nodoc
@@ -72,13 +87,41 @@ class _$ReceiptEventCopyWithImpl<$Res, $Val extends ReceiptEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? receipt = null,
+  }) {
+    return _then(_value.copyWith(
+      receipt: null == receipt
+          ? _value.receipt
+          : receipt // ignore: cast_nullable_to_non_nullable
+              as Receipt,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReceiptCopyWith<$Res> get receipt {
+    return $ReceiptCopyWith<$Res>(_value.receipt, (value) {
+      return _then(_value.copyWith(receipt: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
+abstract class _$$StartedImplCopyWith<$Res>
+    implements $ReceiptEventCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
           _$StartedImpl value, $Res Function(_$StartedImpl) then) =
       __$$StartedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Receipt receipt});
+
+  @override
+  $ReceiptCopyWith<$Res> get receipt;
 }
 
 /// @nodoc
@@ -88,54 +131,81 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? receipt = null,
+  }) {
+    return _then(_$StartedImpl(
+      null == receipt
+          ? _value.receipt
+          : receipt // ignore: cast_nullable_to_non_nullable
+              as Receipt,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$StartedImpl implements Started {
-  const _$StartedImpl();
+  const _$StartedImpl(this.receipt);
+
+  @override
+  final Receipt receipt;
 
   @override
   String toString() {
-    return 'ReceiptEvent.started()';
+    return 'ReceiptEvent.started(receipt: $receipt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$StartedImpl &&
+            (identical(other.receipt, receipt) || other.receipt == receipt));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, receipt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(Receipt receipt) started,
     required TResult Function(Receipt receipt) addToFavorites,
+    required TResult Function(Receipt receipt) deleteFromFavorites,
   }) {
-    return started();
+    return started(receipt);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(Receipt receipt)? started,
     TResult? Function(Receipt receipt)? addToFavorites,
+    TResult? Function(Receipt receipt)? deleteFromFavorites,
   }) {
-    return started?.call();
+    return started?.call(receipt);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(Receipt receipt)? started,
     TResult Function(Receipt receipt)? addToFavorites,
+    TResult Function(Receipt receipt)? deleteFromFavorites,
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started();
+      return started(receipt);
     }
     return orElse();
   }
@@ -145,6 +215,7 @@ class _$StartedImpl implements Started {
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
     required TResult Function(AddToFavorites value) addToFavorites,
+    required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
   }) {
     return started(this);
   }
@@ -154,6 +225,7 @@ class _$StartedImpl implements Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(AddToFavorites value)? addToFavorites,
+    TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
   }) {
     return started?.call(this);
   }
@@ -163,6 +235,7 @@ class _$StartedImpl implements Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(AddToFavorites value)? addToFavorites,
+    TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -173,17 +246,27 @@ class _$StartedImpl implements Started {
 }
 
 abstract class Started implements ReceiptEvent {
-  const factory Started() = _$StartedImpl;
+  const factory Started(final Receipt receipt) = _$StartedImpl;
+
+  @override
+  Receipt get receipt;
+  @override
+  @JsonKey(ignore: true)
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddToFavoritesImplCopyWith<$Res> {
+abstract class _$$AddToFavoritesImplCopyWith<$Res>
+    implements $ReceiptEventCopyWith<$Res> {
   factory _$$AddToFavoritesImplCopyWith(_$AddToFavoritesImpl value,
           $Res Function(_$AddToFavoritesImpl) then) =
       __$$AddToFavoritesImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({Receipt receipt});
 
+  @override
   $ReceiptCopyWith<$Res> get receipt;
 }
 
@@ -206,14 +289,6 @@ class __$$AddToFavoritesImplCopyWithImpl<$Res>
           : receipt // ignore: cast_nullable_to_non_nullable
               as Receipt,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ReceiptCopyWith<$Res> get receipt {
-    return $ReceiptCopyWith<$Res>(_value.receipt, (value) {
-      return _then(_value.copyWith(receipt: value));
-    });
   }
 }
 
@@ -251,8 +326,9 @@ class _$AddToFavoritesImpl implements AddToFavorites {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(Receipt receipt) started,
     required TResult Function(Receipt receipt) addToFavorites,
+    required TResult Function(Receipt receipt) deleteFromFavorites,
   }) {
     return addToFavorites(receipt);
   }
@@ -260,8 +336,9 @@ class _$AddToFavoritesImpl implements AddToFavorites {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(Receipt receipt)? started,
     TResult? Function(Receipt receipt)? addToFavorites,
+    TResult? Function(Receipt receipt)? deleteFromFavorites,
   }) {
     return addToFavorites?.call(receipt);
   }
@@ -269,8 +346,9 @@ class _$AddToFavoritesImpl implements AddToFavorites {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(Receipt receipt)? started,
     TResult Function(Receipt receipt)? addToFavorites,
+    TResult Function(Receipt receipt)? deleteFromFavorites,
     required TResult orElse(),
   }) {
     if (addToFavorites != null) {
@@ -284,6 +362,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
     required TResult Function(AddToFavorites value) addToFavorites,
+    required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
   }) {
     return addToFavorites(this);
   }
@@ -293,6 +372,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(AddToFavorites value)? addToFavorites,
+    TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
   }) {
     return addToFavorites?.call(this);
   }
@@ -302,6 +382,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(AddToFavorites value)? addToFavorites,
+    TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
     required TResult orElse(),
   }) {
     if (addToFavorites != null) {
@@ -314,9 +395,159 @@ class _$AddToFavoritesImpl implements AddToFavorites {
 abstract class AddToFavorites implements ReceiptEvent {
   const factory AddToFavorites(final Receipt receipt) = _$AddToFavoritesImpl;
 
+  @override
   Receipt get receipt;
+  @override
   @JsonKey(ignore: true)
   _$$AddToFavoritesImplCopyWith<_$AddToFavoritesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteFromFavoritesImplCopyWith<$Res>
+    implements $ReceiptEventCopyWith<$Res> {
+  factory _$$DeleteFromFavoritesImplCopyWith(_$DeleteFromFavoritesImpl value,
+          $Res Function(_$DeleteFromFavoritesImpl) then) =
+      __$$DeleteFromFavoritesImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Receipt receipt});
+
+  @override
+  $ReceiptCopyWith<$Res> get receipt;
+}
+
+/// @nodoc
+class __$$DeleteFromFavoritesImplCopyWithImpl<$Res>
+    extends _$ReceiptEventCopyWithImpl<$Res, _$DeleteFromFavoritesImpl>
+    implements _$$DeleteFromFavoritesImplCopyWith<$Res> {
+  __$$DeleteFromFavoritesImplCopyWithImpl(_$DeleteFromFavoritesImpl _value,
+      $Res Function(_$DeleteFromFavoritesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? receipt = null,
+  }) {
+    return _then(_$DeleteFromFavoritesImpl(
+      null == receipt
+          ? _value.receipt
+          : receipt // ignore: cast_nullable_to_non_nullable
+              as Receipt,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteFromFavoritesImpl implements DeleteFromFavorites {
+  const _$DeleteFromFavoritesImpl(this.receipt);
+
+  @override
+  final Receipt receipt;
+
+  @override
+  String toString() {
+    return 'ReceiptEvent.deleteFromFavorites(receipt: $receipt)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteFromFavoritesImpl &&
+            (identical(other.receipt, receipt) || other.receipt == receipt));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, receipt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteFromFavoritesImplCopyWith<_$DeleteFromFavoritesImpl> get copyWith =>
+      __$$DeleteFromFavoritesImplCopyWithImpl<_$DeleteFromFavoritesImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Receipt receipt) started,
+    required TResult Function(Receipt receipt) addToFavorites,
+    required TResult Function(Receipt receipt) deleteFromFavorites,
+  }) {
+    return deleteFromFavorites(receipt);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Receipt receipt)? started,
+    TResult? Function(Receipt receipt)? addToFavorites,
+    TResult? Function(Receipt receipt)? deleteFromFavorites,
+  }) {
+    return deleteFromFavorites?.call(receipt);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Receipt receipt)? started,
+    TResult Function(Receipt receipt)? addToFavorites,
+    TResult Function(Receipt receipt)? deleteFromFavorites,
+    required TResult orElse(),
+  }) {
+    if (deleteFromFavorites != null) {
+      return deleteFromFavorites(receipt);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(AddToFavorites value) addToFavorites,
+    required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
+  }) {
+    return deleteFromFavorites(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(AddToFavorites value)? addToFavorites,
+    TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
+  }) {
+    return deleteFromFavorites?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(AddToFavorites value)? addToFavorites,
+    TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
+    required TResult orElse(),
+  }) {
+    if (deleteFromFavorites != null) {
+      return deleteFromFavorites(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteFromFavorites implements ReceiptEvent {
+  const factory DeleteFromFavorites(final Receipt receipt) =
+      _$DeleteFromFavoritesImpl;
+
+  @override
+  Receipt get receipt;
+  @override
+  @JsonKey(ignore: true)
+  _$$DeleteFromFavoritesImplCopyWith<_$DeleteFromFavoritesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -326,18 +557,21 @@ mixin _$ReceiptState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isFavourite) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isFavourite)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isFavourite)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -345,18 +579,21 @@ mixin _$ReceiptState {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -420,6 +657,7 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isFavourite) loaded,
   }) {
     return initial();
   }
@@ -429,6 +667,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isFavourite)? loaded,
   }) {
     return initial?.call();
   }
@@ -438,6 +677,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isFavourite)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -451,6 +691,7 @@ class _$InitialImpl implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
   }) {
     return initial(this);
   }
@@ -460,6 +701,7 @@ class _$InitialImpl implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -469,6 +711,7 @@ class _$InitialImpl implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -522,6 +765,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isFavourite) loaded,
   }) {
     return loading();
   }
@@ -531,6 +775,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isFavourite)? loaded,
   }) {
     return loading?.call();
   }
@@ -540,6 +785,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isFavourite)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -553,6 +799,7 @@ class _$LoadingImpl implements Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
   }) {
     return loading(this);
   }
@@ -562,6 +809,7 @@ class _$LoadingImpl implements Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -571,6 +819,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -585,23 +834,166 @@ abstract class Loading implements ReceiptState {
 }
 
 /// @nodoc
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isFavourite});
+}
+
+/// @nodoc
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$ReceiptStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isFavourite = null,
+  }) {
+    return _then(_$LoadedImpl(
+      isFavourite: null == isFavourite
+          ? _value.isFavourite
+          : isFavourite // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadedImpl implements Loaded {
+  const _$LoadedImpl({required this.isFavourite});
+
+  @override
+  final bool isFavourite;
+
+  @override
+  String toString() {
+    return 'ReceiptState.loaded(isFavourite: $isFavourite)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedImpl &&
+            (identical(other.isFavourite, isFavourite) ||
+                other.isFavourite == isFavourite));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isFavourite);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(bool isFavourite) loaded,
+  }) {
+    return loaded(isFavourite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(bool isFavourite)? loaded,
+  }) {
+    return loaded?.call(isFavourite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(bool isFavourite)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(isFavourite);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loaded implements ReceiptState {
+  const factory Loaded({required final bool isFavourite}) = _$LoadedImpl;
+
+  bool get isFavourite;
+  @JsonKey(ignore: true)
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ReceiptCommand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() favorite,
+    required TResult Function() notFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? favorite,
+    TResult? Function()? notFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? favorite,
+    TResult Function()? notFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -609,18 +1001,21 @@ mixin _$ReceiptCommand {
   TResult map<TResult extends Object?>({
     required TResult Function(Error value) error,
     required TResult Function(Favorite value) favorite,
+    required TResult Function(NotFavorite value) notFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Error value)? error,
     TResult? Function(Favorite value)? favorite,
+    TResult? Function(NotFavorite value)? notFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Error value)? error,
     TResult Function(Favorite value)? favorite,
+    TResult Function(NotFavorite value)? notFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -684,6 +1079,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() favorite,
+    required TResult Function() notFavorite,
   }) {
     return error();
   }
@@ -693,6 +1089,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? favorite,
+    TResult? Function()? notFavorite,
   }) {
     return error?.call();
   }
@@ -702,6 +1099,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? favorite,
+    TResult Function()? notFavorite,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -715,6 +1113,7 @@ class _$ErrorImpl implements Error {
   TResult map<TResult extends Object?>({
     required TResult Function(Error value) error,
     required TResult Function(Favorite value) favorite,
+    required TResult Function(NotFavorite value) notFavorite,
   }) {
     return error(this);
   }
@@ -724,6 +1123,7 @@ class _$ErrorImpl implements Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Error value)? error,
     TResult? Function(Favorite value)? favorite,
+    TResult? Function(NotFavorite value)? notFavorite,
   }) {
     return error?.call(this);
   }
@@ -733,6 +1133,7 @@ class _$ErrorImpl implements Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Error value)? error,
     TResult Function(Favorite value)? favorite,
+    TResult Function(NotFavorite value)? notFavorite,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -786,6 +1187,7 @@ class _$FavoriteImpl implements Favorite {
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() favorite,
+    required TResult Function() notFavorite,
   }) {
     return favorite();
   }
@@ -795,6 +1197,7 @@ class _$FavoriteImpl implements Favorite {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? favorite,
+    TResult? Function()? notFavorite,
   }) {
     return favorite?.call();
   }
@@ -804,6 +1207,7 @@ class _$FavoriteImpl implements Favorite {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? favorite,
+    TResult Function()? notFavorite,
     required TResult orElse(),
   }) {
     if (favorite != null) {
@@ -817,6 +1221,7 @@ class _$FavoriteImpl implements Favorite {
   TResult map<TResult extends Object?>({
     required TResult Function(Error value) error,
     required TResult Function(Favorite value) favorite,
+    required TResult Function(NotFavorite value) notFavorite,
   }) {
     return favorite(this);
   }
@@ -826,6 +1231,7 @@ class _$FavoriteImpl implements Favorite {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Error value)? error,
     TResult? Function(Favorite value)? favorite,
+    TResult? Function(NotFavorite value)? notFavorite,
   }) {
     return favorite?.call(this);
   }
@@ -835,6 +1241,7 @@ class _$FavoriteImpl implements Favorite {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Error value)? error,
     TResult Function(Favorite value)? favorite,
+    TResult Function(NotFavorite value)? notFavorite,
     required TResult orElse(),
   }) {
     if (favorite != null) {
@@ -846,4 +1253,112 @@ class _$FavoriteImpl implements Favorite {
 
 abstract class Favorite implements ReceiptCommand {
   const factory Favorite() = _$FavoriteImpl;
+}
+
+/// @nodoc
+abstract class _$$NotFavoriteImplCopyWith<$Res> {
+  factory _$$NotFavoriteImplCopyWith(
+          _$NotFavoriteImpl value, $Res Function(_$NotFavoriteImpl) then) =
+      __$$NotFavoriteImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NotFavoriteImplCopyWithImpl<$Res>
+    extends _$ReceiptCommandCopyWithImpl<$Res, _$NotFavoriteImpl>
+    implements _$$NotFavoriteImplCopyWith<$Res> {
+  __$$NotFavoriteImplCopyWithImpl(
+      _$NotFavoriteImpl _value, $Res Function(_$NotFavoriteImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NotFavoriteImpl implements NotFavorite {
+  const _$NotFavoriteImpl();
+
+  @override
+  String toString() {
+    return 'ReceiptCommand.notFavorite()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NotFavoriteImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() error,
+    required TResult Function() favorite,
+    required TResult Function() notFavorite,
+  }) {
+    return notFavorite();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? error,
+    TResult? Function()? favorite,
+    TResult? Function()? notFavorite,
+  }) {
+    return notFavorite?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? error,
+    TResult Function()? favorite,
+    TResult Function()? notFavorite,
+    required TResult orElse(),
+  }) {
+    if (notFavorite != null) {
+      return notFavorite();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Error value) error,
+    required TResult Function(Favorite value) favorite,
+    required TResult Function(NotFavorite value) notFavorite,
+  }) {
+    return notFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Error value)? error,
+    TResult? Function(Favorite value)? favorite,
+    TResult? Function(NotFavorite value)? notFavorite,
+  }) {
+    return notFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Error value)? error,
+    TResult Function(Favorite value)? favorite,
+    TResult Function(NotFavorite value)? notFavorite,
+    required TResult orElse(),
+  }) {
+    if (notFavorite != null) {
+      return notFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotFavorite implements ReceiptCommand {
+  const factory NotFavorite() = _$NotFavoriteImpl;
 }

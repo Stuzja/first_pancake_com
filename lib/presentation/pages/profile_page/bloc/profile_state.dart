@@ -9,5 +9,6 @@ class ProfileState with _$ProfileState {
     List<Receipt> receipts,
     int subscribersCount,
     int subscriptionsCount,
+    int favouritesCount,
   ) = Loaded;
 }

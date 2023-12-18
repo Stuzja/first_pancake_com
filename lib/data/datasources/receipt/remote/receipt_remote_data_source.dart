@@ -10,6 +10,9 @@ abstract class ReceiptRemoteDataSource {
 
   Future<void> addToFavourites(
     int recipeId,
-    ReceiptDto receiptDto,
+  );
+
+  Future<void> deleteFromFavourites(
+    int recipeId,
   );
 }

@@ -4,4 +4,5 @@ part of 'receipt_bloc.dart';
 class ReceiptCommand with _$ReceiptCommand {
   const factory ReceiptCommand.error() = Error;
   const factory ReceiptCommand.favorite() = Favorite;
+  const factory ReceiptCommand.notFavorite() = NotFavorite;
 }

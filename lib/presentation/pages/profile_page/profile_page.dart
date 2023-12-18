@@ -118,7 +118,8 @@ class ProfilePage extends StatelessWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    context.router.push(const SubscriptionsRoute());
+                                    context.router
+                                        .push(const SubscriptionsRoute());
                                   },
                                   child: NumberWidget(
                                     num: state.subscriptionsCount,
@@ -128,7 +129,8 @@ class ProfilePage extends StatelessWidget {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    context.router.push(const SubscribersRoute());
+                                    context.router
+                                        .push(const SubscribersRoute());
                                   },
                                   child: NumberWidget(
                                     num: state.subscribersCount,
@@ -137,9 +139,12 @@ class ProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    context.router
+                                        .push(const FavouritesRoute());
+                                  },
                                   child: NumberWidget(
-                                    num: state.currentUser.favouritesCount!,
+                                    num: state.favouritesCount,
                                     firstLine: 'любимых',
                                     secondLine: 'рецептов',
                                   ),

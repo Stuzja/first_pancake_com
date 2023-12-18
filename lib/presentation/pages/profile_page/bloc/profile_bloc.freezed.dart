@@ -171,7 +171,7 @@ mixin _$ProfileState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)
+            int subscribersCount, int subscriptionsCount, int favouritesCount)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -180,7 +180,7 @@ mixin _$ProfileState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -189,7 +189,7 @@ mixin _$ProfileState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -277,7 +277,7 @@ class _$InitialImpl implements Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)
+            int subscribersCount, int subscriptionsCount, int favouritesCount)
         loaded,
   }) {
     return initial();
@@ -289,7 +289,7 @@ class _$InitialImpl implements Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
   }) {
     return initial?.call();
@@ -301,7 +301,7 @@ class _$InitialImpl implements Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) {
@@ -391,7 +391,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)
+            int subscribersCount, int subscriptionsCount, int favouritesCount)
         loaded,
   }) {
     return loading();
@@ -403,7 +403,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
   }) {
     return loading?.call();
@@ -415,7 +415,7 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) {
@@ -474,7 +474,8 @@ abstract class _$$LoadedImplCopyWith<$Res> {
       {User currentUser,
       List<Receipt> receipts,
       int subscribersCount,
-      int subscriptionsCount});
+      int subscriptionsCount,
+      int favouritesCount});
 
   $UserCopyWith<$Res> get currentUser;
 }
@@ -494,6 +495,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
     Object? receipts = null,
     Object? subscribersCount = null,
     Object? subscriptionsCount = null,
+    Object? favouritesCount = null,
   }) {
     return _then(_$LoadedImpl(
       null == currentUser
@@ -512,6 +514,10 @@ class __$$LoadedImplCopyWithImpl<$Res>
           ? _value.subscriptionsCount
           : subscriptionsCount // ignore: cast_nullable_to_non_nullable
               as int,
+      null == favouritesCount
+          ? _value.favouritesCount
+          : favouritesCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
@@ -528,7 +534,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
 
 class _$LoadedImpl implements Loaded {
   const _$LoadedImpl(this.currentUser, final List<Receipt> receipts,
-      this.subscribersCount, this.subscriptionsCount)
+      this.subscribersCount, this.subscriptionsCount, this.favouritesCount)
       : _receipts = receipts;
 
   @override
@@ -545,10 +551,12 @@ class _$LoadedImpl implements Loaded {
   final int subscribersCount;
   @override
   final int subscriptionsCount;
+  @override
+  final int favouritesCount;
 
   @override
   String toString() {
-    return 'ProfileState.loaded(currentUser: $currentUser, receipts: $receipts, subscribersCount: $subscribersCount, subscriptionsCount: $subscriptionsCount)';
+    return 'ProfileState.loaded(currentUser: $currentUser, receipts: $receipts, subscribersCount: $subscribersCount, subscriptionsCount: $subscriptionsCount, favouritesCount: $favouritesCount)';
   }
 
   @override
@@ -562,7 +570,9 @@ class _$LoadedImpl implements Loaded {
             (identical(other.subscribersCount, subscribersCount) ||
                 other.subscribersCount == subscribersCount) &&
             (identical(other.subscriptionsCount, subscriptionsCount) ||
-                other.subscriptionsCount == subscriptionsCount));
+                other.subscriptionsCount == subscriptionsCount) &&
+            (identical(other.favouritesCount, favouritesCount) ||
+                other.favouritesCount == favouritesCount));
   }
 
   @override
@@ -571,7 +581,8 @@ class _$LoadedImpl implements Loaded {
       currentUser,
       const DeepCollectionEquality().hash(_receipts),
       subscribersCount,
-      subscriptionsCount);
+      subscriptionsCount,
+      favouritesCount);
 
   @JsonKey(ignore: true)
   @override
@@ -585,10 +596,11 @@ class _$LoadedImpl implements Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)
+            int subscribersCount, int subscriptionsCount, int favouritesCount)
         loaded,
   }) {
-    return loaded(currentUser, receipts, subscribersCount, subscriptionsCount);
+    return loaded(currentUser, receipts, subscribersCount, subscriptionsCount,
+        favouritesCount);
   }
 
   @override
@@ -597,11 +609,11 @@ class _$LoadedImpl implements Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
   }) {
-    return loaded?.call(
-        currentUser, receipts, subscribersCount, subscriptionsCount);
+    return loaded?.call(currentUser, receipts, subscribersCount,
+        subscriptionsCount, favouritesCount);
   }
 
   @override
@@ -610,13 +622,13 @@ class _$LoadedImpl implements Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount)?
+            int subscribersCount, int subscriptionsCount, int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(
-          currentUser, receipts, subscribersCount, subscriptionsCount);
+      return loaded(currentUser, receipts, subscribersCount, subscriptionsCount,
+          favouritesCount);
     }
     return orElse();
   }
@@ -657,13 +669,18 @@ class _$LoadedImpl implements Loaded {
 }
 
 abstract class Loaded implements ProfileState {
-  const factory Loaded(final User currentUser, final List<Receipt> receipts,
-      final int subscribersCount, final int subscriptionsCount) = _$LoadedImpl;
+  const factory Loaded(
+      final User currentUser,
+      final List<Receipt> receipts,
+      final int subscribersCount,
+      final int subscriptionsCount,
+      final int favouritesCount) = _$LoadedImpl;
 
   User get currentUser;
   List<Receipt> get receipts;
   int get subscribersCount;
   int get subscriptionsCount;
+  int get favouritesCount;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;

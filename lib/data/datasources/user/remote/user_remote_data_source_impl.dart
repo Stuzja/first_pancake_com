@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:first_pancake_com/data/datasources/user/remote/user_remote_data_source.dart';
+import 'package:first_pancake_com/data/models/receipt/receipt_dto.dart';
 import 'package:first_pancake_com/data/models/user/user_dto.dart';
+import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
@@ -23,4 +25,8 @@ abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   @GET('/user/subscriptions')
   Future<List<UserDto>> getSubscriptions();
+
+  @override
+  @GET('/receipts/favourite')
+  Future<List<ReceiptDto>> getFavourites();
 }
