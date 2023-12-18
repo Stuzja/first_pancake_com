@@ -108,7 +108,7 @@ class SearchRecipePage extends StatelessWidget {
                                 imagePath: receipt.photo,
                                 timeStamp: receipt.timeStamp,
                                 onTap: () => context.router
-                                    .push(ReceiptRoute(receipt: receipt)),
+                                    .push(ReceiptRoute(receiptId: receipt.id!)),
                               );
                             } else {
                               return const SizedBox.shrink();

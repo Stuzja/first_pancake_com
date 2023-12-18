@@ -32,24 +32,28 @@ class CreateRecipeBloc extends Bloc<CreateRecipeEvent, CreateRecipeState>
 
   Future<void> _onCreateRecipe(
       CreateRecipe event, Emitter<CreateRecipeState> emit) async {
-    emit(const CreateRecipeState.loading());
-    try {
-      final token = _prefs.get('Token');
-      final userId = _prefs.get('UserId');
+    if (event.receipt.title != "" && event.receipt.description != "") {
+      emit(const CreateRecipeState.loading());
+      try {
+        final token = _prefs.get('Token');
+        final userId = _prefs.get('UserId');
 
-      log('current token: $token, current userId: $userId');
+        log('current token: $token, current userId: $userId');
 
-      final receipt = event.receipt;
-      log(receipt.toString());
+        final receipt = event.receipt;
+        log(receipt.toString());
 
-      await _receiptRepository.addReceipt(receipt);
-      emit(const CreateRecipeState.loaded());
-      log('from bloc: receipt is added');
+        await _receiptRepository.addReceipt(receipt);
+        emit(const CreateRecipeState.loaded());
+        log('from bloc: receipt is added');
 
-      produceSideEffect(const CreateRecipeCommand.navToHomePage());
-    } catch (e) {
-      emit(const CreateRecipeState.initial());
-      produceSideEffect(const CreateRecipeCommand.error());
+        produceSideEffect(const CreateRecipeCommand.navToHomePage());
+      } catch (e) {
+        emit(const CreateRecipeState.initial());
+        produceSideEffect(const CreateRecipeCommand.error());
+      }
+    } else {
+      produceSideEffect(const CreateRecipeCommand.validation());
     }
   }
 }

@@ -52,12 +52,22 @@ class MainPage extends StatelessWidget {
                     icon: Icons.search_outlined,
                   ),
                 ),
-                GestureDetector(
+                // GestureDetector(
+                //   onTap: () {
+                //     context.router.push(const CategoriesRoute());
+                //   },
+                //   child: const MainPageItem(
+                //     label: 'Категории',
+                //     color: AppColors.pancake2,
+                //     icon: Icons.food_bank_outlined,
+                //   ),
+                // ),
+                 GestureDetector(
                   onTap: () {
-                    context.router.push(const CategoriesRoute());
+                    context.router.push(const NewRecipesRoute());
                   },
                   child: const MainPageItem(
-                    label: 'Категории',
+                    label: 'Новые рецепты',
                     color: AppColors.pancake2,
                     icon: Icons.food_bank_outlined,
                   ),

@@ -9,7 +9,7 @@ abstract class ReceiptRepository {
 
   Future<List<Receipt>> getAllReceipts();
 
-  Future<Receipt> getReceiptById();
+  Future<Receipt> getReceiptById(int receiptId);
 
   
 }

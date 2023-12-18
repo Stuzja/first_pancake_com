@@ -629,18 +629,21 @@ mixin _$CreateRecipeCommand {
   TResult when<TResult extends Object?>({
     required TResult Function() navToHomePage,
     required TResult Function() error,
+    required TResult Function() validation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? navToHomePage,
     TResult? Function()? error,
+    TResult? Function()? validation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? navToHomePage,
     TResult Function()? error,
+    TResult Function()? validation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -648,18 +651,21 @@ mixin _$CreateRecipeCommand {
   TResult map<TResult extends Object?>({
     required TResult Function(NavToHomePage value) navToHomePage,
     required TResult Function(Error value) error,
+    required TResult Function(Validation value) validation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavToHomePage value)? navToHomePage,
     TResult? Function(Error value)? error,
+    TResult? Function(Validation value)? validation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavToHomePage value)? navToHomePage,
     TResult Function(Error value)? error,
+    TResult Function(Validation value)? validation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -723,6 +729,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   TResult when<TResult extends Object?>({
     required TResult Function() navToHomePage,
     required TResult Function() error,
+    required TResult Function() validation,
   }) {
     return navToHomePage();
   }
@@ -732,6 +739,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? navToHomePage,
     TResult? Function()? error,
+    TResult? Function()? validation,
   }) {
     return navToHomePage?.call();
   }
@@ -741,6 +749,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? navToHomePage,
     TResult Function()? error,
+    TResult Function()? validation,
     required TResult orElse(),
   }) {
     if (navToHomePage != null) {
@@ -754,6 +763,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   TResult map<TResult extends Object?>({
     required TResult Function(NavToHomePage value) navToHomePage,
     required TResult Function(Error value) error,
+    required TResult Function(Validation value) validation,
   }) {
     return navToHomePage(this);
   }
@@ -763,6 +773,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavToHomePage value)? navToHomePage,
     TResult? Function(Error value)? error,
+    TResult? Function(Validation value)? validation,
   }) {
     return navToHomePage?.call(this);
   }
@@ -772,6 +783,7 @@ class _$NavToHomePageImpl implements NavToHomePage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavToHomePage value)? navToHomePage,
     TResult Function(Error value)? error,
+    TResult Function(Validation value)? validation,
     required TResult orElse(),
   }) {
     if (navToHomePage != null) {
@@ -825,6 +837,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() navToHomePage,
     required TResult Function() error,
+    required TResult Function() validation,
   }) {
     return error();
   }
@@ -834,6 +847,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? navToHomePage,
     TResult? Function()? error,
+    TResult? Function()? validation,
   }) {
     return error?.call();
   }
@@ -843,6 +857,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? navToHomePage,
     TResult Function()? error,
+    TResult Function()? validation,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -856,6 +871,7 @@ class _$ErrorImpl implements Error {
   TResult map<TResult extends Object?>({
     required TResult Function(NavToHomePage value) navToHomePage,
     required TResult Function(Error value) error,
+    required TResult Function(Validation value) validation,
   }) {
     return error(this);
   }
@@ -865,6 +881,7 @@ class _$ErrorImpl implements Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavToHomePage value)? navToHomePage,
     TResult? Function(Error value)? error,
+    TResult? Function(Validation value)? validation,
   }) {
     return error?.call(this);
   }
@@ -874,6 +891,7 @@ class _$ErrorImpl implements Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavToHomePage value)? navToHomePage,
     TResult Function(Error value)? error,
+    TResult Function(Validation value)? validation,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -885,4 +903,112 @@ class _$ErrorImpl implements Error {
 
 abstract class Error implements CreateRecipeCommand {
   const factory Error() = _$ErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$ValidationImplCopyWith<$Res> {
+  factory _$$ValidationImplCopyWith(
+          _$ValidationImpl value, $Res Function(_$ValidationImpl) then) =
+      __$$ValidationImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ValidationImplCopyWithImpl<$Res>
+    extends _$CreateRecipeCommandCopyWithImpl<$Res, _$ValidationImpl>
+    implements _$$ValidationImplCopyWith<$Res> {
+  __$$ValidationImplCopyWithImpl(
+      _$ValidationImpl _value, $Res Function(_$ValidationImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ValidationImpl implements Validation {
+  const _$ValidationImpl();
+
+  @override
+  String toString() {
+    return 'CreateRecipeCommand.validation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ValidationImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() navToHomePage,
+    required TResult Function() error,
+    required TResult Function() validation,
+  }) {
+    return validation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? navToHomePage,
+    TResult? Function()? error,
+    TResult? Function()? validation,
+  }) {
+    return validation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? navToHomePage,
+    TResult Function()? error,
+    TResult Function()? validation,
+    required TResult orElse(),
+  }) {
+    if (validation != null) {
+      return validation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavToHomePage value) navToHomePage,
+    required TResult Function(Error value) error,
+    required TResult Function(Validation value) validation,
+  }) {
+    return validation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavToHomePage value)? navToHomePage,
+    TResult? Function(Error value)? error,
+    TResult? Function(Validation value)? validation,
+  }) {
+    return validation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavToHomePage value)? navToHomePage,
+    TResult Function(Error value)? error,
+    TResult Function(Validation value)? validation,
+    required TResult orElse(),
+  }) {
+    if (validation != null) {
+      return validation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Validation implements CreateRecipeCommand {
+  const factory Validation() = _$ValidationImpl;
 }

@@ -9,9 +9,12 @@ part 'receipt_dto.g.dart';
 class ReceiptDto with _$ReceiptDto {
   const factory ReceiptDto({
     required String title,
+    int? id,
     String? photo,
     String? description,
     String? created_at,
+    int? user_id,
+    String? receipt_author,
   }) = _ReceiptDto;
 
   factory ReceiptDto.fromJson(Map<String, dynamic> json) =>
@@ -25,6 +28,9 @@ extension ReceiptMapper on ReceiptDto {
       photo: photo,
       description: description,
       timeStamp: created_at,
+      user_id: user_id,
+      receipt_author: receipt_author,
+      id: id,
     );
   }
 
@@ -34,6 +40,9 @@ extension ReceiptMapper on ReceiptDto {
       photo: receipt.photo,
       description: receipt.description,
       created_at: receipt.timeStamp,
+      user_id: receipt.user_id,
+      receipt_author: receipt.receipt_author,
+      id: receipt.id,
     );
   }
 }

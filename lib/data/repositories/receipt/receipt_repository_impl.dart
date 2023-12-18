@@ -35,9 +35,8 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   }
 
   @override
-  Future<Receipt> getReceiptById() {
-    // TODO: implement getReceiptById
-    throw UnimplementedError();
+  Future<Receipt> getReceiptById(int receiptId) async {
+    return (await _receiptRemoteDataSource.receiptById(receiptId)).toModel();
   }
 
   @override

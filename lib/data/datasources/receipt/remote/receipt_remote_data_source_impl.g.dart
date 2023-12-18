@@ -65,6 +65,29 @@ class _ReceiptDataSourceImpl implements ReceiptDataSourceImpl {
   }
 
   @override
+  Future<ReceiptDto> receiptById(receiptId) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ReceiptDto>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/receipt/${receiptId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ReceiptDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<ReceiptDto>> getAllReceipts() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

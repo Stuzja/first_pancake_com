@@ -77,6 +77,12 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
+            validation: () {
+              const snackBar = SnackBar(
+                content: Text('Ошибка! Введите заголовок и описание рецепта.'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
           );
         },
         builder: (context, state) {
