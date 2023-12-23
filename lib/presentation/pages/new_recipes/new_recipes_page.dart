@@ -72,7 +72,7 @@ class NewRecipesPage extends StatelessWidget {
                                     .push(ReceiptRoute(receiptId: receipt.id!)),
                                  id: receipt.id!,
                                userId: receipt.user_id!,
-                               author: "Very cool author",
+                               author: receipt.receipt_author!,
                               );
                             },
                           )

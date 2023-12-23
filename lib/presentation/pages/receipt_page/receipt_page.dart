@@ -26,31 +26,90 @@ class ReceiptPage extends StatelessWidget {
       create: (context) =>
           getIt<ReceiptBloc>()..add(ReceiptEvent.started(receiptId)),
       child: BlocSideEffectConsumer<ReceiptBloc, ReceiptBloc, ReceiptState,
-          ReceiptCommand>(listener: (context, sideEffect) {
-        sideEffect.when(error: () {
-          const snackBar = SnackBar(
-            content: Text('Ошибка! Не удается получить рецепт.'),
+          ReceiptCommand>(
+        listener: (context, sideEffect) {
+          sideEffect.when(
+            error: () {
+              const snackBar = SnackBar(
+                content: Text('Ошибка! Не удается получить рецепт.'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+            favorite: () {
+              const snackBar = SnackBar(
+                content: Text('Рецепт добавлен в избранное'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+            notFavorite: () {
+              const snackBar = SnackBar(
+                content: Text('Рецепт удален из избранного'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+            deleted: () {
+              context.router.pop();
+              const snackBar = SnackBar(
+                content: Text('Рецепт удален'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
           );
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        });
-      }, builder: (context, state) {
-        return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: InkWell(
-                onTap: context.router.pop,
-                child: Padding(
-                  padding: EdgeInsets.all(16.r),
-                  child: const Icon(
-                    Icons.arrow_back_outlined,
-                    color: Colors.grey,
+        },
+        builder: (context, state) {
+          return state is Loaded
+              ? Scaffold(
+                  appBar: AppBar(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    leading: InkWell(
+                      onTap: context.router.pop,
+                      child: Padding(
+                        padding: EdgeInsets.all(16.r),
+                        child: const Icon(
+                          Icons.arrow_back_outlined,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      InkWell(
+                        onTap: () {
+                          state.isFavourite
+                              ? context.read<ReceiptBloc>().add(
+                                  ReceiptEvent.deleteFromFavorites(
+                                      receiptId))
+                              : context.read<ReceiptBloc>().add(
+                                  ReceiptEvent.addToFavorites(receiptId));
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(16.r),
+                          child: Icon(
+                            Icons.star,
+                            color: state.isFavourite
+                                ? Colors.amber
+                                : Colors.grey,
+                          ),
+                        ),
+                      ),
+                      state.isMine
+                          ? InkWell(
+                              onTap: () {
+                                context.read<ReceiptBloc>().add(
+                                    ReceiptEvent.deleteReceipt(receiptId));
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.all(16.r),
+                                child: const Icon(
+                                  Icons.delete,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                    ],
                   ),
-                ),
-              ),
-            ),
-            body: state is Loaded
-                ? Center(
+                  body: Center(
                     child: Column(
                       children: [
                         10.h.heightBox,
@@ -91,39 +150,36 @@ class ReceiptPage extends StatelessWidget {
                               state.receipt.title,
                               style: AppTextStyles.title,
                             ),
-                            5.h.heightBox,
-                            Row(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    context.router.push(ProfileRoute(
-                                        userId: state.receipt.user_id));
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 5.w,
-                                      vertical: 2.h,
-                                    ),
-                                    child: Text(
-                                      state.receipt.receipt_author!,
-                                      style: AppTextStyles.title.copyWith(
-                                          color: AppColors.pancake5,
-                                          fontSize: 25.sp,
-                                          height: 25.h / 20.sp),
-                                    ),
-                                  ),
+                            15.h.heightBox,
+                            InkWell(
+                              onTap: () {
+                                context.router.push(
+                                  ProfileRoute(
+                                      userId: state.receipt.user_id),
+                                );
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 5.w,
+                                  vertical: 2.h,
                                 ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Text(
-                                  'создан ${state.receipt.timeStamp!.substring(0, 10)}',
-                                  style: AppTextStyles.underTitle.copyWith(
-                                    fontSize: 20.sp,
+                                child: Text(
+                                  state.receipt.receipt_author!,
+                                  style: AppTextStyles.title.copyWith(
                                     color: AppColors.pancake5,
+                                    fontSize: 25.sp,
+                                    height: 25.h / 20.sp,
                                   ),
                                 ),
-                              ],
+                              ),
+                            ),
+                            15.h.heightBox,
+                            Text(
+                              'создан ${state.receipt.timeStamp!.substring(0, 10)}',
+                              style: AppTextStyles.underTitle.copyWith(
+                                fontSize: 20.sp,
+                                color: AppColors.pancake5,
+                              ),
                             ),
                             15.h.heightBox,
                             state.receipt.description != null
@@ -140,13 +196,16 @@ class ReceiptPage extends StatelessWidget {
                         ),
                       ],
                     ).paddingSymmetric(horizontal: 30.w),
-                  )
-                : const Center(
+                  ))
+              : const Scaffold(
+                  body: Center(
                     child: CircularProgressIndicator(
                       color: AppColors.pancake5,
                     ),
-                  ));
-      }),
+                  ),
+                );
+        },
+      ),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:first_pancake_com/navigation/auth_guard.dart';
 import 'package:first_pancake_com/presentation/pages/categories_page/categories_page.dart';
 import 'package:first_pancake_com/presentation/pages/create_recipe_page/create_recipe_page.dart';
 import 'package:first_pancake_com/presentation/pages/enter_code_page/enter_code_page.dart';
+import 'package:first_pancake_com/presentation/pages/favourites_page/favourites_page.dart';
 import 'package:first_pancake_com/presentation/pages/forgot_password_page/forgot_password_page.dart';
 import 'package:first_pancake_com/presentation/pages/main_page/main_page.dart';
 import 'package:first_pancake_com/presentation/pages/new_password_page/new_password_page.dart';
@@ -13,6 +14,8 @@ import 'package:first_pancake_com/presentation/pages/search_recipe_page/search_r
 import 'package:first_pancake_com/presentation/pages/sign_in_page/sign_in_page.dart';
 import 'package:first_pancake_com/presentation/pages/sign_up_page/sign_up_page.dart';
 import 'package:first_pancake_com/presentation/pages/splash_page/splash_page.dart';
+import 'package:first_pancake_com/presentation/pages/subscribers_page/subscribers_page.dart';
+import 'package:first_pancake_com/presentation/pages/subscriptions_page/subscriptions_page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -58,6 +61,15 @@ import 'package:first_pancake_com/presentation/pages/splash_page/splash_page.dar
     AutoRoute(
       page: NewRecipesPage,
     ),
+    AutoRoute(
+      page: SubscribersPage,
+    ),
+    AutoRoute(
+      page: SubscriptionsPage,
+    ),
+    AutoRoute(
+      page: FavouritesPage,
+    )
   ],
 )
 class $AutoRouter {}

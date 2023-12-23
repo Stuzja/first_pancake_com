@@ -20,14 +20,27 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   }
 
   @override
+  Future<void> addToFavorites(int receiptId) async {
+    await _receiptRemoteDataSource.addToFavourites(receiptId);
+  }
+
+  @override
+  Future<void> deleteFromFavourites(int receiptId) async {
+    await _receiptRemoteDataSource.deleteFromFavourites(receiptId);
+  }
+
+  @override
+  Future<void> deleteReceipt(int receiptId) async {
+    await _receiptRemoteDataSource.deleteReceipt(receiptId);
+  }
+
+  @override
   Future<List<Receipt>> getCurrentUserReceipts() async {
     final List<Receipt> models = [];
     final dtoList = await _receiptRemoteDataSource.getCurrentUserReceipts();
-    log('dto list: ${dtoList.toString()}');
     for (int i = 0; i < dtoList.length; i++) {
       models.add(dtoList[i].toModel());
     }
-    log('models list: ${models.toString()}');
     return models;
   }
 
@@ -55,7 +68,6 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
     for (int i = 0; i < dtoList.length; i++) {
       models.add(dtoList[i].toModel());
     }
-    log(models.length.toString());
     return models;
   }
 

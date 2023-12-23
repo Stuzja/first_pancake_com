@@ -48,7 +48,6 @@ class LargeRecipeCard extends StatelessWidget {
                       title,
                       style: AppTextStyles.title.copyWith(
                         fontSize: 22.5.sp,
-                        color: AppColors.pancake5,
                       ),
                       textAlign: TextAlign.left,
                     ),
@@ -60,8 +59,10 @@ class LargeRecipeCard extends StatelessWidget {
                           },
                           child: Text(
                             author,
-                            style:
-                                AppTextStyles.title.copyWith(fontSize: 15.sp),
+                            style: AppTextStyles.title.copyWith(
+                              fontSize: 15.sp,
+                              color: AppColors.pancake5,
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -123,13 +124,13 @@ class LargeRecipeCard extends StatelessWidget {
                       maxLines: 5,
                     ),
                   ],
-                ).paddingSymmetric(horizontal: 15.w),
+                ),
                 Divider(
                   thickness: 1.h,
                   color: AppColors.grey1,
                 )
               ],
-            ),
+            ).paddingSymmetric(horizontal: 15.w),
           ),
         ),
       ],

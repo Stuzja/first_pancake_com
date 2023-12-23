@@ -19,6 +19,24 @@ abstract class ReceiptDataSourceImpl implements ReceiptRemoteDataSource {
   );
 
   @override
+  @GET('/receipts/favourite/{id}')
+  Future<void> addToFavourites(
+    @Path("id") recipeId,
+  );
+
+  @override
+  @DELETE('/receipts/favourite/{id}')
+  Future<void> deleteFromFavourites(
+   @Path("id") recipeId,
+  );
+
+  @override
+  @DELETE('/receipt/{id}')
+  Future<void> deleteReceipt(
+   @Path("id") recipeId,
+  );  
+
+  @override
   @GET('/receipts')
   Future<List<ReceiptDto>> getCurrentUserReceipts();
 
