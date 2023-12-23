@@ -20,32 +20,39 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? userId) started,
+    required TResult Function(int userId) clickedSubscribeButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? userId)? started,
+    TResult? Function(int userId)? clickedSubscribeButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? userId)? started,
+    TResult Function(int userId)? clickedSubscribeButton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(ClickedSubscribeButton value)
+        clickedSubscribeButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
+    TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +68,7 @@ abstract class $ProfileEventCopyWith<$Res> {
           ProfileEvent value, $Res Function(ProfileEvent) then) =
       _$ProfileEventCopyWithImpl<$Res, ProfileEvent>;
   @useResult
-  $Res call({int? userId});
+  $Res call({int userId});
 }
 
 /// @nodoc
@@ -77,13 +84,13 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = freezed,
+    Object? userId = null,
   }) {
     return _then(_value.copyWith(
-      userId: freezed == userId
-          ? _value.userId
+      userId: null == userId
+          ? _value.userId!
           : userId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -155,6 +162,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? userId) started,
+    required TResult Function(int userId) clickedSubscribeButton,
   }) {
     return started(userId);
   }
@@ -163,6 +171,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? userId)? started,
+    TResult? Function(int userId)? clickedSubscribeButton,
   }) {
     return started?.call(userId);
   }
@@ -171,6 +180,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? userId)? started,
+    TResult Function(int userId)? clickedSubscribeButton,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,6 +193,8 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(ClickedSubscribeButton value)
+        clickedSubscribeButton,
   }) {
     return started(this);
   }
@@ -191,6 +203,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
+    TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
   }) {
     return started?.call(this);
   }
@@ -199,6 +212,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -220,13 +234,161 @@ abstract class Started implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$ClickedSubscribeButtonImplCopyWith<$Res>
+    implements $ProfileEventCopyWith<$Res> {
+  factory _$$ClickedSubscribeButtonImplCopyWith(
+          _$ClickedSubscribeButtonImpl value,
+          $Res Function(_$ClickedSubscribeButtonImpl) then) =
+      __$$ClickedSubscribeButtonImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int userId});
+}
+
+/// @nodoc
+class __$$ClickedSubscribeButtonImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ClickedSubscribeButtonImpl>
+    implements _$$ClickedSubscribeButtonImplCopyWith<$Res> {
+  __$$ClickedSubscribeButtonImplCopyWithImpl(
+      _$ClickedSubscribeButtonImpl _value,
+      $Res Function(_$ClickedSubscribeButtonImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$ClickedSubscribeButtonImpl(
+      null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
+  const _$ClickedSubscribeButtonImpl(this.userId);
+
+  @override
+  final int userId;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.clickedSubscribeButton(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClickedSubscribeButtonImpl &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClickedSubscribeButtonImplCopyWith<_$ClickedSubscribeButtonImpl>
+      get copyWith => __$$ClickedSubscribeButtonImplCopyWithImpl<
+          _$ClickedSubscribeButtonImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? userId) started,
+    required TResult Function(int userId) clickedSubscribeButton,
+  }) {
+    return clickedSubscribeButton(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? userId)? started,
+    TResult? Function(int userId)? clickedSubscribeButton,
+  }) {
+    return clickedSubscribeButton?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? userId)? started,
+    TResult Function(int userId)? clickedSubscribeButton,
+    required TResult orElse(),
+  }) {
+    if (clickedSubscribeButton != null) {
+      return clickedSubscribeButton(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ClickedSubscribeButton value)
+        clickedSubscribeButton,
+  }) {
+    return clickedSubscribeButton(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+  }) {
+    return clickedSubscribeButton?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    required TResult orElse(),
+  }) {
+    if (clickedSubscribeButton != null) {
+      return clickedSubscribeButton(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClickedSubscribeButton implements ProfileEvent {
+  const factory ClickedSubscribeButton(final int userId) =
+      _$ClickedSubscribeButtonImpl;
+
+  @override
+  int get userId;
+  @override
+  @JsonKey(ignore: true)
+  _$$ClickedSubscribeButtonImplCopyWith<_$ClickedSubscribeButtonImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)
+    required TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -234,8 +396,14 @@ mixin _$ProfileState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult? Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -243,8 +411,14 @@ mixin _$ProfileState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -331,8 +505,14 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)
+    required TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)
         loaded,
   }) {
     return initial();
@@ -343,8 +523,14 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult? Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
   }) {
     return initial?.call();
@@ -355,8 +541,14 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) {
@@ -445,8 +637,14 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)
+    required TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)
         loaded,
   }) {
     return loading();
@@ -457,8 +655,14 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult? Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
   }) {
     return loading?.call();
@@ -469,8 +673,14 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) {
@@ -527,6 +737,8 @@ abstract class _$$LoadedImplCopyWith<$Res> {
   @useResult
   $Res call(
       {User currentUser,
+      bool isMyProfile,
+      bool isSubscribed,
       List<Receipt> receipts,
       int subscribersCount,
       int subscriptionsCount,
@@ -547,6 +759,8 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentUser = null,
+    Object? isMyProfile = null,
+    Object? isSubscribed = null,
     Object? receipts = null,
     Object? subscribersCount = null,
     Object? subscriptionsCount = null,
@@ -557,6 +771,14 @@ class __$$LoadedImplCopyWithImpl<$Res>
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as User,
+      null == isMyProfile
+          ? _value.isMyProfile
+          : isMyProfile // ignore: cast_nullable_to_non_nullable
+              as bool,
+      null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
       null == receipts
           ? _value._receipts
           : receipts // ignore: cast_nullable_to_non_nullable
@@ -588,12 +810,22 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl(this.currentUser, final List<Receipt> receipts,
-      this.subscribersCount, this.subscriptionsCount, this.favouritesCount)
+  const _$LoadedImpl(
+      this.currentUser,
+      this.isMyProfile,
+      this.isSubscribed,
+      final List<Receipt> receipts,
+      this.subscribersCount,
+      this.subscriptionsCount,
+      this.favouritesCount)
       : _receipts = receipts;
 
   @override
   final User currentUser;
+  @override
+  final bool isMyProfile;
+  @override
+  final bool isSubscribed;
   final List<Receipt> _receipts;
   @override
   List<Receipt> get receipts {
@@ -611,7 +843,7 @@ class _$LoadedImpl implements Loaded {
 
   @override
   String toString() {
-    return 'ProfileState.loaded(currentUser: $currentUser, receipts: $receipts, subscribersCount: $subscribersCount, subscriptionsCount: $subscriptionsCount, favouritesCount: $favouritesCount)';
+    return 'ProfileState.loaded(currentUser: $currentUser, isMyProfile: $isMyProfile, isSubscribed: $isSubscribed, receipts: $receipts, subscribersCount: $subscribersCount, subscriptionsCount: $subscriptionsCount, favouritesCount: $favouritesCount)';
   }
 
   @override
@@ -621,6 +853,10 @@ class _$LoadedImpl implements Loaded {
             other is _$LoadedImpl &&
             (identical(other.currentUser, currentUser) ||
                 other.currentUser == currentUser) &&
+            (identical(other.isMyProfile, isMyProfile) ||
+                other.isMyProfile == isMyProfile) &&
+            (identical(other.isSubscribed, isSubscribed) ||
+                other.isSubscribed == isSubscribed) &&
             const DeepCollectionEquality().equals(other._receipts, _receipts) &&
             (identical(other.subscribersCount, subscribersCount) ||
                 other.subscribersCount == subscribersCount) &&
@@ -634,6 +870,8 @@ class _$LoadedImpl implements Loaded {
   int get hashCode => Object.hash(
       runtimeType,
       currentUser,
+      isMyProfile,
+      isSubscribed,
       const DeepCollectionEquality().hash(_receipts),
       subscribersCount,
       subscriptionsCount,
@@ -650,12 +888,18 @@ class _$LoadedImpl implements Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)
+    required TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)
         loaded,
   }) {
-    return loaded(currentUser, receipts, subscribersCount, subscriptionsCount,
-        favouritesCount);
+    return loaded(currentUser, isMyProfile, isSubscribed, receipts,
+        subscribersCount, subscriptionsCount, favouritesCount);
   }
 
   @override
@@ -663,12 +907,18 @@ class _$LoadedImpl implements Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult? Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
   }) {
-    return loaded?.call(currentUser, receipts, subscribersCount,
-        subscriptionsCount, favouritesCount);
+    return loaded?.call(currentUser, isMyProfile, isSubscribed, receipts,
+        subscribersCount, subscriptionsCount, favouritesCount);
   }
 
   @override
@@ -676,14 +926,20 @@ class _$LoadedImpl implements Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(User currentUser, List<Receipt> receipts,
-            int subscribersCount, int subscriptionsCount, int favouritesCount)?
+    TResult Function(
+            User currentUser,
+            bool isMyProfile,
+            bool isSubscribed,
+            List<Receipt> receipts,
+            int subscribersCount,
+            int subscriptionsCount,
+            int favouritesCount)?
         loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(currentUser, receipts, subscribersCount, subscriptionsCount,
-          favouritesCount);
+      return loaded(currentUser, isMyProfile, isSubscribed, receipts,
+          subscribersCount, subscriptionsCount, favouritesCount);
     }
     return orElse();
   }
@@ -726,12 +982,16 @@ class _$LoadedImpl implements Loaded {
 abstract class Loaded implements ProfileState {
   const factory Loaded(
       final User currentUser,
+      final bool isMyProfile,
+      final bool isSubscribed,
       final List<Receipt> receipts,
       final int subscribersCount,
       final int subscriptionsCount,
       final int favouritesCount) = _$LoadedImpl;
 
   User get currentUser;
+  bool get isMyProfile;
+  bool get isSubscribed;
   List<Receipt> get receipts;
   int get subscribersCount;
   int get subscriptionsCount;

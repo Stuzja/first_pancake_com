@@ -25,8 +25,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
   ProfileBloc(
     this._userRepository,
     this._receiptRepository,
-  ) : super(Initial()) {
+  ) : super(const Initial()) {
     on<Started>(_onStarted);
+    on<ClickedSubscribeButton>(_onClickedSubscribeButton);
   }
 
   void _onStarted(
@@ -42,6 +43,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
         final favourites = await _userRepository.getFavourites();
         emit(ProfileState.loaded(
           user!,
+          true,
+          false,
           receipts!,
           subscribers.length,
           subscriptions.length,
@@ -56,12 +59,33 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
       try {
         user = await _userRepository.getUserById(event.userId!);
         receipts = await _receiptRepository.getReceiptsById(event.userId!);
-        emit(ProfileState.loaded(user!, receipts!, 0, 0, 0));
+
+        final isSubscribed =
+            await _userRepository.isUserSubscribed(event.userId!);
+
+        final myUser = await _userRepository.getCurrentUser();
+
+        emit(ProfileState.loaded(
+          user!,
+          myUser.id == user!.id,
+          isSubscribed,
+          receipts!,
+          0,
+          0,
+          0,
+        ));
       } catch (e) {
         log('Error in profile bloc: $e');
         emit(const ProfileState.initial());
         produceSideEffect(const ProfileCommand.error());
       }
     }
+  }
+
+  void _onClickedSubscribeButton(
+    ClickedSubscribeButton event,
+    Emitter<ProfileState> emit,
+  ) async {
+   
   }
 }

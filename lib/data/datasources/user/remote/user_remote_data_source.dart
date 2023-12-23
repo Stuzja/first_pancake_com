@@ -13,5 +13,9 @@ abstract class UserRemoteDataSource {
 
   Future<List<UserDto>> getSubscriptions();
 
+  Future<bool> isUserSubscribed(
+    final int userId,
+  );
+
   Future<List<ReceiptDto>> getFavourites();
 }
