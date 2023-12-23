@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:first_pancake_com/data/datasources/receipt/local/receipt_local_data_source.dart';
 import 'package:first_pancake_com/data/datasources/receipt/remote/receipt_remote_data_source.dart';
 import 'package:first_pancake_com/data/models/receipt/receipt_dto.dart';
 import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
@@ -53,6 +52,17 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   Future<List<Receipt>> getAllReceipts() async {
     final List<Receipt> models = [];
     final dtoList = await _receiptRemoteDataSource.getAllReceipts();
+    for (int i = 0; i < dtoList.length; i++) {
+      models.add(dtoList[i].toModel());
+    }
+    log(models.length.toString());
+    return models;
+  }
+
+   @override
+  Future<List<Receipt>> getSubscriptionsReceipts() async {
+    final List<Receipt> models = [];
+    final dtoList = await _receiptRemoteDataSource.getSubscriptionsReceipts();
     for (int i = 0; i < dtoList.length; i++) {
       models.add(dtoList[i].toModel());
     }
