@@ -38,7 +38,7 @@ class FavouritesPage extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               leading: InkWell(
-                onTap: context.router.pop,
+                onTap: () => context.router.popAndPush(ProfileRoute()),
                 child: Padding(
                   padding: EdgeInsets.all(16.r),
                   child: const Icon(
@@ -55,30 +55,37 @@ class FavouritesPage extends StatelessWidget {
             ),
             body: state is Loaded
                 ? state.receipts.isNotEmpty
-                    ? SingleChildScrollView(
+                    ? ListView(
                         physics: const BouncingScrollPhysics(),
-                        child: Column(
-                          children: [
-                            10.h.heightBox,
-                            ListView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              itemCount: state.receipts.length,
-                              itemBuilder: (context, index) {
-                                final receipt = state.receipts[index];
-                                return ReceiptCards(
-                                  onTap: () => context.router
-                                      .push(ReceiptRoute(receiptId: receipt.id!)),
-                                  title: receipt.title,
-                                  description: receipt.description!,
-                                  imagePath: receipt.photo,
-                                  timeStamp: receipt.timeStamp,
-                                );
-                              },
-                            )
-                          ],
-                        ).paddingSymmetric(horizontal: 30.w),
-                      )
+                        children: [
+                          10.h.heightBox,
+                          RefreshIndicator(
+                            onRefresh: () async {
+                              context
+                                  .read<FavouritesBloc>()
+                                  .add(const FavouritesEvent.started());
+                            },
+                            child: SizedBox(
+                              height: 700.h,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: state.receipts.length,
+                                itemBuilder: (context, index) {
+                                  final receipt = state.receipts[index];
+                                  return ReceiptCards(
+                                    onTap: () => context.router.push(
+                                        ReceiptRoute(receiptId: receipt.id!)),
+                                    title: receipt.title,
+                                    description: receipt.description!,
+                                    imagePath: receipt.photo,
+                                    timeStamp: receipt.timeStamp,
+                                  );
+                                },
+                              ),
+                            ),
+                          )
+                        ],
+                      ).paddingSymmetric(horizontal: 30.w)
                     : Center(
                         child: Text(
                           'Избранное отсутствует',

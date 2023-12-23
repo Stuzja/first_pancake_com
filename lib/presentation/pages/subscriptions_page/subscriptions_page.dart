@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/subscriptions_page/bloc/subscriptions_bloc.dart';
 import 'package:first_pancake_com/presentation/widgets/user_card/user_card.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
@@ -36,7 +37,7 @@ class SubscriptionsPage extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               leading: InkWell(
-                onTap: context.router.pop,
+                onTap: () => context.router.popAndPush(ProfileRoute()),
                 child: Padding(
                   padding: EdgeInsets.all(16.r),
                   child: const Icon(
@@ -53,27 +54,34 @@ class SubscriptionsPage extends StatelessWidget {
             ),
             body: state is Loaded
                 ? state.subscriptions.isNotEmpty
-                    ? SingleChildScrollView(
+                    ? ListView(
                         physics: const BouncingScrollPhysics(),
-                        child: Column(
-                          children: [
-                            10.h.heightBox,
-                            ListView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              itemCount: state.subscriptions.length,
-                              itemBuilder: (context, index) {
-                                final user = state.subscriptions[index];
-                                return UserCard(
-                                  username: user.username,
-                                  email: user.email,
-                                  imagePath: user.profile_image,
-                                );
-                              },
-                            )
-                          ],
-                        ).paddingSymmetric(horizontal: 30.w),
-                      )
+                        children: [
+                          10.h.heightBox,
+                          RefreshIndicator(
+                            onRefresh: () async {
+                              context
+                                  .read<SubscriptionsBloc>()
+                                  .add(const SubscriptionsEvent.started());
+                            },
+                            child: SizedBox(
+                              height: 700.h,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: state.subscriptions.length,
+                                itemBuilder: (context, index) {
+                                  final user = state.subscriptions[index];
+                                  return UserCard(
+                                    username: user.username,
+                                    email: user.email,
+                                    imagePath: user.profile_image,
+                                  );
+                                },
+                              ),
+                            ),
+                          )
+                        ],
+                      ).paddingSymmetric(horizontal: 30.w)
                     : Center(
                         child: Text(
                           'Подписки отсутствуют',

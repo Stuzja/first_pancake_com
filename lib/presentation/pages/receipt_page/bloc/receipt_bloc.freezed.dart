@@ -22,6 +22,7 @@ mixin _$ReceiptEvent {
     required TResult Function(int receiptId) started,
     required TResult Function(int receiptId) addToFavorites,
     required TResult Function(int receiptId) deleteFromFavorites,
+    required TResult Function(int receiptId) deleteReceipt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$ReceiptEvent {
     TResult? Function(int receiptId)? started,
     TResult? Function(int receiptId)? addToFavorites,
     TResult? Function(int receiptId)? deleteFromFavorites,
+    TResult? Function(int receiptId)? deleteReceipt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$ReceiptEvent {
     TResult Function(int receiptId)? started,
     TResult Function(int receiptId)? addToFavorites,
     TResult Function(int receiptId)? deleteFromFavorites,
+    TResult Function(int receiptId)? deleteReceipt,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$ReceiptEvent {
     required TResult Function(Started value) started,
     required TResult Function(AddToFavorites value) addToFavorites,
     required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
+    required TResult Function(DeleteReceipt value) deleteReceipt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$ReceiptEvent {
     TResult? Function(Started value)? started,
     TResult? Function(AddToFavorites value)? addToFavorites,
     TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult? Function(DeleteReceipt value)? deleteReceipt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$ReceiptEvent {
     TResult Function(Started value)? started,
     TResult Function(AddToFavorites value)? addToFavorites,
     TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult Function(DeleteReceipt value)? deleteReceipt,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -170,6 +176,7 @@ class _$StartedImpl implements Started {
     required TResult Function(int receiptId) started,
     required TResult Function(int receiptId) addToFavorites,
     required TResult Function(int receiptId) deleteFromFavorites,
+    required TResult Function(int receiptId) deleteReceipt,
   }) {
     return started(receiptId);
   }
@@ -180,6 +187,7 @@ class _$StartedImpl implements Started {
     TResult? Function(int receiptId)? started,
     TResult? Function(int receiptId)? addToFavorites,
     TResult? Function(int receiptId)? deleteFromFavorites,
+    TResult? Function(int receiptId)? deleteReceipt,
   }) {
     return started?.call(receiptId);
   }
@@ -190,6 +198,7 @@ class _$StartedImpl implements Started {
     TResult Function(int receiptId)? started,
     TResult Function(int receiptId)? addToFavorites,
     TResult Function(int receiptId)? deleteFromFavorites,
+    TResult Function(int receiptId)? deleteReceipt,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -204,6 +213,7 @@ class _$StartedImpl implements Started {
     required TResult Function(Started value) started,
     required TResult Function(AddToFavorites value) addToFavorites,
     required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
+    required TResult Function(DeleteReceipt value) deleteReceipt,
   }) {
     return started(this);
   }
@@ -214,6 +224,7 @@ class _$StartedImpl implements Started {
     TResult? Function(Started value)? started,
     TResult? Function(AddToFavorites value)? addToFavorites,
     TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult? Function(DeleteReceipt value)? deleteReceipt,
   }) {
     return started?.call(this);
   }
@@ -224,6 +235,7 @@ class _$StartedImpl implements Started {
     TResult Function(Started value)? started,
     TResult Function(AddToFavorites value)? addToFavorites,
     TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult Function(DeleteReceipt value)? deleteReceipt,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -315,6 +327,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
     required TResult Function(int receiptId) started,
     required TResult Function(int receiptId) addToFavorites,
     required TResult Function(int receiptId) deleteFromFavorites,
+    required TResult Function(int receiptId) deleteReceipt,
   }) {
     return addToFavorites(receiptId);
   }
@@ -325,6 +338,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
     TResult? Function(int receiptId)? started,
     TResult? Function(int receiptId)? addToFavorites,
     TResult? Function(int receiptId)? deleteFromFavorites,
+    TResult? Function(int receiptId)? deleteReceipt,
   }) {
     return addToFavorites?.call(receiptId);
   }
@@ -335,6 +349,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
     TResult Function(int receiptId)? started,
     TResult Function(int receiptId)? addToFavorites,
     TResult Function(int receiptId)? deleteFromFavorites,
+    TResult Function(int receiptId)? deleteReceipt,
     required TResult orElse(),
   }) {
     if (addToFavorites != null) {
@@ -349,6 +364,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
     required TResult Function(Started value) started,
     required TResult Function(AddToFavorites value) addToFavorites,
     required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
+    required TResult Function(DeleteReceipt value) deleteReceipt,
   }) {
     return addToFavorites(this);
   }
@@ -359,6 +375,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
     TResult? Function(Started value)? started,
     TResult? Function(AddToFavorites value)? addToFavorites,
     TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult? Function(DeleteReceipt value)? deleteReceipt,
   }) {
     return addToFavorites?.call(this);
   }
@@ -369,6 +386,7 @@ class _$AddToFavoritesImpl implements AddToFavorites {
     TResult Function(Started value)? started,
     TResult Function(AddToFavorites value)? addToFavorites,
     TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult Function(DeleteReceipt value)? deleteReceipt,
     required TResult orElse(),
   }) {
     if (addToFavorites != null) {
@@ -460,6 +478,7 @@ class _$DeleteFromFavoritesImpl implements DeleteFromFavorites {
     required TResult Function(int receiptId) started,
     required TResult Function(int receiptId) addToFavorites,
     required TResult Function(int receiptId) deleteFromFavorites,
+    required TResult Function(int receiptId) deleteReceipt,
   }) {
     return deleteFromFavorites(receiptId);
   }
@@ -470,6 +489,7 @@ class _$DeleteFromFavoritesImpl implements DeleteFromFavorites {
     TResult? Function(int receiptId)? started,
     TResult? Function(int receiptId)? addToFavorites,
     TResult? Function(int receiptId)? deleteFromFavorites,
+    TResult? Function(int receiptId)? deleteReceipt,
   }) {
     return deleteFromFavorites?.call(receiptId);
   }
@@ -480,6 +500,7 @@ class _$DeleteFromFavoritesImpl implements DeleteFromFavorites {
     TResult Function(int receiptId)? started,
     TResult Function(int receiptId)? addToFavorites,
     TResult Function(int receiptId)? deleteFromFavorites,
+    TResult Function(int receiptId)? deleteReceipt,
     required TResult orElse(),
   }) {
     if (deleteFromFavorites != null) {
@@ -494,6 +515,7 @@ class _$DeleteFromFavoritesImpl implements DeleteFromFavorites {
     required TResult Function(Started value) started,
     required TResult Function(AddToFavorites value) addToFavorites,
     required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
+    required TResult Function(DeleteReceipt value) deleteReceipt,
   }) {
     return deleteFromFavorites(this);
   }
@@ -504,6 +526,7 @@ class _$DeleteFromFavoritesImpl implements DeleteFromFavorites {
     TResult? Function(Started value)? started,
     TResult? Function(AddToFavorites value)? addToFavorites,
     TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult? Function(DeleteReceipt value)? deleteReceipt,
   }) {
     return deleteFromFavorites?.call(this);
   }
@@ -514,6 +537,7 @@ class _$DeleteFromFavoritesImpl implements DeleteFromFavorites {
     TResult Function(Started value)? started,
     TResult Function(AddToFavorites value)? addToFavorites,
     TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult Function(DeleteReceipt value)? deleteReceipt,
     required TResult orElse(),
   }) {
     if (deleteFromFavorites != null) {
@@ -536,26 +560,177 @@ abstract class DeleteFromFavorites implements ReceiptEvent {
 }
 
 /// @nodoc
+abstract class _$$DeleteReceiptImplCopyWith<$Res>
+    implements $ReceiptEventCopyWith<$Res> {
+  factory _$$DeleteReceiptImplCopyWith(
+          _$DeleteReceiptImpl value, $Res Function(_$DeleteReceiptImpl) then) =
+      __$$DeleteReceiptImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int receiptId});
+}
+
+/// @nodoc
+class __$$DeleteReceiptImplCopyWithImpl<$Res>
+    extends _$ReceiptEventCopyWithImpl<$Res, _$DeleteReceiptImpl>
+    implements _$$DeleteReceiptImplCopyWith<$Res> {
+  __$$DeleteReceiptImplCopyWithImpl(
+      _$DeleteReceiptImpl _value, $Res Function(_$DeleteReceiptImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? receiptId = null,
+  }) {
+    return _then(_$DeleteReceiptImpl(
+      null == receiptId
+          ? _value.receiptId
+          : receiptId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteReceiptImpl implements DeleteReceipt {
+  const _$DeleteReceiptImpl(this.receiptId);
+
+  @override
+  final int receiptId;
+
+  @override
+  String toString() {
+    return 'ReceiptEvent.deleteReceipt(receiptId: $receiptId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteReceiptImpl &&
+            (identical(other.receiptId, receiptId) ||
+                other.receiptId == receiptId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, receiptId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteReceiptImplCopyWith<_$DeleteReceiptImpl> get copyWith =>
+      __$$DeleteReceiptImplCopyWithImpl<_$DeleteReceiptImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int receiptId) started,
+    required TResult Function(int receiptId) addToFavorites,
+    required TResult Function(int receiptId) deleteFromFavorites,
+    required TResult Function(int receiptId) deleteReceipt,
+  }) {
+    return deleteReceipt(receiptId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int receiptId)? started,
+    TResult? Function(int receiptId)? addToFavorites,
+    TResult? Function(int receiptId)? deleteFromFavorites,
+    TResult? Function(int receiptId)? deleteReceipt,
+  }) {
+    return deleteReceipt?.call(receiptId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int receiptId)? started,
+    TResult Function(int receiptId)? addToFavorites,
+    TResult Function(int receiptId)? deleteFromFavorites,
+    TResult Function(int receiptId)? deleteReceipt,
+    required TResult orElse(),
+  }) {
+    if (deleteReceipt != null) {
+      return deleteReceipt(receiptId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(AddToFavorites value) addToFavorites,
+    required TResult Function(DeleteFromFavorites value) deleteFromFavorites,
+    required TResult Function(DeleteReceipt value) deleteReceipt,
+  }) {
+    return deleteReceipt(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(AddToFavorites value)? addToFavorites,
+    TResult? Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult? Function(DeleteReceipt value)? deleteReceipt,
+  }) {
+    return deleteReceipt?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(AddToFavorites value)? addToFavorites,
+    TResult Function(DeleteFromFavorites value)? deleteFromFavorites,
+    TResult Function(DeleteReceipt value)? deleteReceipt,
+    required TResult orElse(),
+  }) {
+    if (deleteReceipt != null) {
+      return deleteReceipt(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteReceipt implements ReceiptEvent {
+  const factory DeleteReceipt(final int receiptId) = _$DeleteReceiptImpl;
+
+  @override
+  int get receiptId;
+  @override
+  @JsonKey(ignore: true)
+  _$$DeleteReceiptImplCopyWith<_$DeleteReceiptImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ReceiptState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Receipt receipt, bool isFavourite) loaded,
+    required TResult Function(Receipt receipt, bool isFavourite, bool isMine)
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult? Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -641,7 +816,8 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Receipt receipt, bool isFavourite) loaded,
+    required TResult Function(Receipt receipt, bool isFavourite, bool isMine)
+        loaded,
   }) {
     return initial();
   }
@@ -651,7 +827,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult? Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
   }) {
     return initial?.call();
   }
@@ -661,7 +837,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -749,7 +925,8 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Receipt receipt, bool isFavourite) loaded,
+    required TResult Function(Receipt receipt, bool isFavourite, bool isMine)
+        loaded,
   }) {
     return loading();
   }
@@ -759,7 +936,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult? Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
   }) {
     return loading?.call();
   }
@@ -769,7 +946,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -823,7 +1000,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Receipt receipt, bool isFavourite});
+  $Res call({Receipt receipt, bool isFavourite, bool isMine});
 
   $ReceiptCopyWith<$Res> get receipt;
 }
@@ -841,6 +1018,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
   $Res call({
     Object? receipt = null,
     Object? isFavourite = null,
+    Object? isMine = null,
   }) {
     return _then(_$LoadedImpl(
       receipt: null == receipt
@@ -850,6 +1028,10 @@ class __$$LoadedImplCopyWithImpl<$Res>
       isFavourite: null == isFavourite
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isMine: null == isMine
+          ? _value.isMine
+          : isMine // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -866,16 +1048,19 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl({required this.receipt, required this.isFavourite});
+  const _$LoadedImpl(
+      {required this.receipt, required this.isFavourite, required this.isMine});
 
   @override
   final Receipt receipt;
   @override
   final bool isFavourite;
+  @override
+  final bool isMine;
 
   @override
   String toString() {
-    return 'ReceiptState.loaded(receipt: $receipt, isFavourite: $isFavourite)';
+    return 'ReceiptState.loaded(receipt: $receipt, isFavourite: $isFavourite, isMine: $isMine)';
   }
 
   @override
@@ -885,11 +1070,12 @@ class _$LoadedImpl implements Loaded {
             other is _$LoadedImpl &&
             (identical(other.receipt, receipt) || other.receipt == receipt) &&
             (identical(other.isFavourite, isFavourite) ||
-                other.isFavourite == isFavourite));
+                other.isFavourite == isFavourite) &&
+            (identical(other.isMine, isMine) || other.isMine == isMine));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, receipt, isFavourite);
+  int get hashCode => Object.hash(runtimeType, receipt, isFavourite, isMine);
 
   @JsonKey(ignore: true)
   @override
@@ -902,9 +1088,10 @@ class _$LoadedImpl implements Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Receipt receipt, bool isFavourite) loaded,
+    required TResult Function(Receipt receipt, bool isFavourite, bool isMine)
+        loaded,
   }) {
-    return loaded(receipt, isFavourite);
+    return loaded(receipt, isFavourite, isMine);
   }
 
   @override
@@ -912,9 +1099,9 @@ class _$LoadedImpl implements Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult? Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
   }) {
-    return loaded?.call(receipt, isFavourite);
+    return loaded?.call(receipt, isFavourite, isMine);
   }
 
   @override
@@ -922,11 +1109,11 @@ class _$LoadedImpl implements Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Receipt receipt, bool isFavourite)? loaded,
+    TResult Function(Receipt receipt, bool isFavourite, bool isMine)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(receipt, isFavourite);
+      return loaded(receipt, isFavourite, isMine);
     }
     return orElse();
   }
@@ -969,10 +1156,12 @@ class _$LoadedImpl implements Loaded {
 abstract class Loaded implements ReceiptState {
   const factory Loaded(
       {required final Receipt receipt,
-      required final bool isFavourite}) = _$LoadedImpl;
+      required final bool isFavourite,
+      required final bool isMine}) = _$LoadedImpl;
 
   Receipt get receipt;
   bool get isFavourite;
+  bool get isMine;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -985,6 +1174,7 @@ mixin _$ReceiptCommand {
     required TResult Function() error,
     required TResult Function() favorite,
     required TResult Function() notFavorite,
+    required TResult Function() deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -992,6 +1182,7 @@ mixin _$ReceiptCommand {
     TResult? Function()? error,
     TResult? Function()? favorite,
     TResult? Function()? notFavorite,
+    TResult? Function()? deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -999,6 +1190,7 @@ mixin _$ReceiptCommand {
     TResult Function()? error,
     TResult Function()? favorite,
     TResult Function()? notFavorite,
+    TResult Function()? deleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1007,6 +1199,7 @@ mixin _$ReceiptCommand {
     required TResult Function(Error value) error,
     required TResult Function(Favorite value) favorite,
     required TResult Function(NotFavorite value) notFavorite,
+    required TResult Function(Deleted value) deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1014,6 +1207,7 @@ mixin _$ReceiptCommand {
     TResult? Function(Error value)? error,
     TResult? Function(Favorite value)? favorite,
     TResult? Function(NotFavorite value)? notFavorite,
+    TResult? Function(Deleted value)? deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1021,6 +1215,7 @@ mixin _$ReceiptCommand {
     TResult Function(Error value)? error,
     TResult Function(Favorite value)? favorite,
     TResult Function(NotFavorite value)? notFavorite,
+    TResult Function(Deleted value)? deleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1085,6 +1280,7 @@ class _$ErrorImpl implements Error {
     required TResult Function() error,
     required TResult Function() favorite,
     required TResult Function() notFavorite,
+    required TResult Function() deleted,
   }) {
     return error();
   }
@@ -1095,6 +1291,7 @@ class _$ErrorImpl implements Error {
     TResult? Function()? error,
     TResult? Function()? favorite,
     TResult? Function()? notFavorite,
+    TResult? Function()? deleted,
   }) {
     return error?.call();
   }
@@ -1105,6 +1302,7 @@ class _$ErrorImpl implements Error {
     TResult Function()? error,
     TResult Function()? favorite,
     TResult Function()? notFavorite,
+    TResult Function()? deleted,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1119,6 +1317,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(Error value) error,
     required TResult Function(Favorite value) favorite,
     required TResult Function(NotFavorite value) notFavorite,
+    required TResult Function(Deleted value) deleted,
   }) {
     return error(this);
   }
@@ -1129,6 +1328,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(Error value)? error,
     TResult? Function(Favorite value)? favorite,
     TResult? Function(NotFavorite value)? notFavorite,
+    TResult? Function(Deleted value)? deleted,
   }) {
     return error?.call(this);
   }
@@ -1139,6 +1339,7 @@ class _$ErrorImpl implements Error {
     TResult Function(Error value)? error,
     TResult Function(Favorite value)? favorite,
     TResult Function(NotFavorite value)? notFavorite,
+    TResult Function(Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1193,6 +1394,7 @@ class _$FavoriteImpl implements Favorite {
     required TResult Function() error,
     required TResult Function() favorite,
     required TResult Function() notFavorite,
+    required TResult Function() deleted,
   }) {
     return favorite();
   }
@@ -1203,6 +1405,7 @@ class _$FavoriteImpl implements Favorite {
     TResult? Function()? error,
     TResult? Function()? favorite,
     TResult? Function()? notFavorite,
+    TResult? Function()? deleted,
   }) {
     return favorite?.call();
   }
@@ -1213,6 +1416,7 @@ class _$FavoriteImpl implements Favorite {
     TResult Function()? error,
     TResult Function()? favorite,
     TResult Function()? notFavorite,
+    TResult Function()? deleted,
     required TResult orElse(),
   }) {
     if (favorite != null) {
@@ -1227,6 +1431,7 @@ class _$FavoriteImpl implements Favorite {
     required TResult Function(Error value) error,
     required TResult Function(Favorite value) favorite,
     required TResult Function(NotFavorite value) notFavorite,
+    required TResult Function(Deleted value) deleted,
   }) {
     return favorite(this);
   }
@@ -1237,6 +1442,7 @@ class _$FavoriteImpl implements Favorite {
     TResult? Function(Error value)? error,
     TResult? Function(Favorite value)? favorite,
     TResult? Function(NotFavorite value)? notFavorite,
+    TResult? Function(Deleted value)? deleted,
   }) {
     return favorite?.call(this);
   }
@@ -1247,6 +1453,7 @@ class _$FavoriteImpl implements Favorite {
     TResult Function(Error value)? error,
     TResult Function(Favorite value)? favorite,
     TResult Function(NotFavorite value)? notFavorite,
+    TResult Function(Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (favorite != null) {
@@ -1301,6 +1508,7 @@ class _$NotFavoriteImpl implements NotFavorite {
     required TResult Function() error,
     required TResult Function() favorite,
     required TResult Function() notFavorite,
+    required TResult Function() deleted,
   }) {
     return notFavorite();
   }
@@ -1311,6 +1519,7 @@ class _$NotFavoriteImpl implements NotFavorite {
     TResult? Function()? error,
     TResult? Function()? favorite,
     TResult? Function()? notFavorite,
+    TResult? Function()? deleted,
   }) {
     return notFavorite?.call();
   }
@@ -1321,6 +1530,7 @@ class _$NotFavoriteImpl implements NotFavorite {
     TResult Function()? error,
     TResult Function()? favorite,
     TResult Function()? notFavorite,
+    TResult Function()? deleted,
     required TResult orElse(),
   }) {
     if (notFavorite != null) {
@@ -1335,6 +1545,7 @@ class _$NotFavoriteImpl implements NotFavorite {
     required TResult Function(Error value) error,
     required TResult Function(Favorite value) favorite,
     required TResult Function(NotFavorite value) notFavorite,
+    required TResult Function(Deleted value) deleted,
   }) {
     return notFavorite(this);
   }
@@ -1345,6 +1556,7 @@ class _$NotFavoriteImpl implements NotFavorite {
     TResult? Function(Error value)? error,
     TResult? Function(Favorite value)? favorite,
     TResult? Function(NotFavorite value)? notFavorite,
+    TResult? Function(Deleted value)? deleted,
   }) {
     return notFavorite?.call(this);
   }
@@ -1355,6 +1567,7 @@ class _$NotFavoriteImpl implements NotFavorite {
     TResult Function(Error value)? error,
     TResult Function(Favorite value)? favorite,
     TResult Function(NotFavorite value)? notFavorite,
+    TResult Function(Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (notFavorite != null) {
@@ -1366,4 +1579,118 @@ class _$NotFavoriteImpl implements NotFavorite {
 
 abstract class NotFavorite implements ReceiptCommand {
   const factory NotFavorite() = _$NotFavoriteImpl;
+}
+
+/// @nodoc
+abstract class _$$DeletedImplCopyWith<$Res> {
+  factory _$$DeletedImplCopyWith(
+          _$DeletedImpl value, $Res Function(_$DeletedImpl) then) =
+      __$$DeletedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeletedImplCopyWithImpl<$Res>
+    extends _$ReceiptCommandCopyWithImpl<$Res, _$DeletedImpl>
+    implements _$$DeletedImplCopyWith<$Res> {
+  __$$DeletedImplCopyWithImpl(
+      _$DeletedImpl _value, $Res Function(_$DeletedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DeletedImpl implements Deleted {
+  const _$DeletedImpl();
+
+  @override
+  String toString() {
+    return 'ReceiptCommand.deleted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeletedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() error,
+    required TResult Function() favorite,
+    required TResult Function() notFavorite,
+    required TResult Function() deleted,
+  }) {
+    return deleted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? error,
+    TResult? Function()? favorite,
+    TResult? Function()? notFavorite,
+    TResult? Function()? deleted,
+  }) {
+    return deleted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? error,
+    TResult Function()? favorite,
+    TResult Function()? notFavorite,
+    TResult Function()? deleted,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Error value) error,
+    required TResult Function(Favorite value) favorite,
+    required TResult Function(NotFavorite value) notFavorite,
+    required TResult Function(Deleted value) deleted,
+  }) {
+    return deleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Error value)? error,
+    TResult? Function(Favorite value)? favorite,
+    TResult? Function(NotFavorite value)? notFavorite,
+    TResult? Function(Deleted value)? deleted,
+  }) {
+    return deleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Error value)? error,
+    TResult Function(Favorite value)? favorite,
+    TResult Function(NotFavorite value)? notFavorite,
+    TResult Function(Deleted value)? deleted,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Deleted implements ReceiptCommand {
+  const factory Deleted() = _$DeletedImpl;
 }

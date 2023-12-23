@@ -27,6 +27,7 @@ class ReceiptBloc extends Bloc<ReceiptEvent, ReceiptState>
     on<Started>(_onStarted);
     on<AddToFavorites>(_onAddToFavorites);
     on<DeleteFromFavorites>(_onDeleteFromFavorites);
+    on<DeleteReceipt>(_onDeleteReceipt);
   }
 
   void _onStarted(
@@ -39,10 +40,21 @@ class ReceiptBloc extends Bloc<ReceiptEvent, ReceiptState>
       log(favourites.toString());
       List<int?> recipeIds = favourites.map((recipe) => recipe.id).toList();
       final receipt = await _receiptRepository.getReceiptById(event.receiptId);
+
+      final user = await _userRepository.getCurrentUser();
+      final isMine = receipt.user_id == user.id;
       if (recipeIds.contains(event.receiptId)) {
-        emit(ReceiptState.loaded(receipt: receipt, isFavourite: true));
+        emit(ReceiptState.loaded(
+          receipt: receipt,
+          isFavourite: true,
+          isMine: isMine,
+        ));
       } else {
-        emit(ReceiptState.loaded(receipt: receipt, isFavourite: false));
+        emit(ReceiptState.loaded(
+          receipt: receipt,
+          isFavourite: false,
+          isMine: isMine,
+        ));
       }
     } catch (e) {
       log('Error in receipt bloc: $e');
@@ -60,7 +72,13 @@ class ReceiptBloc extends Bloc<ReceiptEvent, ReceiptState>
       await _receiptRepository.addToFavorites(event.receiptId);
       final receipt = await _receiptRepository.getReceiptById(event.receiptId);
       produceSideEffect(const ReceiptCommand.favorite());
-      emit(ReceiptState.loaded(receipt: receipt, isFavourite: true));
+      final user = await _userRepository.getCurrentUser();
+      final isMine = receipt.user_id == user.id;
+      emit(ReceiptState.loaded(
+        receipt: receipt,
+        isFavourite: true,
+        isMine: isMine,
+      ));
     } catch (e) {
       log('Error in receipt bloc: $e');
       emit(const ReceiptState.initial());
@@ -78,7 +96,28 @@ class ReceiptBloc extends Bloc<ReceiptEvent, ReceiptState>
       await _receiptRepository.deleteFromFavourites(event.receiptId);
       final receipt = await _receiptRepository.getReceiptById(event.receiptId);
       produceSideEffect(const ReceiptCommand.notFavorite());
-      emit(ReceiptState.loaded(receipt: receipt, isFavourite: false));
+      final user = await _userRepository.getCurrentUser();
+      final isMine = receipt.user_id == user.id;
+      emit(ReceiptState.loaded(
+        receipt: receipt,
+        isFavourite: false,
+        isMine: isMine,
+      ));
+    } catch (e) {
+      log('Error in receipt bloc: $e');
+      emit(const ReceiptState.initial());
+      produceSideEffect(const ReceiptCommand.error());
+    }
+  }
+
+  void _onDeleteReceipt(
+    DeleteReceipt event,
+    Emitter<ReceiptState> emit,
+  ) async {
+    try {
+      emit(const ReceiptState.loading());
+      await _receiptRepository.deleteReceipt(event.receiptId);
+      produceSideEffect(const ReceiptCommand.deleted());
     } catch (e) {
       log('Error in receipt bloc: $e');
       emit(const ReceiptState.initial());

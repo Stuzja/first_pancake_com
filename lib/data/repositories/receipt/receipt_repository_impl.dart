@@ -31,6 +31,11 @@ class ReceiptRepositoryImpl extends ReceiptRepository {
   }
 
   @override
+  Future<void> deleteReceipt(int receiptId) async {
+    await _receiptRemoteDataSource.deleteReceipt(receiptId);
+  }
+
+  @override
   Future<List<Receipt>> getCurrentUserReceipts() async {
     final List<Receipt> models = [];
     final dtoList = await _receiptRemoteDataSource.getCurrentUserReceipts();

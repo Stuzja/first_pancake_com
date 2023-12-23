@@ -82,6 +82,27 @@ class _ReceiptDataSourceImpl implements ReceiptDataSourceImpl {
   }
 
   @override
+  Future<void> deleteReceipt(recipeId) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/receipt/${recipeId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
   Future<List<ReceiptDto>> getCurrentUserReceipts() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

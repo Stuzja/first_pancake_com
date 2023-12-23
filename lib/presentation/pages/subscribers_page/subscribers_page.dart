@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/subscribers_page/bloc/subscribers_bloc.dart';
 import 'package:first_pancake_com/presentation/widgets/user_card/user_card.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
@@ -36,7 +37,7 @@ class SubscribersPage extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               leading: InkWell(
-                onTap: context.router.pop,
+                onTap: () => context.router.popAndPush(ProfileRoute()),
                 child: Padding(
                   padding: EdgeInsets.all(16.r),
                   child: const Icon(
@@ -53,13 +54,19 @@ class SubscribersPage extends StatelessWidget {
             ),
             body: state is Loaded
                 ? state.subscribers.isNotEmpty
-                    ? SingleChildScrollView(
-                        physics: const BouncingScrollPhysics(),
-                        child: Column(
-                          children: [
-                            10.h.heightBox,
-                            ListView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
+                    ? ListView(
+                      physics: const BouncingScrollPhysics(),
+                      children: [
+                        10.h.heightBox,
+                        RefreshIndicator(
+                          onRefresh: () async {
+                              context
+                                  .read<SubscribersBloc>()
+                                  .add(const SubscribersEvent.started());
+                            },
+                          child: SizedBox(
+                            height: 700.h,
+                            child: ListView.builder(
                               shrinkWrap: true,
                               itemCount: state.subscribers.length,
                               itemBuilder: (context, index) {
@@ -70,10 +77,11 @@ class SubscribersPage extends StatelessWidget {
                                   imagePath: user.profile_image,
                                 );
                               },
-                            )
-                          ],
-                        ).paddingSymmetric(horizontal: 30.w),
-                      )
+                            ),
+                          ),
+                        )
+                      ],
+                    ).paddingSymmetric(horizontal: 30.w)
                     : Center(
                         child: Text(
                           'Подписчики отсутствуют',

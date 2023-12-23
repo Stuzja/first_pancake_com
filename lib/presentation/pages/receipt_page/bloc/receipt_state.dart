@@ -7,5 +7,6 @@ class ReceiptState with _$ReceiptState {
   const factory ReceiptState.loaded({
     required Receipt receipt,
     required bool isFavourite,
+    required bool isMine,
   }) = Loaded;
 }

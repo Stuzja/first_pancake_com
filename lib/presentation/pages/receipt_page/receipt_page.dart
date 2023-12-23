@@ -47,6 +47,13 @@ class ReceiptPage extends StatelessWidget {
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
+            deleted: () {
+              context.router.pop();
+              const snackBar = SnackBar(
+                content: Text('Рецепт удален'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
           );
         },
         builder: (context, state) {
@@ -70,20 +77,36 @@ class ReceiptPage extends StatelessWidget {
                         onTap: () {
                           state.isFavourite
                               ? context.read<ReceiptBloc>().add(
-                                  ReceiptEvent.deleteFromFavorites(receiptId))
-                              : context
-                                  .read<ReceiptBloc>()
-                                  .add(ReceiptEvent.addToFavorites(receiptId));
+                                  ReceiptEvent.deleteFromFavorites(
+                                      receiptId))
+                              : context.read<ReceiptBloc>().add(
+                                  ReceiptEvent.addToFavorites(receiptId));
                         },
                         child: Padding(
                           padding: EdgeInsets.all(16.r),
                           child: Icon(
                             Icons.star,
-                            color:
-                                state.isFavourite ? Colors.amber : Colors.grey,
+                            color: state.isFavourite
+                                ? Colors.amber
+                                : Colors.grey,
                           ),
                         ),
                       ),
+                      state.isMine
+                          ? InkWell(
+                              onTap: () {
+                                context.read<ReceiptBloc>().add(
+                                    ReceiptEvent.deleteReceipt(receiptId));
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.all(16.r),
+                                child: const Icon(
+                                  Icons.delete,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
                     ],
                   ),
                   body: Center(
@@ -131,7 +154,8 @@ class ReceiptPage extends StatelessWidget {
                             InkWell(
                               onTap: () {
                                 context.router.push(
-                                  ProfileRoute(userId: state.receipt.user_id),
+                                  ProfileRoute(
+                                      userId: state.receipt.user_id),
                                 );
                               },
                               child: Padding(

@@ -16,4 +16,6 @@ abstract class ReceiptRepository {
   Future<Receipt> getReceiptById(int receiptId);
 
   Future<List<Receipt>> getReceiptsById(int userId);
+
+  Future<void> deleteReceipt(int receiptId) async {}
 }

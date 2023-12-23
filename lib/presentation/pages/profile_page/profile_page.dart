@@ -69,9 +69,14 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             body: state is Loaded
-                ? SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                ? RefreshIndicator(
+                    onRefresh: () async {
+                      context
+                          .read<ProfileBloc>()
+                          .add(ProfileEvent.started(userId));
+                    },
+                    child: ListView(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
