@@ -39,6 +39,12 @@ class ProfilePage extends StatelessWidget {
             navToSubscriptions: () {},
             navToEditProfile: () {},
             navToFavourites: () {},
+            navToSplash: () {
+              context.router.pushAndPopUntil(
+                const SplashRoute(),
+                predicate: (_) => false,
+              );
+            },
             error: () {
               const snackBar = SnackBar(
                 content: Text('Ошибка входа в профиль'),
@@ -67,6 +73,22 @@ class ProfilePage extends StatelessWidget {
                 'Профиль',
                 style: AppTextStyles.label,
               ),
+              actions: [
+                InkWell(
+                  onTap: () {
+                    context
+                        .read<ProfileBloc>()
+                        .add(const ProfileEvent.signOut());
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(16.r),
+                    child: const Icon(
+                      Icons.logout,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+              ],
             ),
             body: state is Loaded
                 ? RefreshIndicator(
