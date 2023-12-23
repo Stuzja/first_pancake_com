@@ -128,6 +128,7 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i32.ProfileBloc>(() => _i32.ProfileBloc(
         get<_i26.UserRepository>(),
         get<_i14.ReceiptRepository>(),
+        get<_i28.AuthRepository>(),
       ));
   gh.factory<_i33.ReceiptBloc>(() => _i33.ReceiptBloc(
         get<_i14.ReceiptRepository>(),

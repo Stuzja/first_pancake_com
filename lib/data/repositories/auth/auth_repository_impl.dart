@@ -62,7 +62,9 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<void> signOut({bool signOutOnServer = true}) async {}
+  Future<void> signOut({bool signOutOnServer = true}) async {
+    await _authLocalDataSource.signOut();
+  }
 
   @override
   Future<void> refresh() {

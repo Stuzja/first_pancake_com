@@ -33,4 +33,8 @@ class AuthLocalDataSource {
     await _prefs.setString(tokenKey, userToken);
     await _prefs.setInt(userKey, userID);
   }
+
+  Future<void> signOut() async {
+    await _prefs.clear();
+  }
 }

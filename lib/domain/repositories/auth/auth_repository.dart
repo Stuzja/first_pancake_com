@@ -9,4 +9,5 @@ abstract class AuthRepository {
   Future<void> signUp(RegistrationModel reg);
   Future<void> signIn(LoginModel model);
   Future<void> signOut({bool signOutOnServer = true});
+  
 }
