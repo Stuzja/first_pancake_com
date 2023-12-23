@@ -11,4 +11,8 @@ abstract class UserRepository {
   Future<List<User>> getSubscriptions();
 
   Future<List<Receipt>> getFavourites();
+
+  Future<void> addProfileImage(String profileImage);
+
+  Future<void> deleteProfileImage();
 }

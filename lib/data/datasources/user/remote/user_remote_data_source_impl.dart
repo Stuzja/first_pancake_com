@@ -37,4 +37,14 @@ abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   @GET('/receipts/favourite')
   Future<List<ReceiptDto>> getFavourites();
+
+  @override
+  @POST('/user/photo')
+  Future<void> addProfileImage(
+    @Body() String photo,
+  );
+
+  @override
+  @DELETE('/user/photo')
+  Future<void> deleteProfileImage();
 }
