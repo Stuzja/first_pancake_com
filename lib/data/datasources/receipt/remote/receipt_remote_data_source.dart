@@ -23,6 +23,8 @@ abstract class ReceiptRemoteDataSource {
     int userId,
   );
 
+  Future<List<ReceiptDto>> getSubscriptionsReceipts();
+  
   Future<void> deleteReceipt(
     int receiptId,
   );

@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:first_pancake_com/di/locator.dart';
+import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/new_recipes/bloc/new_recipes_bloc.dart';
-import 'package:first_pancake_com/presentation/pages/search_recipe_page/bloc/search_recipe_bloc.dart';
+import 'package:first_pancake_com/presentation/pages/new_recipes/widgets/large_recipe_card.dart';
+import 'package:first_pancake_com/presentation/pages/profile_page/widgets/receipt_card.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +24,12 @@ class NewRecipesPage extends StatelessWidget {
       child: BlocSideEffectConsumer<NewRecipesBloc, NewRecipesBloc,
           NewRecipesState, NewRecipesCommand>(
         listener: (context, sideEffect) {
-          sideEffect.when(error: () {});
+          sideEffect.when(error: () {
+            const snackBar = SnackBar(
+              content: Text('Ошибка! Не получается загрузить новости.'),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          });
         },
         builder: (context, state) {
           return Scaffold(
@@ -44,11 +53,35 @@ class NewRecipesPage extends StatelessWidget {
               ),
             ),
             body: state is Loaded
-                ? const SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
-                    child: Column(
-                      children: [],
-                    ),
+                ? SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: state.recipes.isNotEmpty
+                        ? ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: state.recipes.length,
+                            itemBuilder: (context, index) {
+                              final receipt = state.recipes[index];
+                              log(receipt.toString());
+                              return LargeRecipeCard(
+                                title: receipt.title,
+                                description: receipt.description!,
+                                //imagePath: receipt.photo,
+                                timestamp: receipt.timeStamp!,
+                                onTap: () => context.router
+                                    .push(ReceiptRoute(receiptId: receipt.id!)),
+                                 id: receipt.id!,
+                               userId: receipt.user_id!,
+                               author: receipt.receipt_author!,
+                              );
+                            },
+                          )
+                        : Text(
+                            "Новых рецетов, от людей, на которых вы подписаны, нет.",
+                            style:
+                                AppTextStyles.title.copyWith(fontSize: 20.sp),
+                            textAlign: TextAlign.center,
+                          ),
                   )
                 : const Center(
                     child: CircularProgressIndicator(
