@@ -71,10 +71,15 @@ class SubscriptionsPage extends StatelessWidget {
                                 itemCount: state.subscriptions.length,
                                 itemBuilder: (context, index) {
                                   final user = state.subscriptions[index];
-                                  return UserCard(
-                                    username: user.username,
-                                    email: user.email,
-                                    imagePath: user.profile_image,
+                                  print(user.id);
+                                  return InkWell(
+                                    onTap: () => context.router
+                                        .push(ProfileRoute(userId: user.id)),
+                                    child: UserCard(
+                                      username: user.username,
+                                      email: user.email,
+                                      imagePath: user.profile_image,
+                                    ),
                                   );
                                 },
                               ),

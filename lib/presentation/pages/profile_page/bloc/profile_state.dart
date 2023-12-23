@@ -6,6 +6,8 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.loading() = Loading;
   const factory ProfileState.loaded(
     User currentUser,
+    bool isMyProfile,
+    bool isSubscribed,
     List<Receipt> receipts,
     int subscribersCount,
     int subscriptionsCount,

@@ -55,33 +55,38 @@ class SubscribersPage extends StatelessWidget {
             body: state is Loaded
                 ? state.subscribers.isNotEmpty
                     ? ListView(
-                      physics: const BouncingScrollPhysics(),
-                      children: [
-                        10.h.heightBox,
-                        RefreshIndicator(
-                          onRefresh: () async {
+                        physics: const BouncingScrollPhysics(),
+                        children: [
+                          10.h.heightBox,
+                          RefreshIndicator(
+                            onRefresh: () async {
                               context
                                   .read<SubscribersBloc>()
                                   .add(const SubscribersEvent.started());
                             },
-                          child: SizedBox(
-                            height: 700.h,
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: state.subscribers.length,
-                              itemBuilder: (context, index) {
-                                final user = state.subscribers[index];
-                                return UserCard(
-                                  username: user.username,
-                                  email: user.email,
-                                  imagePath: user.profile_image,
-                                );
-                              },
+                            child: SizedBox(
+                              height: 700.h,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: state.subscribers.length,
+                                itemBuilder: (context, index) {
+                                  final user = state.subscribers[index];
+                                  print(user.email);
+                                  return InkWell(
+                                    onTap: () => context.router
+                                        .push(ProfileRoute(userId: user.id)),
+                                    child: UserCard(
+                                      username: user.username,
+                                      email: user.email,
+                                      imagePath: user.profile_image,
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
-                          ),
-                        )
-                      ],
-                    ).paddingSymmetric(horizontal: 30.w)
+                          )
+                        ],
+                      ).paddingSymmetric(horizontal: 30.w)
                     : Center(
                         child: Text(
                           'Подписчики отсутствуют',

@@ -20,7 +20,7 @@ UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserDto {
-  int? get user_id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   int? get subscribers_count => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $UserDtoCopyWith<$Res> {
       _$UserDtoCopyWithImpl<$Res, UserDto>;
   @useResult
   $Res call(
-      {int? user_id,
+      {int? id,
       String username,
       String email,
       int? subscribers_count,
@@ -63,7 +63,7 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user_id = freezed,
+    Object? id = freezed,
     Object? username = null,
     Object? email = null,
     Object? subscribers_count = freezed,
@@ -73,9 +73,9 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
     Object? profile_image = freezed,
   }) {
     return _then(_value.copyWith(
-      user_id: freezed == user_id
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int?,
       username: null == username
           ? _value.username
@@ -117,7 +117,7 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? user_id,
+      {int? id,
       String username,
       String email,
       int? subscribers_count,
@@ -138,7 +138,7 @@ class __$$UserDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user_id = freezed,
+    Object? id = freezed,
     Object? username = null,
     Object? email = null,
     Object? subscribers_count = freezed,
@@ -148,9 +148,9 @@ class __$$UserDtoImplCopyWithImpl<$Res>
     Object? profile_image = freezed,
   }) {
     return _then(_$UserDtoImpl(
-      user_id: freezed == user_id
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int?,
       username: null == username
           ? _value.username
@@ -188,7 +188,7 @@ class __$$UserDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserDtoImpl implements _UserDto {
   const _$UserDtoImpl(
-      {this.user_id,
+      {this.id,
       required this.username,
       required this.email,
       this.subscribers_count,
@@ -201,7 +201,7 @@ class _$UserDtoImpl implements _UserDto {
       _$$UserDtoImplFromJson(json);
 
   @override
-  final int? user_id;
+  final int? id;
   @override
   final String username;
   @override
@@ -219,7 +219,7 @@ class _$UserDtoImpl implements _UserDto {
 
   @override
   String toString() {
-    return 'UserDto(user_id: $user_id, username: $username, email: $email, subscribers_count: $subscribers_count, subscriptions_count: $subscriptions_count, receipts_count: $receipts_count, favoutite_receipts: $favoutite_receipts, profile_image: $profile_image)';
+    return 'UserDto(id: $id, username: $username, email: $email, subscribers_count: $subscribers_count, subscriptions_count: $subscriptions_count, receipts_count: $receipts_count, favoutite_receipts: $favoutite_receipts, profile_image: $profile_image)';
   }
 
   @override
@@ -227,7 +227,7 @@ class _$UserDtoImpl implements _UserDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserDtoImpl &&
-            (identical(other.user_id, user_id) || other.user_id == user_id) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
@@ -247,7 +247,7 @@ class _$UserDtoImpl implements _UserDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      user_id,
+      id,
       username,
       email,
       subscribers_count,
@@ -272,7 +272,7 @@ class _$UserDtoImpl implements _UserDto {
 
 abstract class _UserDto implements UserDto {
   const factory _UserDto(
-      {final int? user_id,
+      {final int? id,
       required final String username,
       required final String email,
       final int? subscribers_count,
@@ -284,7 +284,7 @@ abstract class _UserDto implements UserDto {
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$UserDtoImpl.fromJson;
 
   @override
-  int? get user_id;
+  int? get id;
   @override
   String get username;
   @override

@@ -64,8 +64,25 @@ class UserRepositoryImpl extends UserRepository {
     final dtoList = await _userRemoteDataSource.getSubscriptions();
     for (int i = 0; i < dtoList.length; i++) {
       models.add(dtoList[i].toModel());
+      log(dtoList[i].id.toString());
     }
+
     return models;
+  }
+
+  @override
+  Future<bool> isUserSubscribed(int userId) async {
+    return await _userRemoteDataSource.isUserSubscribed(userId);
+  }
+
+  @override
+  Future<void> subscribeUser(int userId) async {
+    await _userRemoteDataSource.subscribeUser(userId);
+  }
+
+  @override
+  Future<void> unsubscribeUser(int userId) async {
+    await _userRemoteDataSource.unsubscribeUser(userId);
   }
 
   @override

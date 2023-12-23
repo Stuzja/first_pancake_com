@@ -8,6 +8,7 @@ import 'package:first_pancake_com/di/locator.dart';
 import 'package:first_pancake_com/navigation/auto_router.gr.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/bloc/profile_bloc.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/widgets/receipt_card.dart';
+import 'package:first_pancake_com/presentation/pages/profile_page/widgets/subscribe_button.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -45,9 +46,9 @@ class ProfilePage extends StatelessWidget {
                 predicate: (_) => false,
               );
             },
-            error: () {
-              const snackBar = SnackBar(
-                content: Text('Ошибка входа в профиль'),
+            error: (String text) {
+              final snackBar = SnackBar(
+                content: Text(text),
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
@@ -133,12 +134,12 @@ class ProfilePage extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                             ),
-                            20.h.heightBox,
+                            10.h.heightBox,
                             Text(
                               state.currentUser.username,
                               style: AppTextStyles.title,
                             ),
-                            20.h.heightBox,
+                            10.h.heightBox,
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -179,7 +180,22 @@ class ProfilePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        25.h.heightBox,
+                        if (!state.isMyProfile)
+                          Column(
+                            children: [
+                              5.h.heightBox,
+                              SubscribeButton(
+                                onTap: () {
+                                  context.read<ProfileBloc>().add(
+                                        ClickedSubscribeButton(
+                                            state.currentUser.id!),
+                                      );
+                                },
+                                isSubscribed: state.isSubscribed,
+                              ),
+                            ],
+                          ),
+                        15.h.heightBox,
                         Text(
                           'Мои рецепты (${state.currentUser.receiptsCount} создано)',
                           style: AppTextStyles.label.copyWith(fontSize: 22.sp),

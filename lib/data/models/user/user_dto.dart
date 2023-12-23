@@ -7,7 +7,7 @@ part 'user_dto.g.dart';
 @freezed
 class UserDto with _$UserDto {
   const factory UserDto({
-    int? user_id,
+    int? id,
     required String username,
     required String email,
     int? subscribers_count,
@@ -24,7 +24,7 @@ class UserDto with _$UserDto {
 extension UserMapper on UserDto {
   User toModel() {
     return User(
-      id: user_id,
+      id: id,
       username: username,
       email: email,
       subscribersCount: subscribers_count,
@@ -37,7 +37,7 @@ extension UserMapper on UserDto {
 
   static UserDto fromModel(User user) {
     return UserDto(
-      user_id: user.id,
+      id: user.id,
       username: user.username,
       email: user.email,
       subscribers_count: user.subscribersCount,

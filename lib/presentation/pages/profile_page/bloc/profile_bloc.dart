@@ -28,8 +28,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     this._userRepository,
     this._receiptRepository,
     this._authRepository,
-  ) : super(Initial()) {
+  ) : super(const Initial()) {
     on<Started>(_onStarted);
+    on<ClickedSubscribeButton>(_onClickedSubscribeButton);
     on<SignOut>(_onSignOut);
   }
 
@@ -44,7 +45,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     } catch (e) {
       log('Error in profile bloc: $e');
       emit(const ProfileState.initial());
-      produceSideEffect(const ProfileCommand.error());
+      produceSideEffect(const ProfileCommand.error("Ошибка. Не получилось выйти из аккаунта."));
     }
   }
 
@@ -61,6 +62,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
         final favourites = await _userRepository.getFavourites();
         emit(ProfileState.loaded(
           user!,
+          true,
+          false,
           receipts!,
           subscribers.length,
           subscriptions.length,
@@ -69,18 +72,50 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
       } catch (e) {
         log('Error in profile bloc: $e');
         emit(const ProfileState.initial());
-        produceSideEffect(const ProfileCommand.error());
+        produceSideEffect(const ProfileCommand.error('Ошибка входа в профиль'));
       }
     } else {
       try {
         user = await _userRepository.getUserById(event.userId!);
         receipts = await _receiptRepository.getReceiptsById(event.userId!);
-        emit(ProfileState.loaded(user!, receipts!, 0, 0, 0));
+
+        final isSubscribed =
+            await _userRepository.isUserSubscribed(event.userId!);
+
+        final myUser = await _userRepository.getCurrentUser();
+
+        emit(ProfileState.loaded(
+          user!,
+          myUser.id == user!.id,
+          isSubscribed,
+          receipts!,
+          0,
+          0,
+          0,
+        ));
       } catch (e) {
         log('Error in profile bloc: $e');
         emit(const ProfileState.initial());
-        produceSideEffect(const ProfileCommand.error());
+        produceSideEffect(const ProfileCommand.error('Ошибка входа в профиль'));
       }
+    }
+  }
+
+  void _onClickedSubscribeButton(
+    ClickedSubscribeButton event,
+    Emitter<ProfileState> emit,
+  ) async {
+    try {
+      final isSubscribed = (state as Loaded).isSubscribed;
+      if (isSubscribed) {
+        await _userRepository.unsubscribeUser(event.userId);
+      } else {
+        await _userRepository.subscribeUser(event.userId);
+      }
+      emit((state as Loaded).copyWith(isSubscribed: !isSubscribed));
+    } catch (e) {
+      produceSideEffect(const ProfileCommand.error(
+          'Изменить подписку на профиль не удалось.'));
     }
   }
 }
