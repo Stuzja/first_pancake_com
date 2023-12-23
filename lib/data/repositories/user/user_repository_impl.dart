@@ -64,6 +64,16 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
+  Future<void> subscribeUser(int userId) async {
+    await _userRemoteDataSource.subscribeUser(userId);
+  }
+
+  @override
+  Future<void> unsubscribeUser(int userId) async {
+    await _userRemoteDataSource.unsubscribeUser(userId);
+  }
+
+  @override
   Future<List<Receipt>> getFavourites() async {
     final List<Receipt> models = [];
     final dtoList = await _userRemoteDataSource.getFavourites();

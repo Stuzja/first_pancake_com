@@ -53,7 +53,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
       } catch (e) {
         log('Error in profile bloc: $e');
         emit(const ProfileState.initial());
-        produceSideEffect(const ProfileCommand.error());
+        produceSideEffect(const ProfileCommand.error('Ошибка входа в профиль'));
       }
     } else {
       try {
@@ -77,7 +77,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
       } catch (e) {
         log('Error in profile bloc: $e');
         emit(const ProfileState.initial());
-        produceSideEffect(const ProfileCommand.error());
+        produceSideEffect(const ProfileCommand.error('Ошибка входа в профиль'));
       }
     }
   }
@@ -86,6 +86,17 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     ClickedSubscribeButton event,
     Emitter<ProfileState> emit,
   ) async {
-   
+    try {
+      final isSubscribed = (state as Loaded).isSubscribed;
+      if (isSubscribed) {
+        await _userRepository.unsubscribeUser(event.userId);
+      } else {
+        await _userRepository.subscribeUser(event.userId);
+      }
+      emit((state as Loaded).copyWith(isSubscribed: !isSubscribed));
+    } catch (e) {
+      produceSideEffect(const ProfileCommand.error(
+          'Изменить подписку на профиль не удалось.'));
+    }
   }
 }

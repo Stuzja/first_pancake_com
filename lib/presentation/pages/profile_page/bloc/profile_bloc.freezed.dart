@@ -1009,7 +1009,7 @@ mixin _$ProfileCommand {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
-    required TResult Function() error,
+    required TResult Function(String textError) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1018,7 +1018,7 @@ mixin _$ProfileCommand {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
-    TResult? Function()? error,
+    TResult? Function(String textError)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1027,7 +1027,7 @@ mixin _$ProfileCommand {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
-    TResult Function()? error,
+    TResult Function(String textError)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1121,7 +1121,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
-    required TResult Function() error,
+    required TResult Function(String textError) error,
   }) {
     return navToSubscribers();
   }
@@ -1133,7 +1133,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
-    TResult? Function()? error,
+    TResult? Function(String textError)? error,
   }) {
     return navToSubscribers?.call();
   }
@@ -1145,7 +1145,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
-    TResult Function()? error,
+    TResult Function(String textError)? error,
     required TResult orElse(),
   }) {
     if (navToSubscribers != null) {
@@ -1241,7 +1241,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
-    required TResult Function() error,
+    required TResult Function(String textError) error,
   }) {
     return navToSubscriptions();
   }
@@ -1253,7 +1253,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
-    TResult? Function()? error,
+    TResult? Function(String textError)? error,
   }) {
     return navToSubscriptions?.call();
   }
@@ -1265,7 +1265,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
-    TResult Function()? error,
+    TResult Function(String textError)? error,
     required TResult orElse(),
   }) {
     if (navToSubscriptions != null) {
@@ -1361,7 +1361,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
-    required TResult Function() error,
+    required TResult Function(String textError) error,
   }) {
     return navToEditProfile();
   }
@@ -1373,7 +1373,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
-    TResult? Function()? error,
+    TResult? Function(String textError)? error,
   }) {
     return navToEditProfile?.call();
   }
@@ -1385,7 +1385,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
-    TResult Function()? error,
+    TResult Function(String textError)? error,
     required TResult orElse(),
   }) {
     if (navToEditProfile != null) {
@@ -1481,7 +1481,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
-    required TResult Function() error,
+    required TResult Function(String textError) error,
   }) {
     return navToFavourites();
   }
@@ -1493,7 +1493,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
-    TResult? Function()? error,
+    TResult? Function(String textError)? error,
   }) {
     return navToFavourites?.call();
   }
@@ -1505,7 +1505,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
-    TResult Function()? error,
+    TResult Function(String textError)? error,
     required TResult orElse(),
   }) {
     if (navToFavourites != null) {
@@ -1564,6 +1564,8 @@ abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String textError});
 }
 
 /// @nodoc
@@ -1573,26 +1575,51 @@ class __$$ErrorImplCopyWithImpl<$Res>
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? textError = null,
+  }) {
+    return _then(_$ErrorImpl(
+      null == textError
+          ? _value.textError
+          : textError // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ErrorImpl implements Error {
-  const _$ErrorImpl();
+  const _$ErrorImpl(this.textError);
+
+  @override
+  final String textError;
 
   @override
   String toString() {
-    return 'ProfileCommand.error()';
+    return 'ProfileCommand.error(textError: $textError)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorImpl &&
+            (identical(other.textError, textError) ||
+                other.textError == textError));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, textError);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1601,9 +1628,9 @@ class _$ErrorImpl implements Error {
     required TResult Function() navToSubscriptions,
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
-    required TResult Function() error,
+    required TResult Function(String textError) error,
   }) {
-    return error();
+    return error(textError);
   }
 
   @override
@@ -1613,9 +1640,9 @@ class _$ErrorImpl implements Error {
     TResult? Function()? navToSubscriptions,
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
-    TResult? Function()? error,
+    TResult? Function(String textError)? error,
   }) {
-    return error?.call();
+    return error?.call(textError);
   }
 
   @override
@@ -1625,11 +1652,11 @@ class _$ErrorImpl implements Error {
     TResult Function()? navToSubscriptions,
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
-    TResult Function()? error,
+    TResult Function(String textError)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(textError);
     }
     return orElse();
   }
@@ -1676,5 +1703,10 @@ class _$ErrorImpl implements Error {
 }
 
 abstract class Error implements ProfileCommand {
-  const factory Error() = _$ErrorImpl;
+  const factory Error(final String textError) = _$ErrorImpl;
+
+  String get textError;
+  @JsonKey(ignore: true)
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

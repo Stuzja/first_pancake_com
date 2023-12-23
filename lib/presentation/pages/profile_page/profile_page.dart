@@ -40,9 +40,9 @@ class ProfilePage extends StatelessWidget {
             navToSubscriptions: () {},
             navToEditProfile: () {},
             navToFavourites: () {},
-            error: () {
-              const snackBar = SnackBar(
-                content: Text('Ошибка входа в профиль'),
+            error: (String text) {
+              final snackBar = SnackBar(
+                content: Text(text),
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
@@ -163,13 +163,14 @@ class ProfilePage extends StatelessWidget {
                             children: [
                               5.h.heightBox,
                               SubscribeButton(
-                                onTap: () {},
-                                isSubscribed: false,
+                                onTap: () {
+                                  context.read<ProfileBloc>().add(
+                                        ClickedSubscribeButton(
+                                            state.currentUser.id!),
+                                      );
+                                },
+                                isSubscribed: state.isSubscribed,
                               ),
-                              SubscribeButton(
-                                onTap: () {},
-                                isSubscribed: true,
-                              )
                             ],
                           ),
                         15.h.heightBox,

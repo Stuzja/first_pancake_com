@@ -27,8 +27,8 @@ class SubscribeButton extends StatelessWidget {
               ),
               child: Padding(
                 padding: EdgeInsets.only(
-                  top: 6.5.h,
-                  bottom: 6.5.h,
+                  top: 8.h,
+                  bottom: 8.h,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

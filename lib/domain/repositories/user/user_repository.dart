@@ -11,5 +11,9 @@ abstract class UserRepository {
 
   Future<bool> isUserSubscribed(int userId);
 
+  Future<void> subscribeUser(int userId);
+ 
+  Future<void> unsubscribeUser(int userId);
+
   Future<List<Receipt>> getFavourites();
 }
