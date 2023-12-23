@@ -81,7 +81,7 @@ class FavouritesPage extends StatelessWidget {
                       )
                     : Center(
                         child: Text(
-                          'Избранное отсутствуют',
+                          'Избранное отсутствует',
                           style: AppTextStyles.label,
                         ),
                       )
