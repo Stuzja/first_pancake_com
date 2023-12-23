@@ -16,4 +16,8 @@ abstract class UserRepository {
   Future<void> unsubscribeUser(int userId);
 
   Future<List<Receipt>> getFavourites();
+
+  Future<void> addProfileImage(String profileImage);
+
+  Future<void> deleteProfileImage();
 }

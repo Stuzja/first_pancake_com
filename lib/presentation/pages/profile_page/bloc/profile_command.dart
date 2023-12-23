@@ -7,4 +7,5 @@ class ProfileCommand with _$ProfileCommand {
   const factory ProfileCommand.navToEditProfile() = NavToEditProfile;
   const factory ProfileCommand.navToFavourites() = NavToFavourites;
   const factory ProfileCommand.error(final String textError) = Error;
+  const factory ProfileCommand.navToSplash() = NavToSplash;
 }

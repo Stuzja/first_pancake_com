@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 import 'package:first_pancake_com/domain/entities/user/user.dart';
+import 'package:first_pancake_com/domain/repositories/auth/auth_repository.dart';
 import 'package:first_pancake_com/domain/repositories/receipt/receipt_repository.dart';
 import 'package:first_pancake_com/domain/repositories/user/user_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,15 +20,33 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     with SideEffectBlocMixin<ProfileState, ProfileCommand> {
   final UserRepository _userRepository;
   final ReceiptRepository _receiptRepository;
+  final AuthRepository _authRepository;
   List<Receipt>? receipts;
   User? user;
 
   ProfileBloc(
     this._userRepository,
     this._receiptRepository,
+    this._authRepository,
   ) : super(const Initial()) {
     on<Started>(_onStarted);
     on<ClickedSubscribeButton>(_onClickedSubscribeButton);
+    on<SignOut>(_onSignOut);
+  }
+
+  void _onSignOut(
+    SignOut event,
+    Emitter<ProfileState> emit,
+  ) async {
+    try {
+      emit(const ProfileState.loading());
+      await _authRepository.signOut();
+      produceSideEffect(const ProfileCommand.navToSplash());
+    } catch (e) {
+      log('Error in profile bloc: $e');
+      emit(const ProfileState.initial());
+      produceSideEffect(const ProfileCommand.error("Ошибка. Не получилось выйти из аккаунта."));
+    }
   }
 
   void _onStarted(

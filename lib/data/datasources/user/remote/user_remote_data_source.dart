@@ -25,4 +25,8 @@ abstract class UserRemoteDataSource {
   );
 
   Future<List<ReceiptDto>> getFavourites();
+
+  Future<void> addProfileImage(final String profileImage);
+
+  Future<void> deleteProfileImage();
 }

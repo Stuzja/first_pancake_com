@@ -39,6 +39,16 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
+  Future<void> addProfileImage(String profileImage) async {
+    await _userRemoteDataSource.addProfileImage(profileImage);
+  }
+
+  @override
+  Future<void> deleteProfileImage() async {
+    await _userRemoteDataSource.deleteProfileImage();
+  }
+
+  @override
   Future<List<User>> getSubscribers() async {
     List<User> models = [];
     final dtoList = await _userRemoteDataSource.getSubscribers();

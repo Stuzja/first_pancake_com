@@ -16,23 +16,25 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProfileEvent {
-  int? get userId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? userId) started,
     required TResult Function(int userId) clickedSubscribeButton,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? userId)? started,
     TResult? Function(int userId)? clickedSubscribeButton,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? userId)? started,
     TResult Function(int userId)? clickedSubscribeButton,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,24 +43,23 @@ mixin _$ProfileEvent {
     required TResult Function(Started value) started,
     required TResult Function(ClickedSubscribeButton value)
         clickedSubscribeButton,
+    required TResult Function(SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult? Function(SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProfileEventCopyWith<ProfileEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -67,8 +68,6 @@ abstract class $ProfileEventCopyWith<$Res> {
   factory $ProfileEventCopyWith(
           ProfileEvent value, $Res Function(ProfileEvent) then) =
       _$ProfileEventCopyWithImpl<$Res, ProfileEvent>;
-  @useResult
-  $Res call({int userId});
 }
 
 /// @nodoc
@@ -80,28 +79,13 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId!
-          : userId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res>
-    implements $ProfileEventCopyWith<$Res> {
+abstract class _$$StartedImplCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
           _$StartedImpl value, $Res Function(_$StartedImpl) then) =
       __$$StartedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int? userId});
 }
@@ -163,6 +147,7 @@ class _$StartedImpl implements Started {
   TResult when<TResult extends Object?>({
     required TResult Function(int? userId) started,
     required TResult Function(int userId) clickedSubscribeButton,
+    required TResult Function() signOut,
   }) {
     return started(userId);
   }
@@ -172,6 +157,7 @@ class _$StartedImpl implements Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? userId)? started,
     TResult? Function(int userId)? clickedSubscribeButton,
+    TResult? Function()? signOut,
   }) {
     return started?.call(userId);
   }
@@ -181,6 +167,7 @@ class _$StartedImpl implements Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? userId)? started,
     TResult Function(int userId)? clickedSubscribeButton,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -195,6 +182,7 @@ class _$StartedImpl implements Started {
     required TResult Function(Started value) started,
     required TResult Function(ClickedSubscribeButton value)
         clickedSubscribeButton,
+    required TResult Function(SignOut value) signOut,
   }) {
     return started(this);
   }
@@ -204,6 +192,7 @@ class _$StartedImpl implements Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult? Function(SignOut value)? signOut,
   }) {
     return started?.call(this);
   }
@@ -213,6 +202,7 @@ class _$StartedImpl implements Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -225,22 +215,18 @@ class _$StartedImpl implements Started {
 abstract class Started implements ProfileEvent {
   const factory Started(final int? userId) = _$StartedImpl;
 
-  @override
   int? get userId;
-  @override
   @JsonKey(ignore: true)
   _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ClickedSubscribeButtonImplCopyWith<$Res>
-    implements $ProfileEventCopyWith<$Res> {
+abstract class _$$ClickedSubscribeButtonImplCopyWith<$Res> {
   factory _$$ClickedSubscribeButtonImplCopyWith(
           _$ClickedSubscribeButtonImpl value,
           $Res Function(_$ClickedSubscribeButtonImpl) then) =
       __$$ClickedSubscribeButtonImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int userId});
 }
@@ -304,6 +290,7 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
   TResult when<TResult extends Object?>({
     required TResult Function(int? userId) started,
     required TResult Function(int userId) clickedSubscribeButton,
+    required TResult Function() signOut,
   }) {
     return clickedSubscribeButton(userId);
   }
@@ -313,6 +300,7 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? userId)? started,
     TResult? Function(int userId)? clickedSubscribeButton,
+    TResult? Function()? signOut,
   }) {
     return clickedSubscribeButton?.call(userId);
   }
@@ -322,6 +310,7 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? userId)? started,
     TResult Function(int userId)? clickedSubscribeButton,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (clickedSubscribeButton != null) {
@@ -336,6 +325,7 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
     required TResult Function(Started value) started,
     required TResult Function(ClickedSubscribeButton value)
         clickedSubscribeButton,
+    required TResult Function(SignOut value) signOut,
   }) {
     return clickedSubscribeButton(this);
   }
@@ -345,6 +335,7 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult? Function(SignOut value)? signOut,
   }) {
     return clickedSubscribeButton?.call(this);
   }
@@ -354,6 +345,7 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (clickedSubscribeButton != null) {
@@ -367,12 +359,119 @@ abstract class ClickedSubscribeButton implements ProfileEvent {
   const factory ClickedSubscribeButton(final int userId) =
       _$ClickedSubscribeButtonImpl;
 
-  @override
   int get userId;
-  @override
   @JsonKey(ignore: true)
   _$$ClickedSubscribeButtonImplCopyWith<_$ClickedSubscribeButtonImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignOutImplCopyWith<$Res> {
+  factory _$$SignOutImplCopyWith(
+          _$SignOutImpl value, $Res Function(_$SignOutImpl) then) =
+      __$$SignOutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignOutImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$SignOutImpl>
+    implements _$$SignOutImplCopyWith<$Res> {
+  __$$SignOutImplCopyWithImpl(
+      _$SignOutImpl _value, $Res Function(_$SignOutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SignOutImpl implements SignOut {
+  const _$SignOutImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignOutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? userId) started,
+    required TResult Function(int userId) clickedSubscribeButton,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? userId)? started,
+    TResult? Function(int userId)? clickedSubscribeButton,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? userId)? started,
+    TResult Function(int userId)? clickedSubscribeButton,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ClickedSubscribeButton value)
+        clickedSubscribeButton,
+    required TResult Function(SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult? Function(SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult Function(SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOut implements ProfileEvent {
+  const factory SignOut() = _$SignOutImpl;
 }
 
 /// @nodoc
@@ -1010,6 +1109,7 @@ mixin _$ProfileCommand {
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1019,6 +1119,7 @@ mixin _$ProfileCommand {
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1028,6 +1129,7 @@ mixin _$ProfileCommand {
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1038,6 +1140,7 @@ mixin _$ProfileCommand {
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1047,6 +1150,7 @@ mixin _$ProfileCommand {
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1056,6 +1160,7 @@ mixin _$ProfileCommand {
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1122,6 +1227,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
   }) {
     return navToSubscribers();
   }
@@ -1134,6 +1240,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
   }) {
     return navToSubscribers?.call();
   }
@@ -1146,6 +1253,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
     required TResult orElse(),
   }) {
     if (navToSubscribers != null) {
@@ -1162,6 +1270,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
   }) {
     return navToSubscribers(this);
   }
@@ -1174,6 +1283,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
   }) {
     return navToSubscribers?.call(this);
   }
@@ -1186,6 +1296,7 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
     required TResult orElse(),
   }) {
     if (navToSubscribers != null) {
@@ -1242,6 +1353,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
   }) {
     return navToSubscriptions();
   }
@@ -1254,6 +1366,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
   }) {
     return navToSubscriptions?.call();
   }
@@ -1266,6 +1379,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
     required TResult orElse(),
   }) {
     if (navToSubscriptions != null) {
@@ -1282,6 +1396,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
   }) {
     return navToSubscriptions(this);
   }
@@ -1294,6 +1409,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
   }) {
     return navToSubscriptions?.call(this);
   }
@@ -1306,6 +1422,7 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
     required TResult orElse(),
   }) {
     if (navToSubscriptions != null) {
@@ -1362,6 +1479,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
   }) {
     return navToEditProfile();
   }
@@ -1374,6 +1492,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
   }) {
     return navToEditProfile?.call();
   }
@@ -1386,6 +1505,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
     required TResult orElse(),
   }) {
     if (navToEditProfile != null) {
@@ -1402,6 +1522,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
   }) {
     return navToEditProfile(this);
   }
@@ -1414,6 +1535,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
   }) {
     return navToEditProfile?.call(this);
   }
@@ -1426,6 +1548,7 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
     required TResult orElse(),
   }) {
     if (navToEditProfile != null) {
@@ -1482,6 +1605,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
   }) {
     return navToFavourites();
   }
@@ -1494,6 +1618,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
   }) {
     return navToFavourites?.call();
   }
@@ -1506,6 +1631,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
     required TResult orElse(),
   }) {
     if (navToFavourites != null) {
@@ -1522,6 +1648,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
   }) {
     return navToFavourites(this);
   }
@@ -1534,6 +1661,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
   }) {
     return navToFavourites?.call(this);
   }
@@ -1546,6 +1674,7 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
     required TResult orElse(),
   }) {
     if (navToFavourites != null) {
@@ -1629,6 +1758,7 @@ class _$ErrorImpl implements Error {
     required TResult Function() navToEditProfile,
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
   }) {
     return error(textError);
   }
@@ -1641,6 +1771,7 @@ class _$ErrorImpl implements Error {
     TResult? Function()? navToEditProfile,
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
   }) {
     return error?.call(textError);
   }
@@ -1653,6 +1784,7 @@ class _$ErrorImpl implements Error {
     TResult Function()? navToEditProfile,
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1669,6 +1801,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(NavToEditProfile value) navToEditProfile,
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
   }) {
     return error(this);
   }
@@ -1681,6 +1814,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(NavToEditProfile value)? navToEditProfile,
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
   }) {
     return error?.call(this);
   }
@@ -1693,6 +1827,7 @@ class _$ErrorImpl implements Error {
     TResult Function(NavToEditProfile value)? navToEditProfile,
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1709,4 +1844,130 @@ abstract class Error implements ProfileCommand {
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NavToSplashImplCopyWith<$Res> {
+  factory _$$NavToSplashImplCopyWith(
+          _$NavToSplashImpl value, $Res Function(_$NavToSplashImpl) then) =
+      __$$NavToSplashImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NavToSplashImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$NavToSplashImpl>
+    implements _$$NavToSplashImplCopyWith<$Res> {
+  __$$NavToSplashImplCopyWithImpl(
+      _$NavToSplashImpl _value, $Res Function(_$NavToSplashImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NavToSplashImpl implements NavToSplash {
+  const _$NavToSplashImpl();
+
+  @override
+  String toString() {
+    return 'ProfileCommand.navToSplash()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NavToSplashImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() navToSubscribers,
+    required TResult Function() navToSubscriptions,
+    required TResult Function() navToEditProfile,
+    required TResult Function() navToFavourites,
+    required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
+  }) {
+    return navToSplash();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? navToSubscribers,
+    TResult? Function()? navToSubscriptions,
+    TResult? Function()? navToEditProfile,
+    TResult? Function()? navToFavourites,
+    TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
+  }) {
+    return navToSplash?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? navToSubscribers,
+    TResult Function()? navToSubscriptions,
+    TResult Function()? navToEditProfile,
+    TResult Function()? navToFavourites,
+    TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
+    required TResult orElse(),
+  }) {
+    if (navToSplash != null) {
+      return navToSplash();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavToSubscribers value) navToSubscribers,
+    required TResult Function(NavToSubscriptions value) navToSubscriptions,
+    required TResult Function(NavToEditProfile value) navToEditProfile,
+    required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
+  }) {
+    return navToSplash(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavToSubscribers value)? navToSubscribers,
+    TResult? Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult? Function(NavToEditProfile value)? navToEditProfile,
+    TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
+  }) {
+    return navToSplash?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavToSubscribers value)? navToSubscribers,
+    TResult Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult Function(NavToEditProfile value)? navToEditProfile,
+    TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
+    required TResult orElse(),
+  }) {
+    if (navToSplash != null) {
+      return navToSplash(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NavToSplash implements ProfileCommand {
+  const factory NavToSplash() = _$NavToSplashImpl;
 }
