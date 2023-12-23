@@ -54,7 +54,9 @@ class UserRepositoryImpl extends UserRepository {
     final dtoList = await _userRemoteDataSource.getSubscriptions();
     for (int i = 0; i < dtoList.length; i++) {
       models.add(dtoList[i].toModel());
+      log(dtoList[i].id.toString());
     }
+
     return models;
   }
 
