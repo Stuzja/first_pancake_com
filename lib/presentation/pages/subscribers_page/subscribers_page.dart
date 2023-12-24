@@ -37,7 +37,7 @@ class SubscribersPage extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               leading: InkWell(
-                onTap: () => context.router.popAndPush(ProfileRoute()),
+               onTap: context.router.pop,
                 child: Padding(
                   padding: EdgeInsets.all(16.r),
                   child: const Icon(

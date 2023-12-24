@@ -77,14 +77,16 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
 
         final myUser = await _userRepository.getCurrentUser();
 
+        final info = await _userRepository.getUserData(event.userId!);
+
         emit(ProfileState.loaded(
           user!,
           myUser.id == user!.id,
           isSubscribed,
           receipts!,
-          0,
-          0,
-          0,
+          info.subscribers_count,
+          info.subscriptions_count,
+          info.receipts_count,
         ));
       } catch (e) {
         log('Error in profile bloc: $e');
@@ -136,14 +138,16 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
 
         final myUser = await _userRepository.getCurrentUser();
 
+        final info = await _userRepository.getUserData(event.userId!);
+
         emit(ProfileState.loaded(
           user!,
           myUser.id == user!.id,
           isSubscribed,
           receipts!,
-          0,
-          0,
-          0,
+          info.subscribers_count,
+          info.subscriptions_count,
+          info.receipts_count,
         ));
       } catch (e) {
         log('Error in profile bloc: $e');
@@ -203,18 +207,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
 
         final isSubscribed =
             await _userRepository.isUserSubscribed(event.userId!);
-        final usersData = await _userRepository.getUserData(event.userId!);
 
         final myUser = await _userRepository.getCurrentUser();
 
+        final info = await _userRepository.getUserData(event.userId!);
         emit(ProfileState.loaded(
           user!,
           myUser.id == user!.id,
           isSubscribed,
           receipts!,
-          usersData.subscribers_count,
-          usersData.subscriptions_count,
-          usersData.receipts_count,
+          info.subscribers_count,
+          info.subscriptions_count,
+          info.receipts_count,
         ));
       } catch (e) {
         log('Error in profile bloc: $e');
