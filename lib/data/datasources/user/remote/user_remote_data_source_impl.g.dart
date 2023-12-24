@@ -192,7 +192,7 @@ class _UserRemoteDataSourceImpl implements UserRemoteDataSourceImpl {
     )
             .compose(
               _dio.options,
-              '/user/info/:id',
+              '/user/info/${userId}',
               queryParameters: queryParameters,
               data: _data,
             )

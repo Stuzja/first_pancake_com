@@ -51,7 +51,7 @@ abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   );
 
   @override
-  @GET('/user/info/:id')
+  @GET('/user/info/{id}')
   Future<UserNumbersDataDto> getDataUser(
     @Path("id") userId,
   );

@@ -144,10 +144,12 @@ class ProfilePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 InkWell(
-                                  onTap: () {
-                                    context.router
-                                        .push(const SubscriptionsRoute());
-                                  },
+                                  onTap: state.isMyProfile
+                                      ? () {
+                                          context.router
+                                              .push(const SubscriptionsRoute());
+                                        }
+                                      : null,
                                   child: NumberWidget(
                                     num: state.subscriptionsCount,
                                     firstLine: 'подписок',
@@ -155,10 +157,12 @@ class ProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () {
-                                    context.router
-                                        .push(const SubscribersRoute());
-                                  },
+                                  onTap: state.isMyProfile
+                                      ? () {
+                                          context.router
+                                              .push(const SubscribersRoute());
+                                        }
+                                      : null,
                                   child: NumberWidget(
                                     num: state.subscribersCount,
                                     firstLine: 'подписчиков',
@@ -166,10 +170,12 @@ class ProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () {
-                                    context.router
-                                        .push(const FavouritesRoute());
-                                  },
+                                  onTap: state.isMyProfile
+                                      ? () {
+                                          context.router
+                                              .push(const FavouritesRoute());
+                                        }
+                                      : null,
                                   child: NumberWidget(
                                     num: state.favouritesCount,
                                     firstLine: 'любимых',
