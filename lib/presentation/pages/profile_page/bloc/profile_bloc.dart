@@ -203,6 +203,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
 
         final isSubscribed =
             await _userRepository.isUserSubscribed(event.userId!);
+        final usersData = await _userRepository.getUserData(event.userId!);
 
         final myUser = await _userRepository.getCurrentUser();
 
@@ -211,9 +212,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
           myUser.id == user!.id,
           isSubscribed,
           receipts!,
-          0,
-          0,
-          0,
+          usersData.subscribers_count,
+          usersData.subscriptions_count,
+          usersData.receipts_count,
         ));
       } catch (e) {
         log('Error in profile bloc: $e');

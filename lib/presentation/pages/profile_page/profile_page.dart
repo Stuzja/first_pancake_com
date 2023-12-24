@@ -229,53 +229,50 @@ class _ProfilePageState extends State<ProfilePage> {
                               style: AppTextStyles.title,
                             ),
                             10.h.heightBox,
-                            state.isMyProfile
-                                ? Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          state.isMyProfile
-                                              ? context.router.push(
-                                                  const SubscriptionsRoute())
-                                              : null;
-                                        },
-                                        child: NumberWidget(
-                                          num: state.subscriptionsCount,
-                                          firstLine: 'подписок',
-                                          secondLine: '',
-                                        ),
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          state.isMyProfile
-                                              ? context.router.push(
-                                                  const SubscribersRoute())
-                                              : null;
-                                        },
-                                        child: NumberWidget(
-                                          num: state.subscribersCount,
-                                          firstLine: 'подписчиков',
-                                          secondLine: '',
-                                        ),
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          state.isMyProfile
-                                              ? context.router
-                                                  .push(const FavouritesRoute())
-                                              : null;
-                                        },
-                                        child: NumberWidget(
-                                          num: state.favouritesCount,
-                                          firstLine: 'любимых',
-                                          secondLine: 'рецептов',
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : const SizedBox.shrink(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  onTap: state.isMyProfile
+                                      ? () {
+                                          context.router
+                                              .push(const SubscriptionsRoute());
+                                        }
+                                      : null,
+                                  child: NumberWidget(
+                                    num: state.subscriptionsCount,
+                                    firstLine: 'подписок',
+                                    secondLine: '',
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: state.isMyProfile
+                                      ? () {
+                                          context.router
+                                              .push(const SubscribersRoute());
+                                        }
+                                      : null,
+                                  child: NumberWidget(
+                                    num: state.subscribersCount,
+                                    firstLine: 'подписчиков',
+                                    secondLine: '',
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: state.isMyProfile
+                                      ? () {
+                                          context.router
+                                              .push(const FavouritesRoute());
+                                        }
+                                      : null,
+                                  child: NumberWidget(
+                                    num: state.favouritesCount,
+                                    firstLine: 'любимых',
+                                    secondLine: 'рецептов',
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                         if (!state.isMyProfile)

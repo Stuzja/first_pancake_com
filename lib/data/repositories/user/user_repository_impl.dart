@@ -5,8 +5,10 @@ import 'package:first_pancake_com/data/datasources/auth/local/auth_local_data_so
 import 'package:first_pancake_com/data/datasources/user/remote/user_remote_data_source.dart';
 import 'package:first_pancake_com/data/models/receipt/receipt_dto.dart';
 import 'package:first_pancake_com/data/models/user/user_dto.dart';
+import 'package:first_pancake_com/data/models/user/user_numbers_data_dto.dart';
 import 'package:first_pancake_com/domain/entities/receipt/receipt.dart';
 import 'package:first_pancake_com/domain/entities/user/user.dart';
+import 'package:first_pancake_com/domain/entities/user/user_numbers_data.dart';
 import 'package:first_pancake_com/domain/repositories/user/user_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -83,6 +85,11 @@ class UserRepositoryImpl extends UserRepository {
   @override
   Future<void> unsubscribeUser(int userId) async {
     await _userRemoteDataSource.unsubscribeUser(userId);
+  }
+
+  @override
+  Future<UserNumbersData> getUserData(int userId) async {
+    return (await _userRemoteDataSource.getDataUser(userId)).toModel();
   }
 
   @override
