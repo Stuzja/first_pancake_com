@@ -66,7 +66,7 @@ class NewRecipesPage extends StatelessWidget {
                               return LargeRecipeCard(
                                 title: receipt.title,
                                 description: receipt.description!,
-                                //imagePath: receipt.photo,
+                                imagePath: receipt.photo,
                                 timestamp: receipt.timeStamp!,
                                 onTap: () => context.router
                                     .push(ReceiptRoute(receiptId: receipt.id!)),
