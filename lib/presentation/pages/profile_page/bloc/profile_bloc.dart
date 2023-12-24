@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
@@ -32,6 +33,124 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     on<Started>(_onStarted);
     on<ClickedSubscribeButton>(_onClickedSubscribeButton);
     on<SignOut>(_onSignOut);
+    on<AddProfileImage>(_onAddProfileImage);
+    on<DeleteProfileImage>(_onDeleteProfileImage);
+  }
+
+  void _onDeleteProfileImage(
+    DeleteProfileImage event,
+    Emitter<ProfileState> emit,
+  ) async {
+    if (event.userId == null) {
+      try {
+        emit(const ProfileState.loading());
+        user = await _userRepository.getCurrentUser();
+        receipts = await _receiptRepository.getCurrentUserReceipts();
+        await _userRepository.deleteProfileImage();
+        final subscribers = await _userRepository.getSubscribers();
+        final subscriptions = await _userRepository.getSubscriptions();
+        final favourites = await _userRepository.getFavourites();
+        emit(ProfileState.loaded(
+          user!,
+          true,
+          false,
+          receipts!,
+          subscribers.length,
+          subscriptions.length,
+          favourites.length,
+        ));
+        produceSideEffect(const ProfileCommand.delete());
+      } catch (e) {
+        log('Error in profile bloc: $e');
+        emit(const ProfileState.initial());
+        produceSideEffect(
+            const ProfileCommand.error('Ошибка загрузки фото в профиль'));
+      }
+    } else {
+      try {
+        emit(const ProfileState.loading());
+        user = await _userRepository.getUserById(event.userId!);
+        receipts = await _receiptRepository.getReceiptsById(event.userId!);
+
+        final isSubscribed =
+            await _userRepository.isUserSubscribed(event.userId!);
+
+        final myUser = await _userRepository.getCurrentUser();
+
+        emit(ProfileState.loaded(
+          user!,
+          myUser.id == user!.id,
+          isSubscribed,
+          receipts!,
+          0,
+          0,
+          0,
+        ));
+      } catch (e) {
+        log('Error in profile bloc: $e');
+        emit(const ProfileState.initial());
+        produceSideEffect(const ProfileCommand.error('Ошибка входа в профиль'));
+      }
+    }
+  }
+
+  void _onAddProfileImage(
+    AddProfileImage event,
+    Emitter<ProfileState> emit,
+  ) async {
+    if (event.userId == null) {
+      try {
+        emit(const ProfileState.loading());
+        user = await _userRepository.getCurrentUser();
+        receipts = await _receiptRepository.getCurrentUserReceipts();
+        Map<String, String> map = {"photo": event.imageToBase};
+        String json = jsonEncode(map);
+        await _userRepository.addProfileImage(json);
+        final subscribers = await _userRepository.getSubscribers();
+        final subscriptions = await _userRepository.getSubscriptions();
+        final favourites = await _userRepository.getFavourites();
+        emit(ProfileState.loaded(
+          user!,
+          true,
+          false,
+          receipts!,
+          subscribers.length,
+          subscriptions.length,
+          favourites.length,
+        ));
+        produceSideEffect(const ProfileCommand.add());
+      } catch (e) {
+        log('Error in profile bloc: $e');
+        emit(const ProfileState.initial());
+        produceSideEffect(
+            const ProfileCommand.error('Ошибка загрузки фото в профиль'));
+      }
+    } else {
+      try {
+        emit(const ProfileState.loading());
+        user = await _userRepository.getUserById(event.userId!);
+        receipts = await _receiptRepository.getReceiptsById(event.userId!);
+
+        final isSubscribed =
+            await _userRepository.isUserSubscribed(event.userId!);
+
+        final myUser = await _userRepository.getCurrentUser();
+
+        emit(ProfileState.loaded(
+          user!,
+          myUser.id == user!.id,
+          isSubscribed,
+          receipts!,
+          0,
+          0,
+          0,
+        ));
+      } catch (e) {
+        log('Error in profile bloc: $e');
+        emit(const ProfileState.initial());
+        produceSideEffect(const ProfileCommand.error('Ошибка входа в профиль'));
+      }
+    }
   }
 
   void _onSignOut(
@@ -45,7 +164,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     } catch (e) {
       log('Error in profile bloc: $e');
       emit(const ProfileState.initial());
-      produceSideEffect(const ProfileCommand.error("Ошибка. Не получилось выйти из аккаунта."));
+      produceSideEffect(const ProfileCommand.error(
+          "Ошибка. Не получилось выйти из аккаунта."));
     }
   }
 
@@ -55,6 +175,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
   ) async {
     if (event.userId == null) {
       try {
+        emit(const ProfileState.loading());
         user = await _userRepository.getCurrentUser();
         receipts = await _receiptRepository.getCurrentUserReceipts();
         final subscribers = await _userRepository.getSubscribers();
@@ -76,6 +197,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
       }
     } else {
       try {
+        emit(const ProfileState.loading());
         user = await _userRepository.getUserById(event.userId!);
         receipts = await _receiptRepository.getReceiptsById(event.userId!);
 

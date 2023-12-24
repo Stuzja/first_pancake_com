@@ -21,6 +21,8 @@ mixin _$ProfileEvent {
     required TResult Function(int? userId) started,
     required TResult Function(int userId) clickedSubscribeButton,
     required TResult Function() signOut,
+    required TResult Function(int? userId, String imageToBase) addProfileImage,
+    required TResult Function(int? userId) deleteProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$ProfileEvent {
     TResult? Function(int? userId)? started,
     TResult? Function(int userId)? clickedSubscribeButton,
     TResult? Function()? signOut,
+    TResult? Function(int? userId, String imageToBase)? addProfileImage,
+    TResult? Function(int? userId)? deleteProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$ProfileEvent {
     TResult Function(int? userId)? started,
     TResult Function(int userId)? clickedSubscribeButton,
     TResult Function()? signOut,
+    TResult Function(int? userId, String imageToBase)? addProfileImage,
+    TResult Function(int? userId)? deleteProfileImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +50,8 @@ mixin _$ProfileEvent {
     required TResult Function(ClickedSubscribeButton value)
         clickedSubscribeButton,
     required TResult Function(SignOut value) signOut,
+    required TResult Function(AddProfileImage value) addProfileImage,
+    required TResult Function(DeleteProfileImage value) deleteProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +59,8 @@ mixin _$ProfileEvent {
     TResult? Function(Started value)? started,
     TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult? Function(SignOut value)? signOut,
+    TResult? Function(AddProfileImage value)? addProfileImage,
+    TResult? Function(DeleteProfileImage value)? deleteProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +68,8 @@ mixin _$ProfileEvent {
     TResult Function(Started value)? started,
     TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult Function(SignOut value)? signOut,
+    TResult Function(AddProfileImage value)? addProfileImage,
+    TResult Function(DeleteProfileImage value)? deleteProfileImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +160,8 @@ class _$StartedImpl implements Started {
     required TResult Function(int? userId) started,
     required TResult Function(int userId) clickedSubscribeButton,
     required TResult Function() signOut,
+    required TResult Function(int? userId, String imageToBase) addProfileImage,
+    required TResult Function(int? userId) deleteProfileImage,
   }) {
     return started(userId);
   }
@@ -158,6 +172,8 @@ class _$StartedImpl implements Started {
     TResult? Function(int? userId)? started,
     TResult? Function(int userId)? clickedSubscribeButton,
     TResult? Function()? signOut,
+    TResult? Function(int? userId, String imageToBase)? addProfileImage,
+    TResult? Function(int? userId)? deleteProfileImage,
   }) {
     return started?.call(userId);
   }
@@ -168,6 +184,8 @@ class _$StartedImpl implements Started {
     TResult Function(int? userId)? started,
     TResult Function(int userId)? clickedSubscribeButton,
     TResult Function()? signOut,
+    TResult Function(int? userId, String imageToBase)? addProfileImage,
+    TResult Function(int? userId)? deleteProfileImage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,6 +201,8 @@ class _$StartedImpl implements Started {
     required TResult Function(ClickedSubscribeButton value)
         clickedSubscribeButton,
     required TResult Function(SignOut value) signOut,
+    required TResult Function(AddProfileImage value) addProfileImage,
+    required TResult Function(DeleteProfileImage value) deleteProfileImage,
   }) {
     return started(this);
   }
@@ -193,6 +213,8 @@ class _$StartedImpl implements Started {
     TResult? Function(Started value)? started,
     TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult? Function(SignOut value)? signOut,
+    TResult? Function(AddProfileImage value)? addProfileImage,
+    TResult? Function(DeleteProfileImage value)? deleteProfileImage,
   }) {
     return started?.call(this);
   }
@@ -203,6 +225,8 @@ class _$StartedImpl implements Started {
     TResult Function(Started value)? started,
     TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult Function(SignOut value)? signOut,
+    TResult Function(AddProfileImage value)? addProfileImage,
+    TResult Function(DeleteProfileImage value)? deleteProfileImage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -291,6 +315,8 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
     required TResult Function(int? userId) started,
     required TResult Function(int userId) clickedSubscribeButton,
     required TResult Function() signOut,
+    required TResult Function(int? userId, String imageToBase) addProfileImage,
+    required TResult Function(int? userId) deleteProfileImage,
   }) {
     return clickedSubscribeButton(userId);
   }
@@ -301,6 +327,8 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
     TResult? Function(int? userId)? started,
     TResult? Function(int userId)? clickedSubscribeButton,
     TResult? Function()? signOut,
+    TResult? Function(int? userId, String imageToBase)? addProfileImage,
+    TResult? Function(int? userId)? deleteProfileImage,
   }) {
     return clickedSubscribeButton?.call(userId);
   }
@@ -311,6 +339,8 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
     TResult Function(int? userId)? started,
     TResult Function(int userId)? clickedSubscribeButton,
     TResult Function()? signOut,
+    TResult Function(int? userId, String imageToBase)? addProfileImage,
+    TResult Function(int? userId)? deleteProfileImage,
     required TResult orElse(),
   }) {
     if (clickedSubscribeButton != null) {
@@ -326,6 +356,8 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
     required TResult Function(ClickedSubscribeButton value)
         clickedSubscribeButton,
     required TResult Function(SignOut value) signOut,
+    required TResult Function(AddProfileImage value) addProfileImage,
+    required TResult Function(DeleteProfileImage value) deleteProfileImage,
   }) {
     return clickedSubscribeButton(this);
   }
@@ -336,6 +368,8 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
     TResult? Function(Started value)? started,
     TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult? Function(SignOut value)? signOut,
+    TResult? Function(AddProfileImage value)? addProfileImage,
+    TResult? Function(DeleteProfileImage value)? deleteProfileImage,
   }) {
     return clickedSubscribeButton?.call(this);
   }
@@ -346,6 +380,8 @@ class _$ClickedSubscribeButtonImpl implements ClickedSubscribeButton {
     TResult Function(Started value)? started,
     TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult Function(SignOut value)? signOut,
+    TResult Function(AddProfileImage value)? addProfileImage,
+    TResult Function(DeleteProfileImage value)? deleteProfileImage,
     required TResult orElse(),
   }) {
     if (clickedSubscribeButton != null) {
@@ -406,6 +442,8 @@ class _$SignOutImpl implements SignOut {
     required TResult Function(int? userId) started,
     required TResult Function(int userId) clickedSubscribeButton,
     required TResult Function() signOut,
+    required TResult Function(int? userId, String imageToBase) addProfileImage,
+    required TResult Function(int? userId) deleteProfileImage,
   }) {
     return signOut();
   }
@@ -416,6 +454,8 @@ class _$SignOutImpl implements SignOut {
     TResult? Function(int? userId)? started,
     TResult? Function(int userId)? clickedSubscribeButton,
     TResult? Function()? signOut,
+    TResult? Function(int? userId, String imageToBase)? addProfileImage,
+    TResult? Function(int? userId)? deleteProfileImage,
   }) {
     return signOut?.call();
   }
@@ -426,6 +466,8 @@ class _$SignOutImpl implements SignOut {
     TResult Function(int? userId)? started,
     TResult Function(int userId)? clickedSubscribeButton,
     TResult Function()? signOut,
+    TResult Function(int? userId, String imageToBase)? addProfileImage,
+    TResult Function(int? userId)? deleteProfileImage,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -441,6 +483,8 @@ class _$SignOutImpl implements SignOut {
     required TResult Function(ClickedSubscribeButton value)
         clickedSubscribeButton,
     required TResult Function(SignOut value) signOut,
+    required TResult Function(AddProfileImage value) addProfileImage,
+    required TResult Function(DeleteProfileImage value) deleteProfileImage,
   }) {
     return signOut(this);
   }
@@ -451,6 +495,8 @@ class _$SignOutImpl implements SignOut {
     TResult? Function(Started value)? started,
     TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult? Function(SignOut value)? signOut,
+    TResult? Function(AddProfileImage value)? addProfileImage,
+    TResult? Function(DeleteProfileImage value)? deleteProfileImage,
   }) {
     return signOut?.call(this);
   }
@@ -461,6 +507,8 @@ class _$SignOutImpl implements SignOut {
     TResult Function(Started value)? started,
     TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
     TResult Function(SignOut value)? signOut,
+    TResult Function(AddProfileImage value)? addProfileImage,
+    TResult Function(DeleteProfileImage value)? deleteProfileImage,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -472,6 +520,324 @@ class _$SignOutImpl implements SignOut {
 
 abstract class SignOut implements ProfileEvent {
   const factory SignOut() = _$SignOutImpl;
+}
+
+/// @nodoc
+abstract class _$$AddProfileImageImplCopyWith<$Res> {
+  factory _$$AddProfileImageImplCopyWith(_$AddProfileImageImpl value,
+          $Res Function(_$AddProfileImageImpl) then) =
+      __$$AddProfileImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int? userId, String imageToBase});
+}
+
+/// @nodoc
+class __$$AddProfileImageImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$AddProfileImageImpl>
+    implements _$$AddProfileImageImplCopyWith<$Res> {
+  __$$AddProfileImageImplCopyWithImpl(
+      _$AddProfileImageImpl _value, $Res Function(_$AddProfileImageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = freezed,
+    Object? imageToBase = null,
+  }) {
+    return _then(_$AddProfileImageImpl(
+      freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      null == imageToBase
+          ? _value.imageToBase
+          : imageToBase // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddProfileImageImpl implements AddProfileImage {
+  const _$AddProfileImageImpl(this.userId, this.imageToBase);
+
+  @override
+  final int? userId;
+  @override
+  final String imageToBase;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.addProfileImage(userId: $userId, imageToBase: $imageToBase)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddProfileImageImpl &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.imageToBase, imageToBase) ||
+                other.imageToBase == imageToBase));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId, imageToBase);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddProfileImageImplCopyWith<_$AddProfileImageImpl> get copyWith =>
+      __$$AddProfileImageImplCopyWithImpl<_$AddProfileImageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? userId) started,
+    required TResult Function(int userId) clickedSubscribeButton,
+    required TResult Function() signOut,
+    required TResult Function(int? userId, String imageToBase) addProfileImage,
+    required TResult Function(int? userId) deleteProfileImage,
+  }) {
+    return addProfileImage(userId, imageToBase);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? userId)? started,
+    TResult? Function(int userId)? clickedSubscribeButton,
+    TResult? Function()? signOut,
+    TResult? Function(int? userId, String imageToBase)? addProfileImage,
+    TResult? Function(int? userId)? deleteProfileImage,
+  }) {
+    return addProfileImage?.call(userId, imageToBase);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? userId)? started,
+    TResult Function(int userId)? clickedSubscribeButton,
+    TResult Function()? signOut,
+    TResult Function(int? userId, String imageToBase)? addProfileImage,
+    TResult Function(int? userId)? deleteProfileImage,
+    required TResult orElse(),
+  }) {
+    if (addProfileImage != null) {
+      return addProfileImage(userId, imageToBase);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ClickedSubscribeButton value)
+        clickedSubscribeButton,
+    required TResult Function(SignOut value) signOut,
+    required TResult Function(AddProfileImage value) addProfileImage,
+    required TResult Function(DeleteProfileImage value) deleteProfileImage,
+  }) {
+    return addProfileImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult? Function(SignOut value)? signOut,
+    TResult? Function(AddProfileImage value)? addProfileImage,
+    TResult? Function(DeleteProfileImage value)? deleteProfileImage,
+  }) {
+    return addProfileImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult Function(SignOut value)? signOut,
+    TResult Function(AddProfileImage value)? addProfileImage,
+    TResult Function(DeleteProfileImage value)? deleteProfileImage,
+    required TResult orElse(),
+  }) {
+    if (addProfileImage != null) {
+      return addProfileImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddProfileImage implements ProfileEvent {
+  const factory AddProfileImage(final int? userId, final String imageToBase) =
+      _$AddProfileImageImpl;
+
+  int? get userId;
+  String get imageToBase;
+  @JsonKey(ignore: true)
+  _$$AddProfileImageImplCopyWith<_$AddProfileImageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteProfileImageImplCopyWith<$Res> {
+  factory _$$DeleteProfileImageImplCopyWith(_$DeleteProfileImageImpl value,
+          $Res Function(_$DeleteProfileImageImpl) then) =
+      __$$DeleteProfileImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int? userId});
+}
+
+/// @nodoc
+class __$$DeleteProfileImageImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$DeleteProfileImageImpl>
+    implements _$$DeleteProfileImageImplCopyWith<$Res> {
+  __$$DeleteProfileImageImplCopyWithImpl(_$DeleteProfileImageImpl _value,
+      $Res Function(_$DeleteProfileImageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(_$DeleteProfileImageImpl(
+      freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteProfileImageImpl implements DeleteProfileImage {
+  const _$DeleteProfileImageImpl(this.userId);
+
+  @override
+  final int? userId;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.deleteProfileImage(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteProfileImageImpl &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteProfileImageImplCopyWith<_$DeleteProfileImageImpl> get copyWith =>
+      __$$DeleteProfileImageImplCopyWithImpl<_$DeleteProfileImageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? userId) started,
+    required TResult Function(int userId) clickedSubscribeButton,
+    required TResult Function() signOut,
+    required TResult Function(int? userId, String imageToBase) addProfileImage,
+    required TResult Function(int? userId) deleteProfileImage,
+  }) {
+    return deleteProfileImage(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? userId)? started,
+    TResult? Function(int userId)? clickedSubscribeButton,
+    TResult? Function()? signOut,
+    TResult? Function(int? userId, String imageToBase)? addProfileImage,
+    TResult? Function(int? userId)? deleteProfileImage,
+  }) {
+    return deleteProfileImage?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? userId)? started,
+    TResult Function(int userId)? clickedSubscribeButton,
+    TResult Function()? signOut,
+    TResult Function(int? userId, String imageToBase)? addProfileImage,
+    TResult Function(int? userId)? deleteProfileImage,
+    required TResult orElse(),
+  }) {
+    if (deleteProfileImage != null) {
+      return deleteProfileImage(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ClickedSubscribeButton value)
+        clickedSubscribeButton,
+    required TResult Function(SignOut value) signOut,
+    required TResult Function(AddProfileImage value) addProfileImage,
+    required TResult Function(DeleteProfileImage value) deleteProfileImage,
+  }) {
+    return deleteProfileImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult? Function(SignOut value)? signOut,
+    TResult? Function(AddProfileImage value)? addProfileImage,
+    TResult? Function(DeleteProfileImage value)? deleteProfileImage,
+  }) {
+    return deleteProfileImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ClickedSubscribeButton value)? clickedSubscribeButton,
+    TResult Function(SignOut value)? signOut,
+    TResult Function(AddProfileImage value)? addProfileImage,
+    TResult Function(DeleteProfileImage value)? deleteProfileImage,
+    required TResult orElse(),
+  }) {
+    if (deleteProfileImage != null) {
+      return deleteProfileImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteProfileImage implements ProfileEvent {
+  const factory DeleteProfileImage(final int? userId) =
+      _$DeleteProfileImageImpl;
+
+  int? get userId;
+  @JsonKey(ignore: true)
+  _$$DeleteProfileImageImplCopyWith<_$DeleteProfileImageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1110,6 +1476,8 @@ mixin _$ProfileCommand {
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
     required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1120,6 +1488,8 @@ mixin _$ProfileCommand {
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
     TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1130,6 +1500,8 @@ mixin _$ProfileCommand {
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
     TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1141,6 +1513,8 @@ mixin _$ProfileCommand {
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
     required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1151,6 +1525,8 @@ mixin _$ProfileCommand {
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
     TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1161,6 +1537,8 @@ mixin _$ProfileCommand {
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
     TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1228,6 +1606,8 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
     required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
   }) {
     return navToSubscribers();
   }
@@ -1241,6 +1621,8 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
     TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
   }) {
     return navToSubscribers?.call();
   }
@@ -1254,6 +1636,8 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
     TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (navToSubscribers != null) {
@@ -1271,6 +1655,8 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
     required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
   }) {
     return navToSubscribers(this);
   }
@@ -1284,6 +1670,8 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
     TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
   }) {
     return navToSubscribers?.call(this);
   }
@@ -1297,6 +1685,8 @@ class _$NavToSubscribersImpl implements NavToSubscribers {
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
     TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (navToSubscribers != null) {
@@ -1354,6 +1744,8 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
     required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
   }) {
     return navToSubscriptions();
   }
@@ -1367,6 +1759,8 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
     TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
   }) {
     return navToSubscriptions?.call();
   }
@@ -1380,6 +1774,8 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
     TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (navToSubscriptions != null) {
@@ -1397,6 +1793,8 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
     required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
   }) {
     return navToSubscriptions(this);
   }
@@ -1410,6 +1808,8 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
     TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
   }) {
     return navToSubscriptions?.call(this);
   }
@@ -1423,6 +1823,8 @@ class _$NavToSubscriptionsImpl implements NavToSubscriptions {
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
     TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (navToSubscriptions != null) {
@@ -1480,6 +1882,8 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
     required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
   }) {
     return navToEditProfile();
   }
@@ -1493,6 +1897,8 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
     TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
   }) {
     return navToEditProfile?.call();
   }
@@ -1506,6 +1912,8 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
     TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (navToEditProfile != null) {
@@ -1523,6 +1931,8 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
     required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
   }) {
     return navToEditProfile(this);
   }
@@ -1536,6 +1946,8 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
     TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
   }) {
     return navToEditProfile?.call(this);
   }
@@ -1549,6 +1961,8 @@ class _$NavToEditProfileImpl implements NavToEditProfile {
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
     TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (navToEditProfile != null) {
@@ -1606,6 +2020,8 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
     required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
   }) {
     return navToFavourites();
   }
@@ -1619,6 +2035,8 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
     TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
   }) {
     return navToFavourites?.call();
   }
@@ -1632,6 +2050,8 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
     TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (navToFavourites != null) {
@@ -1649,6 +2069,8 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
     required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
   }) {
     return navToFavourites(this);
   }
@@ -1662,6 +2084,8 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
     TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
   }) {
     return navToFavourites?.call(this);
   }
@@ -1675,6 +2099,8 @@ class _$NavToFavouritesImpl implements NavToFavourites {
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
     TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (navToFavourites != null) {
@@ -1759,6 +2185,8 @@ class _$ErrorImpl implements Error {
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
     required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
   }) {
     return error(textError);
   }
@@ -1772,6 +2200,8 @@ class _$ErrorImpl implements Error {
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
     TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
   }) {
     return error?.call(textError);
   }
@@ -1785,6 +2215,8 @@ class _$ErrorImpl implements Error {
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
     TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1802,6 +2234,8 @@ class _$ErrorImpl implements Error {
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
     required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
   }) {
     return error(this);
   }
@@ -1815,6 +2249,8 @@ class _$ErrorImpl implements Error {
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
     TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
   }) {
     return error?.call(this);
   }
@@ -1828,6 +2264,8 @@ class _$ErrorImpl implements Error {
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
     TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1890,6 +2328,8 @@ class _$NavToSplashImpl implements NavToSplash {
     required TResult Function() navToFavourites,
     required TResult Function(String textError) error,
     required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
   }) {
     return navToSplash();
   }
@@ -1903,6 +2343,8 @@ class _$NavToSplashImpl implements NavToSplash {
     TResult? Function()? navToFavourites,
     TResult? Function(String textError)? error,
     TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
   }) {
     return navToSplash?.call();
   }
@@ -1916,6 +2358,8 @@ class _$NavToSplashImpl implements NavToSplash {
     TResult Function()? navToFavourites,
     TResult Function(String textError)? error,
     TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (navToSplash != null) {
@@ -1933,6 +2377,8 @@ class _$NavToSplashImpl implements NavToSplash {
     required TResult Function(NavToFavourites value) navToFavourites,
     required TResult Function(Error value) error,
     required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
   }) {
     return navToSplash(this);
   }
@@ -1946,6 +2392,8 @@ class _$NavToSplashImpl implements NavToSplash {
     TResult? Function(NavToFavourites value)? navToFavourites,
     TResult? Function(Error value)? error,
     TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
   }) {
     return navToSplash?.call(this);
   }
@@ -1959,6 +2407,8 @@ class _$NavToSplashImpl implements NavToSplash {
     TResult Function(NavToFavourites value)? navToFavourites,
     TResult Function(Error value)? error,
     TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (navToSplash != null) {
@@ -1970,4 +2420,278 @@ class _$NavToSplashImpl implements NavToSplash {
 
 abstract class NavToSplash implements ProfileCommand {
   const factory NavToSplash() = _$NavToSplashImpl;
+}
+
+/// @nodoc
+abstract class _$$AddImplCopyWith<$Res> {
+  factory _$$AddImplCopyWith(_$AddImpl value, $Res Function(_$AddImpl) then) =
+      __$$AddImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AddImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$AddImpl>
+    implements _$$AddImplCopyWith<$Res> {
+  __$$AddImplCopyWithImpl(_$AddImpl _value, $Res Function(_$AddImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AddImpl implements Add {
+  const _$AddImpl();
+
+  @override
+  String toString() {
+    return 'ProfileCommand.add()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AddImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() navToSubscribers,
+    required TResult Function() navToSubscriptions,
+    required TResult Function() navToEditProfile,
+    required TResult Function() navToFavourites,
+    required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
+  }) {
+    return add();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? navToSubscribers,
+    TResult? Function()? navToSubscriptions,
+    TResult? Function()? navToEditProfile,
+    TResult? Function()? navToFavourites,
+    TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
+  }) {
+    return add?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? navToSubscribers,
+    TResult Function()? navToSubscriptions,
+    TResult Function()? navToEditProfile,
+    TResult Function()? navToFavourites,
+    TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
+    required TResult orElse(),
+  }) {
+    if (add != null) {
+      return add();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavToSubscribers value) navToSubscribers,
+    required TResult Function(NavToSubscriptions value) navToSubscriptions,
+    required TResult Function(NavToEditProfile value) navToEditProfile,
+    required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
+  }) {
+    return add(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavToSubscribers value)? navToSubscribers,
+    TResult? Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult? Function(NavToEditProfile value)? navToEditProfile,
+    TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
+  }) {
+    return add?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavToSubscribers value)? navToSubscribers,
+    TResult Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult Function(NavToEditProfile value)? navToEditProfile,
+    TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (add != null) {
+      return add(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Add implements ProfileCommand {
+  const factory Add() = _$AddImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteImplCopyWith<$Res> {
+  factory _$$DeleteImplCopyWith(
+          _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
+      __$$DeleteImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteImplCopyWithImpl<$Res>
+    extends _$ProfileCommandCopyWithImpl<$Res, _$DeleteImpl>
+    implements _$$DeleteImplCopyWith<$Res> {
+  __$$DeleteImplCopyWithImpl(
+      _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DeleteImpl implements Delete {
+  const _$DeleteImpl();
+
+  @override
+  String toString() {
+    return 'ProfileCommand.delete()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeleteImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() navToSubscribers,
+    required TResult Function() navToSubscriptions,
+    required TResult Function() navToEditProfile,
+    required TResult Function() navToFavourites,
+    required TResult Function(String textError) error,
+    required TResult Function() navToSplash,
+    required TResult Function() add,
+    required TResult Function() delete,
+  }) {
+    return delete();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? navToSubscribers,
+    TResult? Function()? navToSubscriptions,
+    TResult? Function()? navToEditProfile,
+    TResult? Function()? navToFavourites,
+    TResult? Function(String textError)? error,
+    TResult? Function()? navToSplash,
+    TResult? Function()? add,
+    TResult? Function()? delete,
+  }) {
+    return delete?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? navToSubscribers,
+    TResult Function()? navToSubscriptions,
+    TResult Function()? navToEditProfile,
+    TResult Function()? navToFavourites,
+    TResult Function(String textError)? error,
+    TResult Function()? navToSplash,
+    TResult Function()? add,
+    TResult Function()? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavToSubscribers value) navToSubscribers,
+    required TResult Function(NavToSubscriptions value) navToSubscriptions,
+    required TResult Function(NavToEditProfile value) navToEditProfile,
+    required TResult Function(NavToFavourites value) navToFavourites,
+    required TResult Function(Error value) error,
+    required TResult Function(NavToSplash value) navToSplash,
+    required TResult Function(Add value) add,
+    required TResult Function(Delete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavToSubscribers value)? navToSubscribers,
+    TResult? Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult? Function(NavToEditProfile value)? navToEditProfile,
+    TResult? Function(NavToFavourites value)? navToFavourites,
+    TResult? Function(Error value)? error,
+    TResult? Function(NavToSplash value)? navToSplash,
+    TResult? Function(Add value)? add,
+    TResult? Function(Delete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavToSubscribers value)? navToSubscribers,
+    TResult Function(NavToSubscriptions value)? navToSubscriptions,
+    TResult Function(NavToEditProfile value)? navToEditProfile,
+    TResult Function(NavToFavourites value)? navToFavourites,
+    TResult Function(Error value)? error,
+    TResult Function(NavToSplash value)? navToSplash,
+    TResult Function(Add value)? add,
+    TResult Function(Delete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Delete implements ProfileCommand {
+  const factory Delete() = _$DeleteImpl;
 }

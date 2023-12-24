@@ -10,28 +10,65 @@ import 'package:first_pancake_com/presentation/pages/profile_page/bloc/profile_b
 import 'package:first_pancake_com/presentation/pages/profile_page/widgets/receipt_card.dart';
 import 'package:first_pancake_com/presentation/pages/profile_page/widgets/subscribe_button.dart';
 import 'package:first_pancake_com/utils/app_colors.dart';
+import 'package:first_pancake_com/utils/app_icons.dart';
 import 'package:first_pancake_com/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:side_effect_bloc/side_effect_bloc.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key, this.userId});
   final int? userId;
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   File? convertToImage(String base64Image) {
     Uint8List imageBytes = base64Decode(base64Image);
     log('image bytes: ${imageBytes.toString().substring(0, 5)}');
     return File.fromRawPath(imageBytes);
   }
 
+  File? image;
+
+  String? imageToBase;
+
+  Future<String> pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return '';
+      final imageTemp = File(image.path);
+      List<int> imageBytes = await imageTemp.readAsBytes();
+      String base64Image = base64Encode(imageBytes);
+      setState(
+        () => this.image = imageTemp,
+      );
+      return base64Image;
+    } catch (error) {
+      log('Failed to pick an image: $error');
+      return '';
+    }
+  }
+
+  void deleteImage() {
+    try {
+      setState(() => image = null);
+    } catch (error) {
+      log('Failed to delete the image: $error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          getIt<ProfileBloc>()..add(ProfileEvent.started(userId)),
+          getIt<ProfileBloc>()..add(ProfileEvent.started(widget.userId)),
       child: BlocSideEffectConsumer<ProfileBloc, ProfileBloc, ProfileState,
           ProfileCommand>(
         listener: (context, sideEffect) {
@@ -52,51 +89,67 @@ class ProfilePage extends StatelessWidget {
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
+            add: () {
+              const snackBar = SnackBar(
+                content: Text('Фото профиля добавлено'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              context.router.popAndPush(ProfileRoute(userId: widget.userId));
+            },
+            delete: () {
+              const snackBar = SnackBar(
+                content: Text('Фото профиля удалено'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              context.router.popAndPush(ProfileRoute(userId: widget.userId));
+            },
           );
         },
         builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: InkWell(
-                onTap: context.router.pop,
-                child: Padding(
-                  padding: EdgeInsets.all(16.r),
-                  child: const Icon(
-                    Icons.arrow_back_outlined,
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              centerTitle: true,
-              title: Text(
-                'Профиль',
-                style: AppTextStyles.label,
-              ),
-              actions: [
-                InkWell(
-                  onTap: () {
-                    context
-                        .read<ProfileBloc>()
-                        .add(const ProfileEvent.signOut());
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.all(16.r),
-                    child: const Icon(
-                      Icons.logout,
-                      color: Colors.grey,
+          return state is Loaded
+              ? Scaffold(
+                  appBar: AppBar(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    leading: InkWell(
+                      onTap: context.router.pop,
+                      child: Padding(
+                        padding: EdgeInsets.all(16.r),
+                        child: const Icon(
+                          Icons.arrow_back_outlined,
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
+                    centerTitle: true,
+                    title: Text(
+                      'Профиль',
+                      style: AppTextStyles.label,
+                    ),
+                    actions: [
+                      state.isMyProfile
+                          ? InkWell(
+                              onTap: () {
+                                context
+                                    .read<ProfileBloc>()
+                                    .add(const ProfileEvent.signOut());
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.all(16.r),
+                                child: const Icon(
+                                  Icons.logout,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            body: state is Loaded
-                ? RefreshIndicator(
+                  body: RefreshIndicator(
                     onRefresh: () async {
                       context
                           .read<ProfileBloc>()
-                          .add(ProfileEvent.started(userId));
+                          .add(ProfileEvent.started(widget.userId));
                     },
                     child: ListView(
                       //crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,15 +170,33 @@ class ProfilePage extends StatelessWidget {
                               ),
                               alignment: Alignment.center,
                               child: state.currentUser.profile_image == null
-                                  ? SizedBox(
-                                      width: 110.w,
-                                      height: 110.h,
-                                      child: Icon(
-                                        Icons.add_a_photo_outlined,
-                                        color: AppColors.grey4,
-                                        size: 80.r,
-                                      ),
-                                    )
+                                  ? state.isMyProfile
+                                      ? GestureDetector(
+                                          onTap: () async {
+                                            imageToBase = await pickImage();
+                                            context.read<ProfileBloc>().add(
+                                                ProfileEvent.addProfileImage(
+                                                    widget.userId,
+                                                    imageToBase!));
+                                          },
+                                          child: SizedBox(
+                                            width: 110.w,
+                                            height: 110.h,
+                                            child: Icon(
+                                              Icons.add_a_photo_outlined,
+                                              color: AppColors.grey4,
+                                              size: 80.r,
+                                            ),
+                                          ),
+                                        )
+                                      : SizedBox(
+                                          width: 110.w,
+                                          height: 110.h,
+                                          child: SvgPicture.asset(
+                                            AppIcons.userPlaceholder,
+                                            color: AppColors.grey4,
+                                          ),
+                                        )
                                   : Image.memory(
                                       base64Decode(
                                         state.currentUser.profile_image!,
@@ -135,49 +206,76 @@ class ProfilePage extends StatelessWidget {
                                     ),
                             ),
                             10.h.heightBox,
+                            state.isMyProfile &&
+                                    state.currentUser.profile_image != null
+                                ? InkWell(
+                                    onTap: () => context
+                                        .read<ProfileBloc>()
+                                        .add(ProfileEvent.deleteProfileImage(
+                                            widget.userId)),
+                                    child: Text(
+                                      'Удалить фотографию',
+                                      style: TextStyle(
+                                        color: AppColors.grey2,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                    ),
+                                  )
+                                : const SizedBox.shrink(),
+                            10.heightBox,
                             Text(
                               state.currentUser.username,
                               style: AppTextStyles.title,
                             ),
                             10.h.heightBox,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    context.router
-                                        .push(const SubscriptionsRoute());
-                                  },
-                                  child: NumberWidget(
-                                    num: state.subscriptionsCount,
-                                    firstLine: 'подписок',
-                                    secondLine: '',
-                                  ),
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    context.router
-                                        .push(const SubscribersRoute());
-                                  },
-                                  child: NumberWidget(
-                                    num: state.subscribersCount,
-                                    firstLine: 'подписчиков',
-                                    secondLine: '',
-                                  ),
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    context.router
-                                        .push(const FavouritesRoute());
-                                  },
-                                  child: NumberWidget(
-                                    num: state.favouritesCount,
-                                    firstLine: 'любимых',
-                                    secondLine: 'рецептов',
-                                  ),
-                                ),
-                              ],
-                            ),
+                            state.isMyProfile
+                                ? Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          state.isMyProfile
+                                              ? context.router.push(
+                                                  const SubscriptionsRoute())
+                                              : null;
+                                        },
+                                        child: NumberWidget(
+                                          num: state.subscriptionsCount,
+                                          firstLine: 'подписок',
+                                          secondLine: '',
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          state.isMyProfile
+                                              ? context.router.push(
+                                                  const SubscribersRoute())
+                                              : null;
+                                        },
+                                        child: NumberWidget(
+                                          num: state.subscribersCount,
+                                          firstLine: 'подписчиков',
+                                          secondLine: '',
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          state.isMyProfile
+                                              ? context.router
+                                                  .push(const FavouritesRoute())
+                                              : null;
+                                        },
+                                        child: NumberWidget(
+                                          num: state.favouritesCount,
+                                          firstLine: 'любимых',
+                                          secondLine: 'рецептов',
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : const SizedBox.shrink(),
                           ],
                         ),
                         if (!state.isMyProfile)
@@ -197,7 +295,9 @@ class ProfilePage extends StatelessWidget {
                           ),
                         15.h.heightBox,
                         Text(
-                          'Мои рецепты (${state.currentUser.receiptsCount} создано)',
+                          state.isMyProfile
+                              ? 'Мои рецепты (${state.currentUser.receiptsCount} создано)'
+                              : 'Рецепты пользователя (${state.currentUser.receiptsCount} создано)',
                           style: AppTextStyles.label.copyWith(fontSize: 22.sp),
                         ),
                         10.h.heightBox,
@@ -221,11 +321,12 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ],
                     ).paddingSymmetric(horizontal: 30.w),
-                  )
-                : const CircularProgressIndicator(
+                  ))
+              : Scaffold(
+                  body: const CircularProgressIndicator(
                     color: AppColors.pancake5,
                   ).toCenter(),
-          );
+                );
         },
       ),
     );
