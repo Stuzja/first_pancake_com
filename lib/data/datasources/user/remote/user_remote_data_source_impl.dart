@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:first_pancake_com/data/datasources/user/remote/user_remote_data_source.dart';
 import 'package:first_pancake_com/data/models/receipt/receipt_dto.dart';
 import 'package:first_pancake_com/data/models/user/user_dto.dart';
+import 'package:first_pancake_com/data/models/user/user_numbers_data_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
@@ -22,8 +23,6 @@ abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   Future<UserDto> getUserById(
     @Path("id") userId,
   );
-
-  // у меня такая хуйня была когда я рут неверно написал
 
   @override
   @GET('/user/subscribers')
@@ -48,6 +47,12 @@ abstract class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   @DELETE('/user/unsubscribe/{id}')
   Future<void> unsubscribeUser(
+    @Path("id") userId,
+  );
+
+  @override
+  @GET('/user/info/:id')
+  Future<UserNumbersDataDto> getDataUser(
     @Path("id") userId,
   );
 

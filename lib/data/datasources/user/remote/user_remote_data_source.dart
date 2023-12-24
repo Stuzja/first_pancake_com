@@ -1,5 +1,6 @@
 import 'package:first_pancake_com/data/models/receipt/receipt_dto.dart';
 import 'package:first_pancake_com/data/models/user/user_dto.dart';
+import 'package:first_pancake_com/data/models/user/user_numbers_data_dto.dart';
 
 abstract class UserRemoteDataSource {
   Future<UserDto> getCurrentUser();
@@ -21,6 +22,10 @@ abstract class UserRemoteDataSource {
   );
 
   Future<void> unsubscribeUser(
+    final int userId,
+  );
+
+  Future<UserNumbersDataDto> getDataUser(
     final int userId,
   );
 
