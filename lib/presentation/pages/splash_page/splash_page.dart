@@ -72,17 +72,6 @@ class SplashPage extends StatelessWidget {
                         context.router.push(const SignUpRoute());
                       },
                     ),
-                    20.h.heightBox,
-                    GestureDetector(
-                      onTap: () {
-                        //context.router.push(const ForgotPasswordRoute());
-                        context.router.push(MainRoute());
-                      },
-                      child: Text(
-                        'Забыли пароль?',
-                        style: AppTextStyles.semiBold15,
-                      ),
-                    ),
                   ],
                 ).toCenter().paddingOnly(left: 40.w, right: 40.w, top: 140.h),
               ],
