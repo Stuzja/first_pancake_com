@@ -69,7 +69,7 @@ class _CreateRecipePageState extends State<CreateRecipePage> {
                 content: Text('Рецепт добавлен!'),
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              context.router.pop();
+              context.router.popAndPush(MainRoute());
             },
             error: () {
               const snackBar = SnackBar(
